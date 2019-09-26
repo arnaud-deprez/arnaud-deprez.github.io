@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import Helmet from 'react-helmet'
 import { ContentList } from '../components/ContentList'
 import { Pager } from '../components/Pager'
-import { Layout } from '../components/Layout'
+import { Layout } from '../components/layout/Layout'
 
 interface TagTemplateProps {
   readonly pageContext: {

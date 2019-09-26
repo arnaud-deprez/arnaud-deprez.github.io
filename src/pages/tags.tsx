@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Helmet from 'react-helmet'
 import { kebabCase } from 'lodash'
-import { Layout } from '../components/Layout'
+import { Layout } from '../components/layout'
 
 interface TagsPageProps {
   readonly data: {

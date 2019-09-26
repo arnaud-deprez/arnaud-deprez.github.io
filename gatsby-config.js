@@ -28,24 +28,28 @@ const gatsbyRemarkPlugins = [
   }
 ]
 
+const url = 'https://arnaud-deprez.powple.com'
+
 module.exports = {
   siteMetadata: {
-    title: 'TypeScript Gatsby Starter',
-    author: 'Luís Rodrigues',
-    description: 'A Gatsby starter using TypeScript.',
-    siteUrl: 'https://goblindegook-gatsby-starter-typescript.netlify.com'
+    title: 'Arnaud Deprez',
+    description: 'blog to shared my experience about technical stuff',
+    copyright: 'Copyright © 2019 Arnaud Deprez',
+    siteUrl: url,
+    author: {
+      name: 'Arnaud Deprez',
+      jobTitle: 'Technical Architect - Software Engineer',
+      email: 'arnaudeprez@gmail.com',
+      linkedin: 'https://www.linkedin.com/in/deprezarnaud',
+      twitter: 'https://twitter.com/arnaudeprez',
+      github: 'https://github.com/arnaud-deprez',
+      rss: ''
+    }
   },
   plugins: [
     'gatsby-plugin-typescript',
+    'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-emotion',
-    {
-      resolve: 'gatsby-plugin-typography',
-      options: {
-        pathToConfigModule: 'src/typography',
-        omitGoogleFont: true
-      }
-    },
     'gatsby-plugin-catch-links',
     {
       resolve: `gatsby-source-filesystem`,
@@ -76,38 +80,38 @@ module.exports = {
         gatsbyRemarkPlugins
       }
     },
-    {
-      resolve: 'gatsby-plugin-lunr',
-      options: {
-        languages: [
-          {
-            name: 'en',
-            filterNodes: node => !node.frontmatter || node.frontmatter.draft !== true,
-            customEntries: [
-              {
-                title: 'Another Page',
-                content: 'Welcome to page 2',
-                path: '/another-page/'
-              }
-            ]
-          }
-        ],
-        fields: [
-          { name: 'title', store: true, attributes: { boost: 20 } },
-          { name: 'path', store: true },
-          { name: 'content' },
-          { name: 'tags' }
-        ],
-        resolvers: {
-          Mdx: {
-            title: node => node.frontmatter.title,
-            path: node => node.frontmatter.path,
-            content: node => node.rawBody,
-            tags: node => node.frontmatter.tags
-          }
-        }
-      }
-    },
+    // {
+    //   resolve: 'gatsby-plugin-lunr',
+    //   options: {
+    //     languages: [
+    //       {
+    //         name: 'en',
+    //         filterNodes: node => !node.frontmatter || node.frontmatter.draft !== true,
+    //         customEntries: [
+    //           {
+    //             title: 'Another Page',
+    //             content: 'Welcome to page 2',
+    //             path: '/another-page/'
+    //           }
+    //         ]
+    //       }
+    //     ],
+    //     fields: [
+    //       { name: 'title', store: true, attributes: { boost: 20 } },
+    //       { name: 'path', store: true },
+    //       { name: 'content' },
+    //       { name: 'tags' }
+    //     ],
+    //     resolvers: {
+    //       Mdx: {
+    //         title: node => node.frontmatter.title,
+    //         path: node => node.frontmatter.path,
+    //         content: node => node.rawBody,
+    //         tags: node => node.frontmatter.tags
+    //       }
+    //     }
+    //   }
+    // },
     {
       resolve: 'gatsby-plugin-feed',
       options: {

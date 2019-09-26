@@ -1,0 +1,10 @@
+@import '../../scss/global.scss';
+
+#leftNavbar {
+    position: fixed;
+    left: 0;
+    top: 5rem;
+    z-index: $zindex-fixed;
+    width: 100% / 12 * 2; // col-lg-2
+}
+
