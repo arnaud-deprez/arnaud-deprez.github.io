@@ -1,4 +1,4 @@
-import { faUser, faBlog, faHeart } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faBlog, faHeart, faEnvelope, faBars } from '@fortawesome/free-solid-svg-icons'
 
 import { faTwitter, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
@@ -9,6 +9,8 @@ export const loadIcons = () => {
     faUser,
     faBlog,
     faHeart,
+    faEnvelope,
+    faBars,
 
     // brands
     faTwitter,

@@ -1,10 +1,25 @@
 @import '../../scss/global.scss';
 
 #leftNavbar {
-    position: fixed;
-    left: 0;
-    top: 5rem;
-    z-index: $zindex-fixed;
-    width: 100% / 12 * 2; // col-lg-2
-}
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding-top: 5rem;
+  z-index: $zindex-fixed;
+  width: 100%;
+  //min-width: 220px;
+  max-width: (100% / 12 * 2); // col-lg-2
+  height: 100vh;
 
+  .navbar-brand {
+    margin-right: 0;
+    
+    .photo-card .card-img {
+      border: 0.5rem solid fade-out($white, 0.8);
+    }
+  }
+
+  // .navbar-nav {
+  //     width: 100%;
+  // }
+}

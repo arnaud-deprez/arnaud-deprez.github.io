@@ -19,7 +19,8 @@ const gatsbyRemarkPlugins = [
   {
     resolve: 'gatsby-remark-images',
     options: {
-      maxWidth: 1200
+      maxWidth: 1200,
+      wrapperStyle: 'margin-bottom: 1rem;'
     }
   },
   {
@@ -186,7 +187,7 @@ module.exports = {
       }
     },
     'gatsby-plugin-sitemap',
-    'gatsby-plugin-offline',
+    // 'gatsby-plugin-offline',
     'gatsby-plugin-netlify'
   ]
 }

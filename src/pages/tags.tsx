@@ -20,7 +20,8 @@ const TagsPage = (props: TagsPageProps) => {
   const { allMdx } = props.data
 
   return (
-    <Layout>
+    // TODO: review this layout
+    <Layout headerTitle="test">
       <Helmet title="Tags" />
       <div>
         <h2>Tags</h2>

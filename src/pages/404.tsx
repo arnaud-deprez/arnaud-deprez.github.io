@@ -1,9 +1,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Layout } from '../components/layout'
 import { Container, Row, Col, Jumbotron } from 'react-bootstrap'
+import { Layout } from '../components/layout'
+import { Seo, SiteInformation } from '../components/metadata'
 import { LeftMenu } from '../components/nav'
-import { SiteInformation } from '../components/metadata'
 
 const MainContent = () => (
   <Jumbotron>
@@ -19,7 +19,8 @@ interface NotFoundPageProps {
 }
 
 const NotFoundPage = ({ data }: NotFoundPageProps) => (
-  <Layout title="Not Found" {...data}>
+  <Layout headerTitle={data.site.siteMetadata.title}>
+    <Seo title="Not Found" description="Oups, you may find an unexpected path" {...data} />
     <Container fluid>
       <Row>
         <Col lg={2} as="aside">

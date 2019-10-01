@@ -1,0 +1,12 @@
+@import '../../scss/global.scss';
+
+#headerNavbar {
+  @include media-breakpoint-up(md) {
+    background-color: $primary;
+    @include navbar-dark;
+  }
+  @include media-breakpoint-up(lg) {
+    background-color: transparent;
+    @include navbar-light;
+  }
+}

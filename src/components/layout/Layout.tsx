@@ -1,24 +1,17 @@
 import React from 'react'
-import { Seo, SiteInformation } from '../metadata'
 import { Header } from './Header'
 import { Footer } from './Footer'
-import { loadIcons } from '../../config/IconLoader'
 
 import './Layout.scss'
 
-// TODO: move it elsewhere ?
-loadIcons()
-
 export interface LayoutProps {
-  readonly title?: string
-  readonly site: SiteInformation
+  readonly headerTitle: string
   readonly children?: React.ReactNode | readonly React.ReactNode[]
 }
 
-export const Layout = ({ title, site, children }: LayoutProps) => (
+export const Layout = ({ headerTitle, children }: LayoutProps) => (
   <>
-    <Seo {...{ title, site }} />
-    <Header title={site.siteMetadata.title} />
+    <Header title={headerTitle} />
     <div className="content">{children}</div>
     <Footer />
   </>

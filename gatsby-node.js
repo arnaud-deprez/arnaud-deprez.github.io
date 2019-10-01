@@ -7,6 +7,19 @@
 const path = require('path')
 const { kebabCase } = require('lodash')
 const { uniq } = require('ramda')
+const { createFilePath } = require(`gatsby-source-filesystem`)
+
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions
+  if (node.internal.type === 'MarkdownRemark' || node.internal.type === 'Mdx') {
+    const slug = createFilePath({ node, getNode })
+    createNodeField({
+      node,
+      name: 'slug',
+      value: slug
+    })
+  }
+}
 
 const defaultBuildPath = (page, prefix) => (page > 1 ? `${prefix}/${page}` : `/${prefix}`)
 

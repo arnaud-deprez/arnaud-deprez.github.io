@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 export const Footer = () => (
   <Container fluid as="footer">
     <Row className="justify-content-around text-center">
-      <Col sm={12} lg={3}>
+      <Col sm={12} lg={{ span: 3, offset: 2 }}>
         <p>Copyright © 2019 Arnaud Deprez</p>
       </Col>
       <Col sm={12} lg={3}>

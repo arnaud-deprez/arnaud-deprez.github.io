@@ -14,6 +14,9 @@ export const NavHeader = () => (
     <BootstrapNav.Link to="/blog" as={Link}>
       <FontAwesomeIcon icon="blog" /> Blog
     </BootstrapNav.Link>
+    <BootstrapNav.Link to="/contact" as={Link}>
+      <FontAwesomeIcon icon="envelope" /> Contact
+    </BootstrapNav.Link>
   </Nav>
 )
 
@@ -22,11 +25,13 @@ export interface NavbarHeaderProps {
 }
 
 export const NavbarHeader = ({ title }: NavbarHeaderProps) => (
-  <Navbar expand="lg" fixed="top" as="nav">
+  <Navbar id="headerNavbar" expand="lg" fixed="top" as="nav">
     <Navbar.Brand className="d-lg-none d-md-block" to="/" as={Link}>
       {title}
     </Navbar.Brand>
-    <Navbar.Toggle aria-controls="navbar-header" />
+    <Navbar.Toggle aria-controls="navbar-header">
+      <FontAwesomeIcon icon="bars" />
+    </Navbar.Toggle>
     <Navbar.Collapse id="navbar-header" className="justify-content-end">
       <NavHeader />
     </Navbar.Collapse>

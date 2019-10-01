@@ -7,8 +7,8 @@ function renderNavItem<As extends React.ElementType>({
   as = 'li',
   ...rest
 }: BootstrapNavItemProps & React.ComponentPropsWithoutRef<As>): RenderChild {
-  const renderItem = (children: React.ReactNode[]) => (
-    <BootstrapNav.Item as={as} {...rest}>
+  const renderItem = (children: React.ReactNode[], idx: number) => (
+    <BootstrapNav.Item key={idx} as={as} {...rest}>
       {children}
     </BootstrapNav.Item>
   )
