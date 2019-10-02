@@ -43,6 +43,6 @@ export const LeftMenu = ({
         <FontAwesomeIcon icon={['fas', 'envelope']} />
       </BootstrapNav.Link>
     </Nav>
-    <Nav className="flex-column align-items-center w-100">{children}</Nav>
+    <Nav className="flex-column align-items-center">{children}</Nav>
   </Navbar>
 )

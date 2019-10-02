@@ -1,12 +1,14 @@
 import React from 'react'
+import { Author } from '../metadata'
 import { NavbarHeader } from '../nav'
 
 export interface HeaderProps {
   readonly title: string
+  readonly author: Author
 }
 
-export const Header = ({ title }: HeaderProps) => (
+export const Header = (props: HeaderProps) => (
   <header>
-    <NavbarHeader title={title} />
+    <NavbarHeader {...props} />
   </header>
 )

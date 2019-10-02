@@ -53,7 +53,7 @@ interface LayoutIndexProps {
 }
 
 const LayoutIndexPage = ({ data }: LayoutIndexProps) => (
-  <Layout headerTitle={data.site.siteMetadata.title}>
+  <Layout headerTitle={data.site.siteMetadata.title} author={data.site.siteMetadata.author}>
     <Seo site={data.site} />
     <IndexPage site={data.site}>{data.mdx.body}</IndexPage>
   </Layout>

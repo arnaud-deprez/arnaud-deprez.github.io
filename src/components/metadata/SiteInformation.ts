@@ -1,8 +1,13 @@
 import { graphql } from 'gatsby'
 
-export interface SiteInformation {
-  buildTime: Date
-  siteMetadata: SiteMetadata
+export interface Author {
+  name: string
+  jobTitle: string
+  email?: string
+  linkedin?: string
+  twitter?: string
+  github?: string
+  rss?: string
 }
 
 export interface SiteMetadata {
@@ -11,15 +16,12 @@ export interface SiteMetadata {
   description: string
   copyright: string
   siteUrl: string
-  author: {
-    name: string
-    jobTitle: string
-    email?: string
-    linkedin?: string
-    twitter?: string
-    github?: string
-    rss?: string
-  }
+  author: Author
+}
+
+export interface SiteInformation {
+  buildTime: Date
+  siteMetadata: SiteMetadata
 }
 
 export const SiteMetadataQueryFragment = graphql`

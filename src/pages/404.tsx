@@ -19,7 +19,7 @@ interface NotFoundPageProps {
 }
 
 const NotFoundPage = ({ data }: NotFoundPageProps) => (
-  <Layout headerTitle={data.site.siteMetadata.title}>
+  <Layout headerTitle={data.site.siteMetadata.title} author={data.site.siteMetadata.author}>
     <Seo title="Not Found" description="Oups, you may find an unexpected path" {...data} />
     <Container fluid>
       <Row>
