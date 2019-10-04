@@ -1,6 +1,12 @@
 @import '../../scss/global.scss';
 
 #headerNavbar {
+  .social-icons {
+    font-size: 1.25rem;
+    .nav-link {
+      margin-right: .3rem;
+    }
+  }
   @include media-breakpoint-down(lg) {
     background-color: $primary;
     @include navbar-dark;

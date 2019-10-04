@@ -1,3 +1,4 @@
 export * from './Nav'
+export * from './NavSocialIcons'
 export * from './NavbarHeader'
-export * from './LeftMenu'
+export * from './NavbarLeft'

@@ -1,7 +1,11 @@
 import React from 'react'
-import { Nav as BootstrapNav, NavItemProps as BootstrapNavItemProps } from 'react-bootstrap'
+import {
+  Nav as BootstrapNav,
+  NavProps as BootstrapNavProps,
+  NavItemProps as BootstrapNavItemProps
+} from 'react-bootstrap'
 
-type RenderChild = (from: React.ReactNode, index?: number) => React.ReactNode
+export type RenderChild = (from: React.ReactNode, index?: number) => React.ReactNode
 
 function renderNavItem<As extends React.ElementType>({
   as = 'li',
@@ -15,7 +19,7 @@ function renderNavItem<As extends React.ElementType>({
   return renderItem
 }
 
-export interface NavProps {
+export interface NavProps extends BootstrapNavProps {
   renderChild?: RenderChild
   children?: React.ReactNode | React.ReactNode[]
 }

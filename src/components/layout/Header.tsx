@@ -3,7 +3,6 @@ import { Author } from '../metadata'
 import { NavbarHeader } from '../nav'
 
 export interface HeaderProps {
-  readonly title: string
   readonly author: Author
 }
 

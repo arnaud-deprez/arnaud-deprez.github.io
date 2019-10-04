@@ -1,13 +1,16 @@
 import { graphql } from 'gatsby'
 
-export interface Author {
-  name: string
-  jobTitle: string
-  email?: string
+export interface SocialLinksTrait {
   linkedin?: string
   twitter?: string
   github?: string
   rss?: string
+}
+
+export interface Author extends SocialLinksTrait {
+  name: string
+  jobTitle: string
+  email?: string
 }
 
 export interface SiteMetadata {

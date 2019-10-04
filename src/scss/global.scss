@@ -4,3 +4,13 @@
 @import '~bootstrap/scss/bootstrap';
 
 @import './_utilities.scss';
+
+.icons {
+  svg {
+    display: inline-block;
+    font-size: inherit;
+    height: 1em;
+    overflow: visible;
+    vertical-align: -0.125em; // This ok for the font-family we are using
+  }
+}

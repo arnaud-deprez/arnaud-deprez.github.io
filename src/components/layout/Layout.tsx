@@ -6,14 +6,13 @@ import { Footer } from './Footer'
 import './Layout.scss'
 
 export interface LayoutProps {
-  readonly headerTitle: string
   readonly author: Author
-  readonly children?: React.ReactNode | readonly React.ReactNode[]
+  readonly children?: React.ReactNode | React.ReactNode[]
 }
 
-export const Layout = ({ headerTitle: title, author, children }: LayoutProps) => (
+export const Layout = ({ author, children }: LayoutProps) => (
   <>
-    <Header {...{ title, author }} />
+    <Header author={author} />
     <div className="content">{children}</div>
     <Footer />
   </>
