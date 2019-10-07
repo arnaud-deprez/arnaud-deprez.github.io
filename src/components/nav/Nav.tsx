@@ -7,11 +7,11 @@ import {
 
 export type RenderChild = (from: React.ReactNode, index?: number) => React.ReactNode
 
-function renderNavItem<As extends React.ElementType>({
+const renderNavItem = <As extends React.ElementType>({
   as = 'li',
   ...rest
-}: BootstrapNavItemProps & React.ComponentPropsWithoutRef<As>): RenderChild {
-  const renderItem = (children: React.ReactNode[], idx: number) => (
+}: BootstrapNavItemProps & React.ComponentPropsWithoutRef<As>): RenderChild => {
+  const renderItem = (children: React.ReactNode | React.ReactNode[], idx: number) => (
     <BootstrapNav.Item key={idx} as={as} {...rest}>
       {children}
     </BootstrapNav.Item>
@@ -24,12 +24,12 @@ export interface NavProps extends BootstrapNavProps {
   children?: React.ReactNode | React.ReactNode[]
 }
 
-export function Nav<As extends React.ElementType>({
+export const Nav = <As extends React.ElementType>({
   as = 'ul',
   renderChild,
   children = [],
   ...rest
-}: NavProps & React.ComponentPropsWithoutRef<As>) {
+}: NavProps & React.ComponentPropsWithoutRef<As>) => {
   const items: React.ElementType[] = React.Children.toArray(children || [])
   const _renderChild = renderChild || renderNavItem({})
 

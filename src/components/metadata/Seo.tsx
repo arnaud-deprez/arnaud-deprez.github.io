@@ -52,7 +52,7 @@ export const Seo = ({ lang = 'en', title = '', description = '', meta = [], site
   ]
   return (
     <Helmet
-      html={{
+      htmlAttributes={{
         lang
       }}
       titleTemplate={`%s | ${site.siteMetadata.title}`}

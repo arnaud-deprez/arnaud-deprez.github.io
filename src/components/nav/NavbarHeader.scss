@@ -1,11 +1,12 @@
 @import '../../scss/global.scss';
 
 #headerNavbar {
-  .social-icons {
+  .navbar-collapse hr {
+    margin: .5rem 0;
+  }
+  .social-icons .nav-link {
     font-size: 1.25rem;
-    .nav-link {
-      margin-right: .3rem;
-    }
+    margin-right: 1rem;
   }
   @include media-breakpoint-down(lg) {
     background-color: $primary;

@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import { Navbar } from 'react-bootstrap'
 import { Author } from '../metadata'
 import { PhotoCard } from '../photocard/PhotoCard'
-import { Nav, NavSocialIcons } from '.'
+import { NavSocialIcons } from '.'
 
 import './NavbarLeft.scss'
 
@@ -21,6 +21,6 @@ export const NavbarLeft = ({
       <PhotoCard {...{ name, jobTitle }} />
     </Navbar.Brand>
     <NavSocialIcons {...{ linkedin, github, twitter }} />
-    <Nav className="flex-column align-items-center">{children}</Nav>
+    {children}
   </Navbar>
 )

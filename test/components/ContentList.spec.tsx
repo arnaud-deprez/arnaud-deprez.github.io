@@ -25,7 +25,7 @@ function createEdge(override: DeepPartial<Edge<Markdown>>): Edge<Markdown> {
   ) as Edge<Markdown>
 }
 
-describe('<ContentList />', () => {
+describe.skip('<ContentList />', () => {
   it('renders a list of content links', () => {
     const edges: Edges<Markdown> = [
       createEdge({

@@ -7,7 +7,6 @@ import './PhotoCard.scss'
 export interface PhotoCardProps extends React.ComponentPropsWithoutRef<'div'> {
   name: string
   jobTitle: string
-  // TODO: photoUrl?: string
 }
 
 export const PhotoCard = ({ name, jobTitle, ...rest }: PhotoCardProps) => (

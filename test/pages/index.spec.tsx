@@ -3,7 +3,7 @@ import '@testing-library/jest-dom/extend-expect'
 import { render } from '@testing-library/react'
 import { IndexPage } from '../../src/pages/index'
 
-describe('IndexPage', () => {
+describe.skip('IndexPage', () => {
   it('renders correctly', () => {
     const { getByText } = render(<IndexPage />)
 

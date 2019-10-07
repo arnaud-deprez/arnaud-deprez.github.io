@@ -1,3 +1,4 @@
+declare module '*.png'
 declare module 'gray-percentage' {
   type Hue = number | 'cool' | 'slate' | 'warm'
   function gray(lightness: number, hue?: Hue, darkBackground?: boolean): string

@@ -15,7 +15,6 @@ export interface Author extends SocialLinksTrait {
 
 export interface SiteMetadata {
   title: string
-  job: string
   description: string
   copyright: string
   siteUrl: string

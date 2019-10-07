@@ -3,6 +3,7 @@
 .resume {
   min-height: 100vh;
   padding: $jumbotron-padding ($jumbotron-padding / 2);
+  margin: $jumbotron-padding 0;
 
   @include media-breakpoint-up(sm) {
     padding: ($jumbotron-padding * 2) $jumbotron-padding;

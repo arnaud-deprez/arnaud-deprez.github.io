@@ -1,24 +1,49 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer'
-import { Nav } from 'react-bootstrap'
+import { Nav as BootstrapNav } from 'react-bootstrap'
+import { Link as ScrollSpyLink } from 'react-scroll'
 import { MainLayout as Layout } from '../components/layout'
 import { Seo, SiteInformation } from '../components/metadata'
+import { Nav } from '../components/nav'
 
 import './index.scss'
 
 // TODO: review this API with React.Fragment usage.
-const renderLeftMenu = () => [
-  <Nav.Link key="about" href="#about">
-    About
-  </Nav.Link>,
-  <Nav.Link key="skills" href="#skills">
-    Skills
-  </Nav.Link>,
-  <Nav.Link key="interests" href="#interests">
-    Interests
-  </Nav.Link>
-]
+const renderLeftMenu = () => (
+  <Nav className="flex-column align-items-center" as="ul">
+    <BootstrapNav.Link
+      activeClass="active"
+      to="about"
+      spy={true}
+      smooth={true}
+      duration={200}
+      as={ScrollSpyLink}
+    >
+      About
+    </BootstrapNav.Link>
+    <BootstrapNav.Link
+      activeClass="active"
+      to="skills"
+      spy={true}
+      smooth={true}
+      duration={200}
+      as={ScrollSpyLink}
+    >
+      Skills
+    </BootstrapNav.Link>
+    <BootstrapNav.Link
+      activeClass="active"
+      to="interests"
+      spy={true}
+      smooth={true}
+      duration={200}
+      as={ScrollSpyLink}
+    >
+      Interests
+    </BootstrapNav.Link>
+  </Nav>
+)
 
 interface IndexPageProps {
   data: {
