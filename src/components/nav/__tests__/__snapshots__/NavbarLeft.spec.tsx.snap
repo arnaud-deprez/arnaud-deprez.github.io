@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NavbarLeft/> renders correctly 1`] = `
+<DocumentFragment>
+  <nav
+    class="d-none d-lg-flex flex-column navbar-dark bg-primary navbar navbar-expand navbar-light"
+    id="navbarLeft"
+  >
+    <a
+      class="navbar-brand"
+      href="/"
+    >
+      <div
+        class="photo-card card"
+      >
+        <img
+          class="card-img rounded-circle mb-2"
+          src="test-file-stub"
+        />
+        <div
+          class="d-none d-lg-block card-body"
+        >
+          <h5
+            class="text-center card-title"
+          >
+            Arnaud Deprez
+          </h5>
+          <h6
+            class="font-italic text-center text-wrap card-subtitle"
+          >
+            Technical Architect
+          </h6>
+        </div>
+      </div>
+    </a>
+    <ul
+      class="icons social-icons navbar-nav"
+    />
+  </nav>
+</DocumentFragment>
+`;
+
+exports[`<NavbarLeft/> renders correctly with children 1`] = `
+<DocumentFragment>
+  <nav
+    class="d-none d-lg-flex flex-column navbar-dark bg-primary navbar navbar-expand navbar-light"
+    id="navbarLeft"
+  >
+    <a
+      class="navbar-brand"
+      href="/"
+    >
+      <div
+        class="photo-card card"
+      >
+        <img
+          class="card-img rounded-circle mb-2"
+          src="test-file-stub"
+        />
+        <div
+          class="d-none d-lg-block card-body"
+        >
+          <h5
+            class="text-center card-title"
+          >
+            Arnaud Deprez
+          </h5>
+          <h6
+            class="font-italic text-center text-wrap card-subtitle"
+          >
+            Technical Architect
+          </h6>
+        </div>
+      </div>
+    </a>
+    <ul
+      class="icons social-icons navbar-nav"
+    />
+    <ul
+      class="navbar-nav"
+    >
+      <li
+        class="nav-item"
+      >
+        <a
+          class="nav-link"
+          href="#"
+          role="tab"
+          tabindex="-1"
+        >
+          Menu 1
+        </a>
+      </li>
+      <li
+        class="nav-item"
+      >
+        <a
+          class="nav-link"
+          href="#"
+          role="tab"
+          tabindex="-1"
+        >
+          Menu 2
+        </a>
+      </li>
+      <li
+        class="nav-item"
+      >
+        <a
+          class="nav-link"
+          href="#"
+          role="tab"
+          tabindex="-1"
+        >
+          Menu 3
+        </a>
+      </li>
+    </ul>
+  </nav>
+</DocumentFragment>
+`;

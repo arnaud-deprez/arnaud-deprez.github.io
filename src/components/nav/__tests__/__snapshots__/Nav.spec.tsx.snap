@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Nav/> render a list of nav items 1`] = `
+<DocumentFragment>
+  <ul
+    class="nav"
+  >
+    <li
+      class="nav-item"
+    >
+      <a
+        class="nav-link"
+        href="#"
+        role="tab"
+        tabindex="-1"
+      >
+        Menu 1
+      </a>
+    </li>
+    <li
+      class="nav-item"
+    >
+      <a
+        class="nav-link"
+        href="#"
+        role="tab"
+        tabindex="-1"
+      >
+        Menu 2
+      </a>
+    </li>
+    <li
+      class="nav-item"
+    >
+      <a
+        class="nav-link"
+        href="#"
+        role="tab"
+        tabindex="-1"
+      >
+        Menu 3
+      </a>
+    </li>
+  </ul>
+</DocumentFragment>
+`;

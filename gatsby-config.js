@@ -69,7 +69,13 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-remark',
       options: {
-        plugins: gatsbyRemarkPlugins
+        plugins: [
+          ...gatsbyRemarkPlugins,
+          {
+            resolve: 'gatsby-remark-emoji',
+            options: {}
+          }
+        ]
       }
     },
     'gatsby-transformer-sharp',
@@ -78,7 +84,8 @@ module.exports = {
       resolve: 'gatsby-plugin-mdx',
       options: {
         extensions: ['.md', '.mdx'],
-        gatsbyRemarkPlugins
+        gatsbyRemarkPlugins,
+        remarkPlugins: [require('remark-emoji')]
       }
     },
     // {

@@ -27,6 +27,8 @@
     "gatsby-plugin-typescript": "2.1.8",
     "gatsby-remark-autolink-headers": "2.1.13",
     "gatsby-remark-copy-linked-files": "2.1.19",
+    "gatsby-remark-emoji": "0.0.3",
+    "gatsby-remark-emojis": "0.3.2",
     "gatsby-remark-images": "3.1.22",
     "gatsby-remark-prismjs": "3.3.13",
     "gatsby-remark-smartypants": "2.1.8",
@@ -44,7 +46,8 @@
     "react-helmet": "5.2.1",
     "react-icons": "3.7.0",
     "react-scroll": "1.7.14",
-    "regenerator-runtime": "0.13.3"
+    "regenerator-runtime": "0.13.3",
+    "remark-emoji": "2.0.2"
   },
   "devDependencies": {
     "@babel/core": "7.6.0",
@@ -89,6 +92,7 @@
   ],
   "license": "MIT",
   "scripts": {
+    "clean": "gatsby clean",
     "build": "gatsby build",
     "start": "gatsby develop",
     "format": "prettier --write '{__mocks__,src,test}/**/*.{ts,tsx}' '*.js'",
