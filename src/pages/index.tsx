@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { Nav as BootstrapNav } from 'react-bootstrap'
 import { Link as ScrollSpyLink } from 'react-scroll'
 import { MainLayout as Layout } from '../components/layout'

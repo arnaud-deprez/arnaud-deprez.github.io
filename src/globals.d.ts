@@ -61,6 +61,22 @@ declare module 'typography-breakpoint-constants' {
   export const MIN_MOBILE_MEDIA_QUERY = '@media (min-width:480px)'
 }
 
+// TODO: remove when https://github.com/gatsbyjs/gatsby/pull/18082 is merged
+declare module 'gatsby-plugin-mdx' {
+  import * as React from 'react'
+
+  export interface MDXRendererProps {
+    scope?: any
+    components?: {
+      [key: string]: React.ComponentType<any>
+    }
+    children: string
+    [propName: string]: any
+  }
+
+  export class MDXRenderer extends React.Component<MDXRendererProps> {}
+}
+
 declare type DeepPartial<T> = {
   [P in keyof T]?: T[P] extends (infer U)[]
     ? DeepPartial<U>[]
