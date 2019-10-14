@@ -8,7 +8,13 @@ export interface NavSocialIconsProps extends NavProps, SocialLinksTrait {
   className?: string
 }
 
-export const NavSocialIcons = ({ linkedin, github, twitter, className }: NavSocialIconsProps) => (
+export const NavSocialIcons = ({
+  linkedin,
+  github,
+  twitter,
+  className,
+  children
+}: NavSocialIconsProps) => (
   <Nav className={'icons social-icons' + (className ? ` ${className}` : '')}>
     {linkedin && (
       <BootstrapNav.Link href={linkedin}>
@@ -25,5 +31,6 @@ export const NavSocialIcons = ({ linkedin, github, twitter, className }: NavSoci
         <FaTwitter />
       </BootstrapNav.Link>
     )}
+    {children}
   </Nav>
 )

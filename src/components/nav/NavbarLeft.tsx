@@ -20,7 +20,7 @@ export const NavbarLeft = ({
     <Navbar.Brand to="/" as={Link}>
       <PhotoCard {...{ name, jobTitle }} />
     </Navbar.Brand>
-    <NavSocialIcons {...{ linkedin, github, twitter }} />
+    <NavSocialIcons {...{ linkedin, github, twitter, className: 'mb-3' }} />
     {children}
   </Navbar>
 )

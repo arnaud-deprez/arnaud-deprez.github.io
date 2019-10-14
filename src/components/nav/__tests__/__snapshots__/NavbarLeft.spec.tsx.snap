@@ -34,7 +34,7 @@ exports[`<NavbarLeft/> renders correctly 1`] = `
       </div>
     </a>
     <ul
-      class="icons social-icons navbar-nav"
+      class="icons social-icons mb-3 navbar-nav"
     />
   </nav>
 </DocumentFragment>
@@ -74,7 +74,7 @@ exports[`<NavbarLeft/> renders correctly with children 1`] = `
       </div>
     </a>
     <ul
-      class="icons social-icons navbar-nav"
+      class="icons social-icons mb-3 navbar-nav"
     />
     <ul
       class="navbar-nav"

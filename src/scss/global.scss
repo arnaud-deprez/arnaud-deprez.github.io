@@ -11,12 +11,25 @@ h1, h2, h3, h4, h5, h6,
   margin-bottom: 1rem;
 }
 
+ul, ol {
+  padding-left: 2em;
+}
+
 .icons {
+  margin: 0;
   svg {
     display: inline-block;
     font-size: inherit;
     height: 1em;
     overflow: visible;
     vertical-align: -0.125em; // This ok for the font-family we are using
+  }
+}
+
+.content {
+  padding: $jumbotron-padding ($jumbotron-padding / 2);
+
+  @include media-breakpoint-up(sm) {
+    padding: ($jumbotron-padding * 2) $jumbotron-padding;
   }
 }
