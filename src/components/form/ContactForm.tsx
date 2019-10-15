@@ -31,7 +31,7 @@ const InnerContactForm = ({
 }: ContactFormProps & FormikProps<ContactFormValues>) => (
   // See https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
   <Form
-    name="contact"
+    name="arnaud-deprez-contact"
     method="post"
     action="/contact/thanks/"
     noValidate
@@ -43,8 +43,8 @@ const InnerContactForm = ({
     data-netlify-honeypot="bot-field"
   >
     {/* You still need to add the hidden input with the form name to your JSX form */}
-    <input type="hidden" name="formName" value="contact" />
-    <Form.Group controlId="formName" hidden>
+    <input type="hidden" name="form-name" value="arnaud-deprez-contact" />
+    <Form.Group controlId="bot-field" hidden>
       <Form.Label>{"Don't fill this up"}</Form.Label>
       <Form.Control name="bot-field" />
     </Form.Group>
@@ -128,7 +128,6 @@ const handleSubmit = (values: ContactFormValues, actions: FormikActions<ContactF
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: encode({
-      'form-name': 'contact',
       ...values
     })
   })
