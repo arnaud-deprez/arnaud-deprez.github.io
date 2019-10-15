@@ -6,10 +6,7 @@
   top: 0;
   padding-top: 7.5rem;
   z-index: $zindex-fixed;
-  //width: 100%;
-  // min-width: 17rem;
-  max-width: (100% / 12 * 2); // col-lg-2
-  height: 100vh;
+  min-height: 100vh;
 
   .navbar-brand {
     margin-right: 0;
