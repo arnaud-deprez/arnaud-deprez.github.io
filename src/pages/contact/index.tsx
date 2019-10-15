@@ -18,7 +18,7 @@ const ContactPage = ({ data }: ContactPageProps) => (
   <Layout author={data.site.siteMetadata.author}>
     <Seo title="Contact" description="Contact information page" site={data.site} />
     <section>
-      <PhotoCard className="pb-4 d-lg-none" />
+      <PhotoCard className="mb-4 d-lg-none" />
       <Container className="d-flex flex-column align-items-center">
         <h2 className="text-center">Reach me on</h2>
         <NavSocialIcons
