@@ -7,10 +7,11 @@ import './PhotoCard.scss'
 export interface PhotoCardProps extends React.ComponentPropsWithoutRef<'div'> {
   name?: string
   jobTitle?: string
+  className?: string
 }
 
-export const PhotoCard = ({ name, jobTitle, ...rest }: PhotoCardProps) => (
-  <Card className="photo-card" {...rest}>
+export const PhotoCard = ({ name, jobTitle, className, ...rest }: PhotoCardProps) => (
+  <Card className={`photo-card ${className || ''}`.trim()} {...rest}>
     <Card.Img src={pic} className="rounded-circle mb-2" />
     <Card.Body className="d-none d-lg-block">
       {name && (

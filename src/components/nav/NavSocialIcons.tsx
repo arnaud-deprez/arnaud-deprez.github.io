@@ -15,7 +15,7 @@ export const NavSocialIcons = ({
   className,
   children
 }: NavSocialIconsProps) => (
-  <Nav className={'icons social-icons' + (className ? ` ${className}` : '')}>
+  <Nav className={`icons social-icons ${className || ''}`.trim()}>
     {linkedin && (
       <BootstrapNav.Link href={linkedin}>
         <FaLinkedin />

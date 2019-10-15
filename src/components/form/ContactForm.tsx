@@ -40,7 +40,7 @@ const InnerContactForm = ({
     action={action}
     noValidate
     onSubmit={handleSubmit}
-    className={'contact-form' + (className ? ` ${className}` : '')}
+    className={`contact-form ${className || ''}`.trim()}
     inline={inline}
     validated={validated}
     data-netlify="true"

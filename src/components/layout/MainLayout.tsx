@@ -19,7 +19,7 @@ export const MainLayout = ({
   <Layout {...{ author, ...rest }}>
     <Container fluid>
       <Row>
-        <Col lg={2} as="aside">
+        <Col lg={2} className="d-none d-lg-block" as="aside">
           <NavbarLeft author={author}>{renderLeftMenu()}</NavbarLeft>
         </Col>
         <Col className="min-h-100vh" as="main">
