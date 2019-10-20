@@ -1,6 +1,7 @@
 ---
 title: "About"
 ---
+import { Container, Row, Col, Card } from 'react-bootstrap'
 import { PhotoCard } from '../src/components/photocard/PhotoCard'
 
 <section id="about" className="resume">
@@ -22,9 +23,9 @@ and get quick feedback for continuous improvements.
 
 What I like the most in my job is to learn new technologies to fill my toolbox so that I can pick the right tool to solve your needs.
 
-When I can, I also try to contribute back to open source technologies I use. Do not hesitate to check my <a href="https://github.com/arnaud-deprez">Github</a> to know more.
+When I can, I also try to contribute back to open source technologies I use. Do not hesitate to check my <a href={props.author.github}>Github</a> to know more.
 
-If you want to know more about my experiences, please visit my <a href="https://www.linkedin.com/in/deprezarnaud">Linked'In profile</a>. I try to keep it up-to-date regularly :wink:.
+If you want to know more about my experiences, please visit my <a href={props.author.linkedin}>Linked'In profile</a>. I try to keep it up-to-date regularly :wink:.
 
 </section>
 

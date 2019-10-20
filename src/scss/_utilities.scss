@@ -9,7 +9,7 @@
 //
 // Styles for switching between navbars with light or dark background.
 // This is a copy of https://github.com/twbs/bootstrap/blob/v4-dev/scss/_navbar.scss but in sass mixins
-// This is to facilitate usage in media queries as @extend does not work properly in it... :-(
+// This is to facilitate usage in media queries as @extend does not work properly in it :-(
   
 // Dark links against a light background
 @mixin navbar-light {

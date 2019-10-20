@@ -22,12 +22,13 @@ const ContactPage = ({ data }: ContactPageProps) => (
       <Container className="d-flex flex-column align-items-center">
         <h2 className="text-center">Reach me on</h2>
         <NavSocialIcons
+          useOriginalColor
           linkedin={data.site.siteMetadata.author.linkedin}
           twitter={data.site.siteMetadata.author.twitter}
           className="h3 mb-5"
         >
           <BootstrapNav.Link href={`mailto:${data.site.siteMetadata.author.email}`}>
-            <FaEnvelope />
+            <FaEnvelope className="text-dark" />
           </BootstrapNav.Link>
         </NavSocialIcons>
         <ContactForm />

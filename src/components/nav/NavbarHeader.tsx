@@ -11,13 +11,13 @@ export const NavHeader = (props: SocialLinksTrait) => (
   <>
     <Nav className="icons">
       <BootstrapNav.Link to="/" as={Link}>
-        <FaUser /> About
+        <FaUser className="mx-1" /> About
       </BootstrapNav.Link>
       {/* <BootstrapNav.Link to="/blog" as={Link}>
         <FaBlog /> Blog
       </BootstrapNav.Link> */}
       <BootstrapNav.Link to="/contact" as={Link}>
-        <FaEnvelope /> Contact
+        <FaEnvelope className="mx-1" /> Contact
       </BootstrapNav.Link>
     </Nav>
     <hr className="d-lg-none" />

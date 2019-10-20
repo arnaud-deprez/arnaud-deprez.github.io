@@ -102,7 +102,7 @@ const InnerContactForm = ({
       <Form.Control.Feedback type="invalid">{errors.message}</Form.Control.Feedback>
     </Form.Group>
     <Form.Row>
-      <Button variant="primary" type="submit" className="mx-auto mt-3" disabled={isSubmitting}>
+      <Button variant="secondary" type="submit" className="mx-auto mt-3" disabled={isSubmitting}>
         <i className="icons mr-2">
           <FaEnvelope />
         </i>
