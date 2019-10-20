@@ -1,15 +1,16 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { Nav as BootstrapNav } from 'react-bootstrap'
+import { Container, Row, Col, Card, Nav as BootstrapNav } from 'react-bootstrap'
 import { Link as ScrollSpyLink } from 'react-scroll'
+import { FaConnectdevelop, FaRocket, FaCode, FaQuoteLeft, FaQuoteRight } from 'react-icons/fa'
+import { PhotoCard } from '../components/photocard/PhotoCard'
 import { MainLayout as Layout } from '../components/layout'
 import { Seo, SiteInformation } from '../components/metadata'
-import { Nav } from '../components/nav'
+import { Nav, NavSocialIcons } from '../components/nav'
 
 import './index.scss'
 
-// TODO: review this API with React.Fragment usage.
 const renderLeftMenu = () => (
   <Nav className="flex-column align-items-center" as="ul">
     <BootstrapNav.Link

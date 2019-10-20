@@ -2,30 +2,87 @@
 title: "About"
 ---
 import { Container, Row, Col, Card } from 'react-bootstrap'
+import { FaConnectdevelop, FaRocket, FaCode, FaUserGraduate, FaQuoteLeft, FaQuoteRight } from 'react-icons/fa'
 import { PhotoCard } from '../src/components/photocard/PhotoCard'
+import { NavSocialIcons } from '../src/components/nav'
 
 <section id="about" className="resume">
 <PhotoCard className="mb-4 d-lg-none"/>
 
-## ARNAUD <span className="text-primary">DEPREZ</span>
+<h2 className="mb-0">ARNAUD <span className="text-primary">DEPREZ</span></h2>
+<h3 className="text-muted pt-0 mb-5">Creative Technical Architect</h3>
 
-Welcome to my personal website.
+<h4 className="text-primary">Help customers to</h4>
 
-I'm a creative technical architect consultant who helps customers to:
+<Container className="mb-5" fluid>
+    <Row className="justify-content-center mb-4">
+        <Col lg={3}>
+            <Card className="h-100 border-0">
+                <div className="text-center display-4 text-secondary">
+                    <FaConnectdevelop/>
+                </div>
+                <Card.Body>
+                    <Card.Title className="text-center" as="h5">Architecture</Card.Title>
+                    <Card.Text className="text-center">Design microservices in a resilient, responsive and elastic architecture</Card.Text>
+                </Card.Body>
+            </Card>
+        </Col>
+        <Col lg={3}>
+            <Card className="h-100 border-0">
+                <div className="text-center display-4 text-secondary">
+                    <FaRocket/>
+                </div>
+                <Card.Body>
+                    <Card.Title className="text-center" as="h5">DevOps</Card.Title>
+                    <Card.Text className="text-center">Design pipeline according to requirements like security, audit, segregation</Card.Text>
+                </Card.Body>
+            </Card>
+        </Col>
+        <Col lg={3}>
+            <Card className="h-100 border-0">
+                <div className="text-center display-4 text-secondary">
+                    <FaCode/>
+                </div>
+                <Card.Body>
+                    <Card.Title className="text-center" as="h5">Code</Card.Title>
+                    <Card.Text className="text-center">Implement from proof of concept to production</Card.Text>
+                </Card.Body>
+            </Card>
+        </Col>
+        <Col lg={3}>
+            <Card className="h-100 border-0">
+                <div className="text-center display-4 text-secondary">
+                    <FaUserGraduate/>
+                </div>
+                <Card.Body>
+                    <Card.Title className="text-center" as="h5">Training</Card.Title>
+                    <Card.Text className="text-center">Help people to get onboard with courses, sociabilization and mentorships</Card.Text>
+                </Card.Body>
+            </Card>
+        </Col>
+    </Row>
+</Container>
 
-- design and implement their microservices in a resilient, responsive and elastic architecture.
-- design and implement their DevOps pipeline according to their requirements like security, audit, segregation.
+<blockquote class="blockquote mb-5">
+<p className="text-justify">
+    <span class="text-primary h4 mr-3"><FaQuoteLeft/></span>
+    <em>I'm used to work in an <strong>agile iterative way</strong> - usually in scrum or kanban - with high focus on delivering usable increments to speed up adoption 
+    and get quick feedback for continuous improvements. 
+    What I like the most in my job is to <strong>learn new technologies</strong> to fill my toolbox so that I can pick the right tool to solve your needs. 
+    When I can, I also try to <strong>contribute</strong> back to open source technologies I use.</em>
+    <span class="text-primary h4 ml-3"><FaQuoteRight/></span>
+</p>
+</blockquote>
 
-I participate in the whole workflow chain **from architecture design to code implementation**.
+<h5 className="text-center">Follow me</h5>
 
-I'm used to work in an **agile iterative way** - usually in scrum or kanban - with high focus on delivering usable increments to speed up adoption 
-and get quick feedback for continuous improvements.
-
-What I like the most in my job is to learn new technologies to fill my toolbox so that I can pick the right tool to solve your needs.
-
-When I can, I also try to contribute back to open source technologies I use. Do not hesitate to check my <a href={props.author.github}>Github</a> to know more.
-
-If you want to know more about my experiences, please visit my <a href={props.author.linkedin}>Linked'In profile</a>. I try to keep it up-to-date regularly :wink:.
+<NavSocialIcons 
+    useOriginalColor
+    github={props.author.github}
+    linkedin={props.author.linkedin}
+    twitter={props.author.twitter}
+    className="h3 justify-content-center pt-0"
+/>
 
 </section>
 
