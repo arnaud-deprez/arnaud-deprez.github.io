@@ -2,6 +2,8 @@
 
 .resume {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 
   h2, .h2 {
     margin-bottom: 3rem;

@@ -88,6 +88,12 @@ module.exports = {
         remarkPlugins: [require('remark-emoji')]
       }
     },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        include: /svg-icons/
+      }
+    },
     // {
     //   resolve: 'gatsby-plugin-lunr',
     //   options: {

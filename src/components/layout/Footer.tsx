@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Col, Row } from 'react-bootstrap'
-import { FaHeart } from 'react-icons/fa'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const Footer = () => (
   <Container fluid as="footer">
@@ -12,7 +12,8 @@ export const Footer = () => (
       <Col sm={12} lg={3}>
         <p>
           Build with <a href="https://www.gatsbyjs.org">Gatsby</a> | Designed with{' '}
-          <a href="https://getbootstrap.com">Bootstrap</a> | Hosted with <FaHeart color="red" /> by{' '}
+          <a href="https://getbootstrap.com">Bootstrap</a> | Hosted with{' '}
+          <FontAwesomeIcon icon="heart" color="red" /> by{' '}
           <a href="https://www.netlify.com/">Netlify</a>
         </p>
       </Col>

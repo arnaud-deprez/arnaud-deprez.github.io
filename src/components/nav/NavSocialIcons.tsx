@@ -1,6 +1,6 @@
 import React from 'react'
 import { Nav as BootstrapNav } from 'react-bootstrap'
-import { FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { SocialLinksTrait } from '../metadata'
 import { Nav, NavProps } from './Nav'
 
@@ -20,20 +20,29 @@ export const NavSocialIcons = ({
   className,
   children
 }: NavSocialIconsProps) => (
-  <Nav className={`icons social-icons ${className || ''}`.trim()}>
+  <Nav className={`social-icons ${className || ''}`.trim()}>
     {linkedin && (
       <BootstrapNav.Link href={linkedin}>
-        <FaLinkedin className={colorClassName('linkedin', useOriginalColor)} />
+        <FontAwesomeIcon
+          icon={['fab', 'linkedin']}
+          className={colorClassName('linkedin', useOriginalColor)}
+        />
       </BootstrapNav.Link>
     )}
     {github && (
       <BootstrapNav.Link href={github}>
-        <FaGithub className={colorClassName('github', useOriginalColor)} />
+        <FontAwesomeIcon
+          icon={['fab', 'github']}
+          className={colorClassName('github', useOriginalColor)}
+        />
       </BootstrapNav.Link>
     )}
     {twitter && (
       <BootstrapNav.Link href={twitter}>
-        <FaTwitter className={colorClassName('twitter', useOriginalColor)} />
+        <FontAwesomeIcon
+          icon={['fab', 'twitter']}
+          className={colorClassName('twitter', useOriginalColor)}
+        />
       </BootstrapNav.Link>
     )}
     {children}
