@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { Navbar, Nav as BootstrapNav } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { FaBars, FaUser, FaEnvelope } from 'react-icons/fa'
 import { Author, SocialLinksTrait } from '../metadata'
 import { Nav, NavSocialIcons } from '.'
 
