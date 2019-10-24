@@ -16,6 +16,29 @@ import mongodbIcon from '@iconify/icons-logos/mongodb'
 import cassandraIcon from '@iconify/icons-logos/cassandra'
 import arangodbIcon from '@iconify/icons-logos/arangodb'
 import elasticsearchIcon from '@iconify/icons-logos/elasticsearch'
+import rabbitmqIcon from '@iconify/icons-logos/rabbitmq'
+import kafkaIcon from '@iconify/icons-logos/kafka-icon'
+import springIcon from '@iconify/icons-logos/spring'
+import apacheCamelIcon from '@iconify/icons-logos/apache-camel'
+import hibernateIcon from '@iconify/icons-logos/hibernate'
+import gradleIcon from '@iconify/icons-logos/gradle'
+import akkaIcon from '@iconify/icons-logos/akka'
+import playIcon from '@iconify/icons-logos/play'
+import clojureIcon from '@iconify/icons-logos/clojure'
+import kubernetesIcon from '@iconify/icons-logos/kubernetes'
+import openshiftIcon from '@iconify/icons-logos/openshift'
+import dockerIcon from '@iconify/icons-logos/docker-icon'
+import gitIcon from '@iconify/icons-logos/git-icon'
+import gitlabIcon from '@iconify/icons-logos/gitlab'
+import seleniumIcon from '@iconify/icons-logos/selenium'
+import sonarqubeIcon from '@iconify/icons-logos/sonarqube'
+import jenkinsIcon from '@iconify/icons-logos/jenkins'
+import prometheusIcon from '@iconify/icons-logos/prometheus'
+import grafanaIcon from '@iconify/icons-logos/grafana'
+import logstashIcon from '@iconify/icons-logos/logstash'
+import kibanaIcon from '@iconify/icons-logos/kibana'
+import snykIcon from '@iconify/icons-logos/snyk'
+import SbtIcon from '../../images/svg-icons/sbt-logo.svg'
 
 interface IconProps {
   // should not have any children
@@ -43,28 +66,55 @@ interface IconProps {
   rotate?: number | string
 }
 
-const icon = (icon: object) => (props: IconProps) => <Icon {...props} icon={icon} />
+const iconify = (icon: object) => (props: IconProps) => <Icon {...props} icon={icon} />
+const svgIcon = (Component: React.Component<IconProps>) => (props: IconProps) => (
+  <Component {...props} />
+)
 
 interface OriginalIcons {
   [key: string]: (props: IconProps) => JSX.Element
 }
 
 const iconContainer: OriginalIcons = {
-  java: icon(javaIcon),
-  scala: icon(scalaIcon),
-  kotlin: icon(kotlinIcon),
-  go: icon(goIcon),
-  html5: icon(html5Icon),
-  css3: icon(css3Icon),
-  javascript: icon(javascriptIcon),
-  typescript: icon(typescriptIcon),
-  reactjs: icon(reactIcon),
-  postgresql: icon(postgresqlIcon),
-  mysql: icon(mysqlIcon),
-  mongodb: icon(mongodbIcon),
-  cassandra: icon(cassandraIcon),
-  arangodb: icon(arangodbIcon),
-  elasticsearch: icon(elasticsearchIcon)
+  java: iconify(javaIcon),
+  scala: iconify(scalaIcon),
+  kotlin: iconify(kotlinIcon),
+  go: iconify(goIcon),
+  'html-5': iconify(html5Icon),
+  'css-3': iconify(css3Icon),
+  javascript: iconify(javascriptIcon),
+  kafka: iconify(kafkaIcon),
+  typescript: iconify(typescriptIcon),
+  reactjs: iconify(reactIcon),
+  postgresql: iconify(postgresqlIcon),
+  mysql: iconify(mysqlIcon),
+  mongodb: iconify(mongodbIcon),
+  cassandra: iconify(cassandraIcon),
+  arangodb: iconify(arangodbIcon),
+  elasticsearch: iconify(elasticsearchIcon),
+  spring: iconify(springIcon),
+  'apache-camel': iconify(apacheCamelIcon),
+  'jpa-hibernate': iconify(hibernateIcon),
+  gradle: iconify(gradleIcon),
+  akka: iconify(akkaIcon),
+  play: iconify(playIcon),
+  rabbitmq: iconify(rabbitmqIcon),
+  'apache-kafka': iconify(kafkaIcon),
+  clojure: iconify(clojureIcon),
+  kubernetes: iconify(kubernetesIcon),
+  openshift: iconify(openshiftIcon),
+  docker: iconify(dockerIcon),
+  git: iconify(gitIcon),
+  gitlab: iconify(gitlabIcon),
+  selenium: iconify(seleniumIcon),
+  sonarqube: iconify(sonarqubeIcon),
+  jenkins: iconify(jenkinsIcon),
+  prometheus: iconify(prometheusIcon),
+  grafana: iconify(grafanaIcon),
+  logstash: iconify(logstashIcon),
+  kibana: iconify(kibanaIcon),
+  snyk: iconify(snykIcon),
+  sbt: svgIcon(SbtIcon)
 }
 
 export interface OriginalIconProps extends IconProps {
@@ -72,7 +122,7 @@ export interface OriginalIconProps extends IconProps {
 }
 
 const OriginalIcon = ({ icon, ...rest }: OriginalIconProps): JSX.Element => {
-  const key = icon.replace(/ /gi, '').toLowerCase()
+  const key = icon.replace(/[\s&]+/gi, '-').toLowerCase()
   return _.has(iconContainer, key) ? iconContainer[key](rest) : <i />
 }
 

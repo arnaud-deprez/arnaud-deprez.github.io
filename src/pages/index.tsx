@@ -165,6 +165,12 @@ interface TechnicalSkillsSectionProps {
     database: SkillsSet
     messageBus: SkillsSet
   }
+  devOps: {
+    platform: SkillsSet
+    monitoring: SkillsSet
+    security: SkillsSet
+    tooling: SkillsSet
+  }
 }
 
 const TechnicalSkillsSection = (props: TechnicalSkillsSectionProps) => (
@@ -226,6 +232,14 @@ const TechnicalSkillsSection = (props: TechnicalSkillsSectionProps) => (
         <Skills key={`${key}-skills`} skills={value.values} />
       </>
     ))}
+
+    <h3>DevOps</h3>
+    {Object.entries(props.devOps).map(([key, value]) => (
+      <>
+        <h4 key={`${key}-title`}>{value.title}</h4>
+        <Skills key={`${key}-skills`} skills={value.values} />
+      </>
+    ))}
   </section>
 )
 
@@ -282,6 +296,24 @@ export const pageQuery = graphql`
             values
           }
           messageBus {
+            title
+            values
+          }
+        }
+        devOps {
+          platform {
+            title
+            values
+          }
+          tooling {
+            title
+            values
+          }
+          monitoring {
+            title
+            values
+          }
+          security {
             title
             values
           }

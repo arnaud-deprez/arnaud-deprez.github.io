@@ -7,12 +7,11 @@
         "values": [
           [
             "Java",
-            "Spring-Boot",
+            "Spring",
             "Apache Camel",
             "Hazelcast",
             "Camunda",
             "JPA & Hibernate",
-            "JTA",
             "Gradle",
             "Groovy",
             "Maven"
@@ -32,6 +31,24 @@
       "messageBus": {
         "title": "Message Bus",
         "values": ["Apache Kafka", "RabbitMQ", "Apache ActiveMQ"]
+      }
+    },
+    "devOps": {
+      "platform": {
+        "title": "Platform",
+        "values": ["Kubernetes", "Openshift", "Docker"]
+      },
+      "monitoring": {
+        "title": "Monitoring",
+        "values": ["Prometheus", "Grafana", "Elasticsearch", "Logstash", "Fluentd", "Kibana"]
+      },
+      "security": {
+        "title": "Security",
+        "values": ["Clair", "OWASP dependency check", "Anchore", "Snyk"]
+      },
+      "tooling": {
+        "title": "Tooling",
+        "values": ["Git", "GitOps", "Jenkins", "Gitlab", "Sonarqube", "Selenium"]
       }
     }
   },
