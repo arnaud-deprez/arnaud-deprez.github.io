@@ -12,9 +12,6 @@ import typescriptIcon from '@iconify/icons-logos/typescript-icon'
 import reactIcon from '@iconify/icons-logos/react'
 import postgresqlIcon from '@iconify/icons-logos/postgresql'
 import mysqlIcon from '@iconify/icons-logos/mysql'
-import mongodbIcon from '@iconify/icons-logos/mongodb'
-import cassandraIcon from '@iconify/icons-logos/cassandra'
-import arangodbIcon from '@iconify/icons-logos/arangodb'
 import elasticsearchIcon from '@iconify/icons-logos/elasticsearch'
 import rabbitmqIcon from '@iconify/icons-logos/rabbitmq'
 import kafkaIcon from '@iconify/icons-logos/kafka-icon'
@@ -32,13 +29,36 @@ import gitIcon from '@iconify/icons-logos/git-icon'
 import gitlabIcon from '@iconify/icons-logos/gitlab'
 import seleniumIcon from '@iconify/icons-logos/selenium'
 import sonarqubeIcon from '@iconify/icons-logos/sonarqube'
-import jenkinsIcon from '@iconify/icons-logos/jenkins'
 import prometheusIcon from '@iconify/icons-logos/prometheus'
 import grafanaIcon from '@iconify/icons-logos/grafana'
 import logstashIcon from '@iconify/icons-logos/logstash'
 import kibanaIcon from '@iconify/icons-logos/kibana'
 import snykIcon from '@iconify/icons-logos/snyk'
-import SbtIcon from '../../images/svg-icons/sbt-logo.svg'
+import sassIcon from '@iconify/icons-logos/sass'
+
+// Downloaded svg icons
+import SbtIcon from '../../images/logos/svg-icons/sbt-icon.svg'
+import CamundaIcon from '../../images/logos/svg-icons/camunda-icon.svg'
+import GroovyIcon from '../../images/logos/svg-icons/groovy-lang-icon.svg'
+import BashIcon from '../../images/logos/svg-icons/gnu_bash-icon.svg'
+import AnchoreIcon from '../../images/logos/svg-icons/anchoreio-icon.svg'
+// TODO: why ActiveMQ svg is not shown
+// import ActiveMQIcon from '../../images/logos/svg-icons/apache_activemq-icon.svg'
+// TODO: why fluentd svg cannot keep its original colors
+// import FluentdIcon from '../../images/logos/svg-icons/fluentd-icon.svg'
+import HazelcastIcon from '../../images/logos/svg-icons/hazelcast-icon.svg'
+import CassandraIcon from '../../images/logos/svg-icons/apache_cassandra-icon.svg'
+import ArangoDBIcon from '../../images/logos/svg-icons/arangodb-icon.svg'
+import MongoDBIcon from '../../images/logos/svg-icons/mongodb-icon.svg'
+import JenkinsIcon from '../../images/logos/svg-icons/jenkins-icon.svg'
+import MavenIcon from '../../images/logos/svg-icons/apache_maven-icon.svg'
+import CSharpIcon from '../../images/logos/svg-icons/csharp-icon.svg'
+
+// Images
+import owaspImg from '../../images/logos/owasp-icon.png'
+import clairImg from '../../images/logos/clair-icon.png'
+import activemqImg from '../../images/logos/apache_activemq-icon.png'
+import fluentdImg from '../../images/logos/fluentd-icon.jpg'
 
 interface IconProps {
   // should not have any children
@@ -67,7 +87,10 @@ interface IconProps {
 }
 
 const iconify = (icon: object) => (props: IconProps) => <Icon {...props} icon={icon} />
-const svgIcon = (Component: React.Component<IconProps>) => (props: IconProps) => (
+const imgIcon = (icon: any) => (props: IconProps) => (
+  <img {...props} src={icon} style={{ height: '1em' }} />
+)
+const svgIcon = (Component: React.ElementType<IconProps>) => (props: IconProps) => (
   <Component {...props} />
 )
 
@@ -82,15 +105,16 @@ const iconContainer: OriginalIcons = {
   go: iconify(goIcon),
   'html-5': iconify(html5Icon),
   'css-3': iconify(css3Icon),
+  sass: iconify(sassIcon),
   javascript: iconify(javascriptIcon),
   kafka: iconify(kafkaIcon),
   typescript: iconify(typescriptIcon),
   reactjs: iconify(reactIcon),
   postgresql: iconify(postgresqlIcon),
   mysql: iconify(mysqlIcon),
-  mongodb: iconify(mongodbIcon),
-  cassandra: iconify(cassandraIcon),
-  arangodb: iconify(arangodbIcon),
+  mongodb: svgIcon(MongoDBIcon),
+  cassandra: svgIcon(CassandraIcon),
+  arangodb: svgIcon(ArangoDBIcon),
   elasticsearch: iconify(elasticsearchIcon),
   spring: iconify(springIcon),
   'apache-camel': iconify(apacheCamelIcon),
@@ -108,13 +132,24 @@ const iconContainer: OriginalIcons = {
   gitlab: iconify(gitlabIcon),
   selenium: iconify(seleniumIcon),
   sonarqube: iconify(sonarqubeIcon),
-  jenkins: iconify(jenkinsIcon),
+  jenkins: svgIcon(JenkinsIcon),
   prometheus: iconify(prometheusIcon),
   grafana: iconify(grafanaIcon),
   logstash: iconify(logstashIcon),
   kibana: iconify(kibanaIcon),
   snyk: iconify(snykIcon),
-  sbt: svgIcon(SbtIcon)
+  sbt: svgIcon(SbtIcon),
+  camunda: svgIcon(CamundaIcon),
+  groovy: svgIcon(GroovyIcon),
+  bash: svgIcon(BashIcon),
+  anchore: svgIcon(AnchoreIcon),
+  'apache-activemq': imgIcon(activemqImg),
+  fluentd: imgIcon(fluentdImg),
+  hazelcast: svgIcon(HazelcastIcon),
+  maven: svgIcon(MavenIcon),
+  'c#': svgIcon(CSharpIcon),
+  owasp: imgIcon(owaspImg),
+  clair: imgIcon(clairImg)
 }
 
 export interface OriginalIconProps extends IconProps {

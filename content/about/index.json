@@ -5,24 +5,29 @@
       "backend": {
         "title": "Backend",
         "values": [
-          [
-            "Java",
-            "Spring",
-            "Apache Camel",
-            "Hazelcast",
-            "Camunda",
-            "JPA & Hibernate",
-            "Gradle",
-            "Groovy",
-            "Maven"
-          ],
-          ["Scala", "Akka", "Play", "Sbt"],
-          ["Kotlin", "Go", "C#", "Clojure", "Bash", "Makefile"]
+          "Scala",
+          "Akka",
+          "Play",
+          "Sbt",
+          "Java",
+          "Spring",
+          "Apache Camel",
+          "Hazelcast",
+          "Camunda",
+          "JPA & Hibernate",
+          "Kotlin",
+          "Groovy",
+          "Gradle",
+          "Maven",
+          "Go",
+          "C#",
+          "Clojure",
+          "Bash"
         ]
       },
       "frontend": {
         "title": "Frontend",
-        "values": ["Html 5", "CSS 3", "Javascript", "Typescript", "Reactjs"]
+        "values": ["Html 5", "Javascript", "Typescript", "Reactjs", "CSS 3", "Sass"]
       },
       "database": {
         "title": "Database",
@@ -44,11 +49,11 @@
       },
       "security": {
         "title": "Security",
-        "values": ["Clair", "OWASP dependency check", "Anchore", "Snyk"]
+        "values": ["Clair", "OWASP", "Anchore", "Snyk"]
       },
       "tooling": {
         "title": "Tooling",
-        "values": ["Git", "GitOps", "Jenkins", "Gitlab", "Sonarqube", "Selenium"]
+        "values": ["Git", "Jenkins", "Gitlab", "Sonarqube", "Selenium"]
       }
     }
   },

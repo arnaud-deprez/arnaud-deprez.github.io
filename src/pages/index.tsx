@@ -84,7 +84,8 @@ const AboutSection = ({ author }: SiteMetadata) => (
               DevOps
             </Card.Title>
             <Card.Text className="text-center">
-              Design pipeline according to requirements like security, audit, segregation
+              Design pipeline following GitOps best practices to match your requirements like
+              security, audit, segregation
             </Card.Text>
           </Card.Body>
         </Card>
@@ -183,47 +184,53 @@ const TechnicalSkillsSection = (props: TechnicalSkillsSectionProps) => (
     </p>
     <h3>Architecture & Design</h3>
 
-    <CardDeck>
-      <Card className="border-0">
-        <div className="text-center text-3x text-secondary">
-          <FontAwesomeIcon icon={['fab', 'connectdevelop']} />
-        </div>
-        <Card.Body>
-          <Card.Title className="text-center" as="h5">
-            Architecture
-          </Card.Title>
-          <Card.Text className="text-center">
-            Microservices, Distributed sytem, Domain Driven, Event Sourcing, CQRS, Request/Reply
-            (REST, gRPC)
-          </Card.Text>
-        </Card.Body>
-      </Card>
-      <Card className="border-0">
-        <div className="text-center text-3x text-secondary">
-          <FontAwesomeIcon icon="code" />
-        </div>
-        <Card.Body>
-          <Card.Title className="text-center" as="h5">
-            Code style
-          </Card.Title>
-          <Card.Text className="text-center">
-            Object Oriented Programming (OOP), Aspect Oriented Programming (AOP), Functional
-            Programming (FP), Design Patterns
-          </Card.Text>
-        </Card.Body>
-      </Card>
-      <Card className="border-0">
-        <div className="text-center text-3x text-secondary">
-          <FontAwesomeIcon icon="pen" />
-        </div>
-        <Card.Body>
-          <Card.Title className="text-center" as="h5">
-            Drawing
-          </Card.Title>
-          <Card.Text className="text-center">BPMN, UML, Archimate</Card.Text>
-        </Card.Body>
-      </Card>
-    </CardDeck>
+    <CardGroup>
+      <Col sm={12} md={4} className="px-0">
+        <Card className="border-0">
+          <div className="text-center text-3x text-secondary">
+            <FontAwesomeIcon icon={['fab', 'connectdevelop']} />
+          </div>
+          <Card.Body>
+            <Card.Title className="text-center" as="h5">
+              Architecture
+            </Card.Title>
+            <Card.Text className="text-center">
+              Microservices, Distributed sytem, Domain Driven, Event Sourcing, CQRS, Request/Reply
+              (REST, gRPC)
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      </Col>
+      <Col sm={12} md={4} className="px-0">
+        <Card className="border-0">
+          <div className="text-center text-3x text-secondary">
+            <FontAwesomeIcon icon="code" />
+          </div>
+          <Card.Body>
+            <Card.Title className="text-center" as="h5">
+              Code style
+            </Card.Title>
+            <Card.Text className="text-center">
+              Object Oriented Programming (OOP), Aspect Oriented Programming (AOP), Functional
+              Programming (FP), Design Patterns
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      </Col>
+      <Col sm={12} md={4} className="px-0">
+        <Card className="border-0">
+          <div className="text-center text-3x text-secondary">
+            <FontAwesomeIcon icon="pen" />
+          </div>
+          <Card.Body>
+            <Card.Title className="text-center" as="h5">
+              Drawing
+            </Card.Title>
+            <Card.Text className="text-center">BPMN, UML, Archimate</Card.Text>
+          </Card.Body>
+        </Card>
+      </Col>
+    </CardGroup>
 
     <h3>Programming</h3>
     {Object.entries(props.programming).map(([key, value]) => (
@@ -267,6 +274,7 @@ const IndexPage = ({ data }: IndexPageProps) => (
     <AboutSection {...data.site.siteMetadata} />
     <hr />
     <TechnicalSkillsSection {...data.aboutJson.skills} />
+    <hr />
     <MDXRenderer author={data.site.siteMetadata.author}>{data.mdx.body}</MDXRenderer>
   </Layout>
 )
