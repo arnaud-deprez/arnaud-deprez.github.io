@@ -14,7 +14,7 @@ const mapToListItem = (item: string) => (
 )
 
 const mapToList = (items: string[]) => (
-  <ul className="list-unstyled d-flex align-items-end">{items.map(mapToListItem)}</ul>
+  <ul className="list-unstyled d-flex flex-wrap align-items-end">{items.map(mapToListItem)}</ul>
 )
 
 const uniformize = (items: string[] | string[][]): string[][] => {
