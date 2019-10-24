@@ -1,0 +1,39 @@
+{
+  "skills": {
+    "architecture": {},
+    "programming": {
+      "backend": {
+        "title": "Backend",
+        "values": [
+          [
+            "Java",
+            "Spring-Boot",
+            "Apache Camel",
+            "Hazelcast",
+            "Camunda",
+            "JPA & Hibernate",
+            "JTA",
+            "Gradle",
+            "Groovy",
+            "Maven"
+          ],
+          ["Scala", "Akka", "Play", "Sbt"],
+          ["Kotlin", "Go", "C#", "Clojure", "Bash", "Makefile"]
+        ]
+      },
+      "frontend": {
+        "title": "Frontend",
+        "values": ["Html 5", "CSS 3", "Javascript", "Typescript", "Reactjs"]
+      },
+      "database": {
+        "title": "Database",
+        "values": ["PostgreSQL", "MySQL", "MongoDB", "Elasticsearch", "Cassandra", "ArangoDB"]
+      },
+      "messageBus": {
+        "title": "Message Bus",
+        "values": ["Apache Kafka", "RabbitMQ", "Apache ActiveMQ"]
+      }
+    }
+  },
+  "lovedStack": []
+}

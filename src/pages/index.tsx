@@ -4,26 +4,11 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { Col, Card, CardGroup, CardDeck, Nav as BootstrapNav } from 'react-bootstrap'
 import { Link as ScrollSpyLink } from 'react-scroll'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Icon } from '@iconify/react'
-import javaIcon from '@iconify/icons-logos/java'
-import scalaIcon from '@iconify/icons-logos/scala'
-import kotlinIcon from '@iconify/icons-logos/kotlin'
-import goIcon from '@iconify/icons-logos/go'
-import html5Icon from '@iconify/icons-logos/html-5'
-import css3Icon from '@iconify/icons-logos/css-3'
-import javascriptIcon from '@iconify/icons-logos/javascript'
-import typescriptIcon from '@iconify/icons-logos/typescript-icon'
-import reactIcon from '@iconify/icons-logos/react'
-import postgresqlIcon from '@iconify/icons-logos/postgresql'
-import mysqlIcon from '@iconify/icons-logos/mysql'
-import mongodbIcon from '@iconify/icons-logos/mongodb'
-import cassandraIcon from '@iconify/icons-logos/cassandra'
-import arangodbIcon from '@iconify/icons-logos/arangodb'
-import elasticsearchIcon from '@iconify/icons-logos/elasticsearch'
 import { PhotoCard } from '../components/photocard/PhotoCard'
 import { MainLayout as Layout } from '../components/layout'
 import { Seo, SiteInformation, SiteMetadata } from '../components/metadata'
 import { Nav, NavSocialIcons } from '../components/nav'
+import { Skills } from '../components/about'
 
 import './index.scss'
 
@@ -168,7 +153,21 @@ const AboutSection = ({ author }: SiteMetadata) => (
   </section>
 )
 
-const TechnicalSkillsSection = () => (
+interface SkillsSet {
+  title: string
+  values: any[]
+}
+
+interface TechnicalSkillsSectionProps {
+  programming: {
+    backend: SkillsSet
+    frontend: SkillsSet
+    database: SkillsSet
+    messageBus: SkillsSet
+  }
+}
+
+const TechnicalSkillsSection = (props: TechnicalSkillsSectionProps) => (
   <section id="skills" className="resume">
     <h2 className="text-primary text-uppercase">Technical Skills</h2>
     <p>
@@ -221,119 +220,12 @@ const TechnicalSkillsSection = () => (
     </CardDeck>
 
     <h3>Programming</h3>
-    <h4 className="text-center">Backend</h4>
-    <ul className="list-unstyled align-self-center">
-      <li className="d-flex align-items-center mb-1">
-        <div className="flex-shrink-0 d-flex flex-column align-items-center mr-3">
-          <Icon className="text-2x" icon={javaIcon} />
-          <strong>Java</strong>
-        </div>
-        <div>
-          <p className="my-0">
-            Spring-Boot, Apache Camel, AspectJ, Hazelcast, Camunda, JPA & Hibernate, Gradle, Groovy,
-            Maven
-          </p>
-        </div>
-      </li>
-      <li className="d-flex align-items-center mb-1">
-        <div className="flex-shrink-0 d-flex flex-column align-items-center mr-3">
-          <Icon className="text-2x" icon={scalaIcon} />
-          <strong>Scala</strong>
-        </div>
-        <div>
-          <p className="my-0">Akka, Play, Sbt</p>
-        </div>
-      </li>
-    </ul>
-    <ul className="list-inline align-self-center">
-      <li className="list-inline-item mr-3">
-        <div className="d-flex flex-column align-items-center">
-          <Icon className="text-2x" icon={kotlinIcon} />
-          <strong>Kotlin</strong>
-        </div>
-      </li>
-      <li className="list-inline-item mr-3">
-        <div className="d-flex flex-column align-items-center">
-          <Icon className="text-2x" icon={goIcon} />
-          <strong>Go</strong>
-        </div>
-      </li>
-    </ul>
-
-    <h4 className="text-center">Frontend</h4>
-    <ul className="list-inline align-self-center">
-      <li className="list-inline-item mr-3">
-        <div className="d-flex flex-column align-items-center">
-          <Icon className="text-2x" icon={html5Icon} />
-          <strong>HTML 5</strong>
-        </div>
-      </li>
-      <li className="list-inline-item mr-3">
-        <div className="d-flex flex-column align-items-center">
-          <Icon className="text-2x" icon={css3Icon} />
-          <strong>CSS 3</strong>
-        </div>
-      </li>
-      <li className="list-inline-item mr-3">
-        <div className="d-flex flex-column align-items-center">
-          <Icon className="text-2x" icon={javascriptIcon} />
-          <strong>Javascript</strong>
-        </div>
-      </li>
-      <li className="list-inline-item mr-3">
-        <div className="d-flex flex-column align-items-center">
-          <Icon className="text-2x" icon={typescriptIcon} />
-          <strong>Typescript</strong>
-        </div>
-      </li>
-      <li className="list-inline-item mr-3">
-        <div className="d-flex flex-column align-items-center">
-          <Icon className="text-2x" icon={reactIcon} />
-          <strong>Reactjs</strong>
-        </div>
-      </li>
-    </ul>
-    <h4 className="text-center">Database</h4>
-    <ul className="list-inline align-self-center">
-      <li className="list-inline-item mr-3">
-        <div className="d-flex flex-column align-items-center">
-          <Icon className="text-2x" icon={postgresqlIcon} />
-          <strong>PostgreSQL</strong>
-        </div>
-      </li>
-      <li className="list-inline-item mr-3">
-        <div className="d-flex flex-column align-items-center">
-          <Icon className="text-2x" icon={mysqlIcon} />
-          <strong>MySQL</strong>
-        </div>
-      </li>
-      <li className="list-inline-item mr-3">
-        <div className="d-flex flex-column align-items-center">
-          <Icon className="text-2x" icon={mongodbIcon} />
-          <strong>Mongodb</strong>
-        </div>
-      </li>
-      <li className="list-inline-item mr-3">
-        <div className="d-flex flex-column align-items-center">
-          <Icon className="text-2x" icon={cassandraIcon} />
-          <strong>Cassandra</strong>
-        </div>
-      </li>
-      <li className="list-inline-item mr-3">
-        <div className="d-flex flex-column align-items-center">
-          <Icon className="text-2x" icon={elasticsearchIcon} />
-          <strong>Elasticsearch</strong>
-        </div>
-      </li>
-      <li className="list-inline-item mr-3">
-        <div className="d-flex flex-column align-items-center">
-          <Icon className="text-2x" icon={arangodbIcon} />
-          <strong>Arangodb</strong>
-        </div>
-      </li>
-    </ul>
-
-    <h4 className="text-center">Message bus</h4>
+    {Object.entries(props.programming).map(([key, value]) => (
+      <>
+        <h4 key={`${key}-title`}>{value.title}</h4>
+        <Skills key={`${key}-skills`} skills={value.values} />
+      </>
+    ))}
   </section>
 )
 
@@ -349,6 +241,9 @@ interface IndexPageProps {
         }
       ]
     }
+    aboutJson: {
+      skills: TechnicalSkillsSectionProps
+    }
   }
 }
 
@@ -357,7 +252,7 @@ const IndexPage = ({ data }: IndexPageProps) => (
     <Seo site={data.site} />
     <AboutSection {...data.site.siteMetadata} />
     <hr />
-    <TechnicalSkillsSection />
+    <TechnicalSkillsSection {...data.aboutJson.skills} />
     <MDXRenderer author={data.site.siteMetadata.author}>{data.mdx.body}</MDXRenderer>
   </Layout>
 )
@@ -367,9 +262,31 @@ export const pageQuery = graphql`
     site {
       ...SiteInformation
     }
-    mdx(fields: { slug: { eq: "/" } }) {
+    mdx(fields: { slug: { eq: "/about/" } }) {
       body
       tableOfContents(maxDepth: 2)
+    }
+    aboutJson {
+      skills {
+        programming {
+          backend {
+            title
+            values
+          }
+          frontend {
+            title
+            values
+          }
+          database {
+            title
+            values
+          }
+          messageBus {
+            title
+            values
+          }
+        }
+      }
     }
   }
 `
