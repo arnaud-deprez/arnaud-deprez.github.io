@@ -45,7 +45,7 @@ import AnchoreIcon from '../../images/logos/svg-icons/anchoreio-icon.svg'
 // TODO: why ActiveMQ svg is not shown
 // import ActiveMQIcon from '../../images/logos/svg-icons/apache_activemq-icon.svg'
 // TODO: why fluentd svg cannot keep its original colors
-// import FluentdIcon from '../../images/logos/svg-icons/fluentd-icon.svg'
+import FluentdIcon from '../../images/logos/svg-icons/fluentd-icon.svg'
 import HazelcastIcon from '../../images/logos/svg-icons/hazelcast-icon.svg'
 import CassandraIcon from '../../images/logos/svg-icons/apache_cassandra-icon.svg'
 import ArangoDBIcon from '../../images/logos/svg-icons/arangodb-icon.svg'
@@ -58,7 +58,6 @@ import CSharpIcon from '../../images/logos/svg-icons/csharp-icon.svg'
 import owaspImg from '../../images/logos/owasp-icon.png'
 import clairImg from '../../images/logos/clair-icon.png'
 import activemqImg from '../../images/logos/apache_activemq-icon.png'
-import fluentdImg from '../../images/logos/fluentd-icon.jpg'
 
 interface IconProps {
   // should not have any children
@@ -144,7 +143,7 @@ const iconContainer: OriginalIcons = {
   bash: svgIcon(BashIcon),
   anchore: svgIcon(AnchoreIcon),
   'apache-activemq': imgIcon(activemqImg),
-  fluentd: imgIcon(fluentdImg),
+  fluentd: svgIcon(FluentdIcon),
   hazelcast: svgIcon(HazelcastIcon),
   maven: svgIcon(MavenIcon),
   'c#': svgIcon(CSharpIcon),

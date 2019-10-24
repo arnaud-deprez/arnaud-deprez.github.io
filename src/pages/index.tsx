@@ -8,7 +8,7 @@ import { PhotoCard } from '../components/photocard/PhotoCard'
 import { MainLayout as Layout } from '../components/layout'
 import { Seo, SiteInformation, SiteMetadata } from '../components/metadata'
 import { Nav, NavSocialIcons } from '../components/nav'
-import { Skills } from '../components/about'
+import { TechnicalSkills } from '../components/about'
 
 import './index.scss'
 
@@ -234,18 +234,12 @@ const TechnicalSkillsSection = (props: TechnicalSkillsSectionProps) => (
 
     <h3>Programming</h3>
     {Object.entries(props.programming).map(([key, value]) => (
-      <>
-        <h4 key={`${key}-title`}>{value.title}</h4>
-        <Skills key={`${key}-skills`} skills={value.values} />
-      </>
+      <TechnicalSkills key={key} title={value.title} skills={value.values} />
     ))}
 
     <h3>DevOps</h3>
     {Object.entries(props.devOps).map(([key, value]) => (
-      <>
-        <h4 key={`${key}-title`}>{value.title}</h4>
-        <Skills key={`${key}-skills`} skills={value.values} />
-      </>
+      <TechnicalSkills key={key} title={value.title} skills={value.values} />
     ))}
   </section>
 )

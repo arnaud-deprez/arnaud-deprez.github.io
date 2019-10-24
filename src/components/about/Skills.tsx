@@ -1,5 +1,6 @@
 import React from 'react'
 import * as _ from 'lodash'
+import { Card } from 'react-bootstrap'
 import OriginalIcon from '../icon/OriginalIcon'
 
 import './Skills.scss'
@@ -40,10 +41,16 @@ const uniformize = (items: string[] | string[][]): string[][] => {
   return result
 }
 
-export interface SkillsProps {
+export interface TechnicalSkillsProps {
+  title: string
   skills: string[] | string[][]
 }
 
-export const Skills = ({ skills }: SkillsProps) => (
-  <div className="skills">{uniformize(skills).map(mapToList)}</div>
+export const TechnicalSkills = ({ title, skills }: TechnicalSkillsProps) => (
+  <Card className="skills bg-light mb-1">
+    <Card.Body>
+      <Card.Title as="h5">{title}</Card.Title>
+      {uniformize(skills).map(mapToList)}
+    </Card.Body>
+  </Card>
 )
