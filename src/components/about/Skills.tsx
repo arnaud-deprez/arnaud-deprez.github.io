@@ -7,16 +7,12 @@ import './Skills.scss'
 
 const mapToListItem = (item: string) => (
   <li className="p-2" key={item}>
-    <div className="d-flex flex-column align-items-center">
-      <OriginalIcon className="text-2x" icon={item} />
-      <strong>{item}</strong>
-    </div>
+    <OriginalIcon className="text-2x" icon={item} />
+    <strong className="text-center">{item}</strong>
   </li>
 )
 
-const mapToList = (items: string[]) => (
-  <ul className="list-unstyled d-flex flex-wrap align-items-end">{items.map(mapToListItem)}</ul>
-)
+const mapToList = (items: string[]) => <ul className="skills">{items.map(mapToListItem)}</ul>
 
 const uniformize = (items: string[] | string[][]): string[][] => {
   const result = []
@@ -47,7 +43,7 @@ export interface TechnicalSkillsProps {
 }
 
 export const TechnicalSkills = ({ title, skills }: TechnicalSkillsProps) => (
-  <Card className="skills bg-light mb-1">
+  <Card className="skills-set bg-light mb-1">
     <Card.Body>
       <Card.Title as="h5">{title}</Card.Title>
       {uniformize(skills).map(mapToList)}

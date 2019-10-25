@@ -188,7 +188,7 @@ const TechnicalSkillsSection = (props: TechnicalSkillsSectionProps) => (
       <Col sm={12} md={4} className="px-0">
         <Card className="border-0">
           <div className="text-center text-3x text-secondary">
-            <FontAwesomeIcon icon={['fab', 'connectdevelop']} />
+            <FontAwesomeIcon icon="project-diagram" />
           </div>
           <Card.Body>
             <Card.Title className="text-center" as="h5">

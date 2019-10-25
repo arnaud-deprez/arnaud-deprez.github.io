@@ -85,12 +85,36 @@ interface IconProps {
   rotate?: number | string
 }
 
-const iconify = (icon: object) => (props: IconProps) => <Icon {...props} icon={icon} />
-const imgIcon = (icon: any) => (props: IconProps) => (
-  <img {...props} src={icon} style={{ height: '1em' }} />
+const iconify = (icon: object, defaultProps: IconProps = {}) => (props: IconProps) => (
+  <Icon
+    {...{
+      ...defaultProps,
+      ...props
+    }}
+    icon={icon}
+  />
 )
-const svgIcon = (Component: React.ElementType<IconProps>) => (props: IconProps) => (
-  <Component {...props} />
+const imgIcon = (
+  icon: string,
+  defaultProps: IconProps = { style: { width: '1em', height: '1em' } }
+) => (props: IconProps) => (
+  <img
+    {...{
+      ...defaultProps,
+      ...props
+    }}
+    src={icon}
+  />
+)
+const svgIcon = (Component: React.ElementType<IconProps>, defaultProps: IconProps = {}) => (
+  props: IconProps
+) => (
+  <Component
+    {...{
+      ...defaultProps,
+      ...props
+    }}
+  />
 )
 
 interface OriginalIcons {
@@ -101,7 +125,7 @@ const iconContainer: OriginalIcons = {
   java: iconify(javaIcon),
   scala: iconify(scalaIcon),
   kotlin: iconify(kotlinIcon),
-  go: iconify(goIcon),
+  go: iconify(goIcon, { width: '2em' }),
   'html-5': iconify(html5Icon),
   'css-3': iconify(css3Icon),
   sass: iconify(sassIcon),
@@ -130,7 +154,7 @@ const iconContainer: OriginalIcons = {
   git: iconify(gitIcon),
   gitlab: iconify(gitlabIcon),
   selenium: iconify(seleniumIcon),
-  sonarqube: iconify(sonarqubeIcon),
+  sonarqube: iconify(sonarqubeIcon, { width: '3em' }),
   jenkins: svgIcon(JenkinsIcon),
   prometheus: iconify(prometheusIcon),
   grafana: iconify(grafanaIcon),
@@ -142,7 +166,7 @@ const iconContainer: OriginalIcons = {
   groovy: svgIcon(GroovyIcon),
   bash: svgIcon(BashIcon),
   anchore: svgIcon(AnchoreIcon),
-  'apache-activemq': imgIcon(activemqImg),
+  'apache-activemq': imgIcon(activemqImg, { style: { width: '1em', height: '1.5em' } }),
   fluentd: svgIcon(FluentdIcon),
   hazelcast: svgIcon(HazelcastIcon),
   maven: svgIcon(MavenIcon),
