@@ -3,11 +3,13 @@ import {
   faCode,
   faEnvelope,
   faHeart,
+  faLaptopCode,
   faPen,
   faProjectDiagram,
   faRocket,
   faQuoteLeft,
   faQuoteRight,
+  faSpaceShuttle,
   faUser,
   faUserGraduate
 } from '@fortawesome/free-solid-svg-icons'
@@ -21,11 +23,13 @@ export const loadIcons = () => {
     faCode,
     faEnvelope,
     faHeart,
+    faLaptopCode,
     faPen,
     faProjectDiagram,
     faRocket,
     faQuoteLeft,
     faQuoteRight,
+    faSpaceShuttle,
     faUser,
     faUserGraduate,
     fab

@@ -6,18 +6,15 @@
     flex-flow: row wrap;
     align-items: stretch;
     padding-left: 0;
+    margin: 0;
     list-style: none;
     
     li {
       // flex item
       flex: 0 1 120px;
-      // flex-container
-      display: flex;
-      flex-flow: column wrap;
-      justify-content: space-around;
-      align-items: center;
       strong {
         font-weight: $font-weight-light;
+        flex-wrap: wrap;
       }
     }
   }

@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { Col, Card, CardGroup, CardDeck, Nav as BootstrapNav } from 'react-bootstrap'
+import { Container, Row, Col, Card, CardGroup, Nav as BootstrapNav } from 'react-bootstrap'
 import { Link as ScrollSpyLink } from 'react-scroll'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { PhotoCard } from '../components/photocard/PhotoCard'
@@ -9,6 +9,7 @@ import { MainLayout as Layout } from '../components/layout'
 import { Seo, SiteInformation, SiteMetadata } from '../components/metadata'
 import { Nav, NavSocialIcons } from '../components/nav'
 import { TechnicalSkills } from '../components/about'
+import { LabelledIcon, OriginalIcon } from '../components/icon'
 
 import './index.scss'
 
@@ -62,14 +63,23 @@ const AboutSection = ({ author }: SiteMetadata) => (
       <Col sm={12} md={6} lg={3} className="px-0">
         <Card className="border-0">
           <div className="text-center text-3x text-secondary">
-            <FontAwesomeIcon icon={['fab', 'connectdevelop']} />
+            <FontAwesomeIcon icon="project-diagram" />
           </div>
           <Card.Body>
             <Card.Title className="text-center" as="h5">
               Architecture
             </Card.Title>
             <Card.Text className="text-center">
-              Design microservices in a resilient, responsive and elastic architecture
+              Design microservices in a{' '}
+              <a href="https://www.reactivemanifesto.org/">
+                resilient, responsive and elastic architecture
+              </a>{' '}
+              by applying the right tactics from <abbr title="Domain Driven Design">DDD</abbr>{' '}
+              analysis (Event Sourcing,{' '}
+              <abbr title="Command and Query Responsibility Segregation">CQRS</abbr>,
+              Request/Reply).
+              <br />
+              Use drawing convention such as BPMN, UML or Archimate when it helps.
             </Card.Text>
           </Card.Body>
         </Card>
@@ -84,8 +94,9 @@ const AboutSection = ({ author }: SiteMetadata) => (
               DevOps
             </Card.Title>
             <Card.Text className="text-center">
-              Design pipeline following GitOps best practices to match your requirements like
-              security, audit, segregation
+              Design pipeline following{' '}
+              <a href="https://www.weave.works/technologies/gitops/">GitOps</a> best practices to
+              match your requirements like security, audit, segregation
             </Card.Text>
           </Card.Body>
         </Card>
@@ -100,7 +111,12 @@ const AboutSection = ({ author }: SiteMetadata) => (
               Code
             </Card.Title>
             <Card.Text className="text-center">
-              Implement from proof of concept to production
+              Implement from proof of concept to production following the{' '}
+              <a href="https://12factor.net/">twelve-factor app manifest</a> and applying the right
+              pattern (<abbr title="Object Oriented Programming">OOP</abbr>,{' '}
+              <abbr title="Functional Programming">FP</abbr>,{' '}
+              <abbr title="Aspect Oriented Programming">AOP</abbr>) at the right place for clean
+              code.
             </Card.Text>
           </Card.Body>
         </Card>
@@ -115,8 +131,8 @@ const AboutSection = ({ author }: SiteMetadata) => (
               Training
             </Card.Title>
             <Card.Text className="text-center">
-              Help people to get onboard with courses, presentations, sociabilizations and
-              mentorships from Developers to Management
+              Help people to get onboard with courses, presentations, socialization and mentorship
+              from Developers to Management
             </Card.Text>
           </Card.Body>
         </Card>
@@ -177,70 +193,65 @@ interface TechnicalSkillsSectionProps {
 const TechnicalSkillsSection = (props: TechnicalSkillsSectionProps) => (
   <section id="skills" className="resume">
     <h2 className="text-primary text-uppercase">Technical Skills</h2>
-    <p>
+    <p className="lead mb-4">
       {
         "I started as a java backend developer and even if java is still my main language, I've learned a lot more."
       }
     </p>
-    <h3>Architecture & Design</h3>
 
-    <CardGroup>
-      <Col sm={12} md={4} className="px-0">
-        <Card className="border-0">
-          <div className="text-center text-3x text-secondary">
-            <FontAwesomeIcon icon="project-diagram" />
-          </div>
-          <Card.Body>
-            <Card.Title className="text-center" as="h5">
-              Architecture
-            </Card.Title>
-            <Card.Text className="text-center">
-              Microservices, Distributed sytem, Domain Driven, Event Sourcing, CQRS, Request/Reply
-              (REST, gRPC)
-            </Card.Text>
-          </Card.Body>
-        </Card>
-      </Col>
-      <Col sm={12} md={4} className="px-0">
-        <Card className="border-0">
-          <div className="text-center text-3x text-secondary">
-            <FontAwesomeIcon icon="code" />
-          </div>
-          <Card.Body>
-            <Card.Title className="text-center" as="h5">
-              Code style
-            </Card.Title>
-            <Card.Text className="text-center">
-              Object Oriented Programming (OOP), Aspect Oriented Programming (AOP), Functional
-              Programming (FP), Design Patterns
-            </Card.Text>
-          </Card.Body>
-        </Card>
-      </Col>
-      <Col sm={12} md={4} className="px-0">
-        <Card className="border-0">
-          <div className="text-center text-3x text-secondary">
-            <FontAwesomeIcon icon="pen" />
-          </div>
-          <Card.Body>
-            <Card.Title className="text-center" as="h5">
-              Drawing
-            </Card.Title>
-            <Card.Text className="text-center">BPMN, UML, Archimate</Card.Text>
-          </Card.Body>
-        </Card>
-      </Col>
-    </CardGroup>
+    <h3>
+      <FontAwesomeIcon icon="laptop-code" className="text-secondary" /> Programming
+    </h3>
+    <Container className="mb-3" fluid>
+      {Object.entries(props.programming).map(([key, value]) => (
+        <TechnicalSkills key={key} title={value.title} skills={value.values} />
+      ))}
+    </Container>
 
-    <h3>Programming</h3>
-    {Object.entries(props.programming).map(([key, value]) => (
-      <TechnicalSkills key={key} title={value.title} skills={value.values} />
-    ))}
+    <h3>
+      <FontAwesomeIcon icon="space-shuttle" className="text-secondary" /> DevOps
+    </h3>
+    <Container className="mb-3" fluid>
+      {Object.entries(props.devOps).map(([key, value]) => (
+        <TechnicalSkills key={key} title={value.title} skills={value.values} />
+      ))}
+    </Container>
 
-    <h3>DevOps</h3>
-    {Object.entries(props.devOps).map(([key, value]) => (
-      <TechnicalSkills key={key} title={value.title} skills={value.values} />
-    ))}
+    <h3>
+      <FontAwesomeIcon icon="heart" className="text-secondary" /> Stack
+    </h3>
+    <Container className="mb-3" fluid>
+      <Row as="dl">
+        <Col sm={3} as="dt">
+          Frontend
+        </Col>
+        <Col sm={9} as="dd">
+          <LabelledIcon label="Reactjs" labelClassName="font-weight-light">
+            <OriginalIcon className="text-2x" icon="reactjs" />
+          </LabelledIcon>
+          {' + '}
+          <LabelledIcon label="Nodejs" labelClassName="font-weight-light">
+            <OriginalIcon className="text-2x" icon="nodejs" />
+          </LabelledIcon>
+        </Col>
+        <Col sm={3} as="dt">
+          Backend
+        </Col>
+        <Col sm={9} as="dd">
+          <LabelledIcon label="Scala" labelClassName="font-weight-light">
+            <OriginalIcon className="text-2x" icon="scala" />
+          </LabelledIcon>
+        </Col>
+        <Col sm={3} as="dt">
+          Platform
+        </Col>
+        <Col sm={9} as="dl">
+          <LabelledIcon label="Kubernetes" labelClassName="font-weight-light">
+            <OriginalIcon className="text-2x" icon="kubernetes" />
+          </LabelledIcon>
+        </Col>
+      </Row>
+    </Container>
   </section>
 )
 

@@ -1,14 +1,15 @@
 import React from 'react'
 import * as _ from 'lodash'
 import { Card } from 'react-bootstrap'
-import OriginalIcon from '../icon/OriginalIcon'
+import { LabelledIcon, OriginalIcon } from '../icon'
 
 import './Skills.scss'
 
 const mapToListItem = (item: string) => (
   <li className="p-2" key={item}>
-    <OriginalIcon className="text-2x" icon={item} />
-    <strong className="text-center">{item}</strong>
+    <LabelledIcon label={item} labelAs="strong">
+      <OriginalIcon className="text-2x" icon={item} />
+    </LabelledIcon>
   </li>
 )
 

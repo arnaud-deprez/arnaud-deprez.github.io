@@ -35,6 +35,7 @@ import logstashIcon from '@iconify/icons-logos/logstash'
 import kibanaIcon from '@iconify/icons-logos/kibana'
 import snykIcon from '@iconify/icons-logos/snyk'
 import sassIcon from '@iconify/icons-logos/sass'
+import nodejsIcon from '@iconify/icons-logos/nodejs-icon'
 
 // Downloaded svg icons
 import SbtIcon from '../../images/logos/svg-icons/sbt-icon.svg'
@@ -44,7 +45,6 @@ import BashIcon from '../../images/logos/svg-icons/gnu_bash-icon.svg'
 import AnchoreIcon from '../../images/logos/svg-icons/anchoreio-icon.svg'
 // TODO: why ActiveMQ svg is not shown
 // import ActiveMQIcon from '../../images/logos/svg-icons/apache_activemq-icon.svg'
-// TODO: why fluentd svg cannot keep its original colors
 import FluentdIcon from '../../images/logos/svg-icons/fluentd-icon.svg'
 import HazelcastIcon from '../../images/logos/svg-icons/hazelcast-icon.svg'
 import CassandraIcon from '../../images/logos/svg-icons/apache_cassandra-icon.svg'
@@ -59,7 +59,7 @@ import owaspImg from '../../images/logos/owasp-icon.png'
 import clairImg from '../../images/logos/clair-icon.png'
 import activemqImg from '../../images/logos/apache_activemq-icon.png'
 
-interface IconProps {
+export interface IconProps {
   // should not have any children
   children?: never
 
@@ -125,7 +125,7 @@ const iconContainer: OriginalIcons = {
   java: iconify(javaIcon),
   scala: iconify(scalaIcon),
   kotlin: iconify(kotlinIcon),
-  go: iconify(goIcon, { width: '2em' }),
+  go: iconify(goIcon, { width: '2em', height: '1em' }),
   'html-5': iconify(html5Icon),
   'css-3': iconify(css3Icon),
   sass: iconify(sassIcon),
@@ -154,7 +154,7 @@ const iconContainer: OriginalIcons = {
   git: iconify(gitIcon),
   gitlab: iconify(gitlabIcon),
   selenium: iconify(seleniumIcon),
-  sonarqube: iconify(sonarqubeIcon, { width: '3em' }),
+  sonarqube: iconify(sonarqubeIcon, { width: '3em', height: '1em' }),
   jenkins: svgIcon(JenkinsIcon),
   prometheus: iconify(prometheusIcon),
   grafana: iconify(grafanaIcon),
@@ -172,16 +172,15 @@ const iconContainer: OriginalIcons = {
   maven: svgIcon(MavenIcon),
   'c#': svgIcon(CSharpIcon),
   owasp: imgIcon(owaspImg),
-  clair: imgIcon(clairImg)
+  clair: imgIcon(clairImg),
+  nodejs: iconify(nodejsIcon)
 }
 
 export interface OriginalIconProps extends IconProps {
   icon: string
 }
 
-const OriginalIcon = ({ icon, ...rest }: OriginalIconProps): JSX.Element => {
+export const OriginalIcon = ({ icon, ...rest }: OriginalIconProps): JSX.Element => {
   const key = icon.replace(/[\s&]+/gi, '-').toLowerCase()
   return _.has(iconContainer, key) ? iconContainer[key](rest) : <i />
 }
-
-export default OriginalIcon
