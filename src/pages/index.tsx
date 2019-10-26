@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { Container, Row, Col, Card, CardGroup, Nav as BootstrapNav } from 'react-bootstrap'
+import { Container, Row, Col, Card, CardGroup, Table, Nav as BootstrapNav } from 'react-bootstrap'
 import { Link as ScrollSpyLink } from 'react-scroll'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { PhotoCard } from '../components/photocard/PhotoCard'
@@ -55,17 +55,17 @@ const AboutSection = ({ author }: SiteMetadata) => (
     <h2 className="text-uppercase mb-0">
       Arnaud <span className="text-primary">Deprez</span>
     </h2>
-    <h3 className="text-muted pt-0 mb-5">Creative Technical Architect</h3>
+    <h4 className="text-muted pt-0 mb-5">Creative Technical Architect</h4>
 
     <h4 className="text-primary">Help customers to</h4>
 
-    <CardGroup className="mb-5">
+    <CardGroup className="mb-4">
       <Col sm={12} md={6} lg={3} className="px-0">
-        <Card className="border-0">
+        <Card className="border-0 mb-3">
           <div className="text-center text-3x text-secondary">
             <FontAwesomeIcon icon="project-diagram" />
           </div>
-          <Card.Body>
+          <Card.Body className="pt-2">
             <Card.Title className="text-center" as="h5">
               Architecture
             </Card.Title>
@@ -85,11 +85,11 @@ const AboutSection = ({ author }: SiteMetadata) => (
         </Card>
       </Col>
       <Col sm={12} md={6} lg={3} className="px-0">
-        <Card className="border-0">
+        <Card className="border-0 mb-3">
           <div className="text-center text-3x text-secondary">
             <FontAwesomeIcon icon="rocket" />
           </div>
-          <Card.Body>
+          <Card.Body className="pt-2">
             <Card.Title className="text-center" as="h5">
               DevOps
             </Card.Title>
@@ -102,11 +102,11 @@ const AboutSection = ({ author }: SiteMetadata) => (
         </Card>
       </Col>
       <Col sm={12} md={6} lg={3} className="px-0">
-        <Card className="border-0">
+        <Card className="border-0 mb-3">
           <div className="text-center text-3x text-secondary">
             <FontAwesomeIcon icon="code" />
           </div>
-          <Card.Body>
+          <Card.Body className="pt-2">
             <Card.Title className="text-center" as="h5">
               Code
             </Card.Title>
@@ -122,11 +122,11 @@ const AboutSection = ({ author }: SiteMetadata) => (
         </Card>
       </Col>
       <Col sm={12} md={6} lg={3} className="px-0">
-        <Card className="border-0">
+        <Card className="border-0 mb-3">
           <div className="text-center text-3x text-secondary">
             <FontAwesomeIcon icon="user-graduate" />
           </div>
-          <Card.Body>
+          <Card.Body className="pt-2">
             <Card.Title className="text-center" as="h5">
               Training
             </Card.Title>
@@ -139,7 +139,7 @@ const AboutSection = ({ author }: SiteMetadata) => (
       </Col>
     </CardGroup>
 
-    <blockquote className="blockquote mb-5">
+    <blockquote className="container mb-5">
       <p className="text-justify">
         <span className="text-primary h4 mr-3">
           <FontAwesomeIcon icon="quote-left" />
@@ -221,36 +221,38 @@ const TechnicalSkillsSection = (props: TechnicalSkillsSectionProps) => (
       <FontAwesomeIcon icon="heart" className="text-secondary" /> Stack
     </h3>
     <Container className="mb-3" fluid>
-      <Row as="dl">
-        <Col sm={3} as="dt">
-          Frontend
-        </Col>
-        <Col sm={9} as="dd">
-          <LabelledIcon label="Reactjs" labelClassName="font-weight-light">
-            <OriginalIcon className="text-2x" icon="reactjs" />
-          </LabelledIcon>
-          {' + '}
-          <LabelledIcon label="Nodejs" labelClassName="font-weight-light">
-            <OriginalIcon className="text-2x" icon="nodejs" />
-          </LabelledIcon>
-        </Col>
-        <Col sm={3} as="dt">
-          Backend
-        </Col>
-        <Col sm={9} as="dd">
-          <LabelledIcon label="Scala" labelClassName="font-weight-light">
-            <OriginalIcon className="text-2x" icon="scala" />
-          </LabelledIcon>
-        </Col>
-        <Col sm={3} as="dt">
-          Platform
-        </Col>
-        <Col sm={9} as="dl">
-          <LabelledIcon label="Kubernetes" labelClassName="font-weight-light">
-            <OriginalIcon className="text-2x" icon="kubernetes" />
-          </LabelledIcon>
-        </Col>
-      </Row>
+      <table>
+        <tbody>
+          <tr>
+            <th className="pr-3">Frontend</th>
+            <td className="d-flex justify-content-center py-2">
+              <LabelledIcon label="Reactjs" labelClassName="font-weight-light">
+                <OriginalIcon className="text-2x" icon="reactjs" />
+              </LabelledIcon>
+              {' + '}
+              <LabelledIcon label="Nodejs" labelClassName="font-weight-light">
+                <OriginalIcon className="text-2x" icon="nodejs" />
+              </LabelledIcon>
+            </td>
+          </tr>
+          <tr>
+            <th className="pr-3">Backend</th>
+            <td className="d-flex justify-content-center py-2">
+              <LabelledIcon label="Scala" labelClassName="font-weight-light">
+                <OriginalIcon className="text-2x" icon="scala" />
+              </LabelledIcon>
+            </td>
+          </tr>
+          <tr>
+            <th className="pr-3">Platform</th>
+            <td className="d-flex justify-content-center py-2">
+              <LabelledIcon label="Kubernetes" labelClassName="font-weight-light">
+                <OriginalIcon className="text-2x" icon="kubernetes" />
+              </LabelledIcon>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </Container>
   </section>
 )
