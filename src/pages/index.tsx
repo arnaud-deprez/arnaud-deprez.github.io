@@ -193,7 +193,7 @@ interface TechnicalSkillsSectionProps {
 const TechnicalSkillsSection = (props: TechnicalSkillsSectionProps) => (
   <section id="skills" className="resume">
     <h2 className="text-primary text-uppercase">Technical Skills</h2>
-    <p className="lead mb-4">
+    <p className="mb-4">
       {
         "I started as a java backend developer and even if java is still my main language, I've learned a lot more."
       }
@@ -224,7 +224,7 @@ const TechnicalSkillsSection = (props: TechnicalSkillsSectionProps) => (
       <table>
         <tbody>
           <tr>
-            <th className="pr-3">Frontend</th>
+            <th className="pr-4">Frontend</th>
             <td className="d-flex justify-content-center py-2">
               <LabelledIcon label="Reactjs" labelClassName="font-weight-light">
                 <OriginalIcon className="text-2x" icon="reactjs" />
@@ -236,7 +236,7 @@ const TechnicalSkillsSection = (props: TechnicalSkillsSectionProps) => (
             </td>
           </tr>
           <tr>
-            <th className="pr-3">Backend</th>
+            <th className="pr-4">Backend</th>
             <td className="d-flex justify-content-center py-2">
               <LabelledIcon label="Scala" labelClassName="font-weight-light">
                 <OriginalIcon className="text-2x" icon="scala" />
@@ -244,7 +244,7 @@ const TechnicalSkillsSection = (props: TechnicalSkillsSectionProps) => (
             </td>
           </tr>
           <tr>
-            <th className="pr-3">Platform</th>
+            <th className="pr-4">Platform</th>
             <td className="d-flex justify-content-center py-2">
               <LabelledIcon label="Kubernetes" labelClassName="font-weight-light">
                 <OriginalIcon className="text-2x" icon="kubernetes" />

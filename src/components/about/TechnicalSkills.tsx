@@ -3,7 +3,7 @@ import * as _ from 'lodash'
 import { Card } from 'react-bootstrap'
 import { LabelledIcon, OriginalIcon } from '../icon'
 
-import './Skills.scss'
+import './TechnicalSkills.scss'
 
 const mapToListItem = (item: string) => (
   <li className="p-2" key={item}>
@@ -13,7 +13,11 @@ const mapToListItem = (item: string) => (
   </li>
 )
 
-const mapToList = (items: string[]) => <ul className="skills">{items.map(mapToListItem)}</ul>
+const mapToList = (items: string[], idx: number) => (
+  <ul className="skills" key={idx}>
+    {items.map(mapToListItem)}
+  </ul>
+)
 
 const uniformize = (items: string[] | string[][]): string[][] => {
   const result = []
