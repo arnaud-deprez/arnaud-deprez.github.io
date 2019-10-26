@@ -55,7 +55,7 @@ const AboutSection = ({ author }: SiteMetadata) => (
     <h2 className="text-uppercase mb-0">
       Arnaud <span className="text-primary">Deprez</span>
     </h2>
-    <h4 className="text-muted pt-0 mb-5">Creative Technical Architect</h4>
+    <h3 className="text-muted h4 pt-0 mb-5">Creative Technical Architect</h3>
 
     <h4 className="text-primary">Help customers to</h4>
 
