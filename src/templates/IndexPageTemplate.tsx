@@ -49,7 +49,7 @@ const AboutSection = (props: AboutSectionProps) => (
     <h2 className="text-uppercase mb-0" dangerouslySetInnerHTML={{ __html: props.title }} />
     <h3 className="text-muted h4 pt-0 mb-5">{props.subTitle}</h3>
 
-    <h4 className="text-primary">Help customers to</h4>
+    <h4 className="text-primary mb-4">Helps customers in</h4>
 
     <CardGroup className="mb-4">
       {props.services.map(service => (
@@ -110,16 +110,16 @@ interface TechnicalSkillsSectionProps {
 const TechnicalSkillsSection = (props: TechnicalSkillsSectionProps) => (
   <section id="technicalSkills" className="resume">
     <h2 className="text-primary text-uppercase">Technical Skills</h2>
-    <p className="mb-4">
+    {/* <p className="mb-4">
       {
         "I've started as a java backend developer and even if java is still my main language, I've learned a lot more."
       }
-    </p>
+    </p> */}
 
     <h3>
       <FontAwesomeIcon icon="laptop-code" className="text-secondary" /> Programming
     </h3>
-    <Container className="mb-3" fluid>
+    <Container className="mb-4" fluid>
       {Object.entries(props.programming).map(([key, value]) => (
         <TechnicalSkills key={key} title={value.title} skills={value.values} />
       ))}
@@ -128,7 +128,7 @@ const TechnicalSkillsSection = (props: TechnicalSkillsSectionProps) => (
     <h3>
       <FontAwesomeIcon icon="space-shuttle" className="text-secondary" /> DevOps
     </h3>
-    <Container className="mb-3" fluid>
+    <Container className="mb-4" fluid>
       {Object.entries(props.devOps).map(([key, value]) => (
         <TechnicalSkills key={key} title={value.title} skills={value.values} />
       ))}
@@ -137,7 +137,7 @@ const TechnicalSkillsSection = (props: TechnicalSkillsSectionProps) => (
     <h3>
       <FontAwesomeIcon icon="heart" className="text-secondary" /> Stack
     </h3>
-    <Container className="mb-3" fluid>
+    <Container className="mb-4" fluid>
       <table>
         <tbody>
           {props.love.map(love => (
