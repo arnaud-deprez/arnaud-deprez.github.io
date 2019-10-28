@@ -79,7 +79,6 @@ module.exports = {
       }
     },
     'gatsby-transformer-sharp',
-    `gatsby-transformer-json`,
     'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-plugin-mdx',
@@ -136,8 +135,8 @@ module.exports = {
         feeds: [
           {
             title: 'Feed',
-            serialize: ({ query: { site, allMdx } }) => {
-              return allMdx.edges.map(({ node }) => {
+            serialize: ({ query: { site, allMarkdown } }) => {
+              return allMarkdown.edges.map(({ node }) => {
                 return {
                   ...node.frontmatter,
                   description: node.excerpt,
@@ -149,7 +148,7 @@ module.exports = {
             },
             query: `
               {
-                allMdx(
+                allMarkdown(
                   limit: 1000,
                   sort: { order: DESC, fields: [frontmatter___date] },
                   filter: { 

@@ -5,17 +5,19 @@ import { LabelledIcon, OriginalIcon } from '../icon'
 
 import './TechnicalSkills.scss'
 
-const mapToListItem = (item: string) => (
-  <li className="p-2" key={item}>
-    <LabelledIcon label={item} labelAs="strong">
-      <OriginalIcon className="text-2x" icon={item} />
-    </LabelledIcon>
-  </li>
+const TechnicalSkill = ({ skill }: { skill: string }) => (
+  <LabelledIcon label={skill} labelAs="strong">
+    <OriginalIcon className="text-2x" icon={skill} />
+  </LabelledIcon>
 )
 
 const mapToList = (items: string[], idx: number) => (
   <ul className="skills" key={idx}>
-    {items.map(mapToListItem)}
+    {items.map(item => (
+      <li className="p-2" key={item}>
+        <TechnicalSkill skill={item} />
+      </li>
+    ))}
   </ul>
 )
 

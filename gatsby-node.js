@@ -14,8 +14,8 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   if (node.internal.type === 'MarkdownRemark' || node.internal.type === 'Mdx') {
     const slug = createFilePath({ node, getNode })
     createNodeField({
-      node,
       name: 'slug',
+      node,
       value: slug
     })
   }
@@ -51,84 +51,81 @@ const createPaginatedPages = ({
     )
 }
 
-// exports.createPages = ({ actions, graphql }) => {
-//   const { createPage } = actions
+exports.createPages = ({ actions, graphql }) => {
+  const { createPage } = actions
 
-//   const IndexTemplate = path.resolve('src/templates/IndexTemplate.tsx')
-//   const TagTemplate = path.resolve('src/templates/TagTemplate.tsx')
-//   const SingleTemplate = path.resolve('src/templates/SingleTemplate.tsx')
+  return graphql(`
+    query GatsbyCreatePage {
+      allMarkdownRemark(
+        sort: { order: DESC, fields: [frontmatter___date] }
+        limit: 2000
+        filter: { frontmatter: { draft: { ne: true } } }
+      ) {
+        edges {
+          node {
+            id
+            frontmatter {
+              tags
+              templateKey
+            }
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `).then(result => {
+    if (result.errors) {
+      result.errors.forEach(e => console.error(e.toString()))
+      return Promise.reject(result.errors)
+    }
 
-//   return graphql(`
-//     {
-//       allMdx(
-//         sort: { order: DESC, fields: [frontmatter___date] }
-//         limit: 2000
-//         filter: { frontmatter: { draft: { ne: true } } }
-//       ) {
-//         edges {
-//           node {
-//             id
-//             parent {
-//               ... on File {
-//                 name
-//                 sourceInstanceName
-//               }
-//             }
-//             excerpt(pruneLength: 250)
-//             frontmatter {
-//               path
-//               title
-//               date(formatString: "MMMM D, YYYY")
-//               tags
-//             }
-//           }
-//         }
-//       }
-//     }
-//   `).then(result => {
-//     if (result.errors) {
-//       return Promise.reject(result.errors)
-//     }
+    const edges = result.data.allMarkdownRemark.edges
 
-//     const edges = result.data.allMdx.edges
+    // Create single content pages:
+    edges
+      .filter(({ node }) => !!node.frontmatter.templateKey) // make sure we have templateKey for it
+      .forEach(({ node }) => {
+        const { id, fields, frontmatter } = node
+        createPage({
+          path: frontmatter.path || fields.slug,
+          tags: frontmatter.tags,
+          component: path.resolve(`src/templates/${String(frontmatter.templateKey)}.tsx`),
+          // additional data can be passed via context
+          context: {
+            id
+          }
+        })
+      })
 
-//     // Create single content pages:
-//     edges.forEach(({ node }) => {
-//       const { frontmatter, parent } = node
-//       createPage({
-//         path: frontmatter.path || `/${parent.sourceInstanceName}/${parent.name}`,
-//         component: SingleTemplate
-//       })
-//     })
+    // Create full content list:
+    //   createPaginatedPages({
+    //     edges,
+    //     createPage,
+    //     component: IndexTemplate,
+    //     limit: 10,
+    //     prefix: 'all'
+    //   })
 
-//     // Create full content list:
-//     createPaginatedPages({
-//       edges,
-//       createPage,
-//       component: IndexTemplate,
-//       limit: 10,
-//       prefix: 'all'
-//     })
+    //   // Create content lists by tag:
+    //   const tags = uniq(
+    //     edges.reduce((acc, { node }) => [...acc, ...(node.frontmatter.tags || [])], [])
+    //   )
 
-//     // Create content lists by tag:
-//     const tags = uniq(
-//       edges.reduce((acc, { node }) => [...acc, ...(node.frontmatter.tags || [])], [])
-//     )
+    //   tags.forEach(tag => {
+    //     const slug = kebabCase(tag)
 
-//     tags.forEach(tag => {
-//       const slug = kebabCase(tag)
-
-//       createPaginatedPages({
-//         edges: edges.filter(({ node }) => (node.frontmatter.tags || []).includes(tag)),
-//         createPage,
-//         component: TagTemplate,
-//         limit: 10,
-//         prefix: `tags/${slug}`,
-//         context: {
-//           slug,
-//           tag
-//         }
-//       })
-//     })
-//   })
-// }
+    //     createPaginatedPages({
+    //       edges: edges.filter(({ node }) => (node.frontmatter.tags || []).includes(tag)),
+    //       createPage,
+    //       component: TagTemplate,
+    //       limit: 10,
+    //       prefix: `tags/${slug}`,
+    //       context: {
+    //         slug,
+    //         tag
+    //       }
+    //     })
+  })
+}
