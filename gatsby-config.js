@@ -135,8 +135,8 @@ module.exports = {
         feeds: [
           {
             title: 'Feed',
-            serialize: ({ query: { site, allMarkdown } }) => {
-              return allMarkdown.edges.map(({ node }) => {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.edges.map(({ node }) => {
                 return {
                   ...node.frontmatter,
                   description: node.excerpt,
@@ -148,7 +148,7 @@ module.exports = {
             },
             query: `
               {
-                allMarkdown(
+                allMarkdownRemark(
                   limit: 1000,
                   sort: { order: DESC, fields: [frontmatter___date] },
                   filter: { 
