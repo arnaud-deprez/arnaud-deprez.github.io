@@ -36,6 +36,9 @@ import kibanaIcon from '@iconify/icons-logos/kibana'
 import snykIcon from '@iconify/icons-logos/snyk'
 import sassIcon from '@iconify/icons-logos/sass'
 import nodejsIcon from '@iconify/icons-logos/nodejs-icon'
+import gatsbyIcon from '@iconify/icons-logos/gatsby'
+import bootstrapIcon from '@iconify/icons-logos/bootstrap'
+import netlifyIcon from '@iconify/icons-logos/netlify'
 
 // Downloaded svg icons
 import SbtIcon from '../../images/logos/svg-icons/sbt-icon.svg'
@@ -172,7 +175,10 @@ const iconContainer: OriginalIcons = {
   'c#': svgIcon(CSharpIcon),
   owasp: imgIcon(owaspImg),
   clair: imgIcon(clairImg),
-  nodejs: iconify(nodejsIcon)
+  nodejs: iconify(nodejsIcon),
+  gatsby: iconify(gatsbyIcon),
+  bootstrap: iconify(bootstrapIcon),
+  netlify: iconify(netlifyIcon)
 }
 
 export interface OriginalIconProps extends IconProps {
