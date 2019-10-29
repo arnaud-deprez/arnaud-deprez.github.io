@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Col, Row } from 'react-bootstrap'
+import { Container, Col, Row, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { OriginalIcon } from '../icon'
 
@@ -14,15 +14,24 @@ export const Footer = () => (
         <p>
           Build with{' '}
           <a href="https://www.gatsbyjs.org">
-            <OriginalIcon icon="gatsby" inline />
+            <OverlayTrigger placement="top" overlay={<Tooltip id="footer-gatsby">Gatsby</Tooltip>}>
+              <OriginalIcon icon="gatsby" inline />
+            </OverlayTrigger>
           </a>{' '}
           | Designed with{' '}
           <a href="https://getbootstrap.com">
-            <OriginalIcon icon="bootstrap" inline />
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip id="footer-gatsby">Bootstrap</Tooltip>}
+            >
+              <OriginalIcon icon="bootstrap" inline />
+            </OverlayTrigger>
           </a>{' '}
           | Hosted with <FontAwesomeIcon icon="heart" color="red" /> by{' '}
           <a href="https://www.netlify.com/">
-            <OriginalIcon icon="netlify" inline />
+            <OverlayTrigger placement="top" overlay={<Tooltip id="footer-gatsby">Netlify</Tooltip>}>
+              <OriginalIcon icon="netlify" inline />
+            </OverlayTrigger>
           </a>
         </p>
       </Col>
