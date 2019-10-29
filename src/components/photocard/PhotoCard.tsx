@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
 
-import pic from '../../images/profile.png'
+import pic from '../../../static/favicon/profile.png'
 import './PhotoCard.scss'
 
 export interface PhotoCardProps extends React.ComponentPropsWithoutRef<'div'> {

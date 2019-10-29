@@ -6,6 +6,7 @@ yarn-error.log
 
 *.log
 .vscode
+*.DS_Store
 
 # Build directory
 /public/

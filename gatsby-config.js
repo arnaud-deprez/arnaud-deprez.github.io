@@ -30,11 +30,14 @@ const gatsbyRemarkPlugins = [
 ]
 
 const url = 'https://arnaud-deprez.powple.com'
+const title = 'Arnaud Deprez'
+const longName = 'Arnaud Deprez Technical Blog'
+const description = 'Technical Blog of Arnaud Deprez to shared his experience about technical stuff'
 
 module.exports = {
   siteMetadata: {
-    title: 'Arnaud Deprez',
-    description: 'blog to shared my experience about technical stuff',
+    title,
+    description,
     copyright: 'Copyright © 2019 Arnaud Deprez',
     siteUrl: url,
     author: {
@@ -180,32 +183,19 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'gatsby-starter-typescript',
-        short_name: 'GatsbyTS',
+        name: longName,
+        short_name: title,
+        description,
+        lang: 'en',
         start_url: '/',
-        background_color: '#f7f0eb',
-        theme_color: '#a2466c',
+        background_color: '#fff',
+        theme_color: '#bd5d38',
         display: 'minimal-ui',
-        icons: [
-          {
-            // Everything in /static will be copied to an equivalent
-            // directory in /public during development and build, so
-            // assuming your favicons are in /static/favicon,
-            // you can reference them here
-            src: '/favicon/192.png',
-            sizes: '192x192',
-            type: 'image/png'
-          },
-          {
-            src: '/favicon/512.png',
-            sizes: '512x512',
-            type: 'image/png'
-          }
-        ]
+        icon: './static/favicon/profile.png'
       }
     },
     'gatsby-plugin-sitemap',
-    // 'gatsby-plugin-offline',
+    'gatsby-plugin-offline',
     'gatsby-plugin-netlify'
   ]
 }
