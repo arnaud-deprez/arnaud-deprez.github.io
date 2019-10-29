@@ -32,7 +32,8 @@ const gatsbyRemarkPlugins = [
 const url = 'https://arnaud-deprez.powple.com'
 const title = 'Arnaud Deprez'
 const longName = 'Arnaud Deprez Technical Blog'
-const description = 'Technical Blog of Arnaud Deprez to shared his experience about technical stuff'
+const description =
+  'Technical Blog of Arnaud Deprez where he shares his experience about technical stuff'
 
 module.exports = {
   siteMetadata: {
