@@ -190,7 +190,7 @@ module.exports = {
         lang: 'en',
         start_url: '/',
         background_color: '#fff',
-        theme_color: '#bd5d38',
+        theme_color: '#3B8EA5',
         display: 'minimal-ui',
         icon: './static/favicon/profile.png'
       }
