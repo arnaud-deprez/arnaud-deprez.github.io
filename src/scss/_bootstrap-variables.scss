@@ -37,17 +37,28 @@ $purple:  #6f42c1;
 $pink:    #e83e8c;
 $red:     #dc3545;
 //$orange:  #fd7e14;
-$orange:  #bd5d38; // changed
+$orange-2:  #bd5d38;
+$orange-3:  #d66035;
+$orange-good1:  #ef8e34; 
+$orange-good2:  #D77D4B;
+$orange:  #ef8e34; // changed
 $yellow:  #ffc107;
 $green:   #28a745;
+$green-munsell: #04A777;
 $teal:    #20c997;
 $cyan:    #17a2b8;
+$cyan-dark: #0F8B8D;
+$blue: #3DA5D9;
+$blue-france: #1A8FE3;
+$blue-teal: #33658A;
+$blue-steel: #3B8EA5;
+$purple: #6610F2;
 $twitter: #1da1f2;
 $linkedin: #0077b5;
 $github: $gray-900;
 
-$primary:       $orange;
-$secondary:     $cyan;
+$primary:       $blue-teal;
+$secondary:     $orange;
 $success:       $green;
 $info:          $cyan;
 $warning:       $yellow;
