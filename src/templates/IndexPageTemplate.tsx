@@ -74,11 +74,11 @@ const AboutSection = (props: AboutSectionProps) => (
 
     <blockquote className="container mb-5">
       <p className="text-justify">
-        <span className="text-primary h4 mr-3">
+        <span className="text-secondary h4 mr-3">
           <FontAwesomeIcon icon="quote-left" />
         </span>
         <em dangerouslySetInnerHTML={{ __html: props.pitch }} />
-        <span className="text-primary h4 ml-3">
+        <span className="text-secondary h4 ml-3">
           <FontAwesomeIcon icon="quote-right" />
         </span>
       </p>

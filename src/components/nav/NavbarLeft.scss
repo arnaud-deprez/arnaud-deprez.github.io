@@ -12,7 +12,7 @@
     margin-right: 0;
     
     .photo-card .card-img {
-      border: 0.5rem solid fade-out($white, 0.8);
+      border: 0.5rem solid scale-color($white, $alpha: -80%);
     }
   }
 
