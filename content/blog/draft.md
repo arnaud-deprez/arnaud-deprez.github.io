@@ -1,9 +1,8 @@
 ---
-path: '/blog/draft/'
-date: '2017-12-07'
-title: 'Draft'
 draft: true
-tags: ['markdown', 'draft', 'example']
+templateKey: BlogPostPageTemplate
+date: '2018-01-07'
+title: 'Draft'
+description: Draft
+tags: ['markdown', 'kittens', 'example']
 ---
-
-This is a draft file, it should not be published.

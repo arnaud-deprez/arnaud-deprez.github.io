@@ -1,4 +1,5 @@
 import React from 'react'
+import * as _ from 'lodash'
 import { graphql } from 'gatsby'
 import { Container, Col, Card, CardGroup, Nav as BootstrapNav } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -91,7 +92,7 @@ interface TechnicalSkillsSectionProps {
 }
 
 const TechnicalSkillsSection = (props: TechnicalSkillsSectionProps) => (
-  <section id="technicalSkills" className="resume">
+  <section id="technical-skills" className="resume">
     <h2 className="text-primary text-uppercase">Technical Skills</h2>
     <h3>
       <FontAwesomeIcon icon="laptop-code" className="text-secondary" /> Programming

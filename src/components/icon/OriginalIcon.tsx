@@ -188,6 +188,6 @@ export interface OriginalIconProps extends IconProps {
 }
 
 export const OriginalIcon = ({ icon, ...rest }: OriginalIconProps): JSX.Element => {
-  const key = icon.replace(/[\s&]+/gi, '-').toLowerCase()
+  const key = _.kebabCase(icon)
   return _.has(iconContainer, key) ? iconContainer[key](rest) : <i />
 }
