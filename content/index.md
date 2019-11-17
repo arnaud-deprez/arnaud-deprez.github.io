@@ -56,14 +56,14 @@ section:
           - C#
           - Clojure
           - Bash
-      - title: Frontend,
+      - title: Frontend
         values: ['Html 5', 'Javascript', 'Typescript', 'Reactjs', 'CSS 3', 'Sass']
-      - title: Database,
+      - title: Database
         values: ['PostgreSQL', 'MySQL', 'MongoDB', 'Elasticsearch', 'Cassandra', 'ArangoDB']
       - title: Message Bus
         values: ['Kafka', 'RabbitMQ', 'ActiveMQ']
     devOps:
-      - title: Platform,
+      - title: Platform
         values: ['Kubernetes', 'Openshift', 'Docker']
       - title: Monitoring
         values: ['Prometheus', 'Grafana', 'Elasticsearch', 'Logstash', 'Fluentd', 'Kibana']

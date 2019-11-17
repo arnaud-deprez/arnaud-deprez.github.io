@@ -110,12 +110,6 @@ interface TechnicalSkillsSectionProps {
 const TechnicalSkillsSection = (props: TechnicalSkillsSectionProps) => (
   <section id="technicalSkills" className="resume">
     <h2 className="text-primary text-uppercase">Technical Skills</h2>
-    {/* <p className="mb-4">
-      {
-        "I've started as a java backend developer and even if java is still my main language, I've learned a lot more."
-      }
-    </p> */}
-
     <h3>
       <FontAwesomeIcon icon="laptop-code" className="text-secondary" /> Programming
     </h3>
