@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PhotoCard/> renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="photo-card card"
+  >
+    <img
+      class="card-img rounded-circle mb-2"
+      src="test-file-stub"
+    />
+    <div
+      class="d-none d-lg-block card-body"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<PhotoCard/> renders correctly with name and jobTitle 1`] = `
+<DocumentFragment>
+  <div
+    class="photo-card card"
+  >
+    <img
+      class="card-img rounded-circle mb-2"
+      src="test-file-stub"
+    />
+    <div
+      class="d-none d-lg-block card-body"
+    >
+      <h5
+        class="text-center card-title"
+      >
+        test
+      </h5>
+      <h6
+        class="font-italic text-center text-wrap card-subtitle"
+      >
+        job
+      </h6>
+    </div>
+  </div>
+</DocumentFragment>
+`;

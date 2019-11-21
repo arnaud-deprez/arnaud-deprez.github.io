@@ -1,0 +1,12 @@
+@import '../../scss/global.scss';
+
+.photo-card.card {
+  border: 0;
+  background-color: inherit;
+  align-items: center;
+
+  .card-img {
+    height: 10rem;
+    max-width: 10rem;
+  }
+}

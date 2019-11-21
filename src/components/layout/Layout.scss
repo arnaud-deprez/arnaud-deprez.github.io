@@ -1,0 +1,15 @@
+@import '../../scss/global';
+
+.content {
+  margin-top: 3.5rem;
+
+  // section looks like a jumbotron but without border and background color by default
+  section {
+    padding: $jumbotron-padding ($jumbotron-padding / 2);
+    margin-bottom: $jumbotron-padding;
+
+    @include media-breakpoint-up(sm) {
+      padding: $jumbotron-padding;
+    }
+  }
+}

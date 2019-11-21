@@ -1,0 +1,8 @@
+@import '../../scss/global';
+
+.footer-text {
+  text-align: center;
+  @include media-breakpoint-up(lg) {
+    text-align: justify;
+  }
+}
