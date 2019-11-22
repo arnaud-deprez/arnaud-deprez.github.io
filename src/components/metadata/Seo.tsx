@@ -1,6 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { SiteInformation } from './SiteInformation'
+import defaultImage from '../../../static/favicon/profile.png'
 
 type MetaProps = JSX.IntrinsicElements['meta']
 
@@ -26,7 +27,12 @@ const twitterMeta = (twitterAccronym = '') => {
 
 const imageMeta = (image = '') => {
   if (!image) {
-    return []
+    return [
+      {
+        property: 'og:image',
+        content: defaultImage
+      }
+    ]
   }
   return [
     {
