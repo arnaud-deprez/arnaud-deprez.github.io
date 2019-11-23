@@ -16,7 +16,12 @@ export const NavbarLeft = ({
   author: { name, jobTitle, linkedin, github, twitter },
   children
 }: NavbarLeftProps) => (
-  <Navbar id="navbarLeft" className="d-none d-lg-flex flex-column navbar-dark bg-primary" as="nav">
+  <Navbar
+    id="navbarLeft"
+    className="d-none d-lg-flex flex-column navbar-dark bg-primary"
+    role="navigation"
+    as="nav"
+  >
     <Navbar.Brand to="/" as={Link}>
       <PhotoCard {...{ name, jobTitle }} />
     </Navbar.Brand>

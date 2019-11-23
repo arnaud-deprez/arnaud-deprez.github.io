@@ -31,8 +31,6 @@ exports[`<NavbarHeader/> renders correctly 1`] = `
           <a
             class="nav-link"
             href="/"
-            role="tab"
-            tabindex="-1"
           >
              About
           </a>
@@ -42,9 +40,7 @@ exports[`<NavbarHeader/> renders correctly 1`] = `
         >
           <a
             class="nav-link"
-            href="/contact"
-            role="tab"
-            tabindex="-1"
+            href="/contact/"
           >
              Contact
           </a>

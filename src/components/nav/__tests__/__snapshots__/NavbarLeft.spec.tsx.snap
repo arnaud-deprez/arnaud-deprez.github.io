@@ -5,6 +5,7 @@ exports[`<NavbarLeft/> renders correctly 1`] = `
   <nav
     class="d-none d-lg-flex flex-column navbar-dark bg-primary navbar navbar-expand navbar-light"
     id="navbarLeft"
+    role="navigation"
   >
     <a
       class="navbar-brand"
@@ -14,6 +15,7 @@ exports[`<NavbarLeft/> renders correctly 1`] = `
         class="photo-card card"
       >
         <img
+          alt="profile"
           class="card-img rounded-circle mb-2"
           src="test-file-stub"
         />
@@ -45,6 +47,7 @@ exports[`<NavbarLeft/> renders correctly with children 1`] = `
   <nav
     class="d-none d-lg-flex flex-column navbar-dark bg-primary navbar navbar-expand navbar-light"
     id="navbarLeft"
+    role="navigation"
   >
     <a
       class="navbar-brand"
@@ -54,6 +57,7 @@ exports[`<NavbarLeft/> renders correctly with children 1`] = `
         class="photo-card card"
       >
         <img
+          alt="profile"
           class="card-img rounded-circle mb-2"
           src="test-file-stub"
         />

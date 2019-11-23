@@ -223,9 +223,7 @@ module.exports = {
             host: null
           },
           'deploy-preview': {
-            policy: [{ userAgent: '*', disallow: ['/'] }],
-            sitemap: null,
-            host: null
+            policy: [{ userAgent: '*' }]
           }
         }
       }

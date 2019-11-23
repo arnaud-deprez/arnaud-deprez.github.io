@@ -31,26 +31,29 @@ export const Footer = () => (
         <p>
           Build with{' '}
           <a href="https://www.gatsbyjs.org">
-            <OverlayTrigger placement="top" overlay={<Tooltip id="footer-gatsby">Gatsby</Tooltip>}>
-              <OriginalIcon icon="gatsby" inline />
-            </OverlayTrigger>
+            {/* <OverlayTrigger placement="top" overlay={<Tooltip id="footer-gatsby">Gatsby</Tooltip>}> */}
+            <OriginalIcon icon="gatsby" inline />
+            <span className="sr-only">Gatsby</span>
+            {/* </OverlayTrigger> */}
           </a>
           {' | '}
           Designed with{' '}
           <a href="https://getbootstrap.com">
-            <OverlayTrigger
+            {/* <OverlayTrigger
               placement="top"
               overlay={<Tooltip id="footer-gatsby">Bootstrap</Tooltip>}
-            >
-              <OriginalIcon icon="bootstrap" inline />
-            </OverlayTrigger>
+            > */}
+            <OriginalIcon icon="bootstrap" inline />
+            <span className="sr-only">Bootstrap</span>
+            {/* </OverlayTrigger> */}
           </a>
           {' | '}
           Hosted with <FontAwesomeIcon icon="heart" color="red" /> by{' '}
           <a href="https://www.netlify.com/">
-            <OverlayTrigger placement="top" overlay={<Tooltip id="footer-gatsby">Netlify</Tooltip>}>
-              <OriginalIcon icon="netlify" inline />
-            </OverlayTrigger>
+            {/* <OverlayTrigger placement="top" overlay={<Tooltip id="footer-gatsby">Netlify</Tooltip>}> */}
+            <OriginalIcon icon="netlify" inline />
+            <span className="sr-only">Netlify</span>
+            {/* </OverlayTrigger> */}
           </a>
         </p>
       </Col>

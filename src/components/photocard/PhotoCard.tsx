@@ -12,7 +12,7 @@ export interface PhotoCardProps extends React.ComponentPropsWithoutRef<'div'> {
 
 export const PhotoCard = ({ name, jobTitle, className, ...rest }: PhotoCardProps) => (
   <Card className={`photo-card ${className || ''}`.trim()} {...rest}>
-    <Card.Img src={pic} className="rounded-circle mb-2" />
+    <Card.Img src={pic} alt="profile" className="rounded-circle mb-2" />
     <Card.Body className="d-none d-lg-block">
       {name && (
         <Card.Title className="text-center" as="h5">

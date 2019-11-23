@@ -46,10 +46,10 @@ const AboutSection = (props: AboutSectionProps) => (
   <section id="about" className="resume">
     <PhotoCard className="mb-4 d-lg-none" />
 
-    <h2 className="text-uppercase mb-0" dangerouslySetInnerHTML={{ __html: props.title }} />
-    <h3 className="text-muted h4 pt-0 mb-5">{props.subTitle}</h3>
+    <h1 className="text-uppercase mb-0" dangerouslySetInnerHTML={{ __html: props.title }} />
+    <h2 className="text-muted h4 pt-0 mb-5">{props.subTitle}</h2>
 
-    <h4 className="text-primary mb-4">Helps customers in</h4>
+    <h3 className="text-primary mb-4">Helps customers in</h3>
 
     <CardGroup className="mb-4">
       {props.services.map(service => (
@@ -92,6 +92,7 @@ const AboutSection = (props: AboutSectionProps) => (
       linkedin={props.author.linkedin}
       twitter={props.author.twitter}
       className="h3 justify-content-center pt-0"
+      role="list"
     />
   </section>
 )
