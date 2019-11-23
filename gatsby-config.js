@@ -29,7 +29,15 @@ const gatsbyRemarkPlugins = [
   }
 ]
 
-const url = 'https://arnaud-deprez.powple.com'
+const {
+  NODE_ENV,
+  URL: NETLIFY_SITE_URL = 'https://arnaud-deprez.powple.com',
+  DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
+  CONTEXT: NETLIFY_ENV = NODE_ENV
+} = process.env
+const isNetlifyProduction = NETLIFY_ENV === 'production'
+
+const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
 const title = 'Arnaud Deprez'
 const longName = 'Arnaud Deprez Technical Blog'
 const description =
@@ -40,7 +48,7 @@ module.exports = {
     title,
     description,
     copyright: 'Copyright © 2019 Arnaud Deprez',
-    siteUrl: url,
+    siteUrl,
     author: {
       name: 'Arnaud Deprez',
       jobTitle: 'Technical Architect - Software Engineer',
@@ -195,7 +203,33 @@ module.exports = {
         icon: './static/favicon/profile.png'
       }
     },
-    'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        exclude: ['/contact/thanks']
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        resolveEnv: () => NETLIFY_ENV,
+        env: {
+          production: {
+            policy: [{ userAgent: '*' }]
+          },
+          'branch-deploy': {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+            sitemap: null,
+            host: null
+          },
+          'deploy-preview': {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+            sitemap: null,
+            host: null
+          }
+        }
+      }
+    },
     'gatsby-plugin-offline',
     'gatsby-plugin-netlify'
   ]
