@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import { Nav as BootstrapNav } from 'react-bootstrap'
-import { Nav } from '../'
+import { Nav } from '..'
 
 describe('<Nav/>', () => {
   it('render a list of nav items', () => {

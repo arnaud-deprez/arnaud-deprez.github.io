@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { NavSocialIcons } from '../'
+import { NavSocialIcons } from '..'
 
 describe('<NavSocialIcons/>', () => {
   it('renders correctly', () => {

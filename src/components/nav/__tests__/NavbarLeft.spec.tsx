@@ -1,9 +1,25 @@
 import React from 'react'
 import { render } from '@testing-library/react'
+import { useStaticQuery } from 'gatsby'
 import { Nav as BootstrapNav } from 'react-bootstrap'
-import { NavbarLeft, Nav } from '../'
+import { NavbarLeft, Nav } from '..'
+
+jest.mock('gatsby')
+
+const mockUseStaticQuery = useStaticQuery as jest.Mock<any, any>
 
 describe('<NavbarLeft/>', () => {
+  beforeAll(() => {
+    mockUseStaticQuery.mockReturnValue({
+      file: {
+        childImageSharp: {
+          resize: {
+            src: 'profile.png'
+          }
+        }
+      }
+    })
+  })
   it('renders correctly', () => {
     const { asFragment } = render(
       <NavbarLeft
