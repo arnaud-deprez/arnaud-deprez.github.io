@@ -18,11 +18,12 @@ export const NavSocialIcons = ({
   twitter,
   useOriginalColor = false,
   className,
-  children
+  children,
+  role = ''
 }: NavSocialIconsProps) => (
-  <Nav className={`social-icons ${className || ''}`.trim()}>
+  <Nav className={`social-icons ${className || ''}`.trim()} role={role}>
     {linkedin && (
-      <BootstrapNav.Link href={linkedin}>
+      <BootstrapNav.Link href={linkedin} aria-label="Linked'In">
         <FontAwesomeIcon
           icon={['fab', 'linkedin']}
           className={colorClassName('linkedin', useOriginalColor)}
@@ -30,7 +31,7 @@ export const NavSocialIcons = ({
       </BootstrapNav.Link>
     )}
     {github && (
-      <BootstrapNav.Link href={github}>
+      <BootstrapNav.Link href={github} aria-label="Github">
         <FontAwesomeIcon
           icon={['fab', 'github']}
           className={colorClassName('github', useOriginalColor)}
@@ -38,7 +39,7 @@ export const NavSocialIcons = ({
       </BootstrapNav.Link>
     )}
     {twitter && (
-      <BootstrapNav.Link href={twitter}>
+      <BootstrapNav.Link href={twitter} aria-label="Twitter">
         <FontAwesomeIcon
           icon={['fab', 'twitter']}
           className={colorClassName('twitter', useOriginalColor)}

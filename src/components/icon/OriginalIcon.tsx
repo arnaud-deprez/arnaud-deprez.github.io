@@ -99,6 +99,7 @@ const iconify = (icon: object, defaultProps: IconProps = {}) => (props: IconProp
 )
 const imgIcon = (
   icon: string,
+  alt: string,
   defaultProps: IconProps = { style: { width: '1em', height: '1em' } }
 ) => (props: IconProps) => (
   <img
@@ -107,6 +108,7 @@ const imgIcon = (
       ...props
     }}
     src={icon}
+    alt={alt}
   />
 )
 const svgIcon = (Component: React.ElementType<IconProps>, defaultProps: IconProps = {}) => (
@@ -168,13 +170,13 @@ const iconContainer: OriginalIcons = {
   groovy: svgIcon(GroovyIcon),
   bash: svgIcon(BashIcon),
   anchore: svgIcon(AnchoreIcon),
-  activemq: imgIcon(activemqImg, { style: { width: '1em', height: '1.5em' } }),
+  activemq: imgIcon(activemqImg, 'ActiveMQ', { style: { width: '0.6667em', height: '1em' } }),
   fluentd: svgIcon(FluentdIcon),
   hazelcast: svgIcon(HazelcastIcon),
   maven: svgIcon(MavenIcon),
   'c#': svgIcon(CSharpIcon),
-  owasp: imgIcon(owaspImg),
-  clair: imgIcon(clairImg),
+  owasp: imgIcon(owaspImg, 'OWASP'),
+  clair: imgIcon(clairImg, 'clair'),
   nodejs: iconify(nodejsIcon),
   gatsby: iconify(gatsbyIcon),
   bootstrap: iconify(bootstrapIcon),

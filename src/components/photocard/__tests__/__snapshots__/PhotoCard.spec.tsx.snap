@@ -6,8 +6,9 @@ exports[`<PhotoCard/> renders correctly 1`] = `
     class="photo-card card"
   >
     <img
+      alt="profile"
       class="card-img rounded-circle mb-2"
-      src="test-file-stub"
+      src="profile.png"
     />
     <div
       class="d-none d-lg-block card-body"
@@ -22,8 +23,9 @@ exports[`<PhotoCard/> renders correctly with name and jobTitle 1`] = `
     class="photo-card card"
   >
     <img
+      alt="profile"
       class="card-img rounded-circle mb-2"
-      src="test-file-stub"
+      src="profile.png"
     />
     <div
       class="d-none d-lg-block card-body"

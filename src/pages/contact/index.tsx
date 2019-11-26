@@ -20,7 +20,7 @@ const ContactPage = ({ data }: ContactPageProps) => (
     <section>
       <PhotoCard className="mb-4 d-lg-none" />
       <Container className="d-flex flex-column align-items-center">
-        <h2 className="text-center">Reach me on</h2>
+        <h1 className="text-center">Reach me on</h1>
         <NavSocialIcons
           useOriginalColor
           linkedin={data.site.siteMetadata.author.linkedin}

@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { NavbarHeader } from '../'
+import { NavbarHeader } from '..'
 
 describe('<NavbarHeader/>', () => {
   it('renders correctly', () => {

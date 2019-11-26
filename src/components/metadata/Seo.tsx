@@ -1,7 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { SiteInformation } from './SiteInformation'
-import defaultImage from '../../../static/favicon/profile.png'
 
 type MetaProps = JSX.IntrinsicElements['meta']
 
@@ -30,7 +29,7 @@ const imageMeta = (image = '') => {
     return [
       {
         property: 'og:image',
-        content: defaultImage
+        content: 'icons/icon-144x144.png'
       }
     ]
   }

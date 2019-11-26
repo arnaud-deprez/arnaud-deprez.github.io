@@ -34,6 +34,7 @@ export const Footer = () => (
             <OverlayTrigger placement="top" overlay={<Tooltip id="footer-gatsby">Gatsby</Tooltip>}>
               <OriginalIcon icon="gatsby" inline />
             </OverlayTrigger>
+            <span className="sr-only">Gatsby</span>
           </a>
           {' | '}
           Designed with{' '}
@@ -44,6 +45,7 @@ export const Footer = () => (
             >
               <OriginalIcon icon="bootstrap" inline />
             </OverlayTrigger>
+            <span className="sr-only">Bootstrap</span>
           </a>
           {' | '}
           Hosted with <FontAwesomeIcon icon="heart" color="red" /> by{' '}
@@ -51,6 +53,7 @@ export const Footer = () => (
             <OverlayTrigger placement="top" overlay={<Tooltip id="footer-gatsby">Netlify</Tooltip>}>
               <OriginalIcon icon="netlify" inline />
             </OverlayTrigger>
+            <span className="sr-only">Netlify</span>
           </a>
         </p>
       </Col>

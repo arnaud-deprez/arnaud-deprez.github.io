@@ -9,14 +9,14 @@ import './NavbarHeader.scss'
 
 export const NavHeader = (props: SocialLinksTrait) => (
   <>
-    <Nav>
+    <Nav role="navigation">
       <BootstrapNav.Link to="/" as={Link}>
         <FontAwesomeIcon icon="user" className="mx-1" /> About
       </BootstrapNav.Link>
-      {/* <BootstrapNav.Link to="/blog" as={Link}>
+      {/* <BootstrapNav.Link to="/blog/" as={Link}>
         <FaBlog /> Blog
       </BootstrapNav.Link> */}
-      <BootstrapNav.Link to="/contact" as={Link}>
+      <BootstrapNav.Link to="/contact/" as={Link}>
         <FontAwesomeIcon icon="envelope" className="mx-1" /> Contact
       </BootstrapNav.Link>
     </Nav>

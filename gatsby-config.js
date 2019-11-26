@@ -200,7 +200,7 @@ module.exports = {
         background_color: '#fff',
         theme_color: '#D77D4B',
         display: 'minimal-ui',
-        icon: './static/favicon/profile.png'
+        icon: './content/profile.png'
       }
     },
     {
@@ -223,9 +223,7 @@ module.exports = {
             host: null
           },
           'deploy-preview': {
-            policy: [{ userAgent: '*', disallow: ['/'] }],
-            sitemap: null,
-            host: null
+            policy: [{ userAgent: '*' }]
           }
         }
       }
