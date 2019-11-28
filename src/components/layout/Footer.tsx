@@ -30,7 +30,7 @@ export const Footer = () => (
       <Col sm={12} lg={3} className="footer-text">
         <p>
           Build with{' '}
-          <a href="https://www.gatsbyjs.org">
+          <a href="https://www.gatsbyjs.org" target="_blank" rel="noopener noreferrer">
             <OverlayTrigger placement="top" overlay={<Tooltip id="footer-gatsby">Gatsby</Tooltip>}>
               <OriginalIcon icon="gatsby" inline />
             </OverlayTrigger>
@@ -38,7 +38,7 @@ export const Footer = () => (
           </a>
           {' | '}
           Designed with{' '}
-          <a href="https://getbootstrap.com">
+          <a href="https://getbootstrap.com" target="_blank" rel="noopener noreferrer">
             <OverlayTrigger
               placement="top"
               overlay={<Tooltip id="footer-gatsby">Bootstrap</Tooltip>}
@@ -49,7 +49,7 @@ export const Footer = () => (
           </a>
           {' | '}
           Hosted with <FontAwesomeIcon icon="heart" color="red" /> by{' '}
-          <a href="https://www.netlify.com/">
+          <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">
             <OverlayTrigger placement="top" overlay={<Tooltip id="footer-gatsby">Netlify</Tooltip>}>
               <OriginalIcon icon="netlify" inline />
             </OverlayTrigger>

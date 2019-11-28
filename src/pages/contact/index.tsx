@@ -28,7 +28,7 @@ const ContactPage = ({ data }: ContactPageProps) => (
           className="h3 mb-5"
         >
           <BootstrapNav.Link href={`mailto:${data.site.siteMetadata.author.email}`}>
-            <FaEnvelope className="text-dark" />
+            <FaEnvelope className="text-secondary" />
           </BootstrapNav.Link>
         </NavSocialIcons>
         <ContactForm />

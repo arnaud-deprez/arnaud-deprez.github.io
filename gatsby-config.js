@@ -53,7 +53,7 @@ module.exports = {
       name: 'Arnaud Deprez',
       jobTitle: 'Technical Architect - Software Engineer',
       email: 'arnaudeprez@gmail.com',
-      linkedin: 'https://www.linkedin.com/in/deprezarnaud',
+      linkedin: 'https://linkedin.com/in/deprezarnaud',
       twitter: 'https://twitter.com/arnaudeprez',
       github: 'https://github.com/arnaud-deprez',
       rss: ''

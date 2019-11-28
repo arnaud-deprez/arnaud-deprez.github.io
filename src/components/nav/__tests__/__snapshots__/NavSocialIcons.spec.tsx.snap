@@ -13,6 +13,8 @@ exports[`<NavSocialIcons/> renders correctly 1`] = `
         class="nav-link"
         data-rb-event-key="https://linkedin.com"
         href="https://linkedin.com"
+        rel="noopener noreferrer"
+        target="_blank"
       />
     </li>
     <li
@@ -23,6 +25,8 @@ exports[`<NavSocialIcons/> renders correctly 1`] = `
         class="nav-link"
         data-rb-event-key="https://github.com"
         href="https://github.com"
+        rel="noopener noreferrer"
+        target="_blank"
       />
     </li>
     <li
@@ -33,6 +37,8 @@ exports[`<NavSocialIcons/> renders correctly 1`] = `
         class="nav-link"
         data-rb-event-key="https://twitter.com"
         href="https://twitter.com"
+        rel="noopener noreferrer"
+        target="_blank"
       />
     </li>
   </ul>

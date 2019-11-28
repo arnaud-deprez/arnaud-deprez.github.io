@@ -1,5 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
+import { Location, WindowLocation } from '@reach/router'
 import { SiteInformation } from './SiteInformation'
 
 type MetaProps = JSX.IntrinsicElements['meta']
@@ -24,12 +25,12 @@ const twitterMeta = (twitterAccronym = '') => {
   ]
 }
 
-const imageMeta = (image = '') => {
+const imageMeta = (image = '', location: WindowLocation) => {
   if (!image) {
     return [
       {
         property: 'og:image',
-        content: 'icons/icon-144x144.png'
+        content: `${location.origin}/icons/icon-144x144.png`
       }
     ]
   }
@@ -82,19 +83,29 @@ export const Seo = ({
       property: `og:type`,
       content: `website`
     },
-    ...imageMeta(image),
     ...twitterMeta(twitterAccronym),
     ...meta
   ]
   return (
-    <Helmet
-      htmlAttributes={{
-        lang
-      }}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
-      title={title}
-      defaultTitle={site.siteMetadata.title}
-      meta={concatenatedMeta}
-    />
+    <Location>
+      {({ location }) => (
+        <Helmet
+          htmlAttributes={{
+            lang
+          }}
+          titleTemplate={`%s | ${site.siteMetadata.title}`}
+          title={title}
+          defaultTitle={site.siteMetadata.title}
+          meta={[
+            {
+              property: `og:url`,
+              content: location.href
+            },
+            ...imageMeta(image, location),
+            ...concatenatedMeta
+          ]}
+        />
+      )}
+    </Location>
   )
 }
