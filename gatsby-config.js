@@ -60,7 +60,7 @@ module.exports = {
     }
   },
   plugins: [
-    {
+    /* {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         // The property ID; the tracking code won't be generated without it
@@ -74,11 +74,11 @@ module.exports = {
         // For GDPR <= 13 months, so 1 year is ok
         cookieExpires: 31536000
       }
-    },
+    }, */
     {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {
-        id: '6000219219',
+        id: 'GTM-T9R8GX4',
         // Include GTM in development.
         // Defaults to false meaning GTM will only be loaded in production.
         includeInDevelopment: false,
