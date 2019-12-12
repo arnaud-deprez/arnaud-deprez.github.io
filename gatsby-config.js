@@ -60,21 +60,6 @@ module.exports = {
     }
   },
   plugins: [
-    /* {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        // The property ID; the tracking code won't be generated without it
-        trackingId: 'UA-153625611-1',
-        // Setting this parameter is optional
-        anonymize: true,
-        // Setting this parameter is also optional
-        respectDNT: true,
-        // Any additional optional fields
-        siteSpeedSampleRate: 10,
-        // For GDPR <= 13 months, so 1 year is ok
-        cookieExpires: 31536000
-      }
-    }, */
     {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {
@@ -86,10 +71,6 @@ module.exports = {
         // should be an object or a function that is executed in the browser
         // Defaults to null
         defaultDataLayer: { platform: 'gatsby' }
-        // Specify optional GTM environment details.
-        /* gtmAuth: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_AUTH_STRING",
-        gtmPreview: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_PREVIEW_NAME",
-        dataLayerName: "YOUR_DATA_LAYER_NAME", */
       }
     },
     'gatsby-plugin-typescript',
