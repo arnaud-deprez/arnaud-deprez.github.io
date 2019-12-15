@@ -146,15 +146,17 @@ const TechnicalSkillsSection = (props: TechnicalSkillsSectionProps) => (
                     </LabelledIcon>
                   )
                   if (love.values.length > 1 && idx < love.values.length - 1) {
-                    return [
-                      el,
-                      <span key={idx} className="text-2x mx-2">
-                        {' '}
-                        +{' '}
-                      </span>
-                    ]
+                    return (
+                      <div key={idx} className="d-flex">
+                        {el}
+                        <span key={idx} className="text-2x mx-2">
+                          {' '}
+                          +{' '}
+                        </span>
+                      </div>
+                    )
                   }
-                  return el
+                  return <div key={idx}>{el}</div>
                 })}
               </td>
             </tr>

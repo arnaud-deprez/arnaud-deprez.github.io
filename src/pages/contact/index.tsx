@@ -31,7 +31,7 @@ const ContactPage = ({ data }: ContactPageProps) => (
             <FaEnvelope className="text-secondary" />
           </BootstrapNav.Link>
         </NavSocialIcons>
-        <ContactForm />
+        <ContactForm id="contact" />
       </Container>
     </section>
   </Layout>

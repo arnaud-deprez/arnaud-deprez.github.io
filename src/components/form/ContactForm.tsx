@@ -4,7 +4,7 @@ import React from 'react'
 import { navigate } from 'gatsby-link'
 import { Form, FormProps, Button } from 'react-bootstrap'
 import { FaEnvelope } from 'react-icons/fa'
-import { Formik, FormikProps, FormikActions } from 'formik'
+import { Formik, FormikProps } from 'formik'
 import * as Yup from 'yup'
 import './ContactForm.scss'
 
@@ -20,6 +20,7 @@ interface ContactFormValues {
 export interface ContactFormProps extends FormProps, React.ComponentPropsWithoutRef<'form'> {}
 
 const InnerContactForm = ({
+  id,
   action,
   method,
   values,
@@ -35,6 +36,7 @@ const InnerContactForm = ({
 }: ContactFormProps & FormikProps<ContactFormValues>) => (
   // See https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
   <Form
+    id={id}
     name={values['form-name']}
     method={method}
     action={action}
@@ -127,7 +129,7 @@ const encode = (data: any) => {
     .join('&')
 }
 
-const handleSubmit = (values: ContactFormValues, actions: FormikActions<ContactFormValues>) => {
+const handleSubmit = (values: ContactFormValues) => {
   fetch('/', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -136,10 +138,10 @@ const handleSubmit = (values: ContactFormValues, actions: FormikActions<ContactF
     })
   })
     .then(() => navigate('/contact/thanks'))
-    .catch(error => console.error(error))
+    .catch(console.error)
 }
 
-export const ContactForm = () => (
+export const ContactForm = (props: { id: string }) => (
   <Formik
     initialValues={{
       'form-name': 'arnaud-deprez-contact',
@@ -152,6 +154,6 @@ export const ContactForm = () => (
     validationSchema={contactSchema}
     onSubmit={handleSubmit}
   >
-    {props => <InnerContactForm {...props} />}
+    {formikProps => <InnerContactForm {...formikProps} {...props} />}
   </Formik>
 )
