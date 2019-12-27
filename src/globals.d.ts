@@ -1,3 +1,11 @@
+import { Event } from './utils/Gtag'
+
+declare global {
+  interface Window {
+    dataLayer: Event[]
+  }
+}
+
 declare module '*.png'
 declare module '*.jpg'
 declare module '*.svg'

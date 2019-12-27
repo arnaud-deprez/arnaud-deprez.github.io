@@ -6,6 +6,7 @@ import { Form, FormProps, Button } from 'react-bootstrap'
 import { FaEnvelope } from 'react-icons/fa'
 import { Formik, FormikProps } from 'formik'
 import * as Yup from 'yup'
+import { publishEvent } from '../../utils/Gtag'
 import './ContactForm.scss'
 
 interface ContactFormValues {
@@ -137,7 +138,13 @@ const handleSubmit = (values: ContactFormValues) => {
       ...values
     })
   })
-    .then(() => navigate('/contact/thanks'))
+    .then(() => {
+      publishEvent({
+        event: 'FormSubmit',
+        test: false
+      })
+      navigate('/contact/thanks')
+    })
     .catch(console.error)
 }
 

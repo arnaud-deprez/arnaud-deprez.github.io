@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import { Container, Col, Row, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { OriginalIcon } from '../icon'
@@ -10,22 +11,9 @@ export const Footer = () => (
     <hr />
     <Row className="justify-content-around">
       <Col sm={12} lg={{ span: 3, offset: 2 }} className="footer-text">
-        <p>© 2019 Arnaud Deprez</p>
-        <address>
-          Owner of
-          <br />
-          <b>Powple SPRL</b>
-          <br />
-          Rue des Rivageois 7/21 - 4000 Liège
-          <br />
-          Belgium
-          <br />
-          Phone: <a href="tel:+3242531491">+32 4 253 14 91</a>
-          <br />
-          Email: <a href="mailto:info@powple.com">info@powple.com</a>
-          <br />
-          VAT: BE 0669.706.806
-        </address>
+        <p>
+          © 2019 Arnaud Deprez | <Link to="/legal/">Legal Notice</Link>
+        </p>
       </Col>
       <Col sm={12} lg={3} className="footer-text">
         <p>

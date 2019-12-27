@@ -1,8 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Container, Col, Card, CardGroup, Nav as BootstrapNav } from 'react-bootstrap'
-import { Link as ScrollSpyLink } from 'react-scroll'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Link as ScrollSpyLink } from 'react-scroll'
 import { PhotoCard } from '../components/photocard/PhotoCard'
 import { MainLayout as Layout } from '../components/layout'
 import { Seo, SiteInformation, Author } from '../components/metadata'
@@ -11,24 +11,6 @@ import { TechnicalSkills } from '../components/about'
 import { LabelledIcon, OriginalIcon } from '../components/icon'
 
 import './IndexPageTemplate.scss'
-
-const renderLeftMenu = (links: { id: string; title: string }[]) => () => (
-  <Nav className="flex-column align-items-center" as="ul">
-    {links.map(link => (
-      <BootstrapNav.Link
-        activeClass="active"
-        to={link.id}
-        spy={true}
-        smooth={true}
-        duration={200}
-        as={ScrollSpyLink}
-        key={link.id}
-      >
-        {link.title}
-      </BootstrapNav.Link>
-    ))}
-  </Nav>
-)
 
 interface AboutSectionProps {
   author: Author
@@ -167,6 +149,40 @@ const TechnicalSkillsSection = (props: TechnicalSkillsSectionProps) => (
   </section>
 )
 
+type Link = {
+  id: string
+  title: string
+}
+
+const leftMenuItems: Link[] = [
+  {
+    id: 'about',
+    title: 'About'
+  },
+  {
+    id: 'technicalSkills',
+    title: 'Technical Skills'
+  }
+]
+
+const renderLeftMenu = (links: Link[]) => () => (
+  <Nav className="flex-column align-items-center" as="ul">
+    {links.map(link => (
+      <BootstrapNav.Link
+        activeClass="active"
+        to={link.id}
+        spy={true}
+        smooth={true}
+        duration={200}
+        as={ScrollSpyLink}
+        key={link.id}
+      >
+        {link.title}
+      </BootstrapNav.Link>
+    ))}
+  </Nav>
+)
+
 interface IndexPageProps {
   data: {
     site: SiteInformation
@@ -181,30 +197,24 @@ interface IndexPageProps {
   }
 }
 
-const IndexPage = ({ data }: IndexPageProps) => {
-  const leftMenuItems = [
-    { id: 'about', title: 'About' },
-    { id: 'technicalSkills', title: 'Technical Skills' }
-  ]
-  return (
-    <Layout author={data.site.siteMetadata.author} renderLeftMenu={renderLeftMenu(leftMenuItems)}>
-      <Seo site={data.site} />
-      <AboutSection
-        author={data.site.siteMetadata.author}
-        {...data.markdownRemark.frontmatter.section.about}
-      />
-      <hr />
-      <TechnicalSkillsSection {...data.markdownRemark.frontmatter.section.technicalSkills} />
-    </Layout>
-  )
-}
+const IndexPage = ({ data }: IndexPageProps) => (
+  <Layout author={data.site.siteMetadata.author} renderLeftMenu={renderLeftMenu(leftMenuItems)}>
+    <Seo site={data.site} />
+    <AboutSection
+      author={data.site.siteMetadata.author}
+      {...data.markdownRemark.frontmatter.section.about}
+    />
+    <hr />
+    <TechnicalSkillsSection {...data.markdownRemark.frontmatter.section.technicalSkills} />
+  </Layout>
+)
 
 export const pageQuery = graphql`
-  query IndexPageQuery {
+  query IndexPageQuery($slug: String!) {
     site {
       ...SiteInformation
     }
-    markdownRemark(fields: { slug: { eq: "/" } }) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       frontmatter {
         section {
           about {

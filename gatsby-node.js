@@ -88,13 +88,15 @@ exports.createPages = ({ actions, graphql }) => {
       .filter(({ node }) => !!node.frontmatter.templateKey) // make sure we have templateKey for it
       .forEach(({ node }) => {
         const { id, fields, frontmatter } = node
+        const slug = frontmatter.path || fields.slug
         createPage({
-          path: frontmatter.path || fields.slug,
+          path: slug,
           tags: frontmatter.tags,
           component: path.resolve(`src/templates/${String(frontmatter.templateKey)}.tsx`),
           // additional data can be passed via context
           context: {
-            id
+            id,
+            slug
           }
         })
       })
