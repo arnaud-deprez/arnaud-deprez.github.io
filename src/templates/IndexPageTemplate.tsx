@@ -200,12 +200,14 @@ interface IndexPageProps {
 const IndexPage = ({ data }: IndexPageProps) => (
   <Layout author={data.site.siteMetadata.author} renderLeftMenu={renderLeftMenu(leftMenuItems)}>
     <Seo site={data.site} />
-    <AboutSection
-      author={data.site.siteMetadata.author}
-      {...data.markdownRemark.frontmatter.section.about}
-    />
-    <hr />
-    <TechnicalSkillsSection {...data.markdownRemark.frontmatter.section.technicalSkills} />
+    <div className="main-content">
+      <AboutSection
+        author={data.site.siteMetadata.author}
+        {...data.markdownRemark.frontmatter.section.about}
+      />
+      <hr />
+      <TechnicalSkillsSection {...data.markdownRemark.frontmatter.section.technicalSkills} />
+    </div>
   </Layout>
 )
 

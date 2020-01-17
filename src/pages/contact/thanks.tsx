@@ -12,10 +12,10 @@ interface ContactThanksPageProps {
 const ContactThanksPage = ({ data }: ContactThanksPageProps) => (
   <Layout author={data.site.siteMetadata.author}>
     <Seo title="Contact - Thanks" {...data} />
-    <section>
+    <div className="main-content">
       <h1>Thank you</h1>
       <p>{"Thank you for your message, I'll try to get back to you as soon as possible."}</p>
-    </section>
+    </div>
   </Layout>
 )
 

@@ -3,8 +3,8 @@
 .content {
   margin-top: 3.5rem;
 
-  // section looks like a jumbotron but without border and background color by default
-  section {
+  // .main-content looks like a jumbotron but without border and background color by default
+  .main-content {
     padding: $jumbotron-padding ($jumbotron-padding / 2);
     margin-bottom: $jumbotron-padding;
 

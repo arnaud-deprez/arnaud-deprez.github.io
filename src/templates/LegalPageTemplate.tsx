@@ -20,10 +20,13 @@ const LegalPage = ({ data }: LegalPageProps) => {
   return (
     <Layout author={data.site.siteMetadata.author}>
       <Seo site={data.site} title={data.markdownRemark.frontmatter.title} />
-      <section>
-        <h1 className="text-uppercase mb-5">{data.markdownRemark.frontmatter.title}</h1>
-        <main dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
-      </section>
+      <article className="main-content">
+        <h1 className="text-uppercase mb-0">{data.markdownRemark.frontmatter.title}</h1>
+        <p className="text-muted mb-5">
+          <em>Last updated on {data.markdownRemark.frontmatter.date}</em>
+        </p>
+        <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+      </article>
     </Layout>
   )
 }

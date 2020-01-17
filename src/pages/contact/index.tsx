@@ -17,7 +17,7 @@ interface ContactPageProps {
 const ContactPage = ({ data }: ContactPageProps) => (
   <Layout author={data.site.siteMetadata.author}>
     <Seo title="Contact" description="Contact information page" site={data.site} />
-    <section>
+    <div className="main-content">
       <PhotoCard className="mb-4 d-lg-none" />
       <Container className="d-flex flex-column align-items-center">
         <h1 className="text-center">Reach me on</h1>
@@ -33,7 +33,7 @@ const ContactPage = ({ data }: ContactPageProps) => (
         </NavSocialIcons>
         <ContactForm id="contact" />
       </Container>
-    </section>
+    </div>
   </Layout>
 )
 
