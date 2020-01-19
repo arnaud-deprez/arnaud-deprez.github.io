@@ -198,7 +198,7 @@ interface IndexPageProps {
 }
 
 const IndexPage = ({ data }: IndexPageProps) => (
-  <Layout author={data.site.siteMetadata.author} renderLeftMenu={renderLeftMenu(leftMenuItems)}>
+  <Layout siteMetadata={data.site.siteMetadata} renderLeftMenu={renderLeftMenu(leftMenuItems)}>
     <Seo site={data.site} />
     <main>
       <AboutSection

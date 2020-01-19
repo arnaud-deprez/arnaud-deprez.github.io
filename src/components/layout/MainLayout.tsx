@@ -13,14 +13,14 @@ export interface MainLayoutProps extends LayoutProps {
 export const MainLayout = ({
   renderLeftMenu = () => null,
   children,
-  author,
+  siteMetadata,
   ...rest
 }: MainLayoutProps) => (
-  <Layout {...{ author, ...rest }}>
+  <Layout {...{ siteMetadata, ...rest }}>
     <Container fluid>
       <Row>
         <Col lg={2} className="d-none d-lg-block" as="aside">
-          <NavbarLeft author={author}>{renderLeftMenu()}</NavbarLeft>
+          <NavbarLeft author={siteMetadata.author}>{renderLeftMenu()}</NavbarLeft>
         </Col>
         <Col className="min-h-100vh">{children}</Col>
       </Row>

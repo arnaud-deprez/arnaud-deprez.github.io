@@ -2,17 +2,22 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { Container, Col, Row, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { SiteInformation } from '../metadata'
 import { OriginalIcon } from '../icon'
 
 import './Footer.scss'
 
-export const Footer = () => (
+export interface FooterProps {
+  readonly copyright: string
+}
+
+export const Footer = ({ copyright }: FooterProps) => (
   <Container fluid as="footer">
     <hr />
     <Row className="justify-content-around">
       <Col sm={12} lg={{ span: 3, offset: 2 }} className="footer-text">
         <p>
-          © 2020 Arnaud Deprez | <Link to="/legal/">Legal Notice</Link>
+          {copyright} | <Link to="/legal/">Legal Notice</Link>
         </p>
       </Col>
       <Col sm={12} lg={3} className="footer-text">

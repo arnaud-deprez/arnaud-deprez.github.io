@@ -93,7 +93,7 @@ export const Seo = ({
           htmlAttributes={{
             lang
           }}
-          titleTemplate={`%s | ${site.siteMetadata.title}`}
+          /* titleTemplate={`%s | ${site.siteMetadata.title}`} */
           title={title}
           defaultTitle={site.siteMetadata.title}
           meta={[

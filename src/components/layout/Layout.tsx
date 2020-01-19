@@ -1,19 +1,19 @@
 import React from 'react'
-import { Author } from '../metadata'
+import { SiteMetadata } from '../metadata'
 import { Header } from './Header'
 import { Footer } from './Footer'
 
 import './Layout.scss'
 
 export interface LayoutProps {
-  readonly author: Author
+  readonly siteMetadata: SiteMetadata
   readonly children?: React.ReactNode | React.ReactNode[]
 }
 
-export const Layout = ({ author, children }: LayoutProps) => (
+export const Layout = ({ siteMetadata, children }: LayoutProps) => (
   <>
-    <Header author={author} />
+    <Header author={siteMetadata.author} />
     <div className="content">{children}</div>
-    <Footer />
+    <Footer copyright={siteMetadata.copyright} />
   </>
 )

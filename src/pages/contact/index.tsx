@@ -15,8 +15,12 @@ interface ContactPageProps {
 }
 
 const ContactPage = ({ data }: ContactPageProps) => (
-  <Layout author={data.site.siteMetadata.author}>
-    <Seo title="Contact" description="Contact information page" site={data.site} />
+  <Layout siteMetadata={data.site.siteMetadata}>
+    <Seo
+      title={`Contact - ${data.site.siteMetadata.author.name} | Powple`}
+      description={`Contact information page of ${data.site.siteMetadata.author.name}`}
+      site={data.site}
+    />
     <main>
       <PhotoCard className="mb-4 d-lg-none" />
       <Container className="d-flex flex-column align-items-center">
