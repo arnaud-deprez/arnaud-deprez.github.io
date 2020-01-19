@@ -12,7 +12,7 @@ export const Footer = () => (
     <Row className="justify-content-around">
       <Col sm={12} lg={{ span: 3, offset: 2 }} className="footer-text">
         <p>
-          © 2019 Arnaud Deprez | <Link to="/legal/">Legal Notice</Link>
+          © 2020 Arnaud Deprez | <Link to="/legal/">Legal Notice</Link>
         </p>
       </Col>
       <Col sm={12} lg={3} className="footer-text">

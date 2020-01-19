@@ -4,6 +4,7 @@
   margin-top: 3.5rem;
 
   // .main-content looks like a jumbotron but without border and background color by default
+  main,
   .main-content {
     padding: $jumbotron-padding ($jumbotron-padding / 2);
     margin-bottom: $jumbotron-padding;

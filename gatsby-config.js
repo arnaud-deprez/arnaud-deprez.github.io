@@ -1,6 +1,12 @@
 /* eslint-disable @typescript-eslint/camelcase */
 const gatsbyRemarkPlugins = [
   {
+    resolve: 'gatsby-remark-autolink-headers',
+    options: {
+      icon: false
+    }
+  },
+  {
     resolve: 'gatsby-remark-smartypants',
     options: {
       dashes: 'oldschool'

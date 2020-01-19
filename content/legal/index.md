@@ -1,6 +1,6 @@
 ---
 templateKey: LegalPageTemplate
-date: 2019-12-21
+date: 2020-01-19
 title: Legal Notice
 ---
 
@@ -16,19 +16,19 @@ This privacy policy will explain how our organization uses the personal data we 
 
 Topics:
 
-- What data do we collect ?
-- How do we collect your data ?
-- How will we use your data ?
-- How do we store your data ?
-- What are your data protection rights ?
-- What are cookies ?
-- How do we use cookies ?
-- What types of cookies do we use ?
-- How to manage your cookies ?
-- Privacy policies of other websites
-- Changes to our privacy policy
-- How to contact us ?
-- How to contact the appropriate authorities ?
+- [What data do we collect ?](#what-data-do-we-collect)
+- [How do we collect your data ?](#how-do-we-collect-your-data)
+- [How will we use your data ?](#how-will-we-use-your-data)
+- [How do we store your data ?](#how-do-we-store-your-data)
+- [What are your data protection rights ?](#what-are-your-data-protection-rights)
+- [Cookies](#cookies)
+  - [How do we use cookies ?](#how-do-we-use-cookies)
+  - [What types of cookies do we use ?](#what-types-of-cookies-do-we-use)
+  - [How to manage cookies ?](#how-to-manage-cookies)
+- [Privacy policies of other websites](#privacy-policies-of-other-websites)
+- [Changes to our privacy policy](#changes-to-our-privacy-policy)
+- [How to contact us](#how-to-contact-us)
+- [How to contact the appropriate authority](#how-to-contact-the-appropriate-authority)
 
 ### What data do we collect ?
 
@@ -47,7 +47,6 @@ You directly provide Powple SPRL with most of the data we collect. We collect da
 Powple SPRL may also receive your data indirectly from the following sources:
 
 - [Netlify](https://www.netlify.com/) for the 'Contact' form
-- [Disqus](https://disqus.com/) when you decide to react or comment a blog.
 
 ### How will we use your data ?
 
@@ -63,7 +62,6 @@ Powple SPRL will never share your data with any third party partner company.
 Powple SPRL uses secured third party service to store your data:
 
 - **Contact form** personal data is stored at [Netlify](https://www.netlify.com/) and in our email box.
-- **Blog feedback** personal data is stored at [Disqus](https://disqus.com/)
 
 Powple SPRL will keep your personal data for time of use. Once this time period has expired, we will request our third party services to delete your data and we will delete the email we have from you.
 
@@ -99,7 +97,6 @@ For further information, visit allaboutcookies.org.
 
 Powple SPRL uses cookies in a range of ways to improve your experience on our website, including:
 
-- Keeping you signed in
 - Understanding how you use our website
 
 #### What types of cookies do we use ?

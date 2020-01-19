@@ -22,9 +22,7 @@ export const MainLayout = ({
         <Col lg={2} className="d-none d-lg-block" as="aside">
           <NavbarLeft author={author}>{renderLeftMenu()}</NavbarLeft>
         </Col>
-        <Col className="min-h-100vh" as="main">
-          {children}
-        </Col>
+        <Col className="min-h-100vh">{children}</Col>
       </Row>
     </Container>
   </Layout>
