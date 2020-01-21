@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { Container, Col, Row, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { SiteInformation } from '../metadata'
 import { OriginalIcon } from '../icon'
 
 import './Footer.scss'

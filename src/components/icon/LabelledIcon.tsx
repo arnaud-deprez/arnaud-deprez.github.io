@@ -14,7 +14,7 @@ export const LabelledIcon = <As extends React.ElementType = 'div'>({
   labelAs: LabelAs = 'span',
   as: As = 'div',
   className = 'labelled-icon',
-  labelClassName = '',
+  labelClassName,
   ...rest
 }: LabelledIconProps<As> & React.ComponentPropsWithoutRef<As>) => (
   <As className={className} {...rest}>
