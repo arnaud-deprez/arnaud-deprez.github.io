@@ -1,6 +1,6 @@
 ---
 templateKey: LegalPageTemplate
-date: 2020-01-19
+date: 2020-01-22
 title: Legal Notice
 ---
 
@@ -9,6 +9,17 @@ HQ: Rue des Rivageois 7/21 - 4000 Liège - Belgium
 Phone: [+32 4 253 14 91](tel:+3242531491)  
 Email: [info@powple.com](mailto:info@powple.com)  
 VAT id: BE 0669.706.806
+
+## Terms of Use
+
+By accessing and browsing the personal Arnaud Deprez's website or by using and/or downloading any content from same, you agree to and accept the Terms of Use as set forth below.  
+The purpose of this website is to provide information about its author and topics he is willing to share with you.
+
+Despite his efforts to provide reliable content through this website, neither Arnaud Deprez (‘the author’) nor Powple (‘the Company’) cannot guarantee the accuracy, precision, timeliness or exhaustiveness of information posted on the site.  
+Links to third-party websites are provided for convenience only and do not imply any approval or endorsement by the Company of the linked sites.
+
+This website is protected by intellectual property rights and is the exclusive property of the Company.  
+Any dispute or claim arising out of or related to the Terms of Use shall be governed by Belgian law. Any legal action shall be taken in Belgium.
 
 ## Powple SPRL Privacy Policy
 
