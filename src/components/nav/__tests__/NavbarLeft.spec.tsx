@@ -6,6 +6,7 @@ import { NavbarLeft, Nav } from '..'
 
 jest.mock('gatsby')
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const mockUseStaticQuery = useStaticQuery as jest.Mock<any, any>
 
 describe('<NavbarLeft/>', () => {

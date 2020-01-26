@@ -124,9 +124,10 @@ const contactSchema = Yup.object().shape({
   message: Yup.string().required()
 })
 
-const encode = (data: any) => {
+const encode = (data: { [key: string]: string | undefined }) => {
   return Object.keys(data)
-    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .filter(key => !!data[key])
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key] as string))
     .join('&')
 }
 
