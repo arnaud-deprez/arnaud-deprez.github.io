@@ -66,7 +66,7 @@ module.exports = {
     }
   },
   plugins: [
-    {
+    /* {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {
         id: 'GTM-T9R8GX4',
@@ -78,7 +78,7 @@ module.exports = {
         // Defaults to null
         defaultDataLayer: { platform: 'gatsby' }
       }
-    },
+    }, */
     'gatsby-plugin-typescript',
     'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
