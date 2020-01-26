@@ -140,8 +140,8 @@ const handleSubmit = (values: ContactFormValues) => {
   })
     .then(() => {
       publishEvent({
-        event: 'FormSubmit',
-        test: false
+        event: 'FormSubmitted',
+        formId: values['form-name']
       })
       navigate('/contact/thanks')
     })

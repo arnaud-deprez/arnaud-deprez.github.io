@@ -1,6 +1,6 @@
 ---
 templateKey: LegalPageTemplate
-date: 2020-01-22
+date: 2020-01-26
 title: Legal Notice
 ---
 
@@ -63,8 +63,7 @@ Powple SPRL may also receive your data indirectly from the following sources:
 
 Powple SPRL collects your data so that we can:
 
-- To reply to you with a more a more precise and relevant response.
-- To collect your feedbacks from our blog and prevent fraudulent feedbacks in order improve our content.
+- reply to you with a more a more precise and relevant response.
 
 Powple SPRL will never share your data with any third party partner company.
 
@@ -102,21 +101,15 @@ Write to us: Rue des Rivageois 7/21 - 4000 Liège - Belgium
 
 Cookies are text files placed on your computer to collect standard Internet log information and visitor behavior information. When you visit our websites, we may collect information from you automatically through cookies or similar technology
 
-For further information, visit allaboutcookies.org.
+For further information, visit [allaboutcookies.org](https://www.allaboutcookies.org/).
 
 #### How do we use cookies ?
 
-Powple SPRL uses cookies in a range of ways to improve your experience on our website, including:
-
-- Understanding how you use our website
+Currently Powple SPRL does not use any cookie. If such a need becomes necessary, this policy will be updated accordingly.
 
 #### What types of cookies do we use ?
 
-There are a number of different types of cookies, however, our website uses:
-
-**Functionality** – Powple SPRL uses these cookies so that we recognize you on our website and remember your previously selected preferences. These could include what language you prefer and location you are in. A mix of first-party and third-party cookies are used.
-
-**Statistics** – Powple SPRL uses these cookies to collect information about your visit to our website, the content you viewed, the links you followed and information about your browser, device, and your IP address. A mix of first-party and third-party cookies are used.
+Not applicable.
 
 #### How to manage cookies ?
 
