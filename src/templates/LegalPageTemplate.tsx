@@ -19,7 +19,11 @@ export interface LegalPageProps {
 const LegalPage = ({ data }: LegalPageProps) => {
   return (
     <Layout siteMetadata={data.site.siteMetadata}>
-      <Seo site={data.site} title={`${data.markdownRemark.frontmatter.title} | Powple`} />
+      <Seo
+        site={data.site}
+        title={data.markdownRemark.frontmatter.title}
+        description="Legal notice, terms of use, privacy and cookie policy"
+      />
       <main>
         <h1 className="text-uppercase mb-0">{data.markdownRemark.frontmatter.title}</h1>
         <p className="text-muted mb-5">

@@ -17,7 +17,7 @@ interface ContactPageProps {
 const ContactPage = ({ data }: ContactPageProps) => (
   <Layout siteMetadata={data.site.siteMetadata}>
     <Seo
-      title={`Contact - ${data.site.siteMetadata.author.name} | Powple`}
+      title="Contact"
       description={`Contact information page of ${data.site.siteMetadata.author.name}`}
       site={data.site}
     />

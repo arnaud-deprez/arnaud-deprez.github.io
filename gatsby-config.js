@@ -44,10 +44,10 @@ const {
 const isNetlifyProduction = NETLIFY_ENV === 'production'
 
 const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
-const title = 'Arnaud Deprez - IT Consultant | Powple'
+const title = 'Arnaud Deprez'
 const longName = title
 const description =
-  'Technical Blog of Arnaud Deprez where he shares his experience about technical stuff'
+  'Technical Blog of Arnaud Deprez, a Technical Architect consultant and owner of Powple who shares his experience about technical stuff'
 
 module.exports = {
   siteMetadata: {
