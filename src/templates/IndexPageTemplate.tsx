@@ -1,5 +1,4 @@
 import React from 'react'
-import * as _ from 'lodash'
 import { graphql } from 'gatsby'
 import { Container, Col, Card, CardGroup, Nav as BootstrapNav } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -26,13 +25,13 @@ interface AboutSectionProps {
 }
 
 const AboutSection = (props: AboutSectionProps) => (
-  <section id="about" className="resume">
-    <PhotoCard className="mb-4 d-lg-none" />
+  <section id="about-section" className="resume">
+    <PhotoCard className="d-lg-none" />
 
     <h1 className="text-uppercase mb-0" dangerouslySetInnerHTML={{ __html: props.title }} />
-    <h2 className="text-muted h4 pt-0 mb-5">{props.subTitle}</h2>
+    <h2 className="text-muted h4 mt-0">{props.subTitle}</h2>
 
-    <h3 className="text-primary mb-4">Helps customers in</h3>
+    <h3 className="text-primary">Helps customers in</h3>
 
     <CardGroup className="mb-4">
       {props.services.map(service => (
@@ -55,7 +54,7 @@ const AboutSection = (props: AboutSectionProps) => (
       ))}
     </CardGroup>
 
-    <blockquote className="container mb-5">
+    <blockquote className="container mb-4">
       <p className="text-justify">
         <span className="text-secondary h4 mr-3">
           <FontAwesomeIcon icon="quote-left" />
@@ -74,7 +73,7 @@ const AboutSection = (props: AboutSectionProps) => (
       github={props.author.github}
       linkedin={props.author.linkedin}
       twitter={props.author.twitter}
-      className="h3 justify-content-center pt-0"
+      className="h3 justify-content-center mt-0"
       role="list"
     />
   </section>
@@ -92,7 +91,7 @@ interface TechnicalSkillsSectionProps {
 }
 
 const TechnicalSkillsSection = (props: TechnicalSkillsSectionProps) => (
-  <section id="technical-skills" className="resume">
+  <section id="technical-skills-section" className="resume">
     <h2 className="text-primary text-uppercase">Technical Skills</h2>
     <h3>
       <FontAwesomeIcon icon="laptop-code" className="text-secondary" /> Programming
@@ -157,11 +156,11 @@ type Link = {
 
 const leftMenuItems: Link[] = [
   {
-    id: 'about',
+    id: 'about-section',
     title: 'About'
   },
   {
-    id: 'technicalSkills',
+    id: 'technical-skills-section',
     title: 'Technical Skills'
   }
 ]
@@ -213,11 +212,11 @@ const IndexPage = ({ data }: IndexPageProps) => (
 )
 
 export const pageQuery = graphql`
-  query IndexPageQuery($slug: String!) {
+  query IndexPageQuery($id: String!) {
     site {
       ...SiteInformation
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    markdownRemark(id: { eq: $id }) {
       frontmatter {
         section {
           about {

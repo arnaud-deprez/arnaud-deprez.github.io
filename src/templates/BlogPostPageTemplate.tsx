@@ -1,51 +1,82 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Container, Col, Card, CardGroup, Nav as BootstrapNav } from 'react-bootstrap'
-import { Link as ScrollSpyLink } from 'react-scroll'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { PhotoCard } from '../components/photocard/PhotoCard'
+import { Container, Row, Col, Breadcrumb } from 'react-bootstrap'
 import { MainLayout as Layout } from '../components/layout'
-import { Seo, SiteInformation, Author } from '../components/metadata'
-import { Nav, NavSocialIcons } from '../components/nav'
-import { TechnicalSkills } from '../components/about'
-import { LabelledIcon, OriginalIcon } from '../components/icon'
+import { Seo, SiteInformation } from '../components/metadata'
+import { TagList, TableOfContent } from '../components/blog'
 
 interface BlogPostPageProps {
+  pageContext: {
+    slug: string
+  }
   data: {
     site: SiteInformation
     markdownRemark: {
+      timeToRead: number
       html: string
       frontmatter: {
         date: Date
         title: string
         description: string
         tags: string[]
+        image: string
       }
+      headings: {
+        depth: number
+        value: string
+      }[]
     }
   }
 }
 
-const BlogPostPage = ({ data }: BlogPostPageProps) => {
+const BlogPostPage = ({ pageContext, data }: BlogPostPageProps) => {
+  const { site, markdownRemark } = data
   return (
-    <Layout author={data.site.siteMetadata.author}>
+    <Layout siteMetadata={site.siteMetadata}>
       <Seo
-        title={data.markdownRemark.frontmatter.title}
-        description={data.markdownRemark.frontmatter.description}
-        site={data.site}
+        title={markdownRemark.frontmatter.title}
+        description={markdownRemark.frontmatter.description}
+        site={site}
       />
+      <Breadcrumb>
+        <Breadcrumb.Item href="/blog/">Blog</Breadcrumb.Item>
+        <Breadcrumb.Item href={pageContext.slug} active>
+          {markdownRemark.frontmatter.title}
+        </Breadcrumb.Item>
+      </Breadcrumb>
+      <Container fluid>
+        <Row>
+          <Col>
+            <main>
+              <mark>Eventually the blog image here...</mark>
+              <h1 className="mb-0">{markdownRemark.frontmatter.title}</h1>
+              <p className="text-muted">
+                <em>
+                  Updated on {markdownRemark.frontmatter.date} - {markdownRemark.timeToRead} min
+                  read
+                </em>
+              </p>
+              <TagList values={markdownRemark.frontmatter.tags} />
+              <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+            </main>
+          </Col>
+          <Col xl="3">
+            <TableOfContent headings={markdownRemark.headings} />
+          </Col>
+        </Row>
+      </Container>
     </Layout>
   )
 }
 
 export const pageQuery = graphql`
-  query BlogPostByID($id: String!) {
+  query BlogPostById($id: String!) {
     site {
       ...SiteInformation
     }
     markdownRemark(id: { eq: $id }) {
-      html
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "MMMM Do YYYY")
         title
         description
         tags
@@ -57,6 +88,12 @@ export const pageQuery = graphql`
           }
         }
       }
+      headings {
+        depth
+        value
+      }
+      timeToRead
+      html
     }
   }
 `

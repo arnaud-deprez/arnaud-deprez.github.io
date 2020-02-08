@@ -3,8 +3,8 @@
 exports[`<NavbarHeader/> renders correctly 1`] = `
 <DocumentFragment>
   <nav
-    class="navbar navbar-expand-lg navbar-light fixed-top"
-    id="headerNavbar"
+    class="navbar navbar-expand-lg navbar-light"
+    id="navbar-header"
   >
     <a
       class="d-lg-none d-md-block navbar-brand"

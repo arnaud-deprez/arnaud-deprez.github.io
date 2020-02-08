@@ -4,7 +4,7 @@ exports[`<NavbarLeft/> renders correctly 1`] = `
 <DocumentFragment>
   <nav
     class="d-none d-lg-flex flex-column navbar-dark bg-primary navbar navbar-expand navbar-light"
-    id="navbarLeft"
+    id="navbar-left"
     role="navigation"
   >
     <a
@@ -46,7 +46,7 @@ exports[`<NavbarLeft/> renders correctly with children 1`] = `
 <DocumentFragment>
   <nav
     class="d-none d-lg-flex flex-column navbar-dark bg-primary navbar navbar-expand navbar-light"
-    id="navbarLeft"
+    id="navbar-left"
     role="navigation"
   >
     <a

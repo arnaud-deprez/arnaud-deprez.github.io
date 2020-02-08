@@ -26,8 +26,8 @@ const LegalPage = ({ data }: LegalPageProps) => {
       />
       <main>
         <h1 className="text-uppercase mb-0">{data.markdownRemark.frontmatter.title}</h1>
-        <p className="text-muted mb-5">
-          <em>Last updated on {data.markdownRemark.frontmatter.date}</em>
+        <p className="text-muted">
+          <em>Updated on {data.markdownRemark.frontmatter.date}</em>
         </p>
         <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
       </main>
@@ -36,11 +36,11 @@ const LegalPage = ({ data }: LegalPageProps) => {
 }
 
 export const pageQuery = graphql`
-  query LegalPageQuery($slug: String!) {
+  query LegalPageQuery($id: String!) {
     site {
       ...SiteInformation
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    markdownRemark(id: { eq: $id }) {
       frontmatter {
         title
         date(formatString: "MMMM Do YYYY")

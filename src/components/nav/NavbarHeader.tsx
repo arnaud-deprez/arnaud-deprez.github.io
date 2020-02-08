@@ -30,7 +30,7 @@ export interface NavbarHeaderProps {
 }
 
 export const NavbarHeader = ({ author: { name, ...rest } }: NavbarHeaderProps) => (
-  <Navbar id="headerNavbar" expand="lg" fixed="top" as="nav">
+  <Navbar id="navbar-header" expand="lg" as="nav">
     <Navbar.Brand className="d-lg-none d-md-block" to="/" as={Link}>
       {name}
     </Navbar.Brand>

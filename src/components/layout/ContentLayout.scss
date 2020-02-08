@@ -1,0 +1,23 @@
+@import '../../scss/global';
+
+.content-layout {
+  header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: $zindex-sticky;
+  }
+  .content {
+
+    // .main-content looks like a jumbotron but without border and background color by default
+    main,
+    .main-content {
+      padding: $jumbotron-padding ($jumbotron-padding / 2);
+      margin-bottom: $jumbotron-padding;
+
+      @include media-breakpoint-up(sm) {
+        padding: $jumbotron-padding ($jumbotron-padding * 2);
+      }
+    }
+  }
+}

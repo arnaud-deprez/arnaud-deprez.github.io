@@ -7,6 +7,8 @@ image: images/kittens.jpg
 tags: ['markdown', 'kittens', 'example']
 ---
 
+## Test
+
 This is an example of how you can build your site around Markdown files.
 
 Images referenced in Markdown are copied to the generated site, like these kittens:

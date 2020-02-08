@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /**
  * Implement Gatsby's Node APIs in this file.
  *
@@ -51,7 +52,7 @@ const createPaginatedPages = ({
     )
 }
 
-exports.createPages = ({ actions, graphql }) => {
+exports.createPages = ({ actions, graphql, reporter }) => {
   const { createPage } = actions
 
   return graphql(`
@@ -78,6 +79,7 @@ exports.createPages = ({ actions, graphql }) => {
   `).then(result => {
     if (result.errors) {
       result.errors.forEach(e => console.error(e.toString()))
+      reporter.panicOnBuild('Error while running GraphQL query.')
       return Promise.reject(result.errors)
     }
 

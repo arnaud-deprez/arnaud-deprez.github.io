@@ -3,17 +3,17 @@ import { SiteMetadata } from '../metadata'
 import { Header } from './Header'
 import { Footer } from './Footer'
 
-import './Layout.scss'
+import './ContentLayout.scss'
 
-export interface LayoutProps {
+export interface ContentLayoutProps {
   readonly siteMetadata: SiteMetadata
   readonly children?: React.ReactNode | React.ReactNode[]
 }
 
-export const Layout = ({ siteMetadata, children }: LayoutProps) => (
-  <>
+export const ContentLayout = ({ siteMetadata, children }: ContentLayoutProps) => (
+  <div className="content-layout">
     <Header author={siteMetadata.author} />
     <div className="content">{children}</div>
     <Footer copyright={siteMetadata.copyright} />
-  </>
+  </div>
 )

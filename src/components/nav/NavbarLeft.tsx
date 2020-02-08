@@ -17,7 +17,7 @@ export const NavbarLeft = ({
   children
 }: NavbarLeftProps) => (
   <Navbar
-    id="navbarLeft"
+    id="navbar-left"
     className="d-none d-lg-flex flex-column navbar-dark bg-primary"
     role="navigation"
     as="nav"

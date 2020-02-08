@@ -16,9 +16,7 @@ const gatsbyRemarkPlugins = [
     resolve: 'gatsby-remark-prismjs',
     options: {
       classPrefix: 'language-',
-      inlineCodeMarker: {
-        tsx: 'tsx'
-      },
+      inlineCodeMarker: null,
       aliases: {}
     }
   },
@@ -31,6 +29,10 @@ const gatsbyRemarkPlugins = [
   },
   {
     resolve: 'gatsby-remark-copy-linked-files',
+    options: {}
+  },
+  {
+    resolve: 'gatsby-remark-emoji',
     options: {}
   }
 ]
@@ -100,13 +102,7 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-remark',
       options: {
-        plugins: [
-          ...gatsbyRemarkPlugins,
-          {
-            resolve: 'gatsby-remark-emoji',
-            options: {}
-          }
-        ]
+        plugins: gatsbyRemarkPlugins
       }
     },
     'gatsby-transformer-sharp',
@@ -170,9 +166,10 @@ module.exports = {
               return allMarkdownRemark.edges.map(({ node }) => {
                 return {
                   ...node.frontmatter,
+                  path: node.fields.slug,
                   description: node.excerpt,
-                  url: site.siteMetadata.siteUrl + node.frontmatter.path,
-                  guid: site.siteMetadata.siteUrl + node.frontmatter.path,
+                  url: site.siteMetadata.siteUrl + node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + node.fields.slug,
                   custom_elements: [{ 'content:encoded': node.html }]
                 }
               })
@@ -191,8 +188,10 @@ module.exports = {
                 ) {
                   edges {
                     node {
+                      fields {
+                        slug
+                      }
                       frontmatter {
-                        path
                         title
                         date
                       }
