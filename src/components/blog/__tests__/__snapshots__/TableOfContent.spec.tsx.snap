@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TableOfContent/> renders the table of content 1`] = `
+<DocumentFragment>
+  <nav
+    aria-label="Text navigation"
+    class="table-content"
+  >
+    <mark>
+      Table of content...
+    </mark>
+    <ul>
+      <li>
+        <a
+          href="#heading 2a"
+        >
+          heading 2a
+        </a>
+      </li>
+      <li>
+        <a
+          href="#heading 2b"
+        >
+          heading 2b
+        </a>
+      </li>
+      <ul>
+        <li>
+          <a
+            href="#heading 2b3a"
+          >
+            heading 2b3a
+          </a>
+        </li>
+        <li>
+          <a
+            href="#heading 2b3b"
+          >
+            heading 2b3b
+          </a>
+        </li>
+        <ul>
+          <li>
+            <a
+              href="#heading 2b3a4a"
+            >
+              heading 2b3a4a
+            </a>
+          </li>
+        </ul>
+      </ul>
+      <li>
+        <a
+          href="#heading 2c"
+        >
+          heading 2c
+        </a>
+      </li>
+    </ul>
+  </nav>
+</DocumentFragment>
+`;
