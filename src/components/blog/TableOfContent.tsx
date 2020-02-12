@@ -11,9 +11,8 @@ const findLastItem = (depth: number, arr?: Heading[]): Heading | undefined => {
   if (!arr) {
     return undefined
   }
-  return (
-    _.findLast(arr, v => v.depth === depth) || findLastItem(depth, arr[arr.length - 1].headings)
-  )
+  const last = arr[arr.length - 1]
+  return last.depth === depth ? last : findLastItem(depth, arr[arr.length - 1].headings)
 }
 
 const toEmbeddedList = (acc: Heading[], b: Heading, idx: number): Heading[] => {

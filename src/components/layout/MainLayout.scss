@@ -1,13 +1,17 @@
 .main-layout {
-  aside,
-  aside > nav {
-    position: -webkit-sticky;
-    position: sticky;
-    left: 0;
-    top: 0;
-    //top: 3.75rem;
+  aside {
     min-width: 15rem;
     min-height: 100vh;
+    & > nav {
+      position: -webkit-sticky;
+      position: sticky;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      //top: 3.75rem;
+      min-width: inherit;
+      min-height: inherit;
+    }
   }
   & > .row > aside,
   & > .row > div {
