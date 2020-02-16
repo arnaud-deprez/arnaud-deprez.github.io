@@ -7,31 +7,27 @@ export interface Heading {
   headings?: Heading[]
 }
 
-const findLastItem = (depth: number, arr?: Heading[]): Heading | undefined => {
-  if (!arr) {
-    return undefined
-  }
-  const last = arr[arr.length - 1]
-  return last.depth === depth ? last : findLastItem(depth, arr[arr.length - 1].headings)
-}
-
 const toEmbeddedList = (acc: Heading[], b: Heading, idx: number): Heading[] => {
   if (acc.length === 0) {
-    return [b]
+    return [
+      {
+        depth: b.depth,
+        value: b.value
+      }
+    ]
   }
   const previous = acc[acc.length - 1]
   if (previous.depth === b.depth) {
-    return [...acc, b]
+    return [
+      ...acc,
+      {
+        depth: b.depth,
+        value: b.value
+      }
+    ]
   }
-  if (previous.depth > b.depth) {
-    acc[idx - 1].headings = [b]
-    return acc
-  }
-  const heading = findLastItem(b.depth - 1, acc)
-  if (heading) {
-    heading.headings = heading.headings || []
-    heading.headings = [...heading.headings, b]
-  }
+  const last = acc[acc.length - 1]
+  last.headings = toEmbeddedList(last.headings || [], b, idx)
   return acc
 }
 
@@ -40,9 +36,7 @@ const toListItem = (heading: Heading) => (
     <li>
       <a href={`#${heading.value}`}>{heading.value}</a>
     </li>
-    {heading.headings && (
-      <ul key={_.kebabCase(`heading-${heading.value}`)}>{heading.headings.map(toListItem)}</ul>
-    )}
+    {heading.headings && <ul>{heading.headings.map(toListItem)}</ul>}
   </React.Fragment>
 )
 
@@ -52,7 +46,6 @@ export interface TableOfContentProps {
 
 export const TableOfContent = ({ headings }: TableOfContentProps) => (
   <nav className="table-content" aria-label="Text navigation">
-    <mark>Table of content...</mark>
     <ul>{headings.reduce(toEmbeddedList, []).map(toListItem)}</ul>
   </nav>
 )

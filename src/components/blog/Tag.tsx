@@ -1,12 +1,14 @@
 import React from 'react'
 import { Badge, BadgeProps } from 'react-bootstrap'
 
+import './Tag.scss'
+
 export interface TagProps extends BadgeProps {
   value: string
 }
 
-export const Tag = ({ value, variant = 'secondary' }: TagProps) => (
-  <Badge variant={variant}>{value}</Badge>
+export const Tag = ({ value, variant = 'secondary', ...rest }: TagProps) => (
+  <Badge {...{ variant, ...rest }}>{value}</Badge>
 )
 
 export interface TagListProps {
@@ -15,7 +17,7 @@ export interface TagListProps {
 export const TagList = ({ values }: TagListProps) => (
   <div className="tag-list">
     {values.map(value => (
-      <Tag key={value} value={value} />
+      <Tag key={value} value={value} className="tag" />
     ))}
   </div>
 )

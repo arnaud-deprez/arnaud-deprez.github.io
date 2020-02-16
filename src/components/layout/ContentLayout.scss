@@ -16,6 +16,9 @@
       margin-bottom: $jumbotron-padding;
 
       @include media-breakpoint-up(sm) {
+        padding: $jumbotron-padding;
+      }
+      @include media-breakpoint-up(xl) {
         padding: $jumbotron-padding ($jumbotron-padding * 2);
       }
     }

@@ -6,9 +6,6 @@ exports[`<TableOfContent/> renders the table of content 1`] = `
     aria-label="Text navigation"
     class="table-content"
   >
-    <mark>
-      Table of content...
-    </mark>
     <ul>
       <li>
         <a

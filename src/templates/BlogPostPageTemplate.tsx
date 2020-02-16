@@ -38,14 +38,21 @@ const BlogPostPage = ({ pageContext, data }: BlogPostPageProps) => {
         description={markdownRemark.frontmatter.description}
         site={site}
       />
-      <Breadcrumb>
-        <Breadcrumb.Item href="/blog/">Blog</Breadcrumb.Item>
-        <Breadcrumb.Item href={pageContext.slug} active>
-          {markdownRemark.frontmatter.title}
-        </Breadcrumb.Item>
-      </Breadcrumb>
       <Container fluid>
         <Row>
+          <Col xl="9">
+            <Breadcrumb>
+              <Breadcrumb.Item href="/blog/">Blog</Breadcrumb.Item>
+              <Breadcrumb.Item href={pageContext.slug} active>
+                {markdownRemark.frontmatter.title}
+              </Breadcrumb.Item>
+            </Breadcrumb>
+          </Col>
+        </Row>
+        <Row>
+          <Col className="d-none d-xl-flex" xl={{ span: 3, order: 12 }}>
+            <TableOfContent headings={markdownRemark.headings} />
+          </Col>
           <Col>
             <main>
               <mark>Eventually the blog image here...</mark>
@@ -59,9 +66,6 @@ const BlogPostPage = ({ pageContext, data }: BlogPostPageProps) => {
               <TagList values={markdownRemark.frontmatter.tags} />
               <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
             </main>
-          </Col>
-          <Col xl="3">
-            <TableOfContent headings={markdownRemark.headings} />
           </Col>
         </Row>
       </Container>
