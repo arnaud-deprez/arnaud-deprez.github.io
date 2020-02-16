@@ -40,7 +40,7 @@ const AboutSection = (props: AboutSectionProps) => (
             <div className="text-center text-3x text-secondary">
               <FontAwesomeIcon icon={service.icon} />
             </div>
-            <Card.Body className="pt-2">
+            <Card.Body className="pt-0">
               <Card.Title className="text-center" as="h5">
                 {service.title}
               </Card.Title>
