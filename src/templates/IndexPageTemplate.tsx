@@ -186,7 +186,7 @@ const renderLeftMenu = (links: Link[]) => () => (
 interface IndexPageProps {
   data: {
     site: SiteInformation
-    markdownRemark: {
+    mdx: {
       frontmatter: {
         section: {
           about: AboutSectionProps
@@ -203,10 +203,10 @@ const IndexPage = ({ data }: IndexPageProps) => (
     <main>
       <AboutSection
         author={data.site.siteMetadata.author}
-        {...data.markdownRemark.frontmatter.section.about}
+        {...data.mdx.frontmatter.section.about}
       />
       <hr />
-      <TechnicalSkillsSection {...data.markdownRemark.frontmatter.section.technicalSkills} />
+      <TechnicalSkillsSection {...data.mdx.frontmatter.section.technicalSkills} />
     </main>
   </Layout>
 )
@@ -216,7 +216,7 @@ export const pageQuery = graphql`
     site {
       ...SiteInformation
     }
-    markdownRemark(id: { eq: $id }) {
+    mdx(id: { eq: $id }) {
       frontmatter {
         section {
           about {

@@ -13,9 +13,9 @@ export const NavHeader = (props: SocialLinksTrait) => (
       <BootstrapNav.Link to="/" as={Link}>
         <FontAwesomeIcon icon="user" className="mx-1" /> About
       </BootstrapNav.Link>
-      {/* <BootstrapNav.Link to="/blog/" as={Link}>
-        <FaBlog /> Blog
-      </BootstrapNav.Link> */}
+      <BootstrapNav.Link to="/blog/" as={Link}>
+        <FontAwesomeIcon icon="blog" className="mx-1" /> Blog
+      </BootstrapNav.Link>
       <BootstrapNav.Link to="/contact/" as={Link}>
         <FontAwesomeIcon icon="envelope" className="mx-1" /> Contact
       </BootstrapNav.Link>

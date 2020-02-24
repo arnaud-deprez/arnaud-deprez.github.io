@@ -41,6 +41,17 @@ exports[`<NavSocialIcons/> renders correctly 1`] = `
         target="_blank"
       />
     </li>
+    <li
+      class="nav-item"
+    >
+      <a
+        aria-label="Rss"
+        class="nav-link"
+        href="/rss.xml"
+        rel="noopener noreferrer"
+        target="_blank"
+      />
+    </li>
   </ul>
 </DocumentFragment>
 `;

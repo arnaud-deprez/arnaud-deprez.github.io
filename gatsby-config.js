@@ -3,7 +3,8 @@ const gatsbyRemarkPlugins = [
   {
     resolve: 'gatsby-remark-autolink-headers',
     options: {
-      icon: false
+      icon: false,
+      removeAccents: true
     }
   },
   {
@@ -99,12 +100,6 @@ module.exports = {
         showSpinner: false
       }
     },
-    {
-      resolve: 'gatsby-transformer-remark',
-      options: {
-        plugins: gatsbyRemarkPlugins
-      }
-    },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
@@ -154,16 +149,13 @@ module.exports = {
     //   }
     // },
     {
-      resolve: 'gatsby-plugin-feed',
+      resolve: 'gatsby-plugin-feed-mdx',
       options: {
-        /**
-         * no need to specify the other options, since they will be merged with this
-         */
         feeds: [
           {
             title: 'Feed',
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(({ node }) => {
+            serialize: ({ query: { site, allMdx } }) => {
+              return allMdx.edges.map(({ node }) => {
                 return {
                   ...node.frontmatter,
                   path: node.fields.slug,
@@ -176,14 +168,13 @@ module.exports = {
             },
             query: `
               {
-                allMarkdownRemark(
-                  limit: 1000,
+                allMdx(
                   sort: { order: DESC, fields: [frontmatter___date] },
                   filter: { 
                     frontmatter: { 
-                      draft: { ne: true } 
-                      title: { ne: "About" } 
-                    } 
+                      draft: { ne: true } },
+                      fields: { slug: { glob: "/blog/**" }
+                    }
                   }
                 ) {
                   edges {

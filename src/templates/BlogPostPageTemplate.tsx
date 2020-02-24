@@ -1,19 +1,25 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { Container, Row, Col, Breadcrumb } from 'react-bootstrap'
 import { MainLayout as Layout } from '../components/layout'
 import { Seo, SiteInformation } from '../components/metadata'
-import { TagList, TableOfContent } from '../components/blog'
+import { TagList, TableOfContent, TableOfContentProps } from '../components/blog'
 
+interface Title {
+  url: string
+  title: string
+  items?: Title[]
+}
 interface BlogPostPageProps {
   pageContext: {
     slug: string
   }
   data: {
     site: SiteInformation
-    markdownRemark: {
+    mdx: {
       timeToRead: number
-      html: string
+      body: string
       frontmatter: {
         date: Date
         title: string
@@ -21,50 +27,42 @@ interface BlogPostPageProps {
         tags: string[]
         image: string
       }
-      headings: {
-        depth: number
-        value: string
-      }[]
+      tableOfContents: TableOfContentProps
     }
   }
 }
 
 const BlogPostPage = ({ pageContext, data }: BlogPostPageProps) => {
-  const { site, markdownRemark } = data
+  const { site, mdx } = data
   return (
     <Layout siteMetadata={site.siteMetadata}>
-      <Seo
-        title={markdownRemark.frontmatter.title}
-        description={markdownRemark.frontmatter.description}
-        site={site}
-      />
+      <Seo title={mdx.frontmatter.title} description={mdx.frontmatter.description} site={site} />
       <Container fluid>
         <Row>
           <Col xl="9">
             <Breadcrumb>
               <Breadcrumb.Item href="/blog/">Blog</Breadcrumb.Item>
               <Breadcrumb.Item href={pageContext.slug} active>
-                {markdownRemark.frontmatter.title}
+                {mdx.frontmatter.title}
               </Breadcrumb.Item>
             </Breadcrumb>
           </Col>
         </Row>
         <Row>
           <Col className="d-none d-xl-flex" xl={{ span: 3, order: 12 }}>
-            <TableOfContent headings={markdownRemark.headings} />
+            <TableOfContent items={mdx.tableOfContents.items} />
           </Col>
           <Col>
             <main>
               <mark>Eventually the blog image here...</mark>
-              <h1 className="mb-0">{markdownRemark.frontmatter.title}</h1>
+              <h1 className="mb-0">{mdx.frontmatter.title}</h1>
               <p className="text-muted">
                 <em>
-                  Updated on {markdownRemark.frontmatter.date} - {markdownRemark.timeToRead} min
-                  read
+                  Updated on {mdx.frontmatter.date} - {mdx.timeToRead} min read
                 </em>
               </p>
-              <TagList values={markdownRemark.frontmatter.tags} />
-              <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+              <TagList values={mdx.frontmatter.tags} />
+              <MDXRenderer>{data.mdx.body}</MDXRenderer>
             </main>
           </Col>
         </Row>
@@ -78,7 +76,7 @@ export const pageQuery = graphql`
     site {
       ...SiteInformation
     }
-    markdownRemark(id: { eq: $id }) {
+    mdx(id: { eq: $id }) {
       frontmatter {
         date(formatString: "MMMM Do YYYY")
         title
@@ -92,12 +90,9 @@ export const pageQuery = graphql`
           }
         }
       }
-      headings {
-        depth
-        value
-      }
+      tableOfContents
       timeToRead
-      html
+      body
     }
   }
 `

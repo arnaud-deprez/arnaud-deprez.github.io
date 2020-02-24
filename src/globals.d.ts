@@ -1,7 +1,7 @@
 import { Event } from './utils/Gtag'
 
 declare global {
-  interface Window {
+  export interface Window {
     dataLayer: Event[]
   }
 }

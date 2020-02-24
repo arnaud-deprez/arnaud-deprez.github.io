@@ -1,5 +1,6 @@
 import {
   faBars,
+  faBlog,
   faCode,
   faEnvelope,
   faHeart,
@@ -7,6 +8,7 @@ import {
   faPen,
   faProjectDiagram,
   faRocket,
+  faRss,
   faQuoteLeft,
   faQuoteRight,
   faSpaceShuttle,
@@ -20,6 +22,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 export const loadIcons = () => {
   library.add(
     faBars,
+    faBlog,
     faCode,
     faEnvelope,
     faHeart,
@@ -27,6 +30,7 @@ export const loadIcons = () => {
     faPen,
     faProjectDiagram,
     faRocket,
+    faRss,
     faQuoteLeft,
     faQuoteRight,
     faSpaceShuttle,

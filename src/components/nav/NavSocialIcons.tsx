@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import { Nav as BootstrapNav } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { SocialLinksTrait } from '../metadata'
@@ -61,6 +62,15 @@ export const NavSocialIcons = ({
         />
       </BootstrapNav.Link>
     )}
+    <BootstrapNav.Link
+      to="/rss.xml"
+      aria-label="Rss"
+      target="_blank"
+      rel="noopener noreferrer"
+      as={Link}
+    >
+      <FontAwesomeIcon icon="rss" className={colorClassName('orange', useOriginalColor)} />
+    </BootstrapNav.Link>
     {children}
   </Nav>
 )

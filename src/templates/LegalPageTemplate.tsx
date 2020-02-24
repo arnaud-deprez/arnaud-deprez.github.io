@@ -1,17 +1,18 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { MainLayout as Layout } from '../components/layout'
 import { Seo, SiteInformation } from '../components/metadata'
 
 export interface LegalPageProps {
   data: {
     site: SiteInformation
-    markdownRemark: {
+    mdx: {
       frontmatter: {
         title: string
         date: Date
       }
-      html: string
+      body: string
     }
   }
 }
@@ -21,15 +22,15 @@ const LegalPage = ({ data }: LegalPageProps) => {
     <Layout siteMetadata={data.site.siteMetadata}>
       <Seo
         site={data.site}
-        title={data.markdownRemark.frontmatter.title}
+        title={data.mdx.frontmatter.title}
         description="Legal notice, terms of use, privacy and cookie policy"
       />
       <main>
-        <h1 className="text-uppercase mb-0">{data.markdownRemark.frontmatter.title}</h1>
+        <h1 className="text-uppercase mb-0">{data.mdx.frontmatter.title}</h1>
         <p className="text-muted">
-          <em>Updated on {data.markdownRemark.frontmatter.date}</em>
+          <em>Updated on {data.mdx.frontmatter.date}</em>
         </p>
-        <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+        <MDXRenderer>{data.mdx.body}</MDXRenderer>
       </main>
     </Layout>
   )
@@ -40,12 +41,12 @@ export const pageQuery = graphql`
     site {
       ...SiteInformation
     }
-    markdownRemark(id: { eq: $id }) {
+    mdx(id: { eq: $id }) {
       frontmatter {
         title
         date(formatString: "MMMM Do YYYY")
       }
-      html
+      body
     }
   }
 `

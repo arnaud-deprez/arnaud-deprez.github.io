@@ -4,34 +4,43 @@ import { TableOfContent } from '../.'
 
 describe('<TableOfContent/>', () => {
   it('renders the table of content', () => {
-    const input = [
+    const items = [
       {
-        value: 'heading 2a',
-        depth: 2
+        url: '#my-requirements',
+        title: 'My requirements'
       },
       {
-        value: 'heading 2b',
-        depth: 2
+        url: '#what-is-gatsby-',
+        title: 'What is Gatsby ?',
+        items: [
+          {
+            url: '#why-gatsby-',
+            title: 'Why Gatsby ?',
+            items: [
+              {
+                url: '#because',
+                title: 'Because'
+              },
+              {
+                url: '#i-got-high',
+                title: 'I got high'
+              }
+            ]
+          }
+        ]
       },
       {
-        value: 'heading 2b3a',
-        depth: 3
-      },
-      {
-        value: 'heading 2b3b',
-        depth: 3
-      },
-      {
-        value: 'heading 2b3a4a',
-        depth: 4
-      },
-      {
-        value: 'heading 2c',
-        depth: 2
+        url: '#conclusion',
+        title: 'Conclusion'
       }
     ]
 
-    const { asFragment } = render(<TableOfContent headings={input} />)
+    const { asFragment } = render(<TableOfContent items={items} />)
+    expect(asFragment()).toMatchSnapshot()
+  })
+
+  it('renders an empty table of content if items is undefined', () => {
+    const { asFragment } = render(<TableOfContent />)
     expect(asFragment()).toMatchSnapshot()
   })
 })

@@ -1,5 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<TableOfContent/> renders an empty table of content if items is undefined 1`] = `
+<DocumentFragment>
+  <nav
+    aria-label="Text navigation"
+    class="table-content"
+  >
+    <ul />
+  </nav>
+</DocumentFragment>
+`;
+
 exports[`<TableOfContent/> renders the table of content 1`] = `
 <DocumentFragment>
   <nav
@@ -9,48 +20,48 @@ exports[`<TableOfContent/> renders the table of content 1`] = `
     <ul>
       <li>
         <a
-          href="#heading 2a"
+          href="#my-requirements"
         >
-          heading 2a
+          My requirements
         </a>
       </li>
       <li>
         <a
-          href="#heading 2b"
+          href="#what-is-gatsby-"
         >
-          heading 2b
+          What is Gatsby ?
         </a>
       </li>
       <ul>
         <li>
           <a
-            href="#heading 2b3a"
+            href="#why-gatsby-"
           >
-            heading 2b3a
-          </a>
-        </li>
-        <li>
-          <a
-            href="#heading 2b3b"
-          >
-            heading 2b3b
+            Why Gatsby ?
           </a>
         </li>
         <ul>
           <li>
             <a
-              href="#heading 2b3a4a"
+              href="#because"
             >
-              heading 2b3a4a
+              Because
+            </a>
+          </li>
+          <li>
+            <a
+              href="#i-got-high"
+            >
+              I got high
             </a>
           </li>
         </ul>
       </ul>
       <li>
         <a
-          href="#heading 2c"
+          href="#conclusion"
         >
-          heading 2c
+          Conclusion
         </a>
       </li>
     </ul>

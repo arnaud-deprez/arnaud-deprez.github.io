@@ -9,6 +9,7 @@ const path = require('path')
 const { kebabCase } = require('lodash')
 const { uniq } = require('ramda')
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const BlogListPageTemplate = path.resolve('src/templates/BlogListPageTemplate.tsx')
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
@@ -22,34 +23,34 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 }
 
-const defaultBuildPath = (page, prefix) => (page > 1 ? `${prefix}/${page}` : `/${prefix}`)
-
-const createPaginatedPages = ({
-  edges,
+const createBlogPaginatedPages = ({
   createPage,
   component,
-  limit = 10,
+  total,
   prefix = '',
-  buildPath = defaultBuildPath,
+  limit = 10,
   context = {}
 }) => {
-  edges
-    .map((edge, index) => index % limit === 0 && edges.slice(index, index + limit))
-    .filter(group => group)
-    .forEach((group, index, groups) =>
-      createPage({
-        path: buildPath(index + 1, prefix),
-        component,
-        context: {
-          ...context,
-          group,
-          prefix,
-          page: index + 1,
-          pageTotal: groups.length,
-          itemTotal: edges.length
-        }
-      })
-    )
+  const pageTotal = Math.ceil(total / limit)
+
+  for (let page = 1; page <= pageTotal; page++) {
+    const path = page > 1 ? `${prefix}/${page}` : `${prefix}`
+    const skip = (page - 1) * limit
+
+    createPage({
+      path,
+      component,
+      context: {
+        ...context,
+        total,
+        limit,
+        page,
+        pageTotal,
+        prefix,
+        skip
+      }
+    })
+  }
 }
 
 exports.createPages = ({ actions, graphql, reporter }) => {
@@ -57,9 +58,8 @@ exports.createPages = ({ actions, graphql, reporter }) => {
 
   return graphql(`
     query GatsbyCreatePage {
-      allMarkdownRemark(
+      allMdx(
         sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 2000
         filter: { frontmatter: { draft: { ne: true } } }
       ) {
         edges {
@@ -83,7 +83,7 @@ exports.createPages = ({ actions, graphql, reporter }) => {
       return Promise.reject(result.errors)
     }
 
-    const edges = result.data.allMarkdownRemark.edges
+    const edges = result.data.allMdx.edges
 
     // Create single content pages:
     edges
@@ -103,14 +103,14 @@ exports.createPages = ({ actions, graphql, reporter }) => {
         })
       })
 
-    // Create full content list:
-    //   createPaginatedPages({
-    //     edges,
-    //     createPage,
-    //     component: IndexTemplate,
-    //     limit: 10,
-    //     prefix: 'all'
-    //   })
+    // Create blog content list:
+    createBlogPaginatedPages({
+      total: edges.filter(e => e.node.fields.slug.startsWith('/blog/')).length,
+      createPage,
+      component: BlogListPageTemplate,
+      limit: 10,
+      prefix: 'blog'
+    })
 
     //   // Create content lists by tag:
     //   const tags = uniq(
