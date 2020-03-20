@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { Container, Row, Col, Breadcrumb } from 'react-bootstrap'
 import { MainLayout as Layout } from '../components/layout'
