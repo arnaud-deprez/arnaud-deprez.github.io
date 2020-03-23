@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { MainLayout as Layout } from '../components/layout'
 import { Seo, SiteInformation } from '../components/metadata'
+import { PostSummaryList, PostNode } from '../components/blog'
 
 interface ArchivePageContext {
   readonly total: number
@@ -16,20 +17,7 @@ export interface BlogListPageProps {
     site: SiteInformation
     allMdx: {
       edges: {
-        node: {
-          fields: {
-            slug: string
-          }
-          frontmatter: {
-            date: Date
-            title: string
-            description: string
-            tags: string[]
-            image: string
-          }
-          timeToRead: number
-          excerpt: string
-        }
+        node: PostNode
       }[]
     }
   }
@@ -39,7 +27,7 @@ const BlogListPage = ({ pageContext, data }: BlogListPageProps) => {
   const { page } = pageContext
   const site = data.site
   const siteMetadata = site.siteMetadata
-  const posts = data.allMdx.edges
+  const edges = data.allMdx.edges
   return (
     <Layout {...{ siteMetadata }}>
       <Seo
@@ -49,10 +37,7 @@ const BlogListPage = ({ pageContext, data }: BlogListPageProps) => {
       />
       <main>
         <h1>Blog posts</h1>
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return <div key={node.fields.slug}>{title}</div>
-        })}
+        <PostSummaryList posts={edges.map(e => e.node)} />
       </main>
     </Layout>
   )

@@ -6,35 +6,6 @@ export interface Title {
   url: string
   items?: Title[]
 }
-// export interface Heading {
-//   value: string
-//   depth: number
-//   headings?: Heading[]
-// }
-
-// const toEmbeddedList = (acc: Heading[], b: Heading, idx: number): Heading[] => {
-//   if (acc.length === 0) {
-//     return [
-//       {
-//         depth: b.depth,
-//         value: b.value
-//       }
-//     ]
-//   }
-//   const previous = acc[acc.length - 1]
-//   if (previous.depth === b.depth) {
-//     return [
-//       ...acc,
-//       {
-//         depth: b.depth,
-//         value: b.value
-//       }
-//     ]
-//   }
-//   const last = acc[acc.length - 1]
-//   last.headings = toEmbeddedList(last.headings || [], b, idx)
-//   return acc
-// }
 
 const toListItem = (item: Title) => (
   <React.Fragment key={_.kebabCase(item.url)}>
