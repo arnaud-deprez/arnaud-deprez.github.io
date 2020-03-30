@@ -12,6 +12,7 @@
     // .main-content looks like a jumbotron but without border and background color by default
     main,
     .main-content {
+      min-height: 100vh;
       padding: $jumbotron-padding ($jumbotron-padding / 2);
       margin-bottom: $jumbotron-padding;
 

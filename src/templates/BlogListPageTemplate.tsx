@@ -1,8 +1,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import { Container } from 'react-bootstrap'
 import { MainLayout as Layout } from '../components/layout'
 import { Seo, SiteInformation } from '../components/metadata'
-import { PostSummaryList, PostNode } from '../components/blog'
+import { PostList, PostNode } from '../components/blog'
 
 interface ArchivePageContext {
   readonly total: number
@@ -37,7 +38,9 @@ const BlogListPage = ({ pageContext, data }: BlogListPageProps) => {
       />
       <main>
         <h1>Blog posts</h1>
-        <PostSummaryList posts={edges.map(e => e.node)} />
+        <Container>
+          <PostList posts={edges.map(e => e.node)} />
+        </Container>
       </main>
     </Layout>
   )

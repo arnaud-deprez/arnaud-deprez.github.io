@@ -4,7 +4,7 @@ exports[`<TableOfContent/> renders an empty table of content if items is undefin
 <DocumentFragment>
   <nav
     aria-label="Text navigation"
-    class="table-content"
+    class="table-of-content"
   >
     <ul />
   </nav>
@@ -15,7 +15,7 @@ exports[`<TableOfContent/> renders the table of content 1`] = `
 <DocumentFragment>
   <nav
     aria-label="Text navigation"
-    class="table-content"
+    class="table-of-content"
   >
     <ul>
       <li>

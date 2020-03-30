@@ -21,7 +21,7 @@ export const MainLayout = ({
       <Col lg={2} className="d-none d-lg-block" as="aside">
         <NavbarLeft author={siteMetadata.author}>{renderLeftMenu()}</NavbarLeft>
       </Col>
-      <Col className="min-h-100vh">
+      <Col>
         <ContentLayout {...{ siteMetadata, ...rest }}>{children}</ContentLayout>
       </Col>
     </Row>

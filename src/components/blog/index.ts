@@ -1,4 +1,4 @@
 export * from './Tag'
 export * from './TableOfContent'
-export * from './PostSummary'
-export * from './PostSummaryList'
+export * from './PostPreview'
+export * from './PostList'

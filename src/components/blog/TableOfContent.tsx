@@ -21,7 +21,7 @@ export interface TableOfContentProps {
 }
 
 export const TableOfContent = ({ items = [] }: TableOfContentProps) => (
-  <nav className="table-content" aria-label="Text navigation">
+  <nav className="table-of-content" aria-label="Text navigation">
     <ul>{items.map(toListItem)}</ul>
   </nav>
 )
