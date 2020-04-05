@@ -19,7 +19,7 @@ export const MainLayout = ({
   <Container fluid className="main-layout">
     <Row>
       <Col lg={2} className="d-none d-lg-block" as="aside">
-        <NavbarLeft author={siteMetadata.author}>{renderLeftMenu()}</NavbarLeft>
+        <NavbarLeft author={siteMetadata?.author}>{renderLeftMenu()}</NavbarLeft>
       </Col>
       <Col>
         <ContentLayout {...{ siteMetadata, ...rest }}>{children}</ContentLayout>

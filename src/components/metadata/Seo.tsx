@@ -44,24 +44,26 @@ const imageMeta = (image = '', location: WindowLocation) => {
 export interface SeoProps {
   readonly lang?: string
   readonly title?: string
+  readonly titleTemplate?: string
   readonly description?: string
   readonly image?: string
   readonly meta?: MetaProps[]
-  readonly site: SiteInformation
+  readonly site?: SiteInformation
 }
 
 export const Seo = ({
   lang = 'en',
   title = '',
+  titleTemplate = undefined,
   description = '',
   image = '',
   meta = [],
   site
 }: SeoProps) => {
-  const metaTitle = title || site.siteMetadata.title
-  const metaDescription = description || site.siteMetadata.description
+  const metaTitle = title || site?.siteMetadata?.title
+  const metaDescription = description || site?.siteMetadata?.description
   let twitterAccronym
-  if (site.siteMetadata.author.twitter) {
+  if (site?.siteMetadata?.author?.twitter) {
     twitterAccronym = `@${site.siteMetadata.author.twitter.substring(
       site.siteMetadata.author.twitter.lastIndexOf('/') + 1
     )}`
@@ -93,9 +95,9 @@ export const Seo = ({
           htmlAttributes={{
             lang
           }}
-          titleTemplate={`%s | ${site.siteMetadata.author.name}`}
+          titleTemplate={titleTemplate || `%s | ${site?.siteMetadata?.author?.name}`}
           title={title}
-          defaultTitle={site.siteMetadata.title}
+          defaultTitle={site?.siteMetadata?.title}
           meta={[
             {
               property: `og:url`,

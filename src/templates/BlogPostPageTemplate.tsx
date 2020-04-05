@@ -4,67 +4,62 @@ import Img from 'gatsby-image'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { Container, Row, Col, Breadcrumb } from 'react-bootstrap'
 import { MainLayout as Layout } from '../components/layout'
-import { Seo, SiteInformation } from '../components/metadata'
-import { TagList, TableOfContent, TableOfContentProps } from '../components/blog'
+import { Seo } from '../components/metadata'
+import { TagList, TableOfContent } from '../components/blog'
 
 interface BlogPostPageProps {
   pageContext: {
     slug: string
   }
-  data: {
-    site: SiteInformation
-    mdx: {
-      timeToRead: number
-      body: string
-      frontmatter: {
-        date: Date
-        title: string
-        description: string
-        tags: string[]
-        image: any
-      }
-      tableOfContents: TableOfContentProps
-    }
-  }
+  data: GatsbyTypes.BlogPostPageQuery
 }
 
 const BlogPostPage = ({ pageContext, data }: BlogPostPageProps) => {
   const { site, mdx: post } = data
+  if (!post) {
+    throw new Error('BlogPostPage: cannot render an undefined post')
+  }
   return (
-    <Layout siteMetadata={site.siteMetadata}>
-      <Seo title={post.frontmatter.title} description={post.frontmatter.description} site={site} />
+    <Layout siteMetadata={site?.siteMetadata}>
+      <Seo
+        title={post.frontmatter?.title}
+        description={post.frontmatter?.description}
+        site={site}
+      />
       <Container fluid>
         <Row>
           <Col xl="9">
-            <Breadcrumb>
-              <Breadcrumb.Item href="/blog/">Blog</Breadcrumb.Item>
-              <Breadcrumb.Item href={pageContext.slug} active>
-                {post.frontmatter.title}
-              </Breadcrumb.Item>
-            </Breadcrumb>
+            {post.frontmatter?.title && (
+              <Breadcrumb>
+                <Breadcrumb.Item href="/blog/">Blog</Breadcrumb.Item>
+                <Breadcrumb.Item href={pageContext.slug} active>
+                  {post.frontmatter.title}
+                </Breadcrumb.Item>
+              </Breadcrumb>
+            )}
           </Col>
         </Row>
         <Row>
           <Col className="d-none d-xl-flex" xl={{ span: 3, order: 12 }} as="aside">
-            <TableOfContent items={post.tableOfContents.items} />
+            {post?.tableOfContents?.items && <TableOfContent items={post.tableOfContents.items} />}
           </Col>
           <Col>
             <main>
-              {post.frontmatter.image && (
+              {post.frontmatter?.image && (
                 <Img
-                  fluid={post.frontmatter.image.childImageSharp.fluid}
+                  fluid={post.frontmatter.image?.childImageSharp?.fluid}
                   style={{ height: '400px' }}
                   alt={`${post.frontmatter.title} image`}
                 />
               )}
-              <h1 className="mb-0">{post.frontmatter.title}</h1>
+              <h1 className="mb-0">{post.frontmatter?.title}</h1>
               <p className="text-muted">
                 <em>
-                  Updated on {post.frontmatter.date} - {post.timeToRead} min read
+                  Updated on {post.frontmatter?.date} - {post.timeToRead} min read
                 </em>
               </p>
-              <TagList values={post.frontmatter.tags} />
-              <MDXRenderer>{data.mdx.body}</MDXRenderer>
+              {post.frontmatter?.tags && <TagList values={post.frontmatter.tags as string[]} />}
+              {post.body && <MDXRenderer>{post.body}</MDXRenderer>}
             </main>
           </Col>
         </Row>
@@ -74,7 +69,7 @@ const BlogPostPage = ({ pageContext, data }: BlogPostPageProps) => {
 }
 
 export const pageQuery = graphql`
-  query BlogPostById($id: String!) {
+  query BlogPostPage($id: String!) {
     site {
       ...SiteInformation
     }
@@ -86,7 +81,7 @@ export const pageQuery = graphql`
         tags
         image {
           childImageSharp {
-            fluid(maxHeight: 150, maxWidth: 800, quality: 100) {
+            fluid(maxHeight: 400, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }

@@ -26,19 +26,32 @@ export const NavHeader = (props: SocialLinksTrait) => (
 )
 
 export interface NavbarHeaderProps {
-  readonly author: Author
+  readonly author?: Author
 }
 
-export const NavbarHeader = ({ author: { name, ...rest } }: NavbarHeaderProps) => (
-  <Navbar id="navbar-header" expand="lg" as="nav">
-    <Navbar.Brand className="d-lg-none d-md-block" to="/" as={Link}>
-      {name}
-    </Navbar.Brand>
-    <Navbar.Toggle aria-controls="navbar-header">
-      <FontAwesomeIcon icon="bars" />
-    </Navbar.Toggle>
-    <Navbar.Collapse id="navbar-header" className="justify-content-end">
-      <NavHeader {...rest} />
-    </Navbar.Collapse>
-  </Navbar>
-)
+export const NavbarHeader = ({
+  author = {
+    name: '',
+    jobTitle: undefined,
+    email: undefined,
+    linkedin: undefined,
+    twitter: undefined,
+    github: undefined,
+    rss: undefined
+  }
+}: NavbarHeaderProps) => {
+  const { name, ...rest } = author
+  return (
+    <Navbar id="navbar-header" expand="lg" as="nav">
+      <Navbar.Brand className="d-lg-none d-md-block" to="/" as={Link}>
+        {name}
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="navbar-header">
+        <FontAwesomeIcon icon="bars" />
+      </Navbar.Toggle>
+      <Navbar.Collapse id="navbar-header" className="justify-content-end">
+        <NavHeader {...rest} />
+      </Navbar.Collapse>
+    </Navbar>
+  )
+}

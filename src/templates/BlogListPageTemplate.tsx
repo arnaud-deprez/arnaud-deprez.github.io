@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { Container } from 'react-bootstrap'
 import { MainLayout as Layout } from '../components/layout'
-import { Seo, SiteInformation } from '../components/metadata'
+import { Seo } from '../components/metadata'
 import { PostList, PostNode } from '../components/blog'
 
 interface ArchivePageContext {
@@ -14,21 +14,18 @@ interface ArchivePageContext {
 
 export interface BlogListPageProps {
   pageContext: ArchivePageContext
-  data: {
-    site: SiteInformation
-    allMdx: {
-      edges: {
-        node: PostNode
-      }[]
-    }
-  }
+  data: GatsbyTypes.BlogListQuery
 }
 
 const BlogListPage = ({ pageContext, data }: BlogListPageProps) => {
   const { page } = pageContext
   const site = data.site
-  const siteMetadata = site.siteMetadata
+  const siteMetadata = site?.siteMetadata
   const edges = data.allMdx.edges
+  const nodes = edges?.map(e => e.node)
+  if (!nodes) {
+    throw new Error('BlogListPage: cannot render a list post that is undefined')
+  }
   return (
     <Layout {...{ siteMetadata }}>
       <Seo
@@ -37,9 +34,9 @@ const BlogListPage = ({ pageContext, data }: BlogListPageProps) => {
         site={site}
       />
       <main>
-        <h1>Blog posts</h1>
         <Container>
-          <PostList posts={edges.map(e => e.node)} />
+          <h1>Blog posts</h1>
+          <PostList posts={nodes as PostNode[]} />
         </Container>
       </main>
     </Layout>
@@ -47,7 +44,7 @@ const BlogListPage = ({ pageContext, data }: BlogListPageProps) => {
 }
 
 export const pageQuery = graphql`
-  query BlogListQuery($skip: Int!, $limit: Int!) {
+  query BlogList($skip: Int!, $limit: Int!) {
     site {
       ...SiteInformation
     }
@@ -69,7 +66,7 @@ export const pageQuery = graphql`
             tags
             image {
               childImageSharp {
-                fluid(maxWidth: 120, quality: 100) {
+                fluid(maxHeight: 225, quality: 100) {
                   ...GatsbyImageSharpFluid
                 }
               }

@@ -3,7 +3,7 @@ import { Author } from '../metadata'
 import { NavbarHeader } from '../nav'
 
 export interface HeaderProps {
-  readonly author: Author
+  readonly author?: Author
 }
 
 export const Header = (props: HeaderProps) => (

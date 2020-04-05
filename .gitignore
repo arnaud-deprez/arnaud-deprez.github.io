@@ -11,3 +11,8 @@ yarn-error.log
 # Build directory
 /public/
 /coverage/
+
+# GraphQL generated files
+/src/**/__generated__/
+apollo.config.js
+schema.json

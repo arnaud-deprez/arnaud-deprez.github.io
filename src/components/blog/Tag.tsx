@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import { Badge, BadgeProps } from 'react-bootstrap'
 
 import './Tag.scss'
@@ -8,7 +9,9 @@ export interface TagProps extends BadgeProps {
 }
 
 export const Tag = ({ value, variant = 'secondary', ...rest }: TagProps) => (
-  <Badge {...{ variant, ...rest }}>{value}</Badge>
+  <Link to={`/blog/tags/${value}`}>
+    <Badge {...{ variant, ...rest }}>{value}</Badge>
+  </Link>
 )
 
 export interface TagListProps {

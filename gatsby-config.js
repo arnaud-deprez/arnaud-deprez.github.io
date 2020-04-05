@@ -69,6 +69,7 @@ module.exports = {
     }
   },
   plugins: [
+    'gatsby-plugin-typegen',
     /* {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {
