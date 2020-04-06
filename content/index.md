@@ -1,5 +1,5 @@
 ---
-templateKey: IndexPageTemplate
+templateKey: IndexTemplate
 title: 'About'
 section:
   about:

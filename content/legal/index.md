@@ -1,5 +1,5 @@
 ---
-templateKey: LegalPageTemplate
+templateKey: LegalTemplate
 date: 2020-01-26
 title: Legal Notice
 ---
@@ -27,19 +27,21 @@ This privacy policy will explain how our organization uses the personal data we 
 
 Topics:
 
-- [What data do we collect ?](#what-data-do-we-collect)
-- [How do we collect your data ?](#how-do-we-collect-your-data)
-- [How will we use your data ?](#how-will-we-use-your-data)
-- [How do we store your data ?](#how-do-we-store-your-data)
-- [What are your data protection rights ?](#what-are-your-data-protection-rights)
-- [Cookies](#cookies)
-  - [How do we use cookies ?](#how-do-we-use-cookies)
-  - [What types of cookies do we use ?](#what-types-of-cookies-do-we-use)
-  - [How to manage cookies ?](#how-to-manage-cookies)
-- [Privacy policies of other websites](#privacy-policies-of-other-websites)
-- [Changes to our privacy policy](#changes-to-our-privacy-policy)
-- [How to contact us](#how-to-contact-us)
-- [How to contact the appropriate authority](#how-to-contact-the-appropriate-authority)
+- [Terms of Use](#terms-of-use)
+- [Powple SPRL Privacy Policy](#powple-sprl-privacy-policy)
+  - [What data do we collect ?](#what-data-do-we-collect)
+  - [How do we collect your data ?](#how-do-we-collect-your-data)
+  - [How will we use your data ?](#how-will-we-use-your-data)
+  - [How do we store your data ?](#how-do-we-store-your-data)
+  - [What are your data protection rights ?](#what-are-your-data-protection-rights)
+  - [Cookies](#cookies)
+    - [How do we use cookies ?](#how-do-we-use-cookies)
+    - [What types of cookies do we use ?](#what-types-of-cookies-do-we-use)
+    - [How to manage cookies ?](#how-to-manage-cookies)
+  - [Privacy policies of other websites](#privacy-policies-of-other-websites)
+  - [Changes to our privacy policy](#changes-to-our-privacy-policy)
+  - [How to contact us](#how-to-contact-us)
+  - [How to contact the appropriate authority](#how-to-contact-the-appropriate-authority)
 
 ### What data do we collect ?
 

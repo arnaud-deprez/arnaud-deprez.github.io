@@ -4,16 +4,10 @@ import { Container } from 'react-bootstrap'
 import { MainLayout as Layout } from '../components/layout'
 import { Seo } from '../components/metadata'
 import { PostList, PostNode } from '../components/blog'
-
-interface ArchivePageContext {
-  readonly total: number
-  readonly page: number
-  readonly pageTotal: number
-  readonly prefix: string
-}
+import { PaginatedPageContext } from '../types'
 
 export interface BlogListPageProps {
-  pageContext: ArchivePageContext
+  pageContext: PaginatedPageContext
   data: GatsbyTypes.BlogListQuery
 }
 

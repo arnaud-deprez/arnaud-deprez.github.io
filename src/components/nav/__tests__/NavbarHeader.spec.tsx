@@ -8,7 +8,12 @@ describe('<NavbarHeader/>', () => {
       <NavbarHeader
         author={{
           name: 'Arnaud Deprez',
-          jobTitle: 'Technical Architect'
+          jobTitle: 'Technical Architect',
+          email: undefined,
+          linkedin: undefined,
+          twitter: undefined,
+          github: undefined,
+          rss: undefined
         }}
       />
     )

@@ -11,7 +11,7 @@ import { Nav, NavSocialIcons } from '../components/nav'
 import { TechnicalSkills } from '../components/about'
 import { LabelledIcon, OriginalIcon } from '../components/icon'
 
-import './IndexPageTemplate.scss'
+import './IndexTemplate.scss'
 
 interface AboutSectionProps extends GatsbyTypes.MdxFrontmatterSectionAbout {
   author?: Author

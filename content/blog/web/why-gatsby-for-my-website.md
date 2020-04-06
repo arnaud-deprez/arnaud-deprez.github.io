@@ -1,5 +1,5 @@
 ---
-templateKey: BlogPostPageTemplate
+templateKey: BlogPostTemplate
 date: '2020-02-08'
 title: 'Why I chose Gatsby to build my website ?'
 description: >

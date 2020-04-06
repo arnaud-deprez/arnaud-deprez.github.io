@@ -1,6 +1,6 @@
 ---
 draft: true
-templateKey: BlogPostPageTemplate
+templateKey: BlogPostTemplate
 date: '2018-01-07'
 title: 'Draft'
 description: Draft

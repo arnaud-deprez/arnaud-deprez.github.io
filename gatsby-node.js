@@ -9,7 +9,8 @@ const path = require('path')
 const { kebabCase } = require('lodash')
 const { uniq } = require('ramda')
 const { createFilePath } = require(`gatsby-source-filesystem`)
-const BlogListPageTemplate = path.resolve('src/templates/BlogListPageTemplate.tsx')
+const BlogListTemplate = path.resolve('src/templates/BlogListTemplate.tsx')
+const BlogListByTagTemplate = path.resolve('src/templates/BlogListByTagTemplate.tsx')
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
@@ -23,7 +24,19 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 }
 
-const createBlogPaginatedPages = ({
+function groupCountBy(field, edges) {
+  const groupCounts = edges.reduce((acc, { node }) => {
+    const groups = node.frontmatter[field] || []
+    groups.forEach(group => {
+      acc[group] = (acc[group] || 0) + 1
+    })
+    return acc
+  }, {})
+
+  return Object.entries(groupCounts)
+}
+
+const createPaginatedPages = ({
   createPage,
   component,
   total,
@@ -104,32 +117,26 @@ exports.createPages = ({ actions, graphql, reporter }) => {
       })
 
     // Create blog content list:
-    createBlogPaginatedPages({
-      total: edges.filter(e => e.node.fields.slug.startsWith('/blog/')).length,
+    const blogPosts = edges.filter(e => e.node.fields.slug.startsWith('/blog/'))
+    const totalBlogPosts = blogPosts.length
+    reporter.info(`Blog posts (${totalBlogPosts})`)
+    createPaginatedPages({
+      total: totalBlogPosts,
       createPage,
-      component: BlogListPageTemplate,
+      component: BlogListTemplate,
       limit: 10,
-      prefix: 'blog'
+      prefix: '/blog'
     })
 
-    //   // Create content lists by tag:
-    //   const tags = uniq(
-    //     edges.reduce((acc, { node }) => [...acc, ...(node.frontmatter.tags || [])], [])
-    //   )
-
-    //   tags.forEach(tag => {
-    //     const slug = kebabCase(tag)
-
-    //     createPaginatedPages({
-    //       edges: edges.filter(({ node }) => (node.frontmatter.tags || []).includes(tag)),
-    //       createPage,
-    //       component: TagTemplate,
-    //       limit: 10,
-    //       prefix: `tags/${slug}`,
-    //       context: {
-    //         slug,
-    //         tag
-    //       }
-    //     })
+    groupCountBy('tags', blogPosts).forEach(([tag, total]) => {
+      createPaginatedPages({
+        total,
+        createPage,
+        component: BlogListByTagTemplate,
+        prefix: `/blog/tags/${kebabCase(tag)}`,
+        context: { tag }
+      })
+      reporter.info(`Tag: ${tag} (${Math.ceil(total / 10)})`)
+    })
   })
 }
