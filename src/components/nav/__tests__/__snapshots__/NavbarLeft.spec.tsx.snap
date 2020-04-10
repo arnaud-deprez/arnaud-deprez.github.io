@@ -37,6 +37,7 @@ exports[`<NavbarLeft/> renders correctly 1`] = `
     </a>
     <ul
       class="social-icons mb-3 navbar-nav"
+      role=""
     >
       <li
         class="nav-item"
@@ -91,6 +92,7 @@ exports[`<NavbarLeft/> renders correctly with children 1`] = `
     </a>
     <ul
       class="social-icons mb-3 navbar-nav"
+      role=""
     >
       <li
         class="nav-item"
@@ -113,8 +115,7 @@ exports[`<NavbarLeft/> renders correctly with children 1`] = `
         <a
           class="nav-link"
           href="#"
-          role="tab"
-          tabindex="-1"
+          role="button"
         >
           Menu 1
         </a>
@@ -125,8 +126,7 @@ exports[`<NavbarLeft/> renders correctly with children 1`] = `
         <a
           class="nav-link"
           href="#"
-          role="tab"
-          tabindex="-1"
+          role="button"
         >
           Menu 2
         </a>
@@ -137,8 +137,7 @@ exports[`<NavbarLeft/> renders correctly with children 1`] = `
         <a
           class="nav-link"
           href="#"
-          role="tab"
-          tabindex="-1"
+          role="button"
         >
           Menu 3
         </a>

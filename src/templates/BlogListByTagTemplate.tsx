@@ -5,6 +5,7 @@ import { MainLayout as Layout } from '../components/layout'
 import { Seo } from '../components/metadata'
 import { PostList, PostNode } from '../components/blog'
 import { PaginatedPageContext } from '../types'
+import { Pager } from '../components/nav'
 
 export interface BlogListPageProps {
   pageContext: PaginatedPageContext
@@ -12,11 +13,11 @@ export interface BlogListPageProps {
 }
 
 const BlogListByTagPage = ({ pageContext, data }: BlogListPageProps) => {
-  const { page } = pageContext
+  const { prefix, page, total } = pageContext
   const site = data.site
   const siteMetadata = site?.siteMetadata
   const edges = data.allMdx.edges
-  const nodes = edges?.map(e => e.node)
+  const nodes = edges?.map((e) => e.node)
   if (!nodes) {
     throw new Error('BlogListPage: cannot render a list post that is undefined')
   }
@@ -28,9 +29,10 @@ const BlogListByTagPage = ({ pageContext, data }: BlogListPageProps) => {
         site={site}
       />
       <main>
-        <Container>
+        <Container className="d-flex flex-column">
           <h1>Blog posts</h1>
           <PostList posts={nodes as PostNode[]} />
+          <Pager {...{ prefix, page, total }} className="align-self-center" />
         </Container>
       </main>
     </Layout>

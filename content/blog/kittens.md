@@ -1,4 +1,5 @@
 ---
+draft: true
 templateKey: BlogPostTemplate
 date: '2018-01-07'
 title: 'Kittens'

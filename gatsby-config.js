@@ -4,45 +4,45 @@ const gatsbyRemarkPlugins = [
     resolve: 'gatsby-remark-autolink-headers',
     options: {
       icon: false,
-      removeAccents: true
-    }
+      removeAccents: true,
+    },
   },
   {
     resolve: 'gatsby-remark-smartypants',
     options: {
-      dashes: 'oldschool'
-    }
+      dashes: 'oldschool',
+    },
   },
   {
     resolve: 'gatsby-remark-prismjs',
     options: {
       classPrefix: 'language-',
       inlineCodeMarker: null,
-      aliases: {}
-    }
+      aliases: {},
+    },
   },
   {
     resolve: 'gatsby-remark-images',
     options: {
       maxWidth: 1200,
-      wrapperStyle: 'margin-bottom: 1rem;'
-    }
+      wrapperStyle: 'margin-bottom: 1rem;',
+    },
   },
   {
     resolve: 'gatsby-remark-copy-linked-files',
-    options: {}
+    options: {},
   },
   {
     resolve: 'gatsby-remark-emoji',
-    options: {}
-  }
+    options: {},
+  },
 ]
 
 const {
   NODE_ENV,
   URL: NETLIFY_SITE_URL = 'https://arnaud-deprez.powple.com',
   DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
-  CONTEXT: NETLIFY_ENV = NODE_ENV
+  CONTEXT: NETLIFY_ENV = NODE_ENV,
 } = process.env
 const isNetlifyProduction = NETLIFY_ENV === 'production'
 
@@ -65,11 +65,10 @@ module.exports = {
       linkedin: 'https://linkedin.com/in/deprezarnaud',
       twitter: 'https://twitter.com/arnaudeprez',
       github: 'https://github.com/arnaud-deprez',
-      rss: ''
-    }
+      rss: '',
+    },
   },
   plugins: [
-    'gatsby-plugin-typegen',
     /* {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {
@@ -84,38 +83,39 @@ module.exports = {
       }
     }, */
     'gatsby-plugin-typescript',
+    'gatsby-plugin-typegen',
     'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-catch-links',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: 'content',
-        path: `${__dirname}/content`
-      }
+        path: `${__dirname}/content`,
+      },
     },
     {
       resolve: 'gatsby-plugin-nprogress',
       options: {
         color: '#ff5700',
-        showSpinner: false
-      }
+        showSpinner: false,
+      },
     },
+    'gatsby-plugin-catch-links',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        include: /svg-icons/,
+      },
+    },
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
         extensions: ['.md', '.mdx'],
         gatsbyRemarkPlugins,
-        remarkPlugins: [require('remark-emoji')]
-      }
-    },
-    {
-      resolve: 'gatsby-plugin-react-svg',
-      options: {
-        include: /svg-icons/
-      }
+        remarkPlugins: [require('remark-emoji')],
+      },
     },
     // {
     //   resolve: 'gatsby-plugin-lunr',
@@ -163,7 +163,7 @@ module.exports = {
                   description: node.excerpt,
                   url: site.siteMetadata.siteUrl + node.fields.slug,
                   guid: site.siteMetadata.siteUrl + node.fields.slug,
-                  custom_elements: [{ 'content:encoded': node.html }]
+                  custom_elements: [{ 'content:encoded': node.html }],
                 }
               })
             },
@@ -194,10 +194,10 @@ module.exports = {
                 }
               }
             `,
-            output: 'rss.xml'
-          }
-        ]
-      }
+            output: 'rss.xml',
+          },
+        ],
+      },
     },
     {
       resolve: 'gatsby-plugin-manifest',
@@ -210,14 +210,14 @@ module.exports = {
         background_color: '#fff',
         theme_color: '#D77D4B',
         display: 'minimal-ui',
-        icon: './content/profile.png'
-      }
+        icon: './content/profile.png',
+      },
     },
     {
       resolve: 'gatsby-plugin-sitemap',
       options: {
-        exclude: ['/contact/thanks']
-      }
+        exclude: ['/contact/thanks'],
+      },
     },
     {
       resolve: 'gatsby-plugin-robots-txt',
@@ -225,20 +225,20 @@ module.exports = {
         resolveEnv: () => NETLIFY_ENV,
         env: {
           production: {
-            policy: [{ userAgent: '*' }]
+            policy: [{ userAgent: '*' }],
           },
           'branch-deploy': {
             policy: [{ userAgent: '*', disallow: ['/'] }],
             sitemap: null,
-            host: null
+            host: null,
           },
           'deploy-preview': {
-            policy: [{ userAgent: '*' }]
-          }
-        }
-      }
+            policy: [{ userAgent: '*' }],
+          },
+        },
+      },
     },
     'gatsby-plugin-offline',
-    'gatsby-plugin-netlify'
-  ]
+    'gatsby-plugin-netlify',
+  ],
 }

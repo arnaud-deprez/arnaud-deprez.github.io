@@ -4,6 +4,7 @@ exports[`<NavSocialIcons/> renders correctly 1`] = `
 <DocumentFragment>
   <ul
     class="social-icons nav"
+    role=""
   >
     <li
       class="nav-item"

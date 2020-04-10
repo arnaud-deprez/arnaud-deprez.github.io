@@ -11,6 +11,7 @@ yarn-error.log
 # Build directory
 /public/
 /coverage/
+/dist/
 
 # GraphQL generated files
 /src/**/__generated__/
