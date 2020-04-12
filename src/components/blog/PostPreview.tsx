@@ -48,7 +48,7 @@ export const PostPreview = ({ post }: PostPreviewProps) => {
             style={{
               top: 'auto',
               bottom: '0',
-              backgroundColor: 'rgba(0,0,0,0.54)'
+              backgroundColor: 'rgba(0,0,0,0.54)',
             }}
           >
             <Card.Title className="m-0" as="h3">

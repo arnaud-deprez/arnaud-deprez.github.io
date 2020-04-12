@@ -92,7 +92,7 @@ const iconify = (icon: object, defaultProps: IconProps = {}) => (props: IconProp
   <Icon
     {...{
       ...defaultProps,
-      ...props
+      ...props,
     }}
     icon={icon}
   />
@@ -105,7 +105,7 @@ const imgIcon = (
   <img
     {...{
       ...defaultProps,
-      ...props
+      ...props,
     }}
     src={icon}
     alt={alt}
@@ -117,7 +117,7 @@ const svgIcon = (Component: React.ElementType<IconProps>, defaultProps: IconProp
   <Component
     {...{
       ...defaultProps,
-      ...props
+      ...props,
     }}
   />
 )
@@ -180,7 +180,7 @@ const iconContainer: OriginalIcons = {
   nodejs: iconify(nodejsIcon),
   gatsby: iconify(gatsbyIcon),
   bootstrap: iconify(bootstrapIcon),
-  netlify: iconify(netlifyIcon)
+  netlify: iconify(netlifyIcon),
 }
 
 export interface OriginalIconProps extends IconProps {

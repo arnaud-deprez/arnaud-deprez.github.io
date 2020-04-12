@@ -13,7 +13,7 @@ import {
   faQuoteRight,
   faSpaceShuttle,
   faUser,
-  faUserGraduate
+  faUserGraduate,
 } from '@fortawesome/free-solid-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 

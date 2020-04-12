@@ -7,7 +7,7 @@ export interface PostListProps {
 
 export const PostList = ({ posts }: PostListProps) => (
   <ul className="list-unstyled">
-    {posts.map(p => (
+    {posts.map((p) => (
       <li key={p.fields?.slug}>
         <PostPreview post={p} />
       </li>

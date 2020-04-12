@@ -27,7 +27,7 @@ const AboutSection = (props: AboutSectionProps) => (
     <h3 className="text-primary">Helps customers in</h3>
 
     <CardGroup className="mb-4">
-      {props.services?.map(service => (
+      {props.services?.map((service) => (
         <Col sm={12} md={6} lg={3} className="px-0" key={service?.title}>
           <Card className="border-0 mb-3">
             {service?.icon && (
@@ -111,7 +111,7 @@ const TechnicalSkillsSection = (props: GatsbyTypes.MdxFrontmatterSectionTechnica
     <Container className="mb-4" fluid>
       <table>
         <tbody>
-          {props.love?.map(love => {
+          {props.love?.map((love) => {
             if (love) {
               return (
                 <tr key={love.title}>
@@ -155,17 +155,17 @@ type Link = {
 const leftMenuItems: Link[] = [
   {
     id: 'about-section',
-    title: 'About'
+    title: 'About',
   },
   {
     id: 'technical-skills-section',
-    title: 'Technical Skills'
-  }
+    title: 'Technical Skills',
+  },
 ]
 
 const renderLeftMenu = (links: Link[]) => () => (
   <Nav className="flex-column align-items-center" as="ul">
-    {links.map(link => (
+    {links.map((link) => (
       <BootstrapNav.Link
         activeClass="active"
         to={link.id}

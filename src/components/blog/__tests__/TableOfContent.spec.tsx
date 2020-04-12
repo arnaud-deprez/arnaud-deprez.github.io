@@ -7,7 +7,7 @@ describe('<TableOfContent/>', () => {
     const items = [
       {
         url: '#my-requirements',
-        title: 'My requirements'
+        title: 'My requirements',
       },
       {
         url: '#what-is-gatsby-',
@@ -19,20 +19,20 @@ describe('<TableOfContent/>', () => {
             items: [
               {
                 url: '#because',
-                title: 'Because'
+                title: 'Because',
               },
               {
                 url: '#i-got-high',
-                title: 'I got high'
-              }
-            ]
-          }
-        ]
+                title: 'I got high',
+              },
+            ],
+          },
+        ],
       },
       {
         url: '#conclusion',
-        title: 'Conclusion'
-      }
+        title: 'Conclusion',
+      },
     ]
 
     const { asFragment } = render(<TableOfContent items={items} />)

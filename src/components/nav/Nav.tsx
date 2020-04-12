@@ -2,7 +2,7 @@ import React from 'react'
 import {
   Nav as BootstrapNav,
   NavProps as BootstrapNavProps,
-  NavItemProps as BootstrapNavItemProps
+  NavItemProps as BootstrapNavItemProps,
 } from 'react-bootstrap'
 
 export type RenderChild = (from: React.ReactNode, index?: number) => React.ReactNode

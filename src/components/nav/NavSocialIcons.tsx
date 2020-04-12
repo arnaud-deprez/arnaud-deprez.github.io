@@ -20,7 +20,7 @@ export const NavSocialIcons = ({
   useOriginalColor = false,
   className,
   children,
-  role = ''
+  role = '',
 }: NavSocialIconsProps) => (
   <Nav className={`social-icons ${className || ''}`.trim()} role={role}>
     {linkedin && (

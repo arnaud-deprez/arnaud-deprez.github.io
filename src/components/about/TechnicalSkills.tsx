@@ -13,7 +13,7 @@ const TechnicalSkill = ({ skill }: { skill: string }) => (
 
 const mapToList = (items: string[], idx: number) => (
   <ul className="skills" key={idx}>
-    {items.map(item => (
+    {items.map((item) => (
       <li className="p-2" key={item}>
         <TechnicalSkill skill={item} />
       </li>

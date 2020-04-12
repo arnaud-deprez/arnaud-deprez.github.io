@@ -15,10 +15,10 @@ describe('<NavbarLeft/>', () => {
       file: {
         childImageSharp: {
           resize: {
-            src: 'profile.png'
-          }
-        }
-      }
+            src: 'profile.png',
+          },
+        },
+      },
     })
   })
   it('renders correctly', () => {
@@ -31,7 +31,7 @@ describe('<NavbarLeft/>', () => {
           linkedin: undefined,
           twitter: undefined,
           github: undefined,
-          rss: undefined
+          rss: undefined,
         }}
       />
     )
@@ -47,7 +47,7 @@ describe('<NavbarLeft/>', () => {
           linkedin: undefined,
           twitter: undefined,
           github: undefined,
-          rss: undefined
+          rss: undefined,
         }}
       >
         <Nav>

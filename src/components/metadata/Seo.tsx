@@ -12,16 +12,16 @@ const twitterMeta = (twitterAccronym = '') => {
   return [
     {
       name: `twitter:site`,
-      content: twitterAccronym
+      content: twitterAccronym,
     },
     {
       name: `twitter:creator`,
-      content: twitterAccronym
+      content: twitterAccronym,
     },
     {
       name: `twitter:card`,
-      content: `summary`
-    }
+      content: `summary`,
+    },
   ]
 }
 
@@ -30,15 +30,15 @@ const imageMeta = (image = '', location: WindowLocation) => {
     return [
       {
         property: 'og:image',
-        content: `${location.origin}/icons/icon-144x144.png`
-      }
+        content: `${location.origin}/icons/icon-144x144.png`,
+      },
     ]
   }
   return [
     {
       property: 'og:image',
-      content: image
-    }
+      content: image,
+    },
   ]
 }
 export interface SeoProps {
@@ -58,7 +58,7 @@ export const Seo = ({
   description = '',
   image = '',
   meta = [],
-  site
+  site,
 }: SeoProps) => {
   const metaTitle = title || site?.siteMetadata?.title
   const metaDescription = description || site?.siteMetadata?.description
@@ -71,29 +71,29 @@ export const Seo = ({
   const concatenatedMeta: MetaProps[] = [
     {
       name: `description`,
-      content: metaDescription
+      content: metaDescription,
     },
     {
       property: `og:title`,
-      content: metaTitle
+      content: metaTitle,
     },
     {
       property: `og:description`,
-      content: metaDescription
+      content: metaDescription,
     },
     {
       property: `og:type`,
-      content: `website`
+      content: `website`,
     },
     ...twitterMeta(twitterAccronym),
-    ...meta
+    ...meta,
   ]
   return (
     <Location>
       {({ location }) => (
         <Helmet
           htmlAttributes={{
-            lang
+            lang,
           }}
           titleTemplate={titleTemplate || `%s | ${site?.siteMetadata?.author?.name}`}
           title={title}
@@ -101,10 +101,10 @@ export const Seo = ({
           meta={[
             {
               property: `og:url`,
-              content: location.href
+              content: location.href,
             },
             ...imageMeta(image, location),
-            ...concatenatedMeta
+            ...concatenatedMeta,
           ]}
         />
       )}

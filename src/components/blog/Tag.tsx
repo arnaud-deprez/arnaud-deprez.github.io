@@ -20,7 +20,7 @@ export interface TagListProps {
 }
 export const TagList = ({ values }: TagListProps) => (
   <div className="tag-list">
-    {values.map(value => (
+    {values.map((value) => (
       <Tag key={value} value={value} className="tag" />
     ))}
   </div>

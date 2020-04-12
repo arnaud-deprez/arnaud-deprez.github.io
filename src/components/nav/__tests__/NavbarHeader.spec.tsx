@@ -13,7 +13,7 @@ describe('<NavbarHeader/>', () => {
           linkedin: undefined,
           twitter: undefined,
           github: undefined,
-          rss: undefined
+          rss: undefined,
         }}
       />
     )
