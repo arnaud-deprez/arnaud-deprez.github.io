@@ -3,9 +3,9 @@ import { graphql } from 'gatsby'
 import { Container } from 'react-bootstrap'
 import { MainLayout as Layout } from '../components/layout'
 import { Seo } from '../components/metadata'
+import { Pager } from '../components/nav'
 import { PostList, PostNode } from '../components/blog'
 import { PaginatedPageContext } from '../types'
-import { Pager } from '../components/nav'
 
 export interface BlogListPageProps {
   pageContext: PaginatedPageContext

@@ -4,10 +4,10 @@ import { Container, Col, Card, CardGroup, Nav as BootstrapNav } from 'react-boot
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import { Link as ScrollSpyLink } from 'react-scroll'
-import { PhotoCard } from '../components/photocard/PhotoCard'
 import { MainLayout as Layout } from '../components/layout'
 import { Seo, Author } from '../components/metadata'
 import { Nav, NavSocialIcons } from '../components/nav'
+import { PhotoCard } from '../components/photocard/PhotoCard'
 import { TechnicalSkills } from '../components/about'
 import { LabelledIcon, OriginalIcon } from '../components/icon'
 

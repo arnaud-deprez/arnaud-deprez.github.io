@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import { NavbarLeft } from '../nav'
-import { ContentLayout, ContentLayoutProps } from '.'
+import { ContentLayout, ContentLayoutProps } from './ContentLayout'
 
 import './MainLayout.scss'
 

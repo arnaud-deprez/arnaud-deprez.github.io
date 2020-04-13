@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import { Navbar } from 'react-bootstrap'
 import { Author } from '../metadata'
 import { PhotoCard } from '../photocard/PhotoCard'
-import { NavSocialIcons } from '.'
+import { NavSocialIcons } from './NavSocialIcons'
 
 import './NavbarLeft.scss'
 

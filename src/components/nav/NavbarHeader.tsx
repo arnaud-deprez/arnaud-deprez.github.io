@@ -3,7 +3,8 @@ import { Link } from 'gatsby'
 import { Navbar, Nav as BootstrapNav } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Author, SocialLinksTrait } from '../metadata'
-import { Nav, NavSocialIcons } from '.'
+import { Nav } from './Nav'
+import { NavSocialIcons } from './NavSocialIcons'
 
 import './NavbarHeader.scss'
 
