@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import { Container } from 'react-bootstrap'
 import { MainLayout as Layout } from '../components/layout'
 import { Seo } from '../components/metadata'
@@ -8,12 +8,12 @@ import { PostList, PostNode } from '../components/blog'
 import { PaginatedPageContext } from '../types'
 
 export interface BlogListPageProps {
-  pageContext: PaginatedPageContext
+  pageContext: PaginatedPageContext & { tag?: string }
   data: GatsbyTypes.BlogListByTagQuery
 }
 
 const BlogListByTagPage = ({ pageContext, data }: BlogListPageProps) => {
-  const { prefix, page, total } = pageContext
+  const { tag, prefix, page, total } = pageContext
   const site = data.site
   const siteMetadata = site?.siteMetadata
   const edges = data.allMdx.edges
@@ -24,13 +24,15 @@ const BlogListByTagPage = ({ pageContext, data }: BlogListPageProps) => {
   return (
     <Layout {...{ siteMetadata }}>
       <Seo
-        title={`Blog posts ${page > 1 ? page : ''}`.trim()}
-        description="List of all blog posts"
+        title={`Blog posts with tag ${tag} ${page > 1 ? 'at page ' + page : ''}`.trim()}
+        description={`List of all blog posts with tag ${tag} at page ${page}`}
         site={site}
       />
       <main>
         <Container className="d-flex flex-column">
-          <h1>Blog posts</h1>
+          <h1 className="mb-5">
+            Blog posts with tag <Link to={`blog/tags/${tag}`}>{tag}</Link>
+          </h1>
           <PostList posts={nodes as PostNode[]} />
           <Pager {...{ prefix, page, total }} className="align-self-center" />
         </Container>
@@ -59,7 +61,8 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MMMM Do YYYY")
+            date
+            dateString: date(formatString: "MMMM Do YYYY")
             title
             description
             tags

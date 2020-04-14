@@ -1,23 +1,18 @@
 @import '../../scss/global';
 
 .main-layout {
-  aside {
-    min-width: 15rem;
-    min-height: 100vh;
-    & > nav {
-      position: -webkit-sticky;
-      position: sticky;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      //top: 3.75rem;
-      min-width: inherit;
-      min-height: inherit;
-    }
-  }
-  & > .row > aside,
-  & > .row > div {
+  & > .row > * {
     padding-left: 0;
     padding-right: 0;
   }
+}
+
+#navbar-left {
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  min-width: 15rem;
+  height: 100vh;
 }

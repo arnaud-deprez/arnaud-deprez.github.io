@@ -1,6 +1,15 @@
 /* eslint-disable @typescript-eslint/camelcase */
 const gatsbyRemarkPlugins = [
   {
+    resolve: `gatsby-remark-table-of-contents`,
+    options: {
+      exclude: 'Table of Contents',
+      tight: true,
+      fromHeading: 2,
+      toHeading: 6,
+    },
+  },
+  {
     resolve: 'gatsby-remark-autolink-headers',
     options: {
       icon: false,
@@ -24,8 +33,8 @@ const gatsbyRemarkPlugins = [
   {
     resolve: 'gatsby-remark-images',
     options: {
-      maxWidth: 1200,
-      wrapperStyle: 'margin-bottom: 1rem;',
+      wrapperStyle: 'margin: 2rem auto;',
+      disableBgImageOnAlpha: true,
     },
   },
   {

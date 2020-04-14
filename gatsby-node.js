@@ -8,8 +8,6 @@
 const path = require('path')
 const { kebabCase } = require('lodash')
 const { createFilePath } = require(`gatsby-source-filesystem`)
-const BlogListTemplate = path.resolve('src/templates/BlogListTemplate.tsx')
-const BlogListByTagTemplate = path.resolve('src/templates/BlogListByTagTemplate.tsx')
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
@@ -65,13 +63,13 @@ const createPaginatedPages = ({
   }
 }
 
-exports.createPages = async ({ actions, graphql, reporter }) => {
+const createBlogPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
 
   const { data, errors } = await graphql(`
     query GatsbyCreatePage {
       allMdx(
-        filter: { frontmatter: { draft: { ne: true } } }
+        filter: { frontmatter: { draft: { ne: true } }, fields: { slug: { glob: "/blog/**" } } }
         sort: { order: DESC, fields: [frontmatter___date] }
       ) {
         edges {
@@ -79,7 +77,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             id
             frontmatter {
               tags
-              templateKey
             }
             fields {
               slug
@@ -95,34 +92,31 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return
   }
 
-  const edges = data.allMdx.edges
+  const blogPosts = data.allMdx.edges
 
   // Create single content pages:
-  edges
-    .filter(({ node }) => !!node.frontmatter.templateKey) // make sure we have templateKey for it
-    .forEach(({ node }) => {
-      const { id, fields, frontmatter } = node
-      const slug = frontmatter.path || fields.slug
-      createPage({
-        path: slug,
-        tags: frontmatter.tags,
-        component: path.resolve(`src/templates/${String(frontmatter.templateKey)}.tsx`),
-        // additional data can be passed via context
-        context: {
-          id,
-          slug,
-        },
-      })
+  blogPosts.forEach(({ node }) => {
+    const { id, fields, frontmatter } = node
+    const slug = frontmatter.path || fields.slug
+    createPage({
+      path: slug,
+      tags: frontmatter.tags,
+      component: path.resolve(`src/templates/BlogPostTemplate.tsx`),
+      // additional data can be passed via context
+      context: {
+        id,
+        slug,
+      },
     })
+  })
 
   // Create blog content list:
-  const blogPosts = edges.filter((e) => e.node.fields.slug.startsWith('/blog/'))
   const totalBlogPosts = blogPosts.length
   reporter.info(`Blog posts (${totalBlogPosts})`)
   createPaginatedPages({
     total: totalBlogPosts,
     createPage,
-    component: BlogListTemplate,
+    component: path.resolve('src/templates/BlogListTemplate.tsx'),
     limit: 10,
     prefix: '/blog',
   })
@@ -131,10 +125,14 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     createPaginatedPages({
       total,
       createPage,
-      component: BlogListByTagTemplate,
+      component: path.resolve('src/templates/BlogListByTagTemplate.tsx'),
       prefix: `/blog/tags/${kebabCase(tag)}`,
       context: { tag },
     })
     reporter.info(`Tag: ${tag} (${Math.ceil(total / 10)})`)
   })
+}
+
+exports.createPages = async (gatsby) => {
+  await createBlogPages(gatsby)
 }

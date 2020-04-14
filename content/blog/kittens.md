@@ -1,6 +1,5 @@
 ---
 draft: true
-templateKey: BlogPostTemplate
 date: '2018-01-07'
 title: 'Kittens'
 description: This is an example of how you can build your site around Markdown files with images

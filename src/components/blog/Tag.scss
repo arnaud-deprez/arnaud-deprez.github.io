@@ -1,6 +1,10 @@
-.tag-list {
+.tags {
+  display: flex;
   .tag {
-    margin-right: .25rem;
-    padding: 3px 5px;
+    margin-right: .33rem;
+    .badge {
+      // font-size: .9em;
+      padding: 5px;
+    }
   }
 }

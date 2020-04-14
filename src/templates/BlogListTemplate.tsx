@@ -24,13 +24,13 @@ const BlogListPage = ({ pageContext, data }: BlogListPageProps) => {
   return (
     <Layout {...{ siteMetadata }}>
       <Seo
-        title={`Blog posts ${page > 1 ? page : ''}`.trim()}
-        description="List of all blog posts"
+        title={`Blog posts ${page > 1 ? 'at page ' + page : ''}`.trim()}
+        description={`List of all blog posts at page ${page}`}
         site={site}
       />
       <main>
         <Container className="d-flex flex-column">
-          <h1>Blog posts</h1>
+          <h1 className="mb-5">Blog posts</h1>
           <PostList posts={nodes as PostNode[]} />
           <Pager {...{ prefix, page, total }} className="align-self-center" />
         </Container>
@@ -56,7 +56,8 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MMMM Do YYYY")
+            date
+            dateString: date(formatString: "MMMM Do YYYY")
             title
             description
             tags

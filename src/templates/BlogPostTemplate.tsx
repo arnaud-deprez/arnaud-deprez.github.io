@@ -2,10 +2,12 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { Container, Row, Col, Breadcrumb } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 import { MainLayout as Layout } from '../components/layout'
 import { Seo } from '../components/metadata'
-import { TagList, TableOfContent } from '../components/blog'
+import { Tags, TableOfContent } from '../components/blog'
+
+import './BlogPostTemplate.scss'
 
 interface BlogPostPageProps {
   pageContext: {
@@ -23,11 +25,11 @@ const BlogPostPage = ({ pageContext, data }: BlogPostPageProps) => {
     <Layout siteMetadata={site?.siteMetadata}>
       <Seo
         title={post.frontmatter?.title}
-        description={post.frontmatter?.description}
+        description={post.frontmatter?.description || post.excerpt}
         site={site}
       />
       <Container fluid>
-        <Row>
+        {/* <Row>
           <Col xl="9">
             {post.frontmatter?.title && (
               <Breadcrumb>
@@ -38,27 +40,29 @@ const BlogPostPage = ({ pageContext, data }: BlogPostPageProps) => {
               </Breadcrumb>
             )}
           </Col>
-        </Row>
+        </Row> */}
         <Row>
-          <Col className="d-none d-xl-flex" xl={{ span: 3, order: 12 }} as="aside">
+          <Col className="d-none d-xl-flex px-0" xl={{ span: 3, order: 12 }} as="aside">
             {post?.tableOfContents?.items && <TableOfContent items={post.tableOfContents.items} />}
           </Col>
-          <Col>
+          <Col className="px-0">
             <main>
               {post.frontmatter?.image && (
                 <Img
                   fluid={post.frontmatter.image?.childImageSharp?.fluid}
-                  style={{ height: '400px' }}
+                  className="blog-title-image"
                   alt={`${post.frontmatter.title} image`}
                 />
               )}
               <h1 className="mb-0">{post.frontmatter?.title}</h1>
               <p className="text-muted">
                 <em>
-                  Updated on {post.frontmatter?.date} - {post.timeToRead} min read
+                  Updated on{' '}
+                  <time dateTime={post.frontmatter?.date}>{post.frontmatter?.dateString}</time> -{' '}
+                  {post.timeToRead} min read
                 </em>
               </p>
-              {post.frontmatter?.tags && <TagList values={post.frontmatter.tags as string[]} />}
+              {post.frontmatter?.tags && <Tags values={post.frontmatter.tags as string[]} />}
               {post.body && <MDXRenderer>{post.body}</MDXRenderer>}
             </main>
           </Col>
@@ -75,7 +79,8 @@ export const pageQuery = graphql`
     }
     mdx(id: { eq: $id }) {
       frontmatter {
-        date(formatString: "MMMM Do YYYY")
+        date
+        dateString: date(formatString: "MMMM Do YYYY")
         title
         description
         tags
@@ -90,6 +95,7 @@ export const pageQuery = graphql`
       tableOfContents
       timeToRead
       body
+      excerpt
     }
   }
 `

@@ -1,19 +1,30 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import { Container, Col, Card, CardGroup, Nav as BootstrapNav } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import { Link as ScrollSpyLink } from 'react-scroll'
-import { MainLayout as Layout } from '../components/layout'
-import { Seo, Author } from '../components/metadata'
-import { Nav, NavSocialIcons } from '../components/nav'
-import { PhotoCard } from '../components/photocard/PhotoCard'
-import { TechnicalSkills } from '../components/about'
-import { LabelledIcon, OriginalIcon } from '../components/icon'
+import { MainLayout as Layout } from '../.'
+import { Seo, Author } from '../../metadata'
+import { Nav, NavSocialIcons } from '../../nav'
+import { PhotoCard } from '../../photocard/PhotoCard'
+import { TechnicalSkills } from '../../about'
+import { LabelledIcon, OriginalIcon } from '../../icon'
 
-import './IndexTemplate.scss'
+import './IndexPageLayout.scss'
 
-interface AboutSectionProps extends GatsbyTypes.MdxFrontmatterSectionAbout {
+interface AboutSection {
+  title?: string
+  subTitle?: string
+  services?: {
+    title?: string
+    icon?: IconProp
+    description?: string
+  }[]
+  pitch?: string
+}
+
+interface AboutSectionProps extends AboutSection {
   author?: Author
 }
 
@@ -74,7 +85,18 @@ const AboutSection = (props: AboutSectionProps) => (
   </section>
 )
 
-const TechnicalSkillsSection = (props: GatsbyTypes.MdxFrontmatterSectionTechnicalSkills) => (
+interface SkillSet {
+  title?: string
+  values?: string[]
+}
+
+interface TechnicalSkillsSection {
+  programming?: SkillSet[]
+  devOps?: SkillSet[]
+  love?: SkillSet[]
+}
+
+const TechnicalSkillsSection = (props: TechnicalSkillsSection) => (
   <section id="technical-skills-section" className="resume">
     <h2 className="text-primary text-uppercase">Technical Skills</h2>
     <h3>
@@ -181,72 +203,53 @@ const renderLeftMenu = (links: Link[]) => () => (
   </Nav>
 )
 
-interface IndexPageProps {
-  data: GatsbyTypes.IndexPageQuery
+interface Frontmatter {
+  title?: string
+  section?: {
+    about?: AboutSection
+    technicalSkills?: {}
+  }
 }
 
-const IndexPage = ({ data }: IndexPageProps) => {
-  if (!data.site || !data.site?.siteMetadata) {
-    throw new Error('IndexPage: siteMetadata should not be undefined')
+export interface IndexPageProps {
+  pageContext: {
+    frontmatter?: Frontmatter
   }
-  const siteInfo = data.site
+}
+
+const IndexPageLayout = ({ pageContext }: IndexPageProps) => {
+  const { siteInfo } = useStaticQuery<GatsbyTypes.IndexPageLayoutQuery>(
+    graphql`
+      query IndexPageLayout {
+        siteInfo: site {
+          ...SiteInformation
+        }
+      }
+    `
+  )
+  if (!siteInfo?.siteMetadata) {
+    throw new Error('IndexPageLayout: siteMetadata is undefined')
+  }
+  const { frontmatter } = pageContext
+  if (!frontmatter || !frontmatter?.section) {
+    throw new Error('IndexPageLayout: frontmatter.section is undefined')
+  }
   return (
     <Layout siteMetadata={siteInfo?.siteMetadata} renderLeftMenu={renderLeftMenu(leftMenuItems)}>
       <Seo site={siteInfo} />
       <main>
-        {data.mdx?.frontmatter?.section?.about && (
+        {frontmatter.section?.about && (
           <>
-            <AboutSection
-              author={siteInfo?.siteMetadata?.author}
-              {...data.mdx.frontmatter.section.about}
-            />
+            <AboutSection author={siteInfo?.siteMetadata?.author} {...frontmatter.section.about} />
             <hr />
           </>
         )}
-        {data.mdx?.frontmatter?.section?.technicalSkills && (
-          <TechnicalSkillsSection {...data.mdx.frontmatter.section.technicalSkills} />
+        {frontmatter.section?.technicalSkills && (
+          <TechnicalSkillsSection {...frontmatter.section.technicalSkills} />
         )}
       </main>
     </Layout>
   )
 }
 
-export const pageQuery = graphql`
-  query IndexPage($id: String!) {
-    site {
-      ...SiteInformation
-    }
-    mdx(id: { eq: $id }) {
-      frontmatter {
-        section {
-          about {
-            title
-            subTitle
-            services {
-              icon
-              title
-              description
-            }
-            pitch
-          }
-          technicalSkills {
-            devOps {
-              title
-              values
-            }
-            programming {
-              title
-              values
-            }
-            love {
-              title
-              values
-            }
-          }
-        }
-      }
-    }
-  }
-`
-
-export default IndexPage
+export default IndexPageLayout

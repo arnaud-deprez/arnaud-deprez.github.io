@@ -10,7 +10,7 @@ export interface TagProps extends BadgeProps {
 }
 
 export const Tag = ({ value, variant = 'secondary', ...rest }: TagProps) => (
-  <Link to={`/blog/tags/${kebabCase(value)}`}>
+  <Link to={`/blog/tags/${kebabCase(value)}`} className="tag">
     <Badge {...{ variant, ...rest }}>{value}</Badge>
   </Link>
 )
@@ -18,10 +18,10 @@ export const Tag = ({ value, variant = 'secondary', ...rest }: TagProps) => (
 export interface TagListProps {
   values: string[]
 }
-export const TagList = ({ values }: TagListProps) => (
-  <div className="tag-list">
+export const Tags = ({ values }: TagListProps) => (
+  <div className="tags">
     {values.map((value) => (
-      <Tag key={value} value={value} className="tag" />
+      <Tag key={value} value={value} />
     ))}
   </div>
 )

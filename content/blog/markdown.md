@@ -1,6 +1,5 @@
 ---
 draft: true
-templateKey: BlogPostTemplate
 date: '2017-11-07'
 title: 'Markdown Syntax'
 description: This is an example of markdown syntax

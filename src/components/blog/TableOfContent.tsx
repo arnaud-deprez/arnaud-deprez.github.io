@@ -7,21 +7,30 @@ export interface Title {
   items?: Title[]
 }
 
-const toListItem = (item: Title) => (
+const toListItem = (level = 2, item: Title) => (
   <React.Fragment key={_.kebabCase(item.url)}>
-    <li>
+    <li className={`toc-entry toc-h${level}`}>
       <a href={item.url}>{item.title}</a>
     </li>
-    {item.items && <ul>{item.items.map(toListItem)}</ul>}
+    {item.items && <TocLevel startLevel={level + 1} items={item.items} />}
   </React.Fragment>
 )
 
+const TocLevel = ({
+  startLevel,
+  items = [],
+  ...rest
+}: TableOfContentProps & { className?: string }) => (
+  <ul {...rest}>{items.map((it) => toListItem(startLevel, it))}</ul>
+)
+
 export interface TableOfContentProps {
+  startLevel?: number
   items?: Title[]
 }
 
-export const TableOfContent = ({ items = [] }: TableOfContentProps) => (
-  <nav className="table-of-content" aria-label="Text navigation">
-    <ul>{items.map(toListItem)}</ul>
+export const TableOfContent = (props: TableOfContentProps) => (
+  <nav className="toc" aria-label="Text navigation">
+    <TocLevel className="toc-nav" {...props} />
   </nav>
 )

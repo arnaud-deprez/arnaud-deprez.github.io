@@ -1,9 +1,8 @@
 ---
-templateKey: BlogPostTemplate
 date: '2020-02-08'
 title: 'Why I chose Gatsby to build my website ?'
 description: >
-
+image: ./gatsby-logo.png
 tags:
   - reactjs
   - nodejs
@@ -20,6 +19,12 @@ So if you are comparing Gatsby against other JAMStack solution, you can already 
 ## My requirements
 
 ## What is Gatsby ?
+
+![alt gatsby](./gatsby-flow.png 'Gatsby flow')
+
+Original schema
+
+![alt gatsby](./gatsby-flow-orig.png 'Gatsby flow')
 
 ### Why Gatsby ?
 

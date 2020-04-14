@@ -1,6 +1,7 @@
 import {
   faBars,
   faBlog,
+  faCalendarAlt,
   faCode,
   faEnvelope,
   faHeart,
@@ -23,6 +24,7 @@ export const loadIcons = () => {
   library.add(
     faBars,
     faBlog,
+    faCalendarAlt,
     faCode,
     faEnvelope,
     faHeart,

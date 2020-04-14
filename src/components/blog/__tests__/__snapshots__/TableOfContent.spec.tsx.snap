@@ -4,9 +4,11 @@ exports[`<TableOfContent/> renders an empty table of content if items is undefin
 <DocumentFragment>
   <nav
     aria-label="Text navigation"
-    class="table-of-content"
+    class="toc"
   >
-    <ul />
+    <ul
+      class="toc-nav"
+    />
   </nav>
 </DocumentFragment>
 `;
@@ -15,17 +17,23 @@ exports[`<TableOfContent/> renders the table of content 1`] = `
 <DocumentFragment>
   <nav
     aria-label="Text navigation"
-    class="table-of-content"
+    class="toc"
   >
-    <ul>
-      <li>
+    <ul
+      class="toc-nav"
+    >
+      <li
+        class="toc-entry toc-h2"
+      >
         <a
           href="#my-requirements"
         >
           My requirements
         </a>
       </li>
-      <li>
+      <li
+        class="toc-entry toc-h2"
+      >
         <a
           href="#what-is-gatsby-"
         >
@@ -33,7 +41,9 @@ exports[`<TableOfContent/> renders the table of content 1`] = `
         </a>
       </li>
       <ul>
-        <li>
+        <li
+          class="toc-entry toc-h3"
+        >
           <a
             href="#why-gatsby-"
           >
@@ -41,14 +51,18 @@ exports[`<TableOfContent/> renders the table of content 1`] = `
           </a>
         </li>
         <ul>
-          <li>
+          <li
+            class="toc-entry toc-h4"
+          >
             <a
               href="#because"
             >
               Because
             </a>
           </li>
-          <li>
+          <li
+            class="toc-entry toc-h4"
+          >
             <a
               href="#i-got-high"
             >
@@ -57,7 +71,9 @@ exports[`<TableOfContent/> renders the table of content 1`] = `
           </li>
         </ul>
       </ul>
-      <li>
+      <li
+        class="toc-entry toc-h2"
+      >
         <a
           href="#conclusion"
         >
