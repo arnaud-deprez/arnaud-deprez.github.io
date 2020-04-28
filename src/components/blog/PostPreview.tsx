@@ -60,12 +60,12 @@ export const PostPreview = ({ post }: PostPreviewProps) => {
           </Card.ImgOverlay>
         </div>
       )}
-      <PostTimeInfo
-        date={post.frontmatter.date}
-        dateString={post.frontmatter.dateString}
-        timeToRead={post.timeToRead}
-      />
       <Card.Body>
+        <PostTimeInfo
+          date={post.frontmatter.date}
+          dateString={post.frontmatter.dateString}
+          timeToRead={post.timeToRead}
+        />
         <Card.Text>{post.frontmatter.description || post.excerpt}</Card.Text>
         {post.frontmatter?.tags && <Tags values={post.frontmatter.tags} />}
       </Card.Body>

@@ -16,7 +16,9 @@ ul, ol {
   padding-left: 2em;
 }
 
-.icons {
+.with-icon {
+  display: flex;
+  align-items: center;
   margin: 0;
   svg {
     display: inline-block;

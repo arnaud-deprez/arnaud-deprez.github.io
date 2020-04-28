@@ -1,28 +1,34 @@
 @import "../scss/_global";
 
-.toc {
-    padding-top: $jumbotron-padding;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 60px;
-    z-index: $zindex-sticky;
-    width: 100%;
-    align-self: start;
-    
-    & > .toc-nav {
-        border-left: 1px solid #eee;
+.blog-post {
+    .toc {
+        padding-top: $jumbotron-padding;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 60px;
+        z-index: $zindex-sticky;
+        width: 100%;
+        align-self: start;
+
+        &>.toc-nav {
+            border-left: 1px solid #eee;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 1rem;
+        }
     }
 
-    ul {
-        list-style: none;
-        padding-left: 1rem;
+    .blog-title-image {
+        height: 400px;
     }
-}
 
-.blog-title-image {
-    height: 400px;
-}
+    .post-time-info {
+        margin: .5rem 0;
+    }
 
-.tags {
-    margin-bottom: 2rem;
+    .tags {
+        margin-bottom: 2rem;
+    }
 }

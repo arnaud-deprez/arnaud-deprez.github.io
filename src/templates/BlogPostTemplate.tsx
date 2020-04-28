@@ -5,7 +5,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { Container, Row, Col } from 'react-bootstrap'
 import { MainLayout as Layout } from '../components/layout'
 import { Seo } from '../components/metadata'
-import { Tags, TableOfContent } from '../components/blog'
+import { Tags, TableOfContent, PostTimeInfo } from '../components/blog'
 
 import './BlogPostTemplate.scss'
 
@@ -19,7 +19,10 @@ interface BlogPostPageProps {
 const BlogPostPage = ({ pageContext, data }: BlogPostPageProps) => {
   const { site, mdx: post } = data
   if (!post) {
-    throw new Error('BlogPostPage: cannot render an undefined post')
+    throw new Error('BlogPostPage: post is required')
+  }
+  if (!post.timeToRead) {
+    throw new Error('BlogPostPage: post.timeToRead is required')
   }
   return (
     <Layout siteMetadata={site?.siteMetadata}>
@@ -28,7 +31,7 @@ const BlogPostPage = ({ pageContext, data }: BlogPostPageProps) => {
         description={post.frontmatter?.description || post.excerpt}
         site={site}
       />
-      <Container fluid>
+      <Container className="blog-post" fluid>
         {/* <Row>
           <Col xl="9">
             {post.frontmatter?.title && (
@@ -54,14 +57,12 @@ const BlogPostPage = ({ pageContext, data }: BlogPostPageProps) => {
                   alt={`${post.frontmatter.title} image`}
                 />
               )}
-              <h1 className="mb-0">{post.frontmatter?.title}</h1>
-              <p className="text-muted">
-                <em>
-                  Updated on{' '}
-                  <time dateTime={post.frontmatter?.date}>{post.frontmatter?.dateString}</time> -{' '}
-                  {post.timeToRead} min read
-                </em>
-              </p>
+              <h1>{post.frontmatter?.title}</h1>
+              <PostTimeInfo
+                date={post.frontmatter?.date}
+                dateString={post.frontmatter?.dateString}
+                timeToRead={post.timeToRead}
+              />
               {post.frontmatter?.tags && <Tags values={post.frontmatter.tags as string[]} />}
               {post.body && <MDXRenderer>{post.body}</MDXRenderer>}
             </main>

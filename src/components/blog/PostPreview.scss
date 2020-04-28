@@ -1,7 +1,7 @@
 @import "../../scss/_global";
 
 .post-preview {
-    margin: .5rem;
+    margin: .5rem 0;
 
     .post-preview-overlay {
         display: flex;
@@ -9,18 +9,16 @@
         top: auto;
         bottom: 0;
         background-color: rgba(0,0,0,0.54);
-        padding: 1.5rem;
+        padding: 1.25rem;
 
         .btn {
             z-index: $stretched-link-z-index + 1;
         }
     }
-    .card-body,
     .post-time-info {
-        padding: 1rem 1.25rem;
+        margin-bottom: .5rem;
     }
     .tags {
-        margin-bottom: 1rem;
         justify-content: center;
     }
 }
