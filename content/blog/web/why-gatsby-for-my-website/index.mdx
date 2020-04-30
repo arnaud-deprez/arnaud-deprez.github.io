@@ -1,0 +1,131 @@
+---
+date: '2020-02-08'
+title: 'Why did I choose Gatsby to build my website ?'
+description: >
+image: ./gatsby-logo.png
+tags:
+  - reactjs
+  - javascript
+  - gatsbyjs
+  - jamstack
+  - typescript
+  - netlify
+---
+
+I started my website few weeks ago and I always wanted to add a blog section and finally here it is :slightly_smiling_face:  
+This first post shares my experience on using [Gatsby][gatsby] and [Netlify](https://www.netlify.com/) to build this and why I choose it over alternatives.
+It does not explain how to get started with [Gatsby][gatsby], there are already a lot of other blogs and the [documentation](https://www.gatsbyjs.org/docs/) is really good with very good [tutorials](https://www.gatsbyjs.org/tutorial/).
+
+## My requirements
+
+I'm a freelance Software Engineer/Architect with initial background in developing java backend applications and I wanted to build a website to show my resume and share some experiences with the world through a blog.
+
+So this website has the following requirements:
+
+- Every page should look the same to every user
+- Good SEO support
+- Free or cheap hosting
+- No authentication needed
+
+As a developer eager to learn, I wanted to have my hands dirty and train my skills on the frontend side :sunglasses:
+
+With these requirements, it's clear that I only needed a static website generator for now.
+
+## Existing solutions
+
+There are a lot of existing SSG solutions on the market and most of them comes with some convention over configuration that you can eventually tweak and _Gatsby_ is not an exception.
+
+Some of them use pure server side rendering language with **HTML** and **CSS** and the most well known in this category are:
+
+- [Jekyll](https://jekyllrb.com/) uses [liquid](https://shopify.github.io/liquid/) template written in ruby
+- [Hugo](https://gohugo.io/) uses [go template](https://golang.org/pkg/html/template/)
+
+The problem with these solutions occurs when you need to add some **javascript** code in your page: for example if you want to have menu with a collapse button, a date picker or something dynamic in general. While nothing prevents you to add some `package.json`, you still have to customize a lot the initial _jekyll_ or _hugo_ build to make it work and there you are left on your own looking around for some blog and other examples.
+
+On the other hand, you have more recent SSG that embraces the web and leverage the JAMStack[^jamstack] architecture such as:
+
+- [Gatsby][gatsby] is built on top of [React][reactjs]
+- [Gridsome](https://gridsome.org/) is the alternative of _Gatsby_ but built on top of [Vue](https://vuejs.org/)
+- [Eleventy](https://www.11ty.dev/) is the most recent actor within these 3 and it is just built on top of **javascript** letting you the choice for any library and framework.
+
+In my career, I started some frontend development first with [Angularjs](https://angularjs.org/) and then [Angular 2+](https://angular.io/) and then try [React][reactjs] which is currently my preferred web library for frontend application and that's the first 2 reasons why I decided to try [Gatsby][gatsby].
+
+## What is Gatsby and how it works ?
+
+> Gatsby is a free and open source framework based on React that helps developers build blazing fast **websites** and **apps**
+>
+> <footer className="blockquote-footer">
+>   From <a href="https://gatsbyjs.org">Gatsby</a>
+> </footer>
+
+_Gatsby_ is a framework that builds your template pages written in React and your data coming from all kind of sources (Markdown, json, yaml, CMS, API, database, etc.) that is fetched with [GraphQL](https://graphql.org/) queries into static **HTML** pages that eventually get [rehydrated](https://www.gatsbyjs.org/docs/glossary#hydration) into a React application.  
+It possible because the generated site still run as a full React application in the browser so you can still [fetch data](https://www.gatsbyjs.org/docs/client-data-fetching/) from other sources at [runtime](https://www.gatsbyjs.org/docs/glossary#runtime) like you would in a typical React app.
+
+![alt gatsby](./gatsby-flow.png 'Gatsby flow')
+
+So as you see, _Gatsby_ is able to do a bit more than just building a static web site :wink:
+
+## So why did I choose Gatsby ?
+
+### As a developer
+
+1. The great **[documentation](https://www.gatsbyjs.org/docs/)**, the **[tutorials](https://www.gatsbyjs.org/tutorial/)**, the huge number of **[starters](https://www.gatsbyjs.org/starters/)** and **[plugins](https://www.gatsbyjs.org/plugins/)** and the great **community** make it easy to step in.
+2. Because _Gatsby_ is built on top of React, it uses a **Component base** approach which makes it easier to reuse component across many pages in different context than a Template base approach used in _Jekyll_ and _Hugo_.
+3. **GraphQL** let you load the state of your pages that you can reduce for each sub component a bit like [Redux](https://redux.js.org/) does
+4. A simple API to **[create pages dynamically](https://www.gatsbyjs.org/docs/node-apis/#createPages)**
+5. **default _Gatsby_ webpack build config** supports a lot of use cases, I've never had to modify it
+6. **[MDX](https://www.gatsbyjs.org/docs/glossary/mdx/)** - a Markdown extension that lets you include JSX into your Markdown document - supported by [gatsby-plugin-mdx](https://www.gatsbyjs.org/packages/gatsby-plugin-mdx/)
+7. We can easily **test our component** with [Jest](https://jestjs.io/) for example
+8. Best practices supported by plugins:
+   1. **SEO** support with generated Sitemap thanks to [gatsby-plugin-sitemap](https://www.gatsbyjs.org/packages/gatsby-plugin-sitemap/), `robot.txt` generated thanks to [gatsby-plugin-robots-txt](https://www.gatsbyjs.org/packages/gatsby-plugin-robots-txt/) and HTML head customization thanks to [gatsby-plugin-react-helmet](https://www.gatsbyjs.org/packages/gatsby-plugin-react-helmet/)
+   2. supports **[PWAs](https://www.gatsbyjs.org/docs/progressive-web-app/)** thanks to [gatsby-plugin-manifest](https://www.gatsbyjs.org/packages/gatsby-plugin-manifest/) and [gatsby-plugin-offline](https://www.gatsbyjs.org/packages/gatsby-plugin-offline/)
+   3. **Image optimization** thanks to [gatsby-plugin-sharp](https://www.gatsbyjs.org/packages/gatsby-plugin-sharp), [gatsby-transformer-sharp](https://www.gatsbyjs.org/packages/gatsby-transformer-sharp/), [gatsby-image](https://www.gatsbyjs.org/packages/gatsby-image/) and [gatsby-remark-images](https://www.gatsbyjs.org/packages/gatsby-remark-images/) for the image in your Markdown files
+   4. **generated RSS feed** for your blog thanks to [gatsby-plugin-feed-mdx](https://www.gatsbyjs.org/packages/gatsby-plugin-feed-mdx/)
+   5. **[default 404 page](https://www.gatsbyjs.org/docs/add-404-page/)**
+
+I also love that I could customize _Gatsby_ to work with my taste:
+
+1. **[Typescript](https://www.typescriptlang.org/)** support thanks to [gatsby-plugin-typescript](https://www.gatsbyjs.org/packages/gatsby-plugin-typescript/) and [gatsby-plugin-typegen](https://www.gatsbyjs.org/packages/gatsby-plugin-typegen/) to generate types for my _GraphQL_ queries
+2. **[SASS](https://sass-lang.com/)** support thanks to [gatsby-plugin-sass](https://www.gatsbyjs.org/packages/gatsby-plugin-sass/)
+3. A lot of gatsby-remark-\* plugins to help simplify your life when creating Markdown or MDX content
+
+I also like the possibility to add a lot of other feature that I didn't explore yet such as adding [search](https://www.gatsbyjs.org/docs/adding-search/) and [post comments](https://www.gatsbyjs.org/docs/adding-comments/) and the fact that I can still easily fallback on some client rendering if needed.
+
+### As a user
+
+Usually in a static website, each time you navigate to another page, the browser needs to load that new page with all the required resources needed. It can take time and as a result, you can see a blank page while your browser is loading it and that's a very bad user experience as you can just wait or leave the website.
+
+While there are techniques to avoid that whatever the SSG you are using, _Gatsby_ supports it out of the box by implementing the PRPL pattern[^prpl].
+
+> Gatsby sites render a static HTML version of the initial route and then load the code bundle for the page.
+> Then immediately starts pre-caching resources for pages linked to from the initial route.
+> When a user clicks on a link, Gatsby creates the new page on demand on the client.
+>
+> <footer className="blockquote-footer">
+>   From <a href="https://www.gatsbyjs.org/docs/prpl-pattern/">Gatsby</a>
+> </footer>
+
+This is what makes Gatsby so fast and the end user experience incredible smooth even if it's a static website and it's just provided out of the box !
+
+## Conclusion
+
+Voila, I hope I gave you the desire to test [Gatsby][gatsby] for your next web site.
+
+Overall, this website is not finish yet and will continue to evolve, but I'm really happy with the current state and the fact that I can keep the code clean and focus on content and how I want to present it. Do not hesitate to check the source code on github and see you soon for other posts.
+
+[^jamstack]:
+  <u>JAMStack</u> is a modern architecture that uses <b>J</b>avaScript, <b>A</b>PIs and HTML <b>M</b>
+  arkup (JAM) without requiring the use of a database or server-side programming language. More
+  info <a href="https://jamstack.org/">https://jamstack.org/</a>
+
+[^prpl]:
+  <u>PRPL</u> is a web site architecture developed by Google for building websites and apps that work
+  exceptionally well with unreliable network connections. PRPL stands for <b>Push -> Render -> Pre-cache -> Lazy-load</b>. 
+  More info <a href="https://web.dev/apply-instant-loading-with-prpl/">https://web.dev/apply-instant-loading-with-prpl/</a>
+
+*[SEO]: Search Engine Optimization
+*[SSG]: Static Site Generator 
+*[PWAs]: Progressive Web Apps
+
+[gatsby]: https://www.gatsbyjs.org/
+[reactjs]: https://reactjs.org/

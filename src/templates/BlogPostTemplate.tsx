@@ -16,7 +16,7 @@ interface BlogPostPageProps {
   data: GatsbyTypes.BlogPostPageQuery
 }
 
-const BlogPostPage = ({ pageContext, data }: BlogPostPageProps) => {
+const BlogPostPage = ({ data }: BlogPostPageProps) => {
   const { site, mdx: post } = data
   if (!post) {
     throw new Error('BlogPostPage: post is required')
@@ -64,7 +64,11 @@ const BlogPostPage = ({ pageContext, data }: BlogPostPageProps) => {
                 timeToRead={post.timeToRead}
               />
               {post.frontmatter?.tags && <Tags values={post.frontmatter.tags as string[]} />}
-              {post.body && <MDXRenderer>{post.body}</MDXRenderer>}
+              {post.body && (
+                <section className="text-justify">
+                  <MDXRenderer>{post.body}</MDXRenderer>
+                </section>
+              )}
             </main>
           </Col>
         </Row>
@@ -88,7 +92,7 @@ export const pageQuery = graphql`
         image {
           childImageSharp {
             fluid(maxHeight: 400, quality: 100) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }

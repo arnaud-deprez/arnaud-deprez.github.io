@@ -42,6 +42,7 @@
     "gatsby-remark-emoji": "0.0.3",
     "gatsby-remark-emojis": "0.4.2",
     "gatsby-remark-images": "3.2.2",
+    "gatsby-remark-numbered-footnotes": "1.0.1",
     "gatsby-remark-prismjs": "3.4.1",
     "gatsby-remark-smartypants": "2.2.1",
     "gatsby-remark-table-of-contents": "0.0.9",
@@ -60,6 +61,7 @@
     "react-moment": "0.9.7",
     "react-scroll": "1.7.16",
     "regenerator-runtime": "0.13.5",
+    "remark-abbr": "1.4.0",
     "remark-emoji": "2.1.0",
     "yup": "0.28.3"
   },
@@ -91,6 +93,7 @@
     "eslint-config-prettier": "6.10.1",
     "eslint-config-standard": "14.1.1",
     "eslint-plugin-import": "2.20.2",
+    "eslint-plugin-mdx": "1.6.9",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-prettier": "3.1.2",
     "eslint-plugin-promise": "4.2.1",
@@ -132,7 +135,7 @@
       "prettier --write",
       "eslint"
     ],
-    "*.{js,json,md}": [
+    "*.{js,json}": [
       "prettier --write"
     ]
   }

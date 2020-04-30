@@ -1,34 +1,42 @@
 @import "../scss/_global";
 
 .blog-post {
-    .toc {
-        padding-top: $jumbotron-padding;
-        position: -webkit-sticky;
-        position: sticky;
-        top: 60px;
-        z-index: $zindex-sticky;
-        width: 100%;
-        align-self: start;
+  .toc {
+    padding-top: $jumbotron-padding;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 60px;
+    z-index: $zindex-sticky;
+    width: 100%;
+    align-self: start;
 
-        &>.toc-nav {
-            border-left: 1px solid #eee;
-        }
-
-        ul {
-            list-style: none;
-            padding-left: 1rem;
-        }
+    &>.toc-nav {
+      border-left: 1px solid #eee;
     }
 
-    .blog-title-image {
-        height: 400px;
+    ul {
+      list-style: none;
+      padding-left: 1rem;
     }
+  }
 
-    .post-time-info {
-        margin: .5rem 0;
-    }
+  .blog-title-image {
+    height: 400px;
+  }
 
-    .tags {
-        margin-bottom: 2rem;
-    }
+  .post-time-info {
+    margin: .5rem 0;
+  }
+
+  .tags {
+    margin-bottom: 2rem;
+  }
+
+  blockquote {
+    @extend .blockquote;
+  }
+
+  .footnotes {
+    margin-top: 5rem;
+  }
 }

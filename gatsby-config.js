@@ -43,8 +43,15 @@ const gatsbyRemarkPlugins = [
   },
   {
     resolve: 'gatsby-remark-emoji',
-    options: {},
+    options: {
+      // default emojiConversion --> shortnameToUnicode
+      emojiConversion: 'shortnameToUnicode',
+      // when true, matches ASCII characters (in unicodeToImage and shortnameToImage)
+      // e.g. ;) --> 😉
+      ascii: true,
+    },
   },
+  'gatsby-remark-numbered-footnotes',
 ]
 
 const {
@@ -123,7 +130,7 @@ module.exports = {
       options: {
         extensions: ['.md', '.mdx'],
         gatsbyRemarkPlugins,
-        remarkPlugins: [require('remark-emoji')],
+        remarkPlugins: [require('remark-emoji'), [require('remark-abbr'), { expandFirst: true }]],
       },
     },
     // {

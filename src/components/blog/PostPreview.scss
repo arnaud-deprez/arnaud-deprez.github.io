@@ -1,24 +1,26 @@
 @import "../../scss/_global";
 
 .post-preview {
-    margin: .5rem 0;
+  margin: .5rem 0;
 
-    .post-preview-overlay {
-        display: flex;
-        align-items: center;
-        top: auto;
-        bottom: 0;
-        background-color: rgba(0,0,0,0.54);
-        padding: 1.25rem;
+  .post-preview-overlay {
+    display: flex;
+    align-items: center;
+    top: auto;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.54);
+    padding: 1.25rem;
 
-        .btn {
-            z-index: $stretched-link-z-index + 1;
-        }
+    .btn {
+      z-index: $stretched-link-z-index + 1;
     }
-    .post-time-info {
-        margin-bottom: .5rem;
-    }
-    .tags {
-        justify-content: center;
-    }
+  }
+
+  .post-time-info {
+    margin-bottom: .5rem;
+  }
+
+  .tags {
+    justify-content: center;
+  }
 }
