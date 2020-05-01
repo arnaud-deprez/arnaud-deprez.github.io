@@ -40,8 +40,8 @@ export const PostPreview = ({ post }: PostPreviewProps) => {
   }
   return (
     <Card className="post-preview">
-      <Link to={post.fields?.slug || '#'} className="stretched-link sr-only sr-only-focusable">
-        Read
+      <Link to={post.fields?.slug || '#'} className="stretched-link">
+        <span className="sr-only">Read</span>
       </Link>
       {post.frontmatter?.image?.childImageSharp?.fluid && (
         <div className="position-relative">

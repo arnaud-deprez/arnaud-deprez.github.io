@@ -13,7 +13,7 @@ tags:
 ---
 
 I started my website few weeks ago and I always wanted to add a blog section and finally here it is :slightly_smiling_face:  
-This first post shares my experience on using [Gatsby][gatsby] and [Netlify](https://www.netlify.com/) to build this and why I choose it over alternatives.
+This first post shares my experience on using [Gatsby][gatsby] and [Netlify][netlify] to build this and why I choose it over alternatives.
 It does not explain how to get started with [Gatsby][gatsby], there are already a lot of other blogs and the [documentation](https://www.gatsbyjs.org/docs/) is really good with very good [tutorials](https://www.gatsbyjs.org/tutorial/).
 
 ## My requirements
@@ -91,6 +91,34 @@ I also love that I could customize _Gatsby_ to work with my taste:
 
 I also like the possibility to add a lot of other feature that I didn't explore yet such as adding [search](https://www.gatsbyjs.org/docs/adding-search/) and [post comments](https://www.gatsbyjs.org/docs/adding-comments/) and the fact that I can still easily fallback on some client rendering if needed.
 
+#### Deployment
+
+I decided to use [Netlify][netlify] to publish my website and while it's a bit out of the scope of this post, it's good to mention it and thanks them :clap: because it was so easy to integrate:
+
+1. Add [gatsby-plugin-netlify](https://www.gatsbyjs.org/packages/gatsby-plugin-netlify/) plugin in your `gatsby-config.js`
+2. Add `netlify.toml` file to your git repository. For a basic usage with *Gatsby*, it should at least contain:
+    ```toml
+    [build]
+      publish = "public"
+      command = "node_modules/.bin/gatsby build"
+    ```
+    But if you need more advanced configuration, check the [documentation](https://docs.netlify.com/configure-builds/file-based-configuration/).
+3. Register to [Netlify][netlify] and connect your [Github](https://github.com/), [Gitlab](https://gitlab.com/) or [Bitbucket](https://bitbucket.org/) account where the source code git repository of your site is.
+4. Add a `New site from Git` and that's it!
+
+Then optionally but I would recommend you to do so. Go to your site settings:
+
+1. Enable deploy preview to `Automatically build deploy previews for all pull requests`. This will let *Netlify* to deploy your pull-requests in a preview environment accessible via an unique url 
+so you can see how your site will look like before merging your code into `master` branch.
+2. If you have a custom domain under which you want your website to be exposed, you can [add it into netlify](https://docs.netlify.com/domains-https/custom-domains/) and [enable SSL](https://docs.netlify.com/domains-https/https-ssl/) 
+with a certificate automatically provisionned and renew by [Let's Encrypt](https://letsencrypt.org/)
+
+Thanks to that: 
+
+1. My website is automatically deployed whenever I do a change on `master` branch
+2. As I'm working with feature branch, when I submit a pull-request, I can preview the the changes with a unique url. I can also have many previews in parallel.
+3. It is reachable via my custom domain and protected with SSL with a certificate that is automatically provisionned and renewed whenever it needs to.
+
 ### As a user
 
 Usually in a static website, each time you navigate to another page, the browser needs to load that new page with all the required resources needed. It can take time and as a result, you can see a blank page while your browser is loading it and that's a very bad user experience as you can just wait or leave the website.
@@ -111,7 +139,13 @@ This is what makes Gatsby so fast and the end user experience incredible smooth 
 
 Voila, I hope I gave you the desire to test [Gatsby][gatsby] for your next web site.
 
-Overall, this website is not finish yet and will continue to evolve, but I'm really happy with the current state and the fact that I can keep the code clean and focus on content and how I want to present it. Do not hesitate to check the source code on github and see you soon for other posts.
+Overall, what I like the most with *Gatsby* is that it let you start small but is flexible enough to let your site scale with your needs from a simple static website like this one 
+to a fully fledge e-comerce website or an app.
+
+This website is not finish yet and will continue to evolve, but I'm really happy with the current state and that I can keep the code clean and focus on content 
+and how to present it to you. 
+
+Do not hesitate to check yourself the source code on [github](https://github.com/arnaud-deprez/arnaud-deprez.github.io) and see you soon for other posts.
 
 [^jamstack]:
   <u>JAMStack</u> is a modern architecture that uses <b>J</b>avaScript, <b>A</b>PIs and HTML <b>M</b>
@@ -129,3 +163,4 @@ Overall, this website is not finish yet and will continue to evolve, but I'm rea
 
 [gatsby]: https://www.gatsbyjs.org/
 [reactjs]: https://reactjs.org/
+[netlify]: https://www.netlify.com/
