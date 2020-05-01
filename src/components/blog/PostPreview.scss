@@ -22,5 +22,8 @@
 
   .tags {
     justify-content: center;
+    .tag {
+      z-index: $stretched-link-z-index + 1;
+    }
   }
 }
