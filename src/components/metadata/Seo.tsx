@@ -37,7 +37,7 @@ const imageMeta = (image = '', location: WindowLocation) => {
   return [
     {
       property: 'og:image',
-      content: image,
+      content: location.origin + image,
     },
   ]
 }

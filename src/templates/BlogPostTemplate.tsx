@@ -33,20 +33,9 @@ const BlogPostPage = ({ data }: BlogPostPageProps) => {
         title={post.frontmatter?.title}
         description={post.frontmatter?.description || post.excerpt}
         site={site}
+        image={post.frontmatter.image?.childImageSharp?.fluid?.src}
       />
       <Container className="blog-post" fluid>
-        {/* <Row>
-          <Col xl="9">
-            {post.frontmatter?.title && (
-              <Breadcrumb>
-                <Breadcrumb.Item href="/blog/">Blog</Breadcrumb.Item>
-                <Breadcrumb.Item href={pageContext.slug} active>
-                  {post.frontmatter.title}
-                </Breadcrumb.Item>
-              </Breadcrumb>
-            )}
-          </Col>
-        </Row> */}
         <Row>
           <Col className="d-none d-xl-flex px-0" xl={{ span: 3, order: 12 }} as="aside">
             {post?.tableOfContents?.items && <TableOfContent items={post.tableOfContents?.items} />}
