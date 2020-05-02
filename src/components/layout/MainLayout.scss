@@ -1,8 +1,18 @@
-.content {
+@import '../../scss/global';
 
-  aside,
-  #navbarLeft {
-    min-width: 15rem;
-    max-width: (100% / 12 * 2); // col-lg-2
+.main-layout {
+  & > .row > * {
+    padding-left: 0;
+    padding-right: 0;
   }
+}
+
+#navbar-left {
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  min-width: 15rem;
+  height: 100vh;
 }

@@ -1,12 +1,7 @@
-@import '../../scss/global.scss';
+@import '../../scss/_global';
 
-#navbarLeft {
-  position: fixed;
-  left: 0;
-  top: 0;
+#navbar-left {
   padding-top: 7.5rem;
-  z-index: $zindex-fixed;
-  min-height: 100vh;
 
   .navbar-brand {
     margin-right: 0;

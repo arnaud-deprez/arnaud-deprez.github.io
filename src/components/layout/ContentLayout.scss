@@ -1,0 +1,26 @@
+@import '../../scss/_global';
+
+.content-layout {
+  header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: $zindex-sticky;
+  }
+}
+
+.content {
+  main,
+  .main-content {
+    min-height: 100vh;
+    padding: $jumbotron-padding ($jumbotron-padding / 2);
+    margin-bottom: $jumbotron-padding;
+
+    @include media-breakpoint-up(sm) {
+      padding: $jumbotron-padding;
+    }
+    @include media-breakpoint-up(xl) {
+      padding: $jumbotron-padding ($jumbotron-padding * 2);
+    }
+  }
+}

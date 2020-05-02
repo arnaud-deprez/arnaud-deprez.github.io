@@ -7,9 +7,11 @@
     "prettier/standard",
     "prettier/@typescript-eslint",
     "prettier/react",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:mdx/recommended"
   ],
-  "plugins": ["@typescript-eslint", "prettier", "react"],
+  "plugins": ["@typescript-eslint", "prettier", "react", "jsx-a11y"],
   "parserOptions": {
     "ecmaVersion": 2018,
     "sourceType": "module",
@@ -60,6 +62,22 @@
           }
         ]
       }
+    },
+    {
+      "files": ["*.md"],
+      "rules": {
+        "prettier/prettier": [
+          2,
+          {
+            // unnecessary if you're not using `eslint-plugin-prettier`, but required if you are
+            "parser": "markdown"
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.mdx"],
+      "extends": ["plugin:mdx/overrides"]
     }
   ],
   "settings": {

@@ -10,7 +10,7 @@
 //         id: '',
 //         excerpt: '',
 //         code: {
-//           body: ''
+//           html: ''
 //         },
 //         frontmatter: {
 //           date: '',

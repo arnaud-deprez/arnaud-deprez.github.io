@@ -1,0 +1,11 @@
+.tags {
+  display: flex;
+  align-items: center;
+  .tag {
+    margin-right: .33rem;
+    .badge {
+      // font-size: .9em;
+      padding: 5px;
+    }
+  }
+}

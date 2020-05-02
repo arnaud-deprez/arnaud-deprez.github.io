@@ -1,16 +1,14 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { MainLayout as Layout } from '../../components/layout'
-import { Seo, SiteInformation } from '../../components/metadata'
+import { Seo } from '../../components/metadata'
 
 interface ContactThanksPageProps {
-  data: {
-    site: SiteInformation
-  }
+  data: GatsbyTypes.ContactThanksPageQuery
 }
 
 const ContactThanksPage = ({ data }: ContactThanksPageProps) => (
-  <Layout siteMetadata={data.site.siteMetadata}>
+  <Layout siteMetadata={data.site?.siteMetadata}>
     <Seo title="Thanks for Contacting" {...data} />
     <main>
       <h1>Thank you</h1>
@@ -20,7 +18,7 @@ const ContactThanksPage = ({ data }: ContactThanksPageProps) => (
 )
 
 export const pageQuery = graphql`
-  query ContactThanksPagePropsQuery {
+  query ContactThanksPage {
     site {
       ...SiteInformation
     }

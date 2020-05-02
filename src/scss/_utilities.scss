@@ -7,7 +7,7 @@
 }
 
 // text
-@each $size, $val in (xs: 0.75, sm: 0.875, lg: 1.33, 2x: 2, 3x: 3, 4x: 4, 5x: 5) {
+@each $size, $val in (xs: 0.75, sm: 0.875, lg: 1.33, xl: 1.5, 2x: 2, 3x: 3, 4x: 4, 5x: 5) {
   .text-#{$size} { font-size: #{$val}em !important; }
 }
 

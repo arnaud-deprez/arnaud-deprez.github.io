@@ -1,11 +1,11 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import { NavbarLeft } from '../nav'
-import { Layout, LayoutProps } from '.'
+import { ContentLayout, ContentLayoutProps } from './ContentLayout'
 
 import './MainLayout.scss'
 
-export interface MainLayoutProps extends LayoutProps {
+export interface MainLayoutProps extends ContentLayoutProps {
   renderLeftMenu?: () => React.ReactNode | React.ReactNode[]
   readonly children?: React.ReactNode | React.ReactNode[]
 }
@@ -16,14 +16,14 @@ export const MainLayout = ({
   siteMetadata,
   ...rest
 }: MainLayoutProps) => (
-  <Layout {...{ siteMetadata, ...rest }}>
-    <Container fluid>
-      <Row>
-        <Col lg={2} className="d-none d-lg-block" as="aside">
-          <NavbarLeft author={siteMetadata.author}>{renderLeftMenu()}</NavbarLeft>
-        </Col>
-        <Col className="min-h-100vh">{children}</Col>
-      </Row>
-    </Container>
-  </Layout>
+  <Container fluid className="main-layout">
+    <Row>
+      <Col lg={2} className="d-none d-lg-block" as="aside">
+        <NavbarLeft author={siteMetadata?.author}>{renderLeftMenu()}</NavbarLeft>
+      </Col>
+      <Col>
+        <ContentLayout {...{ siteMetadata, ...rest }}>{children}</ContentLayout>
+      </Col>
+    </Row>
+  </Container>
 )

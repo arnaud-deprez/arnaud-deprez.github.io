@@ -4,7 +4,7 @@ exports[`<NavbarLeft/> renders correctly 1`] = `
 <DocumentFragment>
   <nav
     class="d-none d-lg-flex flex-column navbar-dark bg-primary navbar navbar-expand navbar-light"
-    id="navbarLeft"
+    id="navbar-left"
     role="navigation"
   >
     <a
@@ -37,7 +37,20 @@ exports[`<NavbarLeft/> renders correctly 1`] = `
     </a>
     <ul
       class="social-icons mb-3 navbar-nav"
-    />
+      role=""
+    >
+      <li
+        class="nav-item"
+      >
+        <a
+          aria-label="Rss"
+          class="nav-link"
+          href="/rss.xml"
+          rel="noopener noreferrer"
+          target="_blank"
+        />
+      </li>
+    </ul>
   </nav>
 </DocumentFragment>
 `;
@@ -46,7 +59,7 @@ exports[`<NavbarLeft/> renders correctly with children 1`] = `
 <DocumentFragment>
   <nav
     class="d-none d-lg-flex flex-column navbar-dark bg-primary navbar navbar-expand navbar-light"
-    id="navbarLeft"
+    id="navbar-left"
     role="navigation"
   >
     <a
@@ -79,7 +92,20 @@ exports[`<NavbarLeft/> renders correctly with children 1`] = `
     </a>
     <ul
       class="social-icons mb-3 navbar-nav"
-    />
+      role=""
+    >
+      <li
+        class="nav-item"
+      >
+        <a
+          aria-label="Rss"
+          class="nav-link"
+          href="/rss.xml"
+          rel="noopener noreferrer"
+          target="_blank"
+        />
+      </li>
+    </ul>
     <ul
       class="navbar-nav"
     >
@@ -89,8 +115,7 @@ exports[`<NavbarLeft/> renders correctly with children 1`] = `
         <a
           class="nav-link"
           href="#"
-          role="tab"
-          tabindex="-1"
+          role="button"
         >
           Menu 1
         </a>
@@ -101,8 +126,7 @@ exports[`<NavbarLeft/> renders correctly with children 1`] = `
         <a
           class="nav-link"
           href="#"
-          role="tab"
-          tabindex="-1"
+          role="button"
         >
           Menu 2
         </a>
@@ -113,8 +137,7 @@ exports[`<NavbarLeft/> renders correctly with children 1`] = `
         <a
           class="nav-link"
           href="#"
-          role="tab"
-          tabindex="-1"
+          role="button"
         >
           Menu 3
         </a>

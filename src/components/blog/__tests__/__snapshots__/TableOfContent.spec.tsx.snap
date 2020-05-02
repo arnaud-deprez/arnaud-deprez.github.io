@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TableOfContent/> renders an empty table of content if items is undefined 1`] = `
+<DocumentFragment>
+  <nav
+    aria-label="Text navigation"
+    class="toc"
+  >
+    <ul
+      class="toc-nav"
+    />
+  </nav>
+</DocumentFragment>
+`;
+
+exports[`<TableOfContent/> renders the table of content 1`] = `
+<DocumentFragment>
+  <nav
+    aria-label="Text navigation"
+    class="toc"
+  >
+    <ul
+      class="toc-nav"
+    >
+      <li
+        class="toc-entry toc-h2"
+      >
+        <a
+          href="#my-requirements"
+        >
+          My requirements
+        </a>
+      </li>
+      <li
+        class="toc-entry toc-h2"
+      >
+        <a
+          href="#what-is-gatsby-"
+        >
+          What is Gatsby ?
+        </a>
+      </li>
+      <ul>
+        <li
+          class="toc-entry toc-h3"
+        >
+          <a
+            href="#why-gatsby-"
+          >
+            Why Gatsby ?
+          </a>
+        </li>
+        <ul>
+          <li
+            class="toc-entry toc-h4"
+          >
+            <a
+              href="#because"
+            >
+              Because
+            </a>
+          </li>
+          <li
+            class="toc-entry toc-h4"
+          >
+            <a
+              href="#i-got-high"
+            >
+              I got high
+            </a>
+          </li>
+        </ul>
+      </ul>
+      <li
+        class="toc-entry toc-h2"
+      >
+        <a
+          href="#conclusion"
+        >
+          Conclusion
+        </a>
+      </li>
+    </ul>
+  </nav>
+</DocumentFragment>
+`;

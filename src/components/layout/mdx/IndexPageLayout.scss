@@ -1,0 +1,13 @@
+//@import '../scss/global';
+
+.resume {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#about-section {
+  & > .card-group {
+    margin: 0 -1.25rem;
+  }
+}

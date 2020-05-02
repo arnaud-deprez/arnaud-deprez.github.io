@@ -7,24 +7,9 @@ export interface SocialLinksTrait {
   rss?: string
 }
 
-export interface Author extends SocialLinksTrait {
-  name: string
-  jobTitle: string
-  email?: string
-}
-
-export interface SiteMetadata {
-  title: string
-  description: string
-  copyright: string
-  siteUrl: string
-  author: Author
-}
-
-export interface SiteInformation {
-  buildTime: Date
-  siteMetadata: SiteMetadata
-}
+export type Author = GatsbyTypes.SiteSiteMetadataAuthor
+export type SiteMetadata = GatsbyTypes.SiteSiteMetadata
+export type SiteInformation = GatsbyTypes.SiteInformationFragment
 
 export const SiteMetadataQueryFragment = graphql`
   fragment SiteInformation on Site {

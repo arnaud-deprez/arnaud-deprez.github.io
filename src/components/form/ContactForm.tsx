@@ -33,7 +33,7 @@ const InnerContactForm = ({
   handleBlur,
   className,
   inline,
-  validated
+  validated,
 }: ContactFormProps & FormikProps<ContactFormValues>) => (
   // See https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
   <Form
@@ -105,8 +105,13 @@ const InnerContactForm = ({
       <Form.Control.Feedback type="invalid">{errors.message}</Form.Control.Feedback>
     </Form.Group>
     <Form.Row>
-      <Button variant="primary" type="submit" className="mx-auto mt-3" disabled={isSubmitting}>
-        <i className="icons mr-2">
+      <Button
+        variant="primary"
+        type="submit"
+        className="with-icon mx-auto mt-3"
+        disabled={isSubmitting}
+      >
+        <i className="mr-2">
           <FaEnvelope />
         </i>
         Send
@@ -117,17 +122,15 @@ const InnerContactForm = ({
 
 const contactSchema = Yup.object().shape({
   name: Yup.string().required(),
-  email: Yup.string()
-    .email()
-    .required(),
+  email: Yup.string().email().required(),
   subject: Yup.string().required(),
-  message: Yup.string().required()
+  message: Yup.string().required(),
 })
 
 const encode = (data: { [key: string]: string | undefined }) => {
   return Object.keys(data)
-    .filter(key => !!data[key])
-    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key] as string))
+    .filter((key) => !!data[key])
+    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key] as string))
     .join('&')
 }
 
@@ -136,13 +139,13 @@ const handleSubmit = (values: ContactFormValues) => {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: encode({
-      ...values
-    })
+      ...values,
+    }),
   })
     .then(() => {
       publishEvent({
         event: 'FormSubmitted',
-        formId: values['form-name']
+        formId: values['form-name'],
       })
       navigate('/contact/thanks')
     })
@@ -157,11 +160,11 @@ export const ContactForm = (props: { id: string }) => (
       name: '',
       email: '',
       subject: '',
-      message: ''
+      message: '',
     }}
     validationSchema={contactSchema}
     onSubmit={handleSubmit}
   >
-    {formikProps => <InnerContactForm {...formikProps} {...props} />}
+    {(formikProps) => <InnerContactForm {...formikProps} {...props} />}
   </Formik>
 )

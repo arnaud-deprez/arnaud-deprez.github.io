@@ -15,10 +15,10 @@ describe('<NavbarLeft/>', () => {
       file: {
         childImageSharp: {
           resize: {
-            src: 'profile.png'
-          }
-        }
-      }
+            src: 'profile.png',
+          },
+        },
+      },
     })
   })
   it('renders correctly', () => {
@@ -26,7 +26,12 @@ describe('<NavbarLeft/>', () => {
       <NavbarLeft
         author={{
           name: 'Arnaud Deprez',
-          jobTitle: 'Technical Architect'
+          jobTitle: 'Technical Architect',
+          email: undefined,
+          linkedin: undefined,
+          twitter: undefined,
+          github: undefined,
+          rss: undefined,
         }}
       />
     )
@@ -37,7 +42,12 @@ describe('<NavbarLeft/>', () => {
       <NavbarLeft
         author={{
           name: 'Arnaud Deprez',
-          jobTitle: 'Technical Architect'
+          jobTitle: 'Technical Architect',
+          email: undefined,
+          linkedin: undefined,
+          twitter: undefined,
+          github: undefined,
+          rss: undefined,
         }}
       >
         <Nav>
