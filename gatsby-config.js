@@ -22,18 +22,28 @@ const gatsbyRemarkPlugins = [
       dashes: 'oldschool',
     },
   },
+  'gatsby-remark-code-titles',
+  'gatsby-remark-sub-sup',
+  'gatsby-remark-numbered-footnotes',
   {
-    resolve: 'gatsby-remark-prismjs',
+    resolve: `gatsby-remark-vscode`,
+    // All options are optional. Defaults shown here.
     options: {
-      classPrefix: 'language-',
-      inlineCodeMarker: null,
-      aliases: {},
+      theme: 'Dark+ (default dark)', // Read on for list of included themes. Also accepts object and function forms.
+      wrapperClassName: '', // Additional class put on 'pre' tag. Also accepts function to set the class dynamically.
+      injectStyles: true, // Injects (minimal) additional CSS for layout and scrolling
+      extensions: ['toml'], // Third-party extensions providing additional themes and languages
+      languageAliases: {
+        markup: 'sh',
+      }, // Map of custom/unknown language codes to standard/known language codes
+      replaceColor: (x) => x, // Function allowing replacement of a theme color with another. Useful for replacing hex colors with CSS variables.
+      logLevel: 'warn', // Set to 'info' to debug if something looks wrong
     },
   },
   {
     resolve: 'gatsby-remark-images',
     options: {
-      wrapperStyle: 'margin: 2rem auto;',
+      wrapperStyle: 'margin: 2rem auto; border-radius: 0.5em; overflow: hidden;',
       disableBgImageOnAlpha: true,
     },
   },
@@ -51,7 +61,6 @@ const gatsbyRemarkPlugins = [
       ascii: true,
     },
   },
-  'gatsby-remark-numbered-footnotes',
 ]
 
 const {

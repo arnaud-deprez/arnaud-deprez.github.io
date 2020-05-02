@@ -31,16 +31,4 @@
   .tags {
     margin-bottom: 2rem;
   }
-
-  blockquote {
-    @extend .blockquote;
-  }
-
-  pre[class*="language-"] {
-    margin: 1rem 0;
-  }
-
-  .footnotes {
-    margin-top: 5rem;
-  }
 }

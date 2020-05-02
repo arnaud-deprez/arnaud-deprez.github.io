@@ -24,6 +24,9 @@ const BlogPostPage = ({ data }: BlogPostPageProps) => {
   if (!post.timeToRead) {
     throw new Error('BlogPostPage: post.timeToRead is required')
   }
+  if (!post.frontmatter?.date) {
+    throw new Error('BlogPostPage: post.frontmatter.date is required')
+  }
   return (
     <Layout siteMetadata={site?.siteMetadata}>
       <Seo
@@ -46,7 +49,7 @@ const BlogPostPage = ({ data }: BlogPostPageProps) => {
         </Row> */}
         <Row>
           <Col className="d-none d-xl-flex px-0" xl={{ span: 3, order: 12 }} as="aside">
-            {post?.tableOfContents?.items && <TableOfContent items={post.tableOfContents.items} />}
+            {post?.tableOfContents?.items && <TableOfContent items={post.tableOfContents?.items} />}
           </Col>
           <Col className="px-0">
             <main>
@@ -59,7 +62,7 @@ const BlogPostPage = ({ data }: BlogPostPageProps) => {
               )}
               <h1>{post.frontmatter?.title}</h1>
               <PostTimeInfo
-                date={post.frontmatter?.date}
+                date={post.frontmatter.date}
                 dateString={post.frontmatter?.dateString}
                 timeToRead={post.timeToRead}
               />
