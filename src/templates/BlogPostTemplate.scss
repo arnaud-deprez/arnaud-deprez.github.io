@@ -22,6 +22,9 @@
 
   .blog-title-image {
     height: 400px;
+    max-height: 100%;
+    width: 100%;
+    align-self: center;
   }
 
   .post-time-info {

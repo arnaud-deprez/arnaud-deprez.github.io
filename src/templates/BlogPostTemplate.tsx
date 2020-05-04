@@ -41,12 +41,13 @@ const BlogPostPage = ({ data }: BlogPostPageProps) => {
             {post?.tableOfContents?.items && <TableOfContent items={post.tableOfContents?.items} />}
           </Col>
           <Col className="px-0">
-            <main>
+            <main className="d-flex flex-column">
               {post.frontmatter?.image && (
                 <Img
                   fluid={post.frontmatter.image?.childImageSharp?.fluid}
                   className="blog-title-image"
-                  alt={`${post.frontmatter.title} image`}
+                  imgStyle={{ objectFit: 'contain' }}
+                  alt={`${post.frontmatter.title}`}
                 />
               )}
               <h1>{post.frontmatter?.title}</h1>
@@ -83,7 +84,7 @@ export const pageQuery = graphql`
         tags
         image {
           childImageSharp {
-            fluid(maxHeight: 400, quality: 100) {
+            fluid(maxHeight: 400) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
