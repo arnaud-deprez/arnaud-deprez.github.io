@@ -41,7 +41,7 @@ const BlogPostPage = ({ data }: BlogPostPageProps) => {
             {post?.tableOfContents?.items && <TableOfContent items={post.tableOfContents?.items} />}
           </Col>
           <Col className="px-0">
-            <main className="d-flex flex-column">
+            <main>
               {post.frontmatter?.image && (
                 <Img
                   fluid={post.frontmatter.image?.childImageSharp?.fluid}

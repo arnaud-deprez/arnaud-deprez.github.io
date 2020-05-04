@@ -4,7 +4,7 @@ export interface SocialLinksTrait {
   linkedin?: string
   twitter?: string
   github?: string
-  rss?: string
+  rss: boolean
 }
 
 export type Author = GatsbyTypes.SiteSiteMetadataAuthor

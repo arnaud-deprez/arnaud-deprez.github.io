@@ -12,6 +12,8 @@
 .content {
   main,
   .main-content {
+    display: flex;
+    flex-flow: column nowrap;
     min-height: 100vh;
     padding: $jumbotron-padding ($jumbotron-padding / 2);
     margin-bottom: $jumbotron-padding;

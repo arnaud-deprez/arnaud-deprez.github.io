@@ -79,6 +79,7 @@ const AboutSection = (props: AboutSectionProps) => (
       github={props.author?.github}
       linkedin={props.author?.linkedin}
       twitter={props.author?.twitter}
+      rss={true}
       className="h3 justify-content-center mt-0"
       role="list"
     />

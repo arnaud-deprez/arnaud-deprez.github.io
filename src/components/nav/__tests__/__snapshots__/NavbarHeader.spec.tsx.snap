@@ -63,19 +63,7 @@ exports[`<NavbarHeader/> renders correctly 1`] = `
       <ul
         class="social-icons d-lg-none flex-row justify-content-center navbar-nav"
         role=""
-      >
-        <li
-          class="nav-item"
-        >
-          <a
-            aria-label="Rss"
-            class="nav-link"
-            href="/rss.xml"
-            rel="noopener noreferrer"
-            target="_blank"
-          />
-        </li>
-      </ul>
+      />
     </div>
   </nav>
 </DocumentFragment>

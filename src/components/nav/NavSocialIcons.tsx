@@ -17,6 +17,7 @@ export const NavSocialIcons = ({
   linkedin,
   github,
   twitter,
+  rss = false,
   useOriginalColor = false,
   className,
   children,
@@ -62,15 +63,17 @@ export const NavSocialIcons = ({
         />
       </BootstrapNav.Link>
     )}
-    <BootstrapNav.Link
-      to="/rss.xml"
-      aria-label="Rss"
-      target="_blank"
-      rel="noopener noreferrer"
-      as={Link}
-    >
-      <FontAwesomeIcon icon="rss" className={colorClassName('orange', useOriginalColor)} />
-    </BootstrapNav.Link>
+    {rss && (
+      <BootstrapNav.Link
+        to="/rss.xml"
+        aria-label="Rss"
+        target="_blank"
+        rel="noopener noreferrer"
+        as={Link}
+      >
+        <FontAwesomeIcon icon="rss" className={colorClassName('orange', useOriginalColor)} />
+      </BootstrapNav.Link>
+    )}
     {children}
   </Nav>
 )

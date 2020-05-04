@@ -29,6 +29,7 @@ export const NavbarLeft = ({ author, children }: NavbarLeftProps) => (
         linkedin: author?.linkedin,
         github: author?.github,
         twitter: author?.twitter,
+        rss: true,
         className: 'mb-3',
       }}
     />
