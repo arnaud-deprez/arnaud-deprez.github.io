@@ -18,7 +18,7 @@ export const MainLayout = ({
 }: MainLayoutProps) => (
   <Container fluid className="main-layout">
     <Row>
-      <Col lg={2} className="d-none d-lg-block" as="aside">
+      <Col lg={2} className="d-none d-lg-block navbar-left-wrapper" as="aside">
         <NavbarLeft author={siteMetadata?.author}>{renderLeftMenu()}</NavbarLeft>
       </Col>
       <Col>

@@ -5,6 +5,9 @@
     padding-left: 0;
     padding-right: 0;
   }
+  .navbar-left-wrapper {
+    min-width: 15rem;
+  }
 }
 
 #navbar-left {
@@ -13,6 +16,5 @@
   left: 0;
   top: 0;
   bottom: 0;
-  min-width: 15rem;
   height: 100vh;
 }
