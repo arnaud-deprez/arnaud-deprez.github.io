@@ -92,6 +92,7 @@ module.exports = {
       github: 'https://github.com/arnaud-deprez',
       rss: '',
     },
+    repository: 'https://github.com/arnaud-deprez/arnaud-deprez.github.io',
   },
   plugins: [
     /* {
