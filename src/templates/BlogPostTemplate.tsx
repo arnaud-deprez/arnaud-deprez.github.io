@@ -2,12 +2,28 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Nav as BootstrapNav } from 'react-bootstrap'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { MainLayout as Layout } from '../components/layout'
+import { Nav } from '../components/nav'
 import { Seo } from '../components/metadata'
 import { Tags, TableOfContent, PostTimeInfo } from '../components/blog'
 
 import './BlogPostTemplate.scss'
+
+// eg: https://github.com/arnaud-deprez/arnaud-deprez.github.io/edit/master/content/blog/web/why-gatsby-for-my-website/index.mdx
+const editUrl = (githubRepoUrl = '', relativePath = '') =>
+  `${githubRepoUrl}/edit/master/content/${relativePath}`
+
+const renderLeftMenu = (data: GatsbyTypes.BlogPostPageQuery) => () => (
+  <Nav className="flex-column align-items-center" as="ul">
+    <BootstrapNav.Link
+      href={editUrl(data.site?.siteMetadata?.repository, data.mdx?.parent?.relativePath)}
+    >
+      <FontAwesomeIcon icon="edit" /> Edit on GitHub
+    </BootstrapNav.Link>
+  </Nav>
+)
 
 interface BlogPostPageProps {
   pageContext: {
@@ -28,7 +44,7 @@ const BlogPostPage = ({ data }: BlogPostPageProps) => {
     throw new Error('BlogPostPage: post.frontmatter.date is required')
   }
   return (
-    <Layout siteMetadata={site?.siteMetadata}>
+    <Layout siteMetadata={site?.siteMetadata} renderLeftMenu={renderLeftMenu(data)}>
       <Seo
         title={post.frontmatter?.title}
         description={post.frontmatter?.description || post.excerpt}
@@ -94,6 +110,11 @@ export const pageQuery = graphql`
       timeToRead
       body
       excerpt
+      parent {
+        ... on File {
+          relativePath
+        }
+      }
     }
   }
 `
