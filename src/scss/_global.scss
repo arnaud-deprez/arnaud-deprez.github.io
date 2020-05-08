@@ -27,20 +27,6 @@ ol {
   padding-left: 2em;
 }
 
-.with-icon {
-  display: flex;
-  align-items: center;
-  margin: 0;
-
-  svg {
-    display: inline-block;
-    font-size: inherit;
-    height: 1em;
-    overflow: visible;
-    vertical-align: -0.125em; // This ok for the font-family we are using
-  }
-}
-
 /**
  * MDX code format
  */
@@ -49,17 +35,19 @@ ol {
 .blockquote {
   font-size: 1.1rem;
   padding: 0 2.5em;
+
   p:last-of-type {
     margin-bottom: 0;
   }
 }
+
 blockquote {
   @extend .blockquote;
 }
 
 // foot notes
 .footnotes {
-  margin-top: 5rem;
+  margin-top: 3.5rem;
 }
 
 // code block container
@@ -90,9 +78,30 @@ pre.grvsc-container {
 }
 
 // inline code
-:not(pre) > code {
+:not(pre)>code {
   border-radius: 0.2em;
   color: #D4D4D4;
   background: #1E1E1E;
   padding: 0.15em 0.2em;
+}
+
+/**
+ * social icon
+**/
+@mixin icon-wrapper {
+  display: inline-block;
+  font-size: 1em;
+  text-align: center;
+}
+
+.icon-square-wrapper {
+  @include icon-wrapper;
+  height: 2em;
+  width: 2em;
+  line-height: 2em;
+}
+
+.icon-round-wrapper {
+  @extend .icon-square-wrapper;
+  border-radius: 50%;
 }

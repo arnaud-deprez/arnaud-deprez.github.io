@@ -2,10 +2,10 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { Container, Row, Col, Nav as BootstrapNav } from 'react-bootstrap'
+import { Container, Row, Col, Nav as BootstrapNav, Dropdown } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { MainLayout as Layout } from '../components/layout'
-import { Nav } from '../components/nav'
+import { Nav, ShareMenu } from '../components/nav'
 import { Seo } from '../components/metadata'
 import { Tags, TableOfContent, PostTimeInfo } from '../components/blog'
 
@@ -16,13 +16,15 @@ const editUrl = (githubRepoUrl = '', relativePath = '') =>
   `${githubRepoUrl}/edit/master/content/${relativePath}`
 
 const renderLeftMenu = (data: GatsbyTypes.BlogPostPageQuery) => () => (
-  <Nav className="flex-column align-items-center" as="ul">
-    <BootstrapNav.Link
-      href={editUrl(data.site?.siteMetadata?.repository, data.mdx?.parent?.relativePath)}
-    >
-      <FontAwesomeIcon icon="edit" /> Edit on GitHub
-    </BootstrapNav.Link>
-  </Nav>
+  <>
+    <Nav className="flex-column" as="ul">
+      <BootstrapNav.Link
+        href={editUrl(data.site?.siteMetadata?.repository, data.mdx?.parent?.relativePath)}
+      >
+        <FontAwesomeIcon icon="edit" /> Edit on GitHub
+      </BootstrapNav.Link>
+    </Nav>
+  </>
 )
 
 interface BlogPostPageProps {
@@ -32,7 +34,8 @@ interface BlogPostPageProps {
   data: GatsbyTypes.BlogPostPageQuery
 }
 
-const BlogPostPage = ({ data }: BlogPostPageProps) => {
+const BlogPostPage = ({ pageContext, data }: BlogPostPageProps) => {
+  const { slug } = pageContext
   const { site, mdx: post } = data
   if (!post) {
     throw new Error('BlogPostPage: post is required')
@@ -43,11 +46,17 @@ const BlogPostPage = ({ data }: BlogPostPageProps) => {
   if (!post.frontmatter?.date) {
     throw new Error('BlogPostPage: post.frontmatter.date is required')
   }
+
+  const url = site?.siteMetadata?.siteUrl + slug
+  const title = post.frontmatter?.title
+  const tags = post.frontmatter?.tags
+  const description = post.frontmatter?.description || post.excerpt
+
   return (
     <Layout siteMetadata={site?.siteMetadata} renderLeftMenu={renderLeftMenu(data)}>
       <Seo
-        title={post.frontmatter?.title}
-        description={post.frontmatter?.description || post.excerpt}
+        title={title}
+        description={description}
         site={site}
         image={post.frontmatter.image?.childImageSharp?.fluid?.src}
       />
@@ -73,11 +82,13 @@ const BlogPostPage = ({ data }: BlogPostPageProps) => {
                 timeToRead={post.timeToRead}
               />
               {post.frontmatter?.tags && <Tags values={post.frontmatter.tags as string[]} />}
+              <ShareMenu {...{ id: 'share-menu-top', url, title, tags, description }} />
               {post.body && (
                 <section className="text-justify">
                   <MDXRenderer>{post.body}</MDXRenderer>
                 </section>
               )}
+              <ShareMenu {...{ id: 'share-menu-bottom', url, title, tags, description }} />
             </main>
           </Col>
         </Row>

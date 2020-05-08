@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Container, Nav as BootstrapNav } from 'react-bootstrap'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { FaEnvelope } from 'react-icons/fa'
 import { MainLayout as Layout } from '../../components/layout'
 import { Seo } from '../../components/metadata'
@@ -35,7 +36,7 @@ const ContactPage = ({ data }: ContactPageProps) => {
             className="h3 mb-5"
           >
             <BootstrapNav.Link href={`mailto:${author?.email}`}>
-              <FaEnvelope className="text-secondary" />
+              <FontAwesomeIcon icon="envelope" className="text-secondary" />
             </BootstrapNav.Link>
           </NavSocialIcons>
           <ContactForm id="contact" />

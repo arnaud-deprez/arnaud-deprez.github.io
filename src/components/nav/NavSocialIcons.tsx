@@ -32,7 +32,7 @@ export const NavSocialIcons = ({
         rel="noopener noreferrer"
       >
         <FontAwesomeIcon
-          icon={['fab', 'linkedin']}
+          icon={['fab', 'linkedin-in']}
           className={colorClassName('linkedin', useOriginalColor)}
         />
       </BootstrapNav.Link>
