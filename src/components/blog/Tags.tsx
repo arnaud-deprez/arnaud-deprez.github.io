@@ -10,9 +10,12 @@ export interface TagProps extends BadgeProps {
 }
 
 export const Tag = ({ value, variant = 'secondary', ...rest }: TagProps) => (
-  <Link to={`/blog/tags/${kebabCase(value)}`} className="tag">
-    <Badge {...{ variant, ...rest }}>{value}</Badge>
-  </Link>
+  <Badge
+    {...{ variant, to: `/blog/tags/${kebabCase(value)}`, className: 'tag', ...rest }}
+    as={Link}
+  >
+    {value}
+  </Badge>
 )
 
 export interface TagListProps {
