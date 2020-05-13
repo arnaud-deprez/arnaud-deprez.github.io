@@ -25,7 +25,6 @@ export const SiteMetadataQueryFragment = graphql`
         email
         github
         linkedin
-        rss
         twitter
       }
       repository

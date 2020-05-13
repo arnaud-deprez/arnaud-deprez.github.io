@@ -17,44 +17,50 @@ export interface ShareMenuProps extends JSX.IntrinsicAttributes {
   title?: string
   tags: string[] | undefined
   description?: string
+  buttonClassName?: string
 }
 
-export const ShareMenu = ({ url, title, tags, description, ...rest }: ShareMenuProps) => (
-  <Nav {...rest} className="share-menu" as="ul">
-    <TwitterShareButton
-      title={title}
-      hashtags={tags}
-      url={url}
-      resetButtonStyle={false}
-      className="icon-round-wrapper"
-    >
-      <FontAwesomeIcon icon={['fab', 'twitter']} inverse />
-    </TwitterShareButton>
-    <LinkedinShareButton
-      title={title}
-      summary={description}
-      url={url}
-      resetButtonStyle={false}
-      className="icon-round-wrapper"
-    >
-      <FontAwesomeIcon icon={['fab', 'linkedin-in']} inverse />
-    </LinkedinShareButton>
-    <RedditShareButton
-      title={title}
-      url={url}
-      resetButtonStyle={false}
-      className="icon-round-wrapper"
-    >
-      <FontAwesomeIcon icon={['fab', 'reddit-alien']} inverse />
-    </RedditShareButton>
-    <FacebookShareButton
-      quote={title}
-      hashtag={tags?.join(' ')}
-      url={url}
-      resetButtonStyle={false}
-      className="icon-round-wrapper"
-    >
-      <FontAwesomeIcon icon={['fab', 'facebook-f']} inverse />
-    </FacebookShareButton>
-  </Nav>
-)
+export const ShareMenu = ({
+  url,
+  title,
+  tags,
+  description,
+  buttonClassName = 'btn-bg-dark',
+  ...rest
+}: ShareMenuProps) => {
+  const btnClassName = `icon-round-wrapper ${buttonClassName}`.trim()
+  return (
+    <Nav {...rest} className="share-menu" as="ul">
+      <TwitterShareButton
+        title={title}
+        hashtags={tags}
+        url={url}
+        resetButtonStyle={false}
+        className={btnClassName}
+      >
+        <FontAwesomeIcon icon={['fab', 'twitter']} inverse />
+      </TwitterShareButton>
+      <LinkedinShareButton
+        title={title}
+        summary={description}
+        url={url}
+        resetButtonStyle={false}
+        className={btnClassName}
+      >
+        <FontAwesomeIcon icon={['fab', 'linkedin-in']} inverse />
+      </LinkedinShareButton>
+      <RedditShareButton title={title} url={url} resetButtonStyle={false} className={btnClassName}>
+        <FontAwesomeIcon icon={['fab', 'reddit-alien']} inverse />
+      </RedditShareButton>
+      <FacebookShareButton
+        quote={title}
+        hashtag={tags?.join(' ')}
+        url={url}
+        resetButtonStyle={false}
+        className={btnClassName}
+      >
+        <FontAwesomeIcon icon={['fab', 'facebook-f']} inverse />
+      </FacebookShareButton>
+    </Nav>
+  )
+}

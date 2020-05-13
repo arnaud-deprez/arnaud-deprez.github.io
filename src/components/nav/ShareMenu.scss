@@ -4,18 +4,4 @@
   li {
     margin-right: .5em;
   }
-
-  button {
-    padding: 0px;
-    height: 2.25em;
-    width: 2.25em;
-    line-height: 2.25em;
-    font-size: 1em;
-
-    /**
-     * reuse twitter bootstrap behavior when hover and active
-     * @params: bg-color, border-color, hover-bg, hover-border, active-bg, active-border
-     */
-    @include button-variant($gray-700, $gray-700, $primary, $primary, $primary, $primary)
-  }
 }

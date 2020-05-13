@@ -92,13 +92,14 @@ pre.grvsc-container {
   display: inline-block;
   font-size: 1em;
   text-align: center;
+  padding: 0px;
 }
 
 .icon-square-wrapper {
   @include icon-wrapper;
-  height: 2em;
-  width: 2em;
-  line-height: 2em;
+  height: 2.25em;
+  width: 2.25em;
+  line-height: 2.25em;
 }
 
 .icon-round-wrapper {

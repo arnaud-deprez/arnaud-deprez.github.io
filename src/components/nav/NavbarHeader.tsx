@@ -38,7 +38,6 @@ export const NavbarHeader = ({
     linkedin: undefined,
     twitter: undefined,
     github: undefined,
-    rss: undefined,
   },
 }: NavbarHeaderProps) => {
   const { name, ...rest } = author
@@ -51,7 +50,7 @@ export const NavbarHeader = ({
         <FontAwesomeIcon icon="bars" />
       </Navbar.Toggle>
       <Navbar.Collapse id="navbar-header" className="justify-content-end">
-        <NavHeader {...rest} />
+        <NavHeader rss={true} {...rest} />
       </Navbar.Collapse>
     </Navbar>
   )

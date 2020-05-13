@@ -10,7 +10,7 @@ const colorClassName = (color: string, useOriginalColor: boolean) =>
 
 export interface NavSocialIconsProps extends NavProps, SocialLinksTrait {
   useOriginalColor?: boolean
-  className?: string
+  linkClassName?: string
 }
 
 export const NavSocialIcons = ({
@@ -20,6 +20,7 @@ export const NavSocialIcons = ({
   rss = false,
   useOriginalColor = false,
   className,
+  linkClassName = '',
   children,
   role = '',
 }: NavSocialIconsProps) => (
@@ -30,6 +31,7 @@ export const NavSocialIcons = ({
         aria-label="Linked'In"
         target="_blank"
         rel="noopener noreferrer"
+        className={linkClassName}
       >
         <FontAwesomeIcon
           icon={['fab', 'linkedin-in']}
@@ -43,6 +45,7 @@ export const NavSocialIcons = ({
         aria-label="Github"
         target="_blank"
         rel="noopener noreferrer"
+        className={linkClassName}
       >
         <FontAwesomeIcon
           icon={['fab', 'github']}
@@ -56,6 +59,7 @@ export const NavSocialIcons = ({
         aria-label="Twitter"
         target="_blank"
         rel="noopener noreferrer"
+        className={linkClassName}
       >
         <FontAwesomeIcon
           icon={['fab', 'twitter']}
@@ -69,6 +73,7 @@ export const NavSocialIcons = ({
         aria-label="Rss"
         target="_blank"
         rel="noopener noreferrer"
+        className={linkClassName}
         as={Link}
       >
         <FontAwesomeIcon icon="rss" className={colorClassName('orange', useOriginalColor)} />

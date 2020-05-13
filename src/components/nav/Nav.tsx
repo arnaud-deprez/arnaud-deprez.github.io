@@ -20,6 +20,7 @@ const renderNavItem = <As extends React.ElementType>({
 }
 
 export interface NavProps extends BootstrapNavProps {
+  className?: string
   renderChild?: RenderChild
   children?: React.ReactNode | React.ReactNode[]
 }
