@@ -28,7 +28,7 @@ export const ShareMenu = ({
   buttonClassName = 'btn-bg-dark',
   ...rest
 }: ShareMenuProps) => {
-  const btnClassName = `icon-round-wrapper ${buttonClassName}`.trim()
+  const btnClassName = `icon-round-wrapper btn ${buttonClassName}`.trim()
   return (
     <Nav {...rest} className="share-menu" as="ul">
       <TwitterShareButton

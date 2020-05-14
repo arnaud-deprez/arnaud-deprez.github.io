@@ -33,11 +33,11 @@ const ContactPage = ({ data }: ContactPageProps) => {
             linkedin={author?.linkedin}
             twitter={author?.twitter}
             className="h4 mb-5"
-            linkClassName="icon-round-wrapper btn-bg-dark mr-2"
+            linkClassName="icon-round-wrapper btn btn-bg-dark mr-2"
           >
             <BootstrapNav.Link
               href={`mailto:${author?.email}`}
-              className="icon-round-wrapper btn-bg-dark"
+              className="icon-round-wrapper btn btn-bg-dark"
             >
               <FontAwesomeIcon icon="envelope" />
             </BootstrapNav.Link>

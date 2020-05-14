@@ -80,7 +80,7 @@ const AboutSection = (props: AboutSectionProps) => (
       twitter={props.author?.twitter}
       rss={true}
       className="h5 justify-content-center mt-0"
-      linkClassName="icon-round-wrapper btn-bg-dark mr-2"
+      linkClassName="icon-round-wrapper btn btn-bg-dark mr-2"
       role="list"
     />
   </section>
