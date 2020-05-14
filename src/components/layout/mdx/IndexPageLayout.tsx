@@ -72,15 +72,15 @@ const AboutSection = (props: AboutSectionProps) => (
       </p>
     </blockquote>
 
-    <h5 className="text-center">Follow me</h5>
+    <h3 className="text-center mb-4">Follow me</h3>
 
     <NavSocialIcons
-      useOriginalColor
       github={props.author?.github}
       linkedin={props.author?.linkedin}
       twitter={props.author?.twitter}
       rss={true}
-      className="h3 justify-content-center mt-0"
+      className="h5 justify-content-center mt-0"
+      linkClassName="icon-round-wrapper btn btn-bg-dark mr-2"
       role="list"
     />
   </section>

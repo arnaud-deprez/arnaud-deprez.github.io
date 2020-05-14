@@ -59,9 +59,9 @@
     "react-bootstrap": "1.0.1",
     "react-dom": "16.13.1",
     "react-helmet": "6.0.0",
-    "react-icons": "3.10.0",
     "react-moment": "0.9.7",
     "react-scroll": "1.7.16",
+    "react-share": "4.1.0",
     "regenerator-runtime": "0.13.5",
     "remark-abbr": "1.4.0",
     "remark-emoji": "2.1.0",
@@ -121,13 +121,13 @@
   "scripts": {
     "clean": "gatsby clean",
     "build": "gatsby build",
-    "start": "gatsby develop",
+    "start": "gatsby develop -H 0.0.0.0",
     "format": "prettier --write '{__mocks__,src,test}/**/*.{ts,tsx}' '*.js'",
     "prebuild": "npm run lint && npm run test",
     "lint": "eslint '{__mocks__,src,test}/**/*.{js,ts,tsx}'",
     "test": "jest",
     "test:update": "jest -u",
-    "debug:dev": "node --inspect node_modules/.bin/gatsby develop",
+    "debug:dev": "node --inspect node_modules/.bin/gatsby develop -H 0.0.0.0",
     "debug:prod": "node --inspect node_modules/.bin/gatsby build && gatsby serve -H 0.0.0.0"
   },
   "husky": {

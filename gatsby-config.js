@@ -90,7 +90,6 @@ module.exports = {
       linkedin: 'https://linkedin.com/in/deprezarnaud',
       twitter: 'https://twitter.com/arnaudeprez',
       github: 'https://github.com/arnaud-deprez',
-      rss: '',
     },
     repository: 'https://github.com/arnaud-deprez/arnaud-deprez.github.io',
   },

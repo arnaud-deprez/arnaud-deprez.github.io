@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Container, Nav as BootstrapNav } from 'react-bootstrap'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { FaEnvelope } from 'react-icons/fa'
 import { MainLayout as Layout } from '../../components/layout'
 import { Seo } from '../../components/metadata'
@@ -29,13 +30,16 @@ const ContactPage = ({ data }: ContactPageProps) => {
         <Container className="d-flex flex-column align-items-center">
           <h1 className="text-center">Reach me on</h1>
           <NavSocialIcons
-            useOriginalColor
             linkedin={author?.linkedin}
             twitter={author?.twitter}
-            className="h3 mb-5"
+            className="h4 mb-5"
+            linkClassName="icon-round-wrapper btn btn-bg-dark mr-2"
           >
-            <BootstrapNav.Link href={`mailto:${author?.email}`}>
-              <FaEnvelope className="text-secondary" />
+            <BootstrapNav.Link
+              href={`mailto:${author?.email}`}
+              className="icon-round-wrapper btn btn-bg-dark"
+            >
+              <FontAwesomeIcon icon="envelope" />
             </BootstrapNav.Link>
           </NavSocialIcons>
           <ContactForm id="contact" />

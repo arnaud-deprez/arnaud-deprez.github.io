@@ -1,6 +1,9 @@
+@import "../../scss/_variables";
+
 .post-time-info {
   display: flex;
   align-items: center;
+  color: $gray-600;
 
   p {
     line-height: 1.4em;

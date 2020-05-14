@@ -3,7 +3,7 @@
 import React from 'react'
 import { navigate } from 'gatsby-link'
 import { Form, FormProps, Button } from 'react-bootstrap'
-import { FaEnvelope } from 'react-icons/fa'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Formik, FormikProps } from 'formik'
 import * as Yup from 'yup'
 import { publishEvent } from '../../utils/Gtag'
@@ -95,7 +95,7 @@ const InnerContactForm = ({
       <Form.Label>Message</Form.Label>
       <Form.Control
         name="message"
-        rows="8"
+        rows={8}
         value={values.message}
         onBlur={handleBlur}
         onChange={handleChange}
@@ -105,15 +105,8 @@ const InnerContactForm = ({
       <Form.Control.Feedback type="invalid">{errors.message}</Form.Control.Feedback>
     </Form.Group>
     <Form.Row>
-      <Button
-        variant="primary"
-        type="submit"
-        className="with-icon mx-auto mt-3"
-        disabled={isSubmitting}
-      >
-        <i className="mr-2">
-          <FaEnvelope />
-        </i>
+      <Button variant="primary" type="submit" className="mx-auto mt-3" disabled={isSubmitting}>
+        <FontAwesomeIcon icon="envelope" className="mr-2" />
         Send
       </Button>
     </Form.Row>

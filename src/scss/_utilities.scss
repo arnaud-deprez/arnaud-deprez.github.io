@@ -120,3 +120,16 @@
     }
   }
 }
+
+@mixin button-behavior($background, $border, $hover-background: darken($background, 7.5%), $hover-border: darken($border, 10%), $active-background: darken($background, 10%), $active-border: darken($border, 12.5%)) {
+  /**
+  * reuse twitter bootstrap button behavior for hover, active, focus and behaviour
+  * see https://github.com/twbs/bootstrap/blob/v4-dev/scss/mixins/_buttons.scss
+  * @params: bg-color, border-color, hover-bg, hover-border, active-bg, active-border
+  */
+  @include button-variant($gray-700, $gray-700, $primary, $primary, $primary, $primary)
+}
+
+.btn-bg-dark {
+  @include button-behavior($gray-700, $gray-700, $primary, $primary, $primary, $primary)
+}
