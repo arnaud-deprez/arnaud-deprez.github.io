@@ -1,8 +1,9 @@
 ---
-date: 2020-01-26
+date: 2020-05-14
 title: Legal Notice
 ---
 
+import Moment from 'react-moment'
 import LegalPageTemplate from '../components/layout/mdx/LegalPageLayout'
 export default LegalPageTemplate
 
@@ -38,8 +39,8 @@ fromHeading: 3
 
 Powple SPRL collects the following data:
 
-- **'Contact' Section**:  
-  The information and data about you is necessary to allow a more precise and relevant response and will not be used for any other purpose.
+- **'Contact' Page**:  
+  The information and data about you is necessary to allow a more precise and relevant response and may be used for future collaboration.
 
 ### How do we collect your data ?
 
@@ -57,8 +58,9 @@ Powple SPRL may also receive your data indirectly from the following sources:
 Powple SPRL collects your data so that we can:
 
 - reply to you with a more a more precise and relevant response.
+- use it for future collaboration eventually.
 
-Powple SPRL will never share your data with any third party partner company.
+Powple SPRL does not share your data with any third party partner company.
 
 ### How do we store your data ?
 
@@ -114,7 +116,7 @@ The Powple SPRL website contains links to other websites. Our privacy policy app
 
 ### Changes to our privacy policy
 
-Powple SPRL keeps its privacy policy under regular review and places any updates on this web page. This privacy policy was last updated on 21 December 2019.
+Powple SPRL keeps its privacy policy under regular review and places any updates on this web page. This privacy policy was last updated on <Moment interval={0} format="MMMM Do YYYY" children={props.pageContext.frontmatter.date} />.
 
 ### How to contact us
 
