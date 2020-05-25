@@ -23,7 +23,7 @@ const ContactPage = ({ data }: ContactPageProps) => {
       <Seo
         title="Contact"
         description={`Contact information of ${author?.name}`}
-        site={data.site}
+        siteMetadata={data.site?.siteMetadata}
       />
       <main>
         <PhotoCard className="mb-4 d-lg-none" />

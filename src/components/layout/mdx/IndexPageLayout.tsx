@@ -12,6 +12,7 @@ import { TechnicalSkills } from '../../about'
 import { LabelledIcon, OriginalIcon } from '../../icon'
 
 import './IndexPageLayout.scss'
+import useSiteMetadata from '../../../hooks/UseSiteMetadata'
 
 interface AboutSection {
   title?: string
@@ -219,16 +220,8 @@ export interface IndexPageProps {
 }
 
 const IndexPageLayout = ({ pageContext }: IndexPageProps) => {
-  const { siteInfo } = useStaticQuery<GatsbyTypes.IndexPageLayoutQuery>(
-    graphql`
-      query IndexPageLayout {
-        siteInfo: site {
-          ...SiteInformation
-        }
-      }
-    `
-  )
-  if (!siteInfo?.siteMetadata) {
+  const siteMetadata = useSiteMetadata()
+  if (!siteMetadata) {
     throw new Error('IndexPageLayout: siteMetadata is undefined')
   }
   const { frontmatter } = pageContext
@@ -236,12 +229,12 @@ const IndexPageLayout = ({ pageContext }: IndexPageProps) => {
     throw new Error('IndexPageLayout: frontmatter.section is undefined')
   }
   return (
-    <Layout siteMetadata={siteInfo?.siteMetadata} renderLeftMenu={renderLeftMenu(leftMenuItems)}>
-      <Seo site={siteInfo} />
+    <Layout siteMetadata={siteMetadata} renderLeftMenu={renderLeftMenu(leftMenuItems)}>
+      <Seo siteMetadata={siteMetadata} />
       <main>
         {frontmatter.section?.about && (
           <>
-            <AboutSection author={siteInfo?.siteMetadata?.author} {...frontmatter.section.about} />
+            <AboutSection author={siteMetadata.author} {...frontmatter.section.about} />
             <hr />
           </>
         )}

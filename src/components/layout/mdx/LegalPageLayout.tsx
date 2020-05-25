@@ -1,5 +1,4 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
 import Moment from 'react-moment'
 import { MainLayout as Layout } from '../../layout'
 import { Seo } from '../../metadata'
@@ -17,26 +16,13 @@ export interface LegalPageProps {
 }
 
 const LegalPageLayout = ({ pageContext, children }: LegalPageProps) => {
-  const { siteInfo } = useStaticQuery<GatsbyTypes.LegalPageLayoutQuery>(
-    graphql`
-      query LegalPageLayout {
-        siteInfo: site {
-          ...SiteInformation
-        }
-      }
-    `
-  )
-  if (!siteInfo?.siteMetadata) {
-    throw new Error('IndexPageLayout: siteMetadata is undefined')
-  }
   const { frontmatter } = pageContext
   if (!frontmatter) {
     throw new Error('IndexPageLayout: frontmatter.section is undefined')
   }
   return (
-    <Layout siteMetadata={siteInfo?.siteMetadata}>
+    <Layout>
       <Seo
-        site={siteInfo}
         title={frontmatter.title}
         description="Legal notice, terms of use, privacy and cookie policy"
       />
