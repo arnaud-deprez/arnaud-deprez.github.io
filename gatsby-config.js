@@ -92,6 +92,7 @@ module.exports = {
       github: 'https://github.com/arnaud-deprez',
     },
     repository: 'https://github.com/arnaud-deprez/arnaud-deprez.github.io',
+    disqusShortName: 'arnaud-deprez-powple',
   },
   plugins: [
     /* {

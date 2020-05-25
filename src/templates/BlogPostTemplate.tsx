@@ -4,6 +4,7 @@ import Img from 'gatsby-image'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { Container, Row, Col, Nav as BootstrapNav, Dropdown } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { DiscussionEmbed } from 'disqus-react'
 import { MainLayout as Layout } from '../components/layout'
 import { Nav, ShareMenu } from '../components/nav'
 import { Seo } from '../components/metadata'
@@ -51,6 +52,12 @@ const BlogPostPage = ({ pageContext, data }: BlogPostPageProps) => {
   const title = post.frontmatter?.title
   const tags = post.frontmatter?.tags
   const description = post.frontmatter?.description || post.excerpt
+  const disqusShortName = site?.siteMetadata?.disqusShortName
+  const disqusConfig = {
+    url,
+    identifier: slug,
+    title: title,
+  }
 
   return (
     <Layout siteMetadata={site?.siteMetadata} renderLeftMenu={renderLeftMenu(data)}>
@@ -89,6 +96,7 @@ const BlogPostPage = ({ pageContext, data }: BlogPostPageProps) => {
                 </section>
               )}
               <ShareMenu {...{ id: 'share-menu-bottom', url, title, tags, description }} />
+              <DiscussionEmbed shortname={disqusShortName} config={disqusConfig} />
             </main>
           </Col>
         </Row>
