@@ -10,11 +10,9 @@ export interface CommentsProps {
 export const Comments = ({ title, slug }: CommentsProps) => {
   const { siteUrl, disqusShortName } = useSiteMetadata()
   const url = siteUrl + slug
-  // remove first and last /
-  const identifier = slug.substring(1, slug.length - 1).replace(/\//g, '-')
   const disqusConfig = {
     url,
-    identifier,
+    identifier: slug,
     title,
   }
   return <DiscussionEmbed shortname={disqusShortName} config={disqusConfig} />
