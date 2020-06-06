@@ -28,6 +28,7 @@ export const SiteMetadataQueryFragment = graphql`
         twitter
       }
       repository
+      disqusShortName
     }
   }
 `

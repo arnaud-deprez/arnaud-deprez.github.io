@@ -1,7 +1,8 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { Location, WindowLocation } from '@reach/router'
-import { SiteInformation } from './SiteInformation'
+import { SiteMetadata } from './SiteInformation'
+import useSiteMetadata from '../../hooks/UseSiteMetadata'
 
 type MetaProps = JSX.IntrinsicElements['meta']
 
@@ -48,7 +49,7 @@ export interface SeoProps {
   readonly description?: string
   readonly image?: string
   readonly meta?: MetaProps[]
-  readonly site?: SiteInformation
+  readonly siteMetadata?: SiteMetadata
 }
 
 export const Seo = ({
@@ -58,14 +59,15 @@ export const Seo = ({
   description = '',
   image = '',
   meta = [],
-  site,
+  siteMetadata: siteMetadataArg,
 }: SeoProps) => {
-  const metaTitle = title || site?.siteMetadata?.title
-  const metaDescription = description || site?.siteMetadata?.description
+  const siteMetadata = siteMetadataArg || useSiteMetadata()
+  const metaTitle = title || siteMetadata?.title
+  const metaDescription = description || siteMetadata?.description
   let twitterAccronym
-  if (site?.siteMetadata?.author?.twitter) {
-    twitterAccronym = `@${site.siteMetadata.author.twitter.substring(
-      site.siteMetadata.author.twitter.lastIndexOf('/') + 1
+  if (siteMetadata?.author?.twitter) {
+    twitterAccronym = `@${siteMetadata.author.twitter.substring(
+      siteMetadata.author.twitter.lastIndexOf('/') + 1
     )}`
   }
   const concatenatedMeta: MetaProps[] = [
@@ -95,9 +97,9 @@ export const Seo = ({
           htmlAttributes={{
             lang,
           }}
-          titleTemplate={titleTemplate || `%s | ${site?.siteMetadata?.author?.name}`}
+          titleTemplate={titleTemplate || `%s | ${siteMetadata?.author?.name}`}
           title={title}
-          defaultTitle={site?.siteMetadata?.title}
+          defaultTitle={siteMetadata?.title}
           meta={[
             {
               property: `og:url`,

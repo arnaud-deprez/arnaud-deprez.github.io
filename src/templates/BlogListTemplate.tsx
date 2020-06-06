@@ -14,19 +14,16 @@ export interface BlogListPageProps {
 
 const BlogListPage = ({ pageContext, data }: BlogListPageProps) => {
   const { prefix, page, total } = pageContext
-  const site = data.site
-  const siteMetadata = site?.siteMetadata
   const edges = data.allMdx.edges
   const nodes = edges?.map((e) => e.node)
   if (!nodes) {
     throw new Error('BlogListPage: cannot render a list post that is undefined')
   }
   return (
-    <Layout {...{ siteMetadata }}>
+    <Layout>
       <Seo
         title={`Blog posts ${page > 1 ? 'at page ' + page : ''}`.trim()}
         description={`List of all blog posts at page ${page}`}
-        site={site}
       />
       <main>
         <Container className="d-flex flex-column">
