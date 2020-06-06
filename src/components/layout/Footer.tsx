@@ -14,11 +14,15 @@ export const Footer = ({ copyright }: FooterProps) => (
   <Container fluid as="footer">
     <hr />
     <Row className="justify-content-around">
-      <Col sm={12} lg={{ span: 3, offset: 2 }} className="footer-text">
+      <Col sm={12} lg={{ span: 3 }} className="footer-text">
         {copyright && (
-          <p>
-            {copyright} | <Link to="/legal/">Legal Notice</Link>
-          </p>
+          <>
+            <p>{copyright}</p>
+            <p>
+              <Link to="/legal/">Legal Notice</Link> | <Link to="/legal/#terms-of-use">Terms</Link>{' '}
+              | <Link to="/legal/#powple-sprl-privacy-policy">Privacy policy</Link>
+            </p>
+          </>
         )}
       </Col>
       <Col sm={12} lg={3} className="footer-text">
@@ -41,7 +45,8 @@ export const Footer = ({ copyright }: FooterProps) => (
             </OverlayTrigger>
             <span className="sr-only">Bootstrap</span>
           </a>
-          {' | '}
+        </p>
+        <p>
           Hosted with <FontAwesomeIcon icon="heart" color="red" /> by{' '}
           <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">
             <OverlayTrigger placement="top" overlay={<Tooltip id="footer-gatsby">Netlify</Tooltip>}>
