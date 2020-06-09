@@ -31,7 +31,7 @@ export interface PostPreviewProps {
   post: PostNode
 }
 
-export const PostPreview = ({ post }: PostPreviewProps) => {
+export const PostPreview = ({ post }: PostPreviewProps): JSX.Element => {
   if (!post) {
     throw new Error('PostPreview: cannot render post preview for undefined post')
   }

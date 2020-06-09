@@ -10,7 +10,7 @@ export interface FooterProps {
   readonly copyright?: string
 }
 
-export const Footer = ({ copyright }: FooterProps) => (
+export const Footer = ({ copyright }: FooterProps): JSX.Element => (
   <Container fluid as="footer">
     <hr />
     <Row className="justify-content-around">

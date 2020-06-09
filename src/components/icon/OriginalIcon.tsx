@@ -69,7 +69,7 @@ export interface IconProps {
   // optional properties passed to node
   id?: string
   className?: string
-  style?: object
+  style?: unknown
 
   // optional properties for icon
   color?: string
@@ -88,7 +88,7 @@ export interface IconProps {
   rotate?: number | string
 }
 
-const iconify = (icon: object, defaultProps: IconProps = {}) => (props: IconProps) => (
+const iconify = (icon: unknown, defaultProps: IconProps = {}) => (props: IconProps) => (
   <Icon
     {...{
       ...defaultProps,

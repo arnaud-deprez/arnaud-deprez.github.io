@@ -5,11 +5,11 @@ import { kebabCase } from 'lodash'
 
 import './Tag.scss'
 
-export interface TagProps extends BadgeProps {
+interface TagProps extends BadgeProps {
   value: string
 }
 
-export const Tag = ({ value, variant = 'secondary', ...rest }: TagProps) => (
+const Tag = ({ value, variant = 'secondary', ...rest }: TagProps) => (
   <Badge
     {...{ variant, to: `/blog/tags/${kebabCase(value)}`, className: 'tag', ...rest }}
     as={Link}
@@ -21,7 +21,7 @@ export const Tag = ({ value, variant = 'secondary', ...rest }: TagProps) => (
 export interface TagListProps {
   values: string[]
 }
-export const Tags = ({ values }: TagListProps) => (
+export const Tags = ({ values }: TagListProps): JSX.Element => (
   <div className="tags">
     {values.map((value) => (
       <Tag key={value} value={value} />

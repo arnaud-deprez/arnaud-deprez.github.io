@@ -16,7 +16,7 @@ export const PurePhotoCard = ({
   className,
   imgSrc,
   ...rest
-}: PhotoCardProps & { imgSrc?: string }) => (
+}: PhotoCardProps & { imgSrc?: string }): JSX.Element => (
   <Card className={`photo-card ${className || ''}`.trim()} {...rest}>
     {imgSrc && <Card.Img src={imgSrc} alt="profile" className="rounded-circle mb-2" />}
     <Card.Body className="d-none d-lg-block">
@@ -34,7 +34,7 @@ export const PurePhotoCard = ({
   </Card>
 )
 
-export const PhotoCard = (props: PhotoCardProps) => {
+export const PhotoCard = (props: PhotoCardProps): JSX.Element => {
   const data = useStaticQuery<GatsbyTypes.PhotoProfileQuery>(graphql`
     query PhotoProfile {
       file(relativePath: { eq: "profile.png" }) {

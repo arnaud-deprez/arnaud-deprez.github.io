@@ -2,7 +2,6 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { Container, Nav as BootstrapNav } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { FaEnvelope } from 'react-icons/fa'
 import { MainLayout as Layout } from '../../components/layout'
 import { Seo } from '../../components/metadata'
 import { PhotoCard } from '../../components/photocard/PhotoCard'
@@ -13,7 +12,7 @@ interface ContactPageProps {
   data: GatsbyTypes.ContactPageQuery
 }
 
-const ContactPage = ({ data }: ContactPageProps) => {
+const ContactPage = ({ data }: ContactPageProps): JSX.Element => {
   const author = data.site?.siteMetadata?.author
   if (!author?.name) {
     throw new Error('ContactPage: author.name is required!')

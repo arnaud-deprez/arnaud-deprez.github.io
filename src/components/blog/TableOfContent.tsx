@@ -29,7 +29,7 @@ export interface TableOfContentProps {
   items?: Title[]
 }
 
-export const TableOfContent = (props: TableOfContentProps) => (
+export const TableOfContent = (props: TableOfContentProps): JSX.Element => (
   <nav className="toc" aria-label="Text navigation">
     <TocLevel className="toc-nav" {...props} />
   </nav>

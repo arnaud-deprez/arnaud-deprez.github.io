@@ -1,6 +1,6 @@
 import { useStaticQuery, graphql } from 'gatsby'
 
-const useSiteMetadata = () => {
+const useSiteMetadata = (): GatsbyTypes.SiteSiteMetadata => {
   const { site } = useStaticQuery<GatsbyTypes.SiteMetaDataQuery>(
     graphql`
       query SiteMetaData {
@@ -10,6 +10,9 @@ const useSiteMetadata = () => {
       }
     `
   )
+  if (!site || !site.siteMetadata) {
+    throw Error('Cannot retrieve site information!')
+  }
   return site.siteMetadata
 }
 

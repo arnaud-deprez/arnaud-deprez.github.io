@@ -60,7 +60,7 @@ export const Seo = ({
   image = '',
   meta = [],
   siteMetadata: siteMetadataArg,
-}: SeoProps) => {
+}: SeoProps): JSX.Element => {
   const siteMetadata = siteMetadataArg || useSiteMetadata()
   const metaTitle = title || siteMetadata?.title
   const metaDescription = description || siteMetadata?.description

@@ -12,7 +12,13 @@ export interface PagerProps {
   readonly className?: string
 }
 
-export const Pager = ({ prefix, page, total, maxVisiblePages = 5, className }: PagerProps) => {
+export const Pager = ({
+  prefix,
+  page,
+  total,
+  maxVisiblePages = 5,
+  className,
+}: PagerProps): JSX.Element => {
   const normalizedPrefix = prefix.startsWith('/') ? prefix : `/${prefix}`
   const lastFirstVisiblePage = total - maxVisiblePages + 1
   let firstVisiblePage = page - Math.floor((maxVisiblePages - 1) / 2)

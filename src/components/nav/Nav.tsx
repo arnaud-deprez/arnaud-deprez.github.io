@@ -30,7 +30,7 @@ export const Nav = <As extends React.ElementType>({
   renderChild,
   children = [],
   ...rest
-}: NavProps & React.ComponentPropsWithoutRef<As>) => {
+}: NavProps & React.ComponentPropsWithoutRef<As>): JSX.Element => {
   const items = React.Children.toArray(children || [])
   const _renderChild = renderChild || renderNavItem({})
 

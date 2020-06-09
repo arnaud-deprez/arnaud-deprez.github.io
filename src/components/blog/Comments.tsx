@@ -7,8 +7,11 @@ export interface CommentsProps {
   slug: string
 }
 
-export const Comments = ({ title, slug }: CommentsProps) => {
+export const Comments = ({ title, slug }: CommentsProps): JSX.Element => {
   const { siteUrl, disqusShortName } = useSiteMetadata()
+  if (!disqusShortName) {
+    return <></>
+  }
   const url = siteUrl + slug
   const disqusConfig = {
     url,

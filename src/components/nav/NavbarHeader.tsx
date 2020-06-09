@@ -8,7 +8,7 @@ import { NavSocialIcons } from './NavSocialIcons'
 
 import './NavbarHeader.scss'
 
-export const NavHeader = (props: SocialLinksTrait) => (
+const NavHeader = (props: SocialLinksTrait) => (
   <>
     <Nav role="navigation">
       <BootstrapNav.Link to="/" as={Link}>
@@ -39,7 +39,7 @@ export const NavbarHeader = ({
     twitter: undefined,
     github: undefined,
   },
-}: NavbarHeaderProps) => {
+}: NavbarHeaderProps): JSX.Element => {
   const { name, ...rest } = author
   return (
     <Navbar id="navbar-header" expand="lg" as="nav">

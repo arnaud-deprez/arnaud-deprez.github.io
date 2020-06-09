@@ -145,7 +145,7 @@ const handleSubmit = (values: ContactFormValues) => {
     .catch(console.error)
 }
 
-export const ContactForm = (props: { id: string }) => (
+export const ContactForm = (props: { id: string }): JSX.Element => (
   <Formik
     initialValues={{
       'form-name': 'arnaud-deprez-contact',
