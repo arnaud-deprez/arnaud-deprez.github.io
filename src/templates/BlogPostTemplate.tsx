@@ -62,6 +62,9 @@ const BlogPostPage = ({ pageContext, data }: BlogPostPageProps) => {
 
 export const pageQuery = graphql`
   query BlogPostPage($id: String!) {
+    site {
+      ...SiteInformation
+    }
     mdx(id: { eq: $id }) {
       frontmatter {
         date
