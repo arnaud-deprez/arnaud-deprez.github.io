@@ -16,7 +16,7 @@ export const MainLayout = ({
   children,
   siteMetadata: siteMetadataArg,
   ...rest
-}: MainLayoutProps) => {
+}: MainLayoutProps): JSX.Element => {
   const siteMetadata = siteMetadataArg || useSiteMetadata()
   return (
     <Container fluid className="main-layout">

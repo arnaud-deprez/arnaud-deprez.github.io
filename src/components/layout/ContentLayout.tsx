@@ -10,7 +10,7 @@ export interface ContentLayoutProps {
   readonly children?: React.ReactNode | React.ReactNode[]
 }
 
-export const ContentLayout = ({ siteMetadata, children }: ContentLayoutProps) => (
+export const ContentLayout = ({ siteMetadata, children }: ContentLayoutProps): JSX.Element => (
   <div className="content-layout">
     {siteMetadata?.author && <Header author={siteMetadata.author} />}
     <div className="content">{children}</div>

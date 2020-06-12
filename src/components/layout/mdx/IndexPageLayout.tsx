@@ -1,5 +1,4 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
 import { Container, Col, Card, CardGroup, Nav as BootstrapNav } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
@@ -14,7 +13,7 @@ import { LabelledIcon, OriginalIcon } from '../../icon'
 import './IndexPageLayout.scss'
 import useSiteMetadata from '../../../hooks/UseSiteMetadata'
 
-interface AboutSection {
+interface AboutSectionProps {
   title?: string
   subTitle?: string
   services?: {
@@ -23,9 +22,6 @@ interface AboutSection {
     description?: string
   }[]
   pitch?: string
-}
-
-interface AboutSectionProps extends AboutSection {
   author?: Author
 }
 
@@ -92,13 +88,13 @@ interface SkillSet {
   values?: string[]
 }
 
-interface TechnicalSkillsSection {
+interface TechnicalSkillsSectionProps {
   programming?: SkillSet[]
   devOps?: SkillSet[]
   love?: SkillSet[]
 }
 
-const TechnicalSkillsSection = (props: TechnicalSkillsSection) => (
+const TechnicalSkillsSection = (props: TechnicalSkillsSectionProps) => (
   <section id="technical-skills-section" className="resume">
     <h2 className="text-primary text-uppercase">Technical Skills</h2>
     <h3>
@@ -208,8 +204,8 @@ const renderLeftMenu = (links: Link[]) => () => (
 interface Frontmatter {
   title?: string
   section?: {
-    about?: AboutSection
-    technicalSkills?: {}
+    about?: AboutSectionProps
+    technicalSkills?: TechnicalSkillsSectionProps
   }
 }
 
@@ -219,7 +215,7 @@ export interface IndexPageProps {
   }
 }
 
-const IndexPageLayout = ({ pageContext }: IndexPageProps) => {
+const IndexPageLayout = ({ pageContext }: IndexPageProps): JSX.Element => {
   const siteMetadata = useSiteMetadata()
   if (!siteMetadata) {
     throw new Error('IndexPageLayout: siteMetadata is undefined')

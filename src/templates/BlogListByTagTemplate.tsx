@@ -12,7 +12,7 @@ export interface BlogListPageProps {
   data: GatsbyTypes.BlogListByTagQuery
 }
 
-const BlogListByTagPage = ({ pageContext, data }: BlogListPageProps) => {
+const BlogListByTagPage = ({ pageContext, data }: BlogListPageProps): JSX.Element => {
   const { tag, prefix, page, total } = pageContext
   const edges = data.allMdx.edges
   const nodes = edges?.map((e) => e.node)

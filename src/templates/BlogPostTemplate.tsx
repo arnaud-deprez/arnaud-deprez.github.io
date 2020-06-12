@@ -32,7 +32,7 @@ interface BlogPostPageProps {
   data: GatsbyTypes.BlogPostPageQuery
 }
 
-const BlogPostPage = ({ pageContext, data }: BlogPostPageProps) => {
+const BlogPostPage = ({ pageContext, data }: BlogPostPageProps): JSX.Element => {
   const { slug } = pageContext
   const { mdx: post } = data
 

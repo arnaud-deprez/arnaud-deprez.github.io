@@ -5,7 +5,7 @@ export interface PostListProps {
   posts: PostNode[]
 }
 
-export const PostList = ({ posts }: PostListProps) => (
+export const PostList = ({ posts }: PostListProps): JSX.Element => (
   <ul className="list-unstyled">
     {posts.map((p) => (
       <li key={p.fields?.slug}>

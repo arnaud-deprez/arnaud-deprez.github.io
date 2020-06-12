@@ -7,10 +7,10 @@ import { Tags, PostTimeInfo, Comments } from '.'
 
 export interface PostCardProps extends GatsbyTypes.BlogPostPageQuery {
   slug: string
-  as?: any
+  as?: React.ElementType
 }
 
-export const PostCard = ({ site, mdx: post, slug, as = 'div' }: PostCardProps) => {
+export const PostCard = ({ site, mdx: post, slug, as = 'div' }: PostCardProps): JSX.Element => {
   if (!post) {
     throw new Error('BlogPostPage: post is required')
   }

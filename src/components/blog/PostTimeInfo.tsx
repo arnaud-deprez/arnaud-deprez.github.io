@@ -9,7 +9,12 @@ export interface PostTimeInfoProps extends React.HTMLAttributes<'div'> {
   timeToRead: number
 }
 
-export const PostTimeInfo = ({ date, dateString, timeToRead, className }: PostTimeInfoProps) => (
+export const PostTimeInfo = ({
+  date,
+  dateString,
+  timeToRead,
+  className,
+}: PostTimeInfoProps): JSX.Element => (
   <div className={`post-time-info ${className}`.trim()}>
     <FontAwesomeIcon icon="calendar-alt" className="text-warning text-2x mr-3" />
     <div>

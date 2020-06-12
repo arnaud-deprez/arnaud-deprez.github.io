@@ -49,7 +49,7 @@ export interface TechnicalSkillsProps {
   skills: string[] | string[][]
 }
 
-export const TechnicalSkills = ({ title, skills }: TechnicalSkillsProps) => (
+export const TechnicalSkills = ({ title, skills }: TechnicalSkillsProps): JSX.Element => (
   <Card className="skills-set bg-light mb-1">
     <Card.Body>
       <Card.Title as="h5">{title}</Card.Title>

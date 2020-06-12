@@ -23,7 +23,7 @@ export const NavSocialIcons = ({
   linkClassName = '',
   children,
   role = '',
-}: NavSocialIconsProps) => (
+}: NavSocialIconsProps): JSX.Element => (
   <Nav className={`social-icons ${className || ''}`.trim()} role={role}>
     {linkedin && (
       <BootstrapNav.Link

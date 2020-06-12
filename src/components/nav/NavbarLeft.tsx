@@ -12,7 +12,7 @@ export interface NavbarLeftProps extends NavbarProps {
   readonly children?: React.ReactNode | React.ReactNode[]
 }
 
-export const NavbarLeft = ({ author, children, ...rest }: NavbarLeftProps) => (
+export const NavbarLeft = ({ author, children, ...rest }: NavbarLeftProps): JSX.Element => (
   <Navbar
     id="navbar-left"
     className="d-none d-lg-flex flex-column navbar-dark bg-primary"

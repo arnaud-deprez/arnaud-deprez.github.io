@@ -1,5 +1,4 @@
 import React from 'react'
-import { Button } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   TwitterShareButton,
@@ -27,7 +26,7 @@ export const ShareMenu = ({
   description,
   buttonClassName = 'btn-bg-dark',
   ...rest
-}: ShareMenuProps) => {
+}: ShareMenuProps): JSX.Element => {
   const btnClassName = `icon-round-wrapper btn ${buttonClassName}`.trim()
   return (
     <Nav {...rest} className="share-menu" as="ul">

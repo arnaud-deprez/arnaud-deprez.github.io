@@ -4,7 +4,7 @@ export interface Event {
   [key: string]: any
 }
 
-export const publishEvent = (event: Event) => {
+export const publishEvent = (event: Event): void => {
   const dataLayer = window.dataLayer || []
   dataLayer.push(event)
 }

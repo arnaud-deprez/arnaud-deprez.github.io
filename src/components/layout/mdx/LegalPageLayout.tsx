@@ -15,7 +15,7 @@ export interface LegalPageProps {
   children: React.ReactNode[]
 }
 
-const LegalPageLayout = ({ pageContext, children }: LegalPageProps) => {
+const LegalPageLayout = ({ pageContext, children }: LegalPageProps): JSX.Element => {
   const { frontmatter } = pageContext
   if (!frontmatter) {
     throw new Error('IndexPageLayout: frontmatter.section is undefined')

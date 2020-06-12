@@ -2,7 +2,7 @@ import React from 'react'
 import { MainLayout as Layout } from '../../components/layout'
 import { Seo } from '../../components/metadata'
 
-const ContactThanksPage = () => (
+const ContactThanksPage = (): JSX.Element => (
   <Layout>
     <Seo title="Thanks for Contacting" />
     <main>

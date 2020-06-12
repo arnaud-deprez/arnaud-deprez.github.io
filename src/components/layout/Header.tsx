@@ -6,7 +6,7 @@ export interface HeaderProps {
   readonly author?: Author
 }
 
-export const Header = (props: HeaderProps) => (
+export const Header = (props: HeaderProps): JSX.Element => (
   <header>
     <NavbarHeader {...props} />
   </header>
