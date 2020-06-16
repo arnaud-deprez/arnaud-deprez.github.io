@@ -5,6 +5,8 @@ import { Container } from 'react-bootstrap'
 import { ShareMenu } from '../nav'
 import { Tags, PostTimeInfo, Comments } from '.'
 
+import './PostCard.scss'
+
 export interface PostCardProps extends GatsbyTypes.BlogPostPageQuery {
   slug: string
   as?: React.ElementType
@@ -27,7 +29,7 @@ export const PostCard = ({ site, mdx: post, slug, as = 'div' }: PostCardProps): 
   const description = post.frontmatter?.description || post.excerpt
 
   return (
-    <Container fluid as={as}>
+    <Container className="post-card" fluid as={as}>
       {post.frontmatter?.image && (
         <Img
           fluid={post.frontmatter.image?.childImageSharp?.fluid}
@@ -36,21 +38,23 @@ export const PostCard = ({ site, mdx: post, slug, as = 'div' }: PostCardProps): 
           alt={`${post.frontmatter.title}`}
         />
       )}
-      <h1>{post.frontmatter?.title}</h1>
-      <PostTimeInfo
-        date={post.frontmatter.date}
-        dateString={post.frontmatter?.dateString}
-        timeToRead={post.timeToRead}
-      />
-      {post.frontmatter?.tags && <Tags values={post.frontmatter.tags as string[]} />}
-      <ShareMenu {...{ id: 'share-menu-top', url, title, tags, description }} />
-      {post.body && (
-        <section className="text-justify">
-          <MDXRenderer>{post.body}</MDXRenderer>
-        </section>
-      )}
-      <ShareMenu {...{ id: 'share-menu-bottom', url, title, tags, description }} />
-      <Comments {...{ title, slug }} />
+      <article>
+        <h1>{post.frontmatter?.title}</h1>
+        <PostTimeInfo
+          date={post.frontmatter.date}
+          dateString={post.frontmatter?.dateString}
+          timeToRead={post.timeToRead}
+        />
+        {post.frontmatter?.tags && <Tags values={post.frontmatter.tags as string[]} />}
+        <ShareMenu {...{ id: 'share-menu-top', url, title, tags, description }} />
+        {post.body && (
+          <section className="text-justify">
+            <MDXRenderer>{post.body}</MDXRenderer>
+          </section>
+        )}
+        <ShareMenu {...{ id: 'share-menu-bottom', url, title, tags, description }} />
+        <Comments {...{ title, slug }} />
+      </article>
     </Container>
   )
 }
