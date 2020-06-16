@@ -24,5 +24,9 @@
     @include media-breakpoint-up(xl) {
       padding: $jumbotron-padding ($jumbotron-padding * 2);
     }
+
+    & > .container {
+      padding: 0;
+    }
   }
 }
