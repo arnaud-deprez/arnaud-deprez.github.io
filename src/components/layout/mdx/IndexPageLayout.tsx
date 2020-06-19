@@ -36,7 +36,7 @@ const AboutSection = (props: AboutSectionProps) => (
 
     <CardGroup className="mb-4">
       {props.services?.map((service) => (
-        <Col sm={12} md={6} lg={3} className="px-0" key={service?.title}>
+        <Col sm={12} md={6} xl={3} className="px-0" key={service?.title}>
           <Card className="border-0 mb-3">
             {service?.icon && (
               <div className="text-center text-3x text-secondary">
