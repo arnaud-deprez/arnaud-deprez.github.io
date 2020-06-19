@@ -28,16 +28,18 @@ const LegalPageLayout = ({ pageContext, children }: LegalPageProps): JSX.Element
       />
       {frontmatter.title && frontmatter.date && children && (
         <main>
-          <h1 className="text-uppercase mb-0">{frontmatter.title}</h1>
-          <p className="text-muted">
-            <em>
-              Updated on{' '}
-              <Moment interval={0} format="MMMM Do YYYY">
-                {frontmatter.date}
-              </Moment>
-            </em>
-          </p>
-          {children}
+          <article>
+            <h1 className="text-uppercase mb-0">{frontmatter.title}</h1>
+            <p className="text-muted">
+              <em>
+                Updated on{' '}
+                <Moment interval={0} format="MMMM Do YYYY">
+                  {frontmatter.date}
+                </Moment>
+              </em>
+            </p>
+            {children}
+          </article>
         </main>
       )}
     </Layout>

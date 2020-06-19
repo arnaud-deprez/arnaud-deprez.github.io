@@ -4,5 +4,8 @@
   text-align: center;
   @include media-breakpoint-up(lg) {
     text-align: justify;
+    white-space: normal;
+    word-break: break-word; // IE & < Edge 18
+    overflow-wrap: break-word;
   }
 }
