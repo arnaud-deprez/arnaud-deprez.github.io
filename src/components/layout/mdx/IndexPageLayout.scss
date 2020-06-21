@@ -4,10 +4,11 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  margin-bottom: 2rem;
 }
 
 #about-section {
   & > .card-group {
-    margin: 0 -1.25rem;
+    margin: 0 -1rem;
   }
 }

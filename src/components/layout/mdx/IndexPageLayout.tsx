@@ -231,7 +231,6 @@ const IndexPageLayout = ({ pageContext }: IndexPageProps): JSX.Element => {
         {frontmatter.section?.about && (
           <>
             <AboutSection author={siteMetadata.author} {...frontmatter.section.about} />
-            <hr />
           </>
         )}
         {frontmatter.section?.technicalSkills && (
