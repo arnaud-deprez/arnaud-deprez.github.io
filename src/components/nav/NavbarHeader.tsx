@@ -43,7 +43,7 @@ export const NavbarHeader = ({
   const { name, ...rest } = author
   return (
     <Navbar id="navbar-header" expand="lg" as="nav">
-      <Navbar.Brand className="d-lg-none d-md-block" to="/" as={Link}>
+      <Navbar.Brand className="d-lg-none" to="/" as={Link}>
         {name}
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="navbar-header-menu" className="btn btn-primary">

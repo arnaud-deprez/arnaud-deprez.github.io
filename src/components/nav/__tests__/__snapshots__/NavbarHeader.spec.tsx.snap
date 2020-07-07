@@ -7,7 +7,7 @@ exports[`<NavbarHeader/> renders correctly 1`] = `
     id="navbar-header"
   >
     <a
-      class="d-lg-none d-md-block navbar-brand"
+      class="d-lg-none navbar-brand"
       href="/"
     >
       Arnaud Deprez
