@@ -44,7 +44,7 @@ const AboutSection = (props: AboutSectionProps) => (
               </div>
             )}
             <Card.Body className="pt-0">
-              <Card.Title className="text-center" as="h5">
+              <Card.Title className="text-center" as="h4">
                 {service?.title}
               </Card.Title>
               <Card.Text

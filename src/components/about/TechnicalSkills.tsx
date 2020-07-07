@@ -52,7 +52,7 @@ export interface TechnicalSkillsProps {
 export const TechnicalSkills = ({ title, skills }: TechnicalSkillsProps): JSX.Element => (
   <Card className="skills-set bg-light mb-1">
     <Card.Body>
-      <Card.Title as="h5">{title}</Card.Title>
+      <Card.Title className="h5">{title}</Card.Title>
       {uniformize(skills).map(mapToList)}
     </Card.Body>
   </Card>
