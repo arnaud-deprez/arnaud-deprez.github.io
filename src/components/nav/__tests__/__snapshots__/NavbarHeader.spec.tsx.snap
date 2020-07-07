@@ -15,7 +15,7 @@ exports[`<NavbarHeader/> renders correctly 1`] = `
     <button
       aria-controls="navbar-header-menu"
       aria-label="Toggle navigation"
-      class="navbar-toggler collapsed"
+      class="btn btn-primary navbar-toggler collapsed"
       type="button"
     />
     <div
