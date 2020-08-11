@@ -11,7 +11,7 @@ interface TagProps extends BadgeProps {
 
 const Tag = ({ value, variant = 'secondary', ...rest }: TagProps) => (
   <Badge
-    {...{ variant, to: `/blog/tags/${kebabCase(value)}`, className: 'tag', ...rest }}
+    {...{ variant, to: `/blog/tags/${kebabCase(value)}/`, className: 'tag', ...rest }}
     as={Link}
   >
     {value}

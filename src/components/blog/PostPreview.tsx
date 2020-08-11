@@ -46,14 +46,14 @@ export const PostPreview = ({ post }: PostPreviewProps): JSX.Element => {
       {post.frontmatter?.image?.childImageSharp?.fluid && (
         <div className="position-relative">
           <Card.Img
+            className="post-preview-image"
             variant="top"
             fluid={post.frontmatter.image.childImageSharp.fluid}
-            style={{ height: '225px' }}
             alt={`${post.frontmatter?.title} image`}
             as={Img}
           />
           <Card.ImgOverlay className="post-preview-overlay text-white">
-            <Card.Title className="m-0" as="h3">
+            <Card.Title className="m-0 h3" as="h2">
               {post.frontmatter.title}
             </Card.Title>
             <Button className="ml-auto" variant="secondary" to={post.fields?.slug || '#'} as={Link}>

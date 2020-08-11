@@ -3,6 +3,10 @@
 .post-preview {
   margin: .5rem 0;
 
+  .post-preview-image {
+    height: 225px;
+  }
+  
   .post-preview-overlay {
     display: flex;
     align-items: center;
