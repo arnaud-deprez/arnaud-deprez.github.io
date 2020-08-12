@@ -43,13 +43,13 @@ export const NavbarHeader = ({
   const { name, ...rest } = author
   return (
     <Navbar id="navbar-header" expand="lg" as="nav">
-      <Navbar.Brand className="d-lg-none d-md-block" to="/" as={Link}>
+      <Navbar.Brand className="d-lg-none" to="/" as={Link}>
         {name}
       </Navbar.Brand>
-      <Navbar.Toggle aria-controls="navbar-header">
+      <Navbar.Toggle aria-controls="navbar-header-menu" className="btn btn-primary">
         <FontAwesomeIcon icon="bars" />
       </Navbar.Toggle>
-      <Navbar.Collapse id="navbar-header" className="justify-content-end">
+      <Navbar.Collapse id="navbar-header-menu" className="justify-content-end">
         <NavHeader rss={true} {...rest} />
       </Navbar.Collapse>
     </Navbar>

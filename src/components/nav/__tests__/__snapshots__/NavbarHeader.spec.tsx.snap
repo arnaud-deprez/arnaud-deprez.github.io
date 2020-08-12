@@ -7,20 +7,20 @@ exports[`<NavbarHeader/> renders correctly 1`] = `
     id="navbar-header"
   >
     <a
-      class="d-lg-none d-md-block navbar-brand"
+      class="d-lg-none navbar-brand"
       href="/"
     >
       Arnaud Deprez
     </a>
     <button
-      aria-controls="navbar-header"
+      aria-controls="navbar-header-menu"
       aria-label="Toggle navigation"
-      class="navbar-toggler collapsed"
+      class="btn btn-primary navbar-toggler collapsed"
       type="button"
     />
     <div
       class="justify-content-end navbar-collapse collapse"
-      id="navbar-header"
+      id="navbar-header-menu"
     >
       <ul
         class="navbar-nav"

@@ -36,6 +36,7 @@ const ContactPage = ({ data }: ContactPageProps): JSX.Element => {
           >
             <BootstrapNav.Link
               href={`mailto:${author?.email}`}
+              aria-label="Email me"
               className="icon-round-wrapper btn btn-bg-dark"
             >
               <FontAwesomeIcon icon="envelope" />
