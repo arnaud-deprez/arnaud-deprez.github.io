@@ -4,7 +4,6 @@ exports[`<PhotoCard/> renders correctly 1`] = `
 <DocumentFragment>
   <div
     class="photo-card card"
-    imgsrc="profile.png"
   >
     <div
       class="d-none d-lg-block card-body"
@@ -17,7 +16,6 @@ exports[`<PhotoCard/> renders correctly with name and jobTitle 1`] = `
 <DocumentFragment>
   <div
     class="photo-card card"
-    imgsrc="profile.png"
   >
     <div
       class="d-none d-lg-block card-body"

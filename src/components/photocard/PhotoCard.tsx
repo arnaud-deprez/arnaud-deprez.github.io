@@ -19,7 +19,7 @@ export const PurePhotoCard = ({
   className,
   img,
   ...rest
-}: PhotoCardProps & { imgSrc?: string }): JSX.Element => (
+}: PhotoCardProps): JSX.Element => (
   <Card className={`photo-card ${className || ''}`.trim()} {...rest}>
     {img && <Card.Img fixed={img} alt="profile" className="rounded-circle mb-2" as={Img} />}
     <Card.Body className="d-none d-lg-block">
