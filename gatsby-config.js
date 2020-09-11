@@ -7,6 +7,7 @@ const gatsbyRemarkPlugins = [
       tight: true,
       fromHeading: 2,
       toHeading: 6,
+      className: 'remark-toc',
     },
   },
   {

@@ -1,5 +1,8 @@
 import React from 'react'
 import * as _ from 'lodash'
+import { Link as ScrollSpyLink } from 'react-scroll'
+
+import './TableOfContent.scss'
 
 export interface Title {
   title: string
@@ -15,8 +18,17 @@ const TocLevel = ({
   <ul {...rest}>
     {items.map((item) => (
       <React.Fragment key={_.kebabCase(item.url)}>
-        <li className={`toc-entry toc-h${startLevel}`}>
-          <a href={item.url}>{item.title}</a>
+        <li className={`blog-toc-entry toc-h${startLevel}`}>
+          <ScrollSpyLink
+            activeClass="active"
+            to={item.url.substring(1)}
+            spy={true}
+            smooth={true}
+            duration={200}
+            href={item.url}
+          >
+            {item.title}
+          </ScrollSpyLink>
         </li>
         {item.items && <TocLevel startLevel={startLevel + 1} items={item.items} />}
       </React.Fragment>
@@ -30,7 +42,7 @@ export interface TableOfContentProps {
 }
 
 export const TableOfContent = (props: TableOfContentProps): JSX.Element => (
-  <nav className="toc" aria-label="Text navigation">
-    <TocLevel className="toc-nav" {...props} />
+  <nav className="blog-toc" aria-label="Text navigation">
+    <TocLevel className="blog-toc-level" {...props} />
   </nav>
 )

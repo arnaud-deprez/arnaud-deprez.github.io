@@ -1,7 +1,7 @@
 @import "../scss/_global";
 
 .blog-post {
-  .toc {
+  .blog-toc {
     padding-top: $jumbotron-padding;
     position: -webkit-sticky;
     position: sticky;
@@ -10,7 +10,7 @@
     width: 100%;
     align-self: start;
 
-    &>.toc-nav {
+    &>.blog-toc-level {
       border-left: 1px solid #eee;
     }
 

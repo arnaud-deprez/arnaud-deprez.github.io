@@ -117,3 +117,10 @@ pre.grvsc-container {
   @extend .icon-square-wrapper;
   border-radius: 50%;
 }
+
+// Workaround for https://github.com/signalwerk/gatsby-remark-table-of-contents/issues/5: select all ul elements just after .remark-toc div
+.remark-toc + ul {
+  & > li {
+    margin-bottom: .25em;
+  }
+}
