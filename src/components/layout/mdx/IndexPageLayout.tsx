@@ -120,7 +120,7 @@ const TechnicalSkillsSection = (props: TechnicalSkillsSectionProps) => (
           value?.title &&
           value?.values &&
           value.values.length > 1 && (
-            <TechnicalSkills key={key} title={value?.title} skills={value.values as string[]} />
+            <TechnicalSkills key={key} title={value.title} skills={value.values as string[]} />
           )
       )}
     </Container>
@@ -214,7 +214,7 @@ interface Frontmatter {
 
 export interface IndexPageProps {
   pageContext: {
-    frontmatter?: Frontmatter
+    frontmatter: Frontmatter
   }
 }
 

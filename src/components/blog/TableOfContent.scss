@@ -1,15 +1,18 @@
 @import '../../scss/global';
 
 .blog-toc {
+  .blog-toc-level {
+    flex-direction: column;
+  }
   .blog-toc-entry > a {
-    color: $gray-700;
+    color: $gray-600;
+    cursor: pointer;
     &:hover {
-      color: $link-hover-color;
-      text-decoration: $link-hover-decoration;
+      color: $link-color;
     }
     &.active {
       color: $link-color;
-      text-decoration: none;
+      text-decoration: underline;
     }
   }
 }

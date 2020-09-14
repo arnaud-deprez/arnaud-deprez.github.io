@@ -120,7 +120,7 @@ pre.grvsc-container {
 
 // Workaround for https://github.com/signalwerk/gatsby-remark-table-of-contents/issues/5: select all ul elements just after .remark-toc div
 .remark-toc + ul {
-  & > li {
-    margin-bottom: .25em;
+  li {
+    padding: .25em 0;
   }
 }

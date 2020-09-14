@@ -1,4 +1,5 @@
 import React from 'react'
+import { Nav as BootstrapNav } from 'react-bootstrap'
 import * as _ from 'lodash'
 import { Link as ScrollSpyLink } from 'react-scroll'
 
@@ -15,25 +16,25 @@ const TocLevel = ({
   items = [],
   ...rest
 }: TableOfContentProps & { className?: string }) => (
-  <ul {...rest}>
+  <BootstrapNav className="blog-toc-level" {...rest} as="ul">
     {items.map((item) => (
-      <React.Fragment key={_.kebabCase(item.url)}>
-        <li className={`blog-toc-entry toc-h${startLevel}`}>
-          <ScrollSpyLink
+      <React.Fragment key={_.kebabCase(item.url.substring(1))}>
+        <BootstrapNav.Item className={`blog-toc-entry toc-h${startLevel}`} as="li">
+          <BootstrapNav.Link
             activeClass="active"
             to={item.url.substring(1)}
             spy={true}
             smooth={true}
             duration={200}
-            href={item.url}
+            as={ScrollSpyLink}
           >
             {item.title}
-          </ScrollSpyLink>
-        </li>
+          </BootstrapNav.Link>
+        </BootstrapNav.Item>
         {item.items && <TocLevel startLevel={startLevel + 1} items={item.items} />}
       </React.Fragment>
     ))}
-  </ul>
+  </BootstrapNav>
 )
 
 export interface TableOfContentProps {
@@ -43,6 +44,6 @@ export interface TableOfContentProps {
 
 export const TableOfContent = (props: TableOfContentProps): JSX.Element => (
   <nav className="blog-toc" aria-label="Text navigation">
-    <TocLevel className="blog-toc-level" {...props} />
+    <TocLevel {...props} />
   </nav>
 )
