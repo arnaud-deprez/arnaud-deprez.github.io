@@ -120,7 +120,7 @@ const TechnicalSkillsSection = (props: TechnicalSkillsSectionProps) => (
           value?.title &&
           value?.values &&
           value.values.length > 1 && (
-            <TechnicalSkills key={key} title={value?.title} skills={value.values as string[]} />
+            <TechnicalSkills key={key} title={value.title} skills={value.values as string[]} />
           )
       )}
     </Container>
@@ -183,23 +183,26 @@ const leftMenuItems: Link[] = [
   },
 ]
 
-const renderLeftMenu = (links: Link[]) => () => (
-  <Nav className="flex-column align-items-center" as="ul">
-    {links.map((link) => (
-      <BootstrapNav.Link
-        activeClass="active"
-        to={link.id}
-        spy={true}
-        smooth={true}
-        duration={200}
-        as={ScrollSpyLink}
-        key={link.id}
-      >
-        {link.title}
-      </BootstrapNav.Link>
-    ))}
-  </Nav>
-)
+const renderLeftMenu = (links: Link[]) => {
+  const LeftMenu = () => (
+    <Nav className="flex-column align-items-center" as="ul">
+      {links.map((link) => (
+        <BootstrapNav.Link
+          activeClass="active"
+          to={link.id}
+          spy={true}
+          smooth={true}
+          duration={200}
+          as={ScrollSpyLink}
+          key={link.id}
+        >
+          {link.title}
+        </BootstrapNav.Link>
+      ))}
+    </Nav>
+  )
+  return LeftMenu
+}
 
 interface Frontmatter {
   title?: string
@@ -211,7 +214,7 @@ interface Frontmatter {
 
 export interface IndexPageProps {
   pageContext: {
-    frontmatter?: Frontmatter
+    frontmatter: Frontmatter
   }
 }
 

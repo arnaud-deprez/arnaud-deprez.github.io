@@ -88,6 +88,7 @@ export interface IconProps {
   rotate?: number | string
 }
 
+// eslint-disable-next-line react/display-name
 const iconify = (icon: unknown, defaultProps: IconProps = {}) => (props: IconProps) => (
   <Icon
     {...{
@@ -101,26 +102,31 @@ const imgIcon = (
   icon: string,
   alt: string,
   defaultProps: IconProps = { style: { width: '1em', height: '1em' } }
-) => (props: IconProps) => (
-  <img
-    {...{
-      ...defaultProps,
-      ...props,
-    }}
-    src={icon}
-    alt={alt}
-  />
-)
-const svgIcon = (Component: React.ElementType<IconProps>, defaultProps: IconProps = {}) => (
-  props: IconProps
-) => (
-  <Component
-    {...{
-      ...defaultProps,
-      ...props,
-    }}
-  />
-)
+) => {
+  const ImgIcon = (props: IconProps) => (
+    <img
+      {...{
+        ...defaultProps,
+        ...props,
+      }}
+      src={icon}
+      alt={alt}
+    />
+  )
+  return ImgIcon
+}
+
+const svgIcon = (Component: React.ElementType<IconProps>, defaultProps: IconProps = {}) => {
+  const SvgIcon = (props: IconProps) => (
+    <Component
+      {...{
+        ...defaultProps,
+        ...props,
+      }}
+    />
+  )
+  return SvgIcon
+}
 
 interface OriginalIcons {
   [key: string]: (props: IconProps) => JSX.Element

@@ -4,10 +4,10 @@ exports[`<TableOfContent/> renders an empty table of content if items is undefin
 <DocumentFragment>
   <nav
     aria-label="Text navigation"
-    class="toc"
+    class="blog-toc"
   >
     <ul
-      class="toc-nav"
+      class="blog-toc-level nav"
     />
   </nav>
 </DocumentFragment>
@@ -17,54 +17,58 @@ exports[`<TableOfContent/> renders the table of content 1`] = `
 <DocumentFragment>
   <nav
     aria-label="Text navigation"
-    class="toc"
+    class="blog-toc"
   >
     <ul
-      class="toc-nav"
+      class="blog-toc-level nav"
     >
       <li
-        class="toc-entry toc-h2"
+        class="blog-toc-entry toc-h2 nav-item"
       >
         <a
-          href="#my-requirements"
+          class="nav-link"
         >
           My requirements
         </a>
       </li>
       <li
-        class="toc-entry toc-h2"
+        class="blog-toc-entry toc-h2 nav-item"
       >
         <a
-          href="#what-is-gatsby-"
+          class="nav-link"
         >
           What is Gatsby ?
         </a>
       </li>
-      <ul>
+      <ul
+        class="blog-toc-level nav"
+      >
         <li
-          class="toc-entry toc-h3"
+          class="blog-toc-entry toc-h3 nav-item"
         >
           <a
-            href="#why-gatsby-"
+            class="nav-link"
           >
             Why Gatsby ?
           </a>
         </li>
-        <ul>
+        <ul
+          class="blog-toc-level nav"
+        >
           <li
-            class="toc-entry toc-h4"
+            class="blog-toc-entry toc-h4 nav-item"
           >
             <a
-              href="#because"
+              class="nav-link"
             >
               Because
             </a>
           </li>
           <li
-            class="toc-entry toc-h4"
+            class="blog-toc-entry toc-h4 nav-item"
           >
             <a
-              href="#i-got-high"
+              class="nav-link"
             >
               I got high
             </a>
@@ -72,10 +76,10 @@ exports[`<TableOfContent/> renders the table of content 1`] = `
         </ul>
       </ul>
       <li
-        class="toc-entry toc-h2"
+        class="blog-toc-entry toc-h2 nav-item"
       >
         <a
-          href="#conclusion"
+          class="nav-link"
         >
           Conclusion
         </a>

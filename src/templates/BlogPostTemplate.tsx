@@ -13,8 +13,8 @@ import './BlogPostTemplate.scss'
 const editUrl = (githubRepoUrl = '', relativePath = '') =>
   `${githubRepoUrl}/edit/master/content/${relativePath}`
 
-const renderLeftMenu = (data: GatsbyTypes.BlogPostPageQuery) => () => (
-  <>
+const renderLeftMenu = (data: GatsbyTypes.BlogPostPageQuery) => {
+  const LeftMenu = () => (
     <Nav className="flex-column" as="ul">
       <BootstrapNav.Link
         href={editUrl(data.site?.siteMetadata?.repository, data.mdx?.parent?.relativePath)}
@@ -22,8 +22,9 @@ const renderLeftMenu = (data: GatsbyTypes.BlogPostPageQuery) => () => (
         <FontAwesomeIcon icon="edit" /> Edit on GitHub
       </BootstrapNav.Link>
     </Nav>
-  </>
-)
+  )
+  return LeftMenu
+}
 
 interface BlogPostPageProps {
   pageContext: {

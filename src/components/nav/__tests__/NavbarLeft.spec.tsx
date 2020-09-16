@@ -4,14 +4,9 @@ import { useStaticQuery } from 'gatsby'
 import { Nav as BootstrapNav } from 'react-bootstrap'
 import { NavbarLeft, Nav } from '..'
 
-jest.mock('gatsby')
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const mockUseStaticQuery = useStaticQuery as jest.Mock<any, any>
-
 describe('<NavbarLeft/>', () => {
   beforeAll(() => {
-    mockUseStaticQuery.mockReturnValue({
+    useStaticQuery.mockReturnValue({
       file: {
         childImageSharp: {
           resize: {
@@ -31,7 +26,6 @@ describe('<NavbarLeft/>', () => {
           linkedin: undefined,
           twitter: undefined,
           github: undefined,
-          rss: undefined,
         }}
       />
     )
@@ -47,7 +41,6 @@ describe('<NavbarLeft/>', () => {
           linkedin: undefined,
           twitter: undefined,
           github: undefined,
-          rss: undefined,
         }}
       >
         <Nav>
