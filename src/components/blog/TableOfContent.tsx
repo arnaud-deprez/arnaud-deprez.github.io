@@ -21,6 +21,7 @@ const TocLevel = ({
       <React.Fragment key={_.kebabCase(item.url.substring(1))}>
         <BootstrapNav.Item className={`blog-toc-entry toc-h${startLevel}`} as="li">
           <BootstrapNav.Link
+            className="p-0 mb-2"
             activeClass="active"
             to={item.url.substring(1)}
             spy={true}
@@ -31,7 +32,11 @@ const TocLevel = ({
             {item.title}
           </BootstrapNav.Link>
         </BootstrapNav.Item>
-        {item.items && <TocLevel startLevel={startLevel + 1} items={item.items} />}
+        {item.items && (
+          <BootstrapNav.Item as="li">
+            <TocLevel startLevel={startLevel + 1} items={item.items} />
+          </BootstrapNav.Item>
+        )}
       </React.Fragment>
     ))}
   </BootstrapNav>

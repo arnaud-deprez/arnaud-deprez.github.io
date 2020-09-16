@@ -26,7 +26,7 @@ exports[`<TableOfContent/> renders the table of content 1`] = `
         class="blog-toc-entry toc-h2 nav-item"
       >
         <a
-          class="nav-link"
+          class="p-0 mb-2 nav-link"
         >
           My requirements
         </a>
@@ -35,51 +35,59 @@ exports[`<TableOfContent/> renders the table of content 1`] = `
         class="blog-toc-entry toc-h2 nav-item"
       >
         <a
-          class="nav-link"
+          class="p-0 mb-2 nav-link"
         >
           What is Gatsby ?
         </a>
       </li>
-      <ul
-        class="blog-toc-level nav"
+      <li
+        class="nav-item"
       >
-        <li
-          class="blog-toc-entry toc-h3 nav-item"
-        >
-          <a
-            class="nav-link"
-          >
-            Why Gatsby ?
-          </a>
-        </li>
         <ul
           class="blog-toc-level nav"
         >
           <li
-            class="blog-toc-entry toc-h4 nav-item"
+            class="blog-toc-entry toc-h3 nav-item"
           >
             <a
-              class="nav-link"
+              class="p-0 mb-2 nav-link"
             >
-              Because
+              Why Gatsby ?
             </a>
           </li>
           <li
-            class="blog-toc-entry toc-h4 nav-item"
+            class="nav-item"
           >
-            <a
-              class="nav-link"
+            <ul
+              class="blog-toc-level nav"
             >
-              I got high
-            </a>
+              <li
+                class="blog-toc-entry toc-h4 nav-item"
+              >
+                <a
+                  class="p-0 mb-2 nav-link"
+                >
+                  Because
+                </a>
+              </li>
+              <li
+                class="blog-toc-entry toc-h4 nav-item"
+              >
+                <a
+                  class="p-0 mb-2 nav-link"
+                >
+                  I got high
+                </a>
+              </li>
+            </ul>
           </li>
         </ul>
-      </ul>
+      </li>
       <li
         class="blog-toc-entry toc-h2 nav-item"
       >
         <a
-          class="nav-link"
+          class="p-0 mb-2 nav-link"
         >
           Conclusion
         </a>
