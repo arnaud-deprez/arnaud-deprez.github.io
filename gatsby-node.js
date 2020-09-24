@@ -118,7 +118,7 @@ const createBlogPages = async ({ actions, graphql, reporter }) => {
     createPage,
     component: path.resolve('src/templates/BlogListTemplate.tsx'),
     limit: 10,
-    prefix: '/blog',
+    prefix: '/blog/',
   })
 
   groupCountBy('tags', blogPosts).forEach(([tag, total]) => {
@@ -126,7 +126,7 @@ const createBlogPages = async ({ actions, graphql, reporter }) => {
       total,
       createPage,
       component: path.resolve('src/templates/BlogListByTagTemplate.tsx'),
-      prefix: `/blog/tags/${kebabCase(tag)}`,
+      prefix: `/blog/tags/${kebabCase(tag)}/`,
       context: { tag },
     })
     reporter.info(`Tag: ${tag} (${Math.ceil(total / 10)})`)
