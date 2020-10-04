@@ -22,12 +22,12 @@ const BlogListPage = ({ pageContext, data }: BlogListPageProps): JSX.Element => 
   return (
     <Layout>
       <Seo
-        title={`Blog posts ${page > 1 ? 'at page ' + page : ''}`.trim()}
+        title={`Blog ${page > 1 ? 'at page ' + page : ''}`.trim()}
         description={`List of all blog posts at page ${page}`}
       />
       <main>
         <Container className="d-flex flex-column">
-          <h1 className="mb-5">Blog posts</h1>
+          <h1 className="mb-5">Blog</h1>
           <PostList posts={nodes as PostNode[]} />
           <Pager {...{ prefix, page, total }} className="align-self-center" />
         </Container>
