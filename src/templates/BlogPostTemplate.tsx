@@ -38,14 +38,16 @@ const BlogPostPage = ({ pageContext, data }: BlogPostPageProps): JSX.Element => 
   const { mdx: post } = data
 
   const title = post?.frontmatter?.title
-  const description = post?.frontmatter?.description || post.excerpt
+  const description = post?.frontmatter?.description || post?.excerpt
 
   return (
     <Layout renderLeftMenu={renderLeftMenu(data)}>
       <Seo
+        isBlogPost
         title={title}
         description={description}
         image={post?.frontmatter?.image?.childImageSharp?.fluid?.src}
+        datePublished={post?.frontmatter?.date}
       />
       <Container className="blog-post" fluid>
         <Row>
