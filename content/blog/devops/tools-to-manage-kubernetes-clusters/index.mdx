@@ -1,0 +1,97 @@
+---
+date: '2020-10-16'
+title: 'Must have tools to manage your kubernetes clusters'
+description: >
+  If you are running your applications on Kubernetes, whether you are more from development or operation, there is a high chance that you have to deal with multiple clusters, 
+  perhaps one cluster for development, one cluster for user acceptance and one cluster for production or a complete different setup.
+  Also if you're not very familiar with Kubernetes but you are more from the development side, you may prefer to use higher level and easier to use tool than the `kubectl` CLI.
+image: ./images/maximilian-weisbecker-Esq0ovRY-Zs-unsplash.jpg
+credits: <span>Photo by <a href="https://unsplash.com/@maximilianweisbecker?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Maximilian Weisbecker</a> on <a href="https://unsplash.com/s/photos/rudder?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+tags:
+  - devops
+  - kubernetes
+  - kubectl
+  - kubedns
+  - kubectx
+  - k9s
+  - octant
+  - helm
+  - helmfile
+---
+
+If you are running your applications on [Kubernetes](https://kubernetes.io/), whether you are more from development or operation, there is a high chance that you have to deal with multiple clusters, 
+perhaps one cluster for development, one cluster for user acceptance and one cluster for production.
+It can be even more if you are doing multi cloud deployment and on premise, there are also companies that setup different clusters per team.  
+So it's important to be able to easily switch between clusters.
+
+If you're not very familiar with Kubernetes like you are more from the development side for example, you may prefer to use higher level and easier to use tool than the `kubectl` CLI 
+although it is very well documented and so you should be able to use it after some practice and heavy use of `kubectl help` and `kubectl help <command>`.
+
+## kubectl
+
+The [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) command line tool lets you control Kubernetes clusters. 
+For configuration, kubectl looks by default for a file named config in the $HOME/.kube directory. 
+But you can specify other kubeconfig files by setting the `KUBECONFIG` environment variable or by setting the `--kubeconfig` flag.
+
+Assuming you have the certificate to connect to a kubernetes API located at https://foo.kubernetes.com, you can configure `kubectl` as followed:
+
+```sh
+# configure user kubeuser. kubeuser/foo.kubernetes.com is a naming convention that you can follow or not but it's good practice
+kubectl config set-credentials kubeuser/foo.kubernetes.com --username=kubeuser --password=kubepassword
+# configure cluster foo.kubernetes.com with certificate (recommended)
+kubectl config set-cluster foo.kubernetes.com --certificate-authority=~/.kube/foo.kubernetes.com/ca.crt --server=https://foo.kubernetes.com
+# or without certificate
+kubectl config set-cluster foo.kubernetes.com --insecure-skip-tls-verify=true --server=https://foo.kubernetes.com
+# create a context to link the cluster and the credentials with a default namespace 'default'. default/foo.kubernetes.com/kubeuser is a naming convention too.
+kubectl config set-context default/foo.kubernetes.com/kubeuser --user=kubeuser/foo.kubernetes.com --namespace=default --cluster=foo.kubernetes.com
+# use that context
+kubectl config use-context default/foo.kubernetes.com/kubeuser
+```
+
+So in summary: 
+
+- in the same kubeconfig file, you can configure:
+  - many credentials by executing `kubectl config set-credentials` as many times as necessary
+  - many clusters by executing `kubectl config set-cluster` as many times as necessary
+  - many contexts by executing `kubectl config set-context` as many times as necessary
+- a context is used to link a user and a cluster with a default namespace
+- you can switch to another context by executing `kubectl config use-context <context_name>`
+
+The command `kubectl config use-context` update the kubeconfig file by setting `current-context` key to the correct context, therefore this context will be automatically used in all your opened terminals.
+
+You may want to have different terminals interacting with different kubernetes clusters. 
+For that you can split the kubeconfig into many files as needed use `KUBECONFIG` environment variable or `--kubeconfig` flag to point to the desired kubeconfig in the current terminal.
+
+> **NOTE:**  
+> It is important to understand how kubeconfig works with kubectl even if you plan to use more high level tools to interact with your kubernetes clusters 
+> because most of the tools use the same kubeconfig. So if kubectl can interact with your cluster, other tool will do too!
+
+Do not hesitate to look at [kubectl cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/) for more tips and information key commands.
+
+## kubectx and kubens
+
+You can find [kubectx and kubens in the same git repository](https://github.com/ahmetb/kubectx).
+
+`kubectx` helps you switch between clusters back and forth in a more user friendly and memorable way:
+![kubectx demo GIF](images/kubectx-demo.gif)
+
+On the same idea, `kubens` helps you switch between Kubernetes namespaces smoothly using the same kubeconfig context:
+![kubens demo GIF](images/kubens-demo.gif)
+
+## stern or kubetail
+
+https://github.com/wercker/stern
+https://github.com/johanhaleby/kubetail
+
+## k9s
+
+https://github.com/derailed/k9s
+
+## octant
+
+https://octant.dev/
+
+## helm & helmfile
+
+https://helm.sh/
+https://github.com/roboll/helmfile
