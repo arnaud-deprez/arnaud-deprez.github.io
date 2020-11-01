@@ -50,7 +50,6 @@ const gatsbyRemarkPlugins = [
   },
   {
     resolve: 'gatsby-remark-copy-linked-files',
-    options: {},
   },
   {
     resolve: 'gatsby-remark-emoji',
