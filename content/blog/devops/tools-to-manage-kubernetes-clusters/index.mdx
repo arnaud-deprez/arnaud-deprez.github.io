@@ -5,13 +5,14 @@ description: >
   If you are running your applications on Kubernetes, whether you are more from development or operation, there is a high chance that you have to deal with multiple clusters, 
   perhaps one cluster for development, one cluster for user acceptance and one cluster for production or a complete different setup.
   Also if you're not very familiar with Kubernetes but you are more from the development side, you may prefer to use higher level and easier to use tool than the `kubectl` CLI.
-image: ./images/maximilian-weisbecker-Esq0ovRY-Zs-unsplash.jpg
-credits: <span>Photo by <a href="https://unsplash.com/@maximilianweisbecker?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Maximilian Weisbecker</a> on <a href="https://unsplash.com/s/photos/rudder?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+image: 
+  src: ./images/maximilian-weisbecker-Esq0ovRY-Zs-unsplash.jpg
+  caption: <span>Photo by <a href="https://unsplash.com/@maximilianweisbecker?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Maximilian Weisbecker</a> on <a href="https://unsplash.com/s/photos/rudder?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
 tags:
   - devops
   - kubernetes
   - kubectl
-  - kubedns
+  - kubens
   - kubectx
   - k9s
   - octant
@@ -73,10 +74,12 @@ Do not hesitate to look at [kubectl cheatsheet](https://kubernetes.io/docs/refer
 You can find [kubectx and kubens in the same git repository](https://github.com/ahmetb/kubectx).
 
 `kubectx` helps you switch between clusters back and forth in a more user friendly and memorable way:
-![kubectx demo GIF](images/kubectx-demo.gif)
+
+![kubectx demo GIF](./images/kubectx-demo.gif 'kubectx demo')
 
 On the same idea, `kubens` helps you switch between Kubernetes namespaces smoothly using the same kubeconfig context:
-![kubens demo GIF](images/kubens-demo.gif)
+
+![kubens demo GIF](./images/kubens-demo.gif 'kubens demo')
 
 ## stern or kubetail
 

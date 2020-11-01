@@ -18,8 +18,10 @@ export interface PostNode {
     description?: string
     tags?: string[]
     image?: {
-      childImageSharp?: {
-        fluid?: GatsbyTypes.GatsbyImageSharpFluidFragment
+      src: {
+        childImageSharp?: {
+          fluid?: GatsbyTypes.GatsbyImageSharpFluidFragment
+        }
       }
     }
   }
@@ -43,12 +45,12 @@ export const PostPreview = ({ post }: PostPreviewProps): JSX.Element => {
       <Link to={post.fields?.slug || '#'} className="stretched-link">
         <span className="sr-only">Read</span>
       </Link>
-      {post.frontmatter?.image?.childImageSharp?.fluid && (
+      {post.frontmatter?.image?.src?.childImageSharp?.fluid && (
         <div className="position-relative">
           <Card.Img
             className="post-preview-image"
             variant="top"
-            fluid={post.frontmatter.image.childImageSharp.fluid}
+            fluid={post.frontmatter.image.src.childImageSharp.fluid}
             alt={`${post.frontmatter?.title} image`}
             as={Img}
           />

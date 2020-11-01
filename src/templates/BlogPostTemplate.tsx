@@ -46,7 +46,7 @@ const BlogPostPage = ({ pageContext, data }: BlogPostPageProps): JSX.Element => 
         isBlogPost
         title={title}
         description={description}
-        image={post?.frontmatter?.image?.childImageSharp?.fluid?.src}
+        image={post?.frontmatter?.image?.src?.childImageSharp?.fluid?.src}
         datePublished={post?.frontmatter?.date}
       />
       <Container className="blog-post" fluid>
@@ -76,12 +76,15 @@ export const pageQuery = graphql`
         description
         tags
         image {
-          childImageSharp {
-            fluid(maxHeight: 400, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp
-              ...GatsbyImageSharpFluidLimitPresentationSize
+          src {
+            childImageSharp {
+              fluid(maxHeight: 400, quality: 100) {
+                ...GatsbyImageSharpFluid_withWebp
+                ...GatsbyImageSharpFluidLimitPresentationSize
+              }
             }
           }
+          caption
         }
       }
       tableOfContents

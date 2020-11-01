@@ -61,9 +61,11 @@ export const pageQuery = graphql`
             description
             tags
             image {
-              childImageSharp {
-                fluid(maxHeight: 225, quality: 100) {
-                  ...GatsbyImageSharpFluid_withWebp
+              src {
+                childImageSharp {
+                  fluid(maxHeight: 225, quality: 100) {
+                    ...GatsbyImageSharpFluid_withWebp
+                  }
                 }
               }
             }

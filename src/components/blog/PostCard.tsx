@@ -1,11 +1,30 @@
 import React from 'react'
 import Img from 'gatsby-image'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { Container } from 'react-bootstrap'
+import { Container, Figure } from 'react-bootstrap'
 import { ShareMenu } from '../nav'
 import { Tags, PostTimeInfo, Comments } from '.'
 
 import './PostCard.scss'
+
+interface BlogPostTitleImage {
+  title: string
+  src: GatsbyTypes.File
+  caption?: string
+}
+
+const BlogPostTitleImage = ({ title, src, caption }: BlogPostTitleImage) => (
+  <Figure className="blog-title-image">
+    <Img
+      fluid={src.childImageSharp?.fluid}
+      className="figure-img img-fluid rounded mx-auto"
+      alt={title}
+    />
+    {caption && (
+      <Figure.Caption className="text-center" dangerouslySetInnerHTML={{ __html: caption }} />
+    )}
+  </Figure>
+)
 
 export interface PostCardProps extends GatsbyTypes.BlogPostPageQuery {
   slug: string
@@ -30,14 +49,7 @@ export const PostCard = ({ site, mdx: post, slug, as = 'div' }: PostCardProps): 
 
   return (
     <Container className="post-card" fluid as={as}>
-      {post.frontmatter?.image && (
-        <Img
-          fluid={post.frontmatter.image?.childImageSharp?.fluid}
-          className="blog-title-image"
-          imgStyle={{ objectFit: 'contain' }}
-          alt={`${post.frontmatter.title}`}
-        />
-      )}
+      {post.frontmatter?.image && <BlogPostTitleImage title={title} {...post.frontmatter.image} />}
       <article>
         <h1>{post.frontmatter?.title}</h1>
         <PostTimeInfo
