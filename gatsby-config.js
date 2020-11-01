@@ -95,6 +95,7 @@ module.exports = {
     disqusShortName: 'arnaud-deprez-powple',
   },
   plugins: [
+    'gatsby-plugin-loadable-components-ssr',
     {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {

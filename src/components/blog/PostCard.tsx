@@ -3,7 +3,7 @@ import Img from 'gatsby-image'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { Container, Figure } from 'react-bootstrap'
 import { ShareMenu } from '../nav'
-import { Tags, PostTimeInfo, Comments } from '.'
+import { Tags, PostTimeInfo, PostComments } from '.'
 
 import './PostCard.scss'
 
@@ -65,7 +65,7 @@ export const PostCard = ({ site, mdx: post, slug, as = 'div' }: PostCardProps): 
           </section>
         )}
         <ShareMenu {...{ id: 'share-menu-bottom', url, title, tags, description }} />
-        <Comments {...{ title, slug }} />
+        <PostComments {...{ title, slug }} />
       </article>
     </Container>
   )
