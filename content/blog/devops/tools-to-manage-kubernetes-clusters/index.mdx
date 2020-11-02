@@ -81,14 +81,29 @@ On the same idea, `kubens` helps you switch between Kubernetes namespaces smooth
 
 ![kubens demo GIF](./images/kubens-demo.gif 'kubens demo')
 
+These 2 utility tools update the current kubeconfig file, so once it is updated; the configuration is updated for all your opened terminals.
+
 ## stern or kubetail
 
-https://github.com/wercker/stern
-https://github.com/johanhaleby/kubetail
+[stern](https://github.com/wercker/stern) and [kubetail](https://github.com/johanhaleby/kubetail) are 2 similar tools that allow you to `tail` multiple pods and containers within these pods into one single stream.
+Each result is prefixed color coded for quicker debugging.
+
+There are sensibly the same with same features, I didn't notice any major feature that one has and the other is missing.
+
+The main difference is `stern` is written in go and so: 
+
+- the binary is compatible for Linux, Mac and Windows
+- but the binary size is ~20MB 
+
+While `kubetail` is a shell application and so:
+
+- the binary size of ~12kb
+- it is compatible with Linux and Mac out of the box, but not directly on Windows platform
 
 ## k9s
 
-https://github.com/derailed/k9s
+[K9s](https://github.com/derailed/k9s) provides a terminal UI to interact with your Kubernetes clusters. It makes it easier to navigate, observe and manage your applications in the wild. 
+K9s continually watches Kubernetes for changes and offers subsequent commands to interact with your observed resources.
 
 ## octant
 
