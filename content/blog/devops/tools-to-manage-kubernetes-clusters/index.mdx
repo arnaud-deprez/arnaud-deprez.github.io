@@ -1,6 +1,6 @@
 ---
 date: '2020-10-16'
-title: 'Must have tools to manage your kubernetes clusters'
+title: '5 top tools to manage your kubernetes clusters'
 description: >
   If you are running your applications on Kubernetes, whether you are more from development or operation, there is a high chance that you have to deal with multiple clusters, 
   perhaps one cluster for development, one cluster for user acceptance and one cluster for production or a complete different setup.
@@ -16,8 +16,6 @@ tags:
   - kubectx
   - k9s
   - octant
-  - helm
-  - helmfile
 ---
 
 If you are running your applications on [Kubernetes](https://kubernetes.io/), whether you are more from development or operation, there is a high chance that you have to deal with multiple clusters, 
@@ -28,7 +26,7 @@ So it's important to be able to easily switch between clusters.
 If you're not very familiar with Kubernetes like you are more from the development side for example, you may prefer to use higher level and easier to use tool than the `kubectl` CLI 
 although it is very well documented and so you should be able to use it after some practice and heavy use of `kubectl help` and `kubectl help <command>`.
 
-## kubectl
+## Kubectl
 
 The [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) command line tool lets you control Kubernetes clusters. 
 For configuration, kubectl looks by default for a file named config in the $HOME/.kube directory. 
@@ -69,7 +67,7 @@ For that you can split the kubeconfig into many files as needed use `KUBECONFIG`
 
 Do not hesitate to look at [kubectl cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/) for more tips and information key commands.
 
-## kubectx and kubens
+## Kubectx and Kubens
 
 You can find [kubectx and kubens in the same git repository](https://github.com/ahmetb/kubectx).
 
@@ -83,9 +81,9 @@ On the same idea, `kubens` helps you switch between Kubernetes namespaces smooth
 
 These 2 utility tools update the current kubeconfig file, so once it is updated; the configuration is updated for all your opened terminals.
 
-## stern or kubetail
+## Stern or Kubetail
 
-[stern](https://github.com/wercker/stern) and [kubetail](https://github.com/johanhaleby/kubetail) are 2 similar tools that allow you to `tail` multiple pods and containers within these pods into one single stream.
+[stern](https://github.com/wercker/stern) and [kubetail](https://github.com/johanhaleby/kubetail) are 2 similar tools that allow you to `tail` multiple pods and containers within these pods into one single stream in the current kubeconfig context.
 Each result is prefixed color coded for quicker debugging.
 
 There are sensibly the same with same features, I didn't notice any major feature that one has and the other is missing.
@@ -100,16 +98,37 @@ While `kubetail` is a shell application and so:
 - the binary size of ~12kb
 - it is compatible with Linux and Mac out of the box, but not directly on Windows platform
 
-## k9s
+## K9s
 
-[K9s](https://github.com/derailed/k9s) provides a terminal UI to interact with your Kubernetes clusters. It makes it easier to navigate, observe and manage your applications in the wild. 
-K9s continually watches Kubernetes for changes and offers subsequent commands to interact with your observed resources.
+> [K9s](https://github.com/derailed/k9s/) provides a terminal UI to interact with your Kubernetes clusters.  
+> It makes it easier to navigate, observe and manage your applications in the wild. 
+> K9s continually watches Kubernetes for changes and offers subsequent commands to interact with your observed resources.
+>
+> <footer className="blockquote-footer">
+>   From <a href="https://github.com/derailed/k9s/">k9s</a>
+> </footer>
 
-## octant
+Once it it installed, just run `k9s` in your terminal, it will use the kubeconfig file to known on which kubernetes cluster it needs to connect. 
+Then you should land to a screen like this one:
 
-https://octant.dev/
+![k9s demo](./images/k9s-pods.png 'k9s demo')
 
-## helm & helmfile
+Then you have some key mapping to describe, edit, view, view logs, ... depending on which screen you are.
+You can also execute a command by hitting `:` followed by your command to see other resources for examples: `pods`, `services`, `deployments`, ...
 
-https://helm.sh/
-https://github.com/roboll/helmfile
+## Octant
+
+> **[Octant](https://octant.dev/)** is a highly extensible platform for developers to better understand the complexity of Kubernetes clusters.
+> It aims to be part of the developer's toolkit for gaining insight and approaching complexity found in Kubernetes.  
+> Octant offers a combination of introspective tooling, cluster navigation, and object management along with a plugin system to further extend its capabilities.
+> 
+> <footer className="blockquote-footer">
+>   From <a href="https://octant.dev/">Octant</a>
+> </footer>
+
+In summary, it is extensible web application that use your kubeconfig to inspect the kubernetes cluster and help you to discover and understand your kubernetes cluster. 
+Once installed, you can just run `octant` in a terminal, it will also use the current kubeconfig file to know on which kubernetes cluster it needs to connect:
+
+![octant demo](./images/octant-demo.gif 'octant demo')
+
+You can also add plugins to better understand [custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) for example.
