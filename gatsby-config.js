@@ -44,8 +44,10 @@ const gatsbyRemarkPlugins = [
   {
     resolve: 'gatsby-remark-images',
     options: {
+      maxWidth: '800px',
       wrapperStyle: 'margin: 2rem auto; border-radius: 0.5em; overflow: hidden;',
       disableBgImageOnAlpha: true,
+      withWebp: true,
     },
   },
   {

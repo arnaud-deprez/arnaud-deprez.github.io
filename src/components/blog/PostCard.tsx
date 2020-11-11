@@ -9,14 +9,14 @@ import './PostCard.scss'
 
 interface BlogPostTitleImage {
   title: string
-  src: GatsbyTypes.File
+  image: GatsbyTypes.MdxFrontmatterImage
   caption?: string
 }
 
-const BlogPostTitleImage = ({ title, src, caption }: BlogPostTitleImage) => (
+const BlogPostTitleImage = ({ title, image, caption }: BlogPostTitleImage) => (
   <Figure className="blog-title-image">
     <Img
-      fluid={src.childImageSharp?.fluid}
+      fluid={image.src?.childImageSharp?.fluid}
       className="figure-img img-fluid rounded mx-auto"
       alt={title}
     />
@@ -49,7 +49,9 @@ export const PostCard = ({ site, mdx: post, slug, as = 'div' }: PostCardProps): 
 
   return (
     <Container className="post-card" fluid as={as}>
-      {post.frontmatter?.image && <BlogPostTitleImage title={title} {...post.frontmatter.image} />}
+      {post.frontmatter?.image && (
+        <BlogPostTitleImage title={title} image={post.frontmatter.image} />
+      )}
       <article>
         <h1>{post.frontmatter?.title}</h1>
         <PostTimeInfo
