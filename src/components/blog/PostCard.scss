@@ -2,13 +2,19 @@
   align-items: center;
 
   & > article {
-    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
     max-width: 725px;
+    width: 100%;
   }
   
-  .blog-title-image {
+  .blog-title-image,
+  .blog-title-image > .figure-img {
     width: 100%;
-    align-self: center;
+    max-height: 400px;
+    max-width: 725px + 128px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .post-time-info {

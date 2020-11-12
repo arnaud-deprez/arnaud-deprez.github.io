@@ -13,7 +13,7 @@ export interface BlogListPageProps {
 }
 
 const BlogListByTagPage = ({ pageContext, data }: BlogListPageProps): JSX.Element => {
-  const { tag, prefix, page, total } = pageContext
+  const { tag, prefix, page, pageTotal: total } = pageContext
   const edges = data.allMdx.edges
   const nodes = edges?.map((e) => e.node)
   if (!nodes) {
@@ -61,9 +61,11 @@ export const pageQuery = graphql`
             description
             tags
             image {
-              childImageSharp {
-                fluid(maxHeight: 225, quality: 100) {
-                  ...GatsbyImageSharpFluid_withWebp
+              src {
+                childImageSharp {
+                  fluid(maxHeight: 225, quality: 100) {
+                    ...GatsbyImageSharpFluid_withWebp
+                  }
                 }
               }
             }

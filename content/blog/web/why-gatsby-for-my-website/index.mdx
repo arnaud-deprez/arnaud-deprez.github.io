@@ -1,9 +1,11 @@
 ---
+draft: false
 date: '2020-05-02'
 title: 'Why did I choose Gatsby to build my website ?'
 description: >
   This post shares my experience on using Gatsby and Netlify to build this website and why I choose it over some alternatives.
-image: ./gatsby-netlify-logos.jpeg
+image: 
+  src: ./gatsby-netlify-logos.jpeg
 tags:
   - reactjs
   - javascript
@@ -63,7 +65,7 @@ These are the first 2 reasons why I decided to try [Gatsby][gatsby].
 
 _Gatsby_ is a framework that builds your template pages written in React with data coming from all kind of sources (Markdown, json, yaml, CMS, API, database, etc.) using [GraphQL](https://graphql.org/) queries into static **HTML** pages.
 
-![alt gatsby](./gatsby-flow.png 'Gatsby flow')
+![Gatsby flow](./gatsby-flow.png 'Gatsby flow')
 
 While _Gatsby_ is often seen as a static site generator only, you must know that your static page can be eventually [rehydrated](https://www.gatsbyjs.org/docs/glossary#hydration) into a React application.
 It is possible because the generated site still run as a full React application in the browser so you can still [fetch data](https://www.gatsbyjs.org/docs/client-data-fetching/) from other sources at [runtime](https://www.gatsbyjs.org/docs/glossary#runtime) like in a typical React app.

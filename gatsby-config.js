@@ -44,13 +44,14 @@ const gatsbyRemarkPlugins = [
   {
     resolve: 'gatsby-remark-images',
     options: {
+      maxWidth: '800px',
       wrapperStyle: 'margin: 2rem auto; border-radius: 0.5em; overflow: hidden;',
       disableBgImageOnAlpha: true,
+      withWebp: true,
     },
   },
   {
     resolve: 'gatsby-remark-copy-linked-files',
-    options: {},
   },
   {
     resolve: 'gatsby-remark-emoji',
@@ -96,6 +97,7 @@ module.exports = {
     disqusShortName: 'arnaud-deprez-powple',
   },
   plugins: [
+    'gatsby-plugin-loadable-components-ssr',
     {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {
