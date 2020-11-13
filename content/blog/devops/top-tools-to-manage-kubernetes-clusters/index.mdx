@@ -18,13 +18,18 @@ tags:
   - octant
 ---
 
-If you are running your applications on [Kubernetes](https://kubernetes.io/), whether you are more from development or operation, there is a high chance that you have to deal with multiple clusters, 
+If you are running your applications on [Kubernetes](https://kubernetes.io/), whether you have more a development or operation background, there is a high chance that you have to deal with multiple clusters, 
 perhaps one cluster for development, one cluster for user acceptance and one cluster for production.
-It can be even more if you are doing multi cloud deployment and on premise, there are also companies that setup different clusters per team.  
-So it's important to be able to easily switch between clusters.
+It can be even more if you are doing multi cloud and on premise deployments.  
+There are also companies that setups different clusters per team.
 
-If you're not very familiar with Kubernetes like you are more from the development side for example, you may prefer to use higher level and easier to use tool than the `kubectl` CLI 
-although it is very well documented and so you should be able to use it after some practice and heavy use of `kubectl help` and `kubectl help <command>`.
+Whatever your setup, it's important to be able to easily switch between clusters.
+
+If you're not very familiar with Kubernetes - if you have more a development background for example - you may prefer to use higher level and easier to use tools than the official [kubectl](kubectl) client,
+although it is very well documented and so you should be able to get used to it after some practice and heavy use of `kubectl help` and `kubectl help <command>`.
+
+But in order to use higher level tools, you first need to understand how `kubectl` uses `kubeconfig` files to configure the connection for one Kubernetes cluster and how to switch to another cluster because every higher level tools use the same `kubeconfig`.
+It also means that if `kubectl` can interact with your cluster, higher level tool will more likely work too and if they don't, you can exclude `kubeconfig` from your checklist :smirk:.
 
 ## Kubectl
 
@@ -54,42 +59,57 @@ So in summary:
   - many clusters by executing `kubectl config set-cluster` as many times as necessary
   - many contexts by executing `kubectl config set-context` as many times as necessary
 - a context is used to link a user and a cluster with a default namespace
-- you can switch to another context by executing `kubectl config use-context <context_name>`
+- and finally you can switch to another context by executing `kubectl config use-context <context_name>`
 
 The command `kubectl config use-context` update the kubeconfig file by setting `current-context` key to the correct context, therefore this context will be automatically used in all your opened terminals.
 
-You may want to have different terminals interacting with different kubernetes clusters. 
-For that you can split the kubeconfig into many files as needed use `KUBECONFIG` environment variable or `--kubeconfig` flag to point to the desired kubeconfig in the current terminal.
+In some scenario, lets say you want to compare test and production environment, you may want to have different terminals interacting with different kubernetes clusters. 
 
-> **NOTE:**  
-> It is important to understand how kubeconfig works with kubectl even if you plan to use more high level tools to interact with your kubernetes clusters 
-> because most of the tools use the same kubeconfig. So if kubectl can interact with your cluster, other tool will do too!
+For that you can split the kubeconfig into many files as needed and use `KUBECONFIG` environment variable or `--kubeconfig` flag to point to the desired kubeconfig in the current terminal.
+For example:
 
-Do not hesitate to look at [kubectl cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/) for more tips and information key commands. 
-Keep in mind that for advanced usage, `kubectl` will rules all the other tools as it is the native client and every new feature is directly implemented in it.
+```sh
+# setup kubeconfig for all command running in this terminal
+export KUBELCONFIG=~/.kube/test-config
+# this command will run against test cluster
+kubectl get pods
+# this command will run against test cluster too
+kubectl get services
+# however this command will run on production cluster because the flag takes precedence over KUBECONFIG environment variable
+kubectl --kubeconfig=~/.kube/production-config get pods
+```
+
+For more tips and information on key commands, do not hesitate to look at [kubectl cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/). 
+Keep in mind that for advanced usage, `kubectl` will rules all other tools as it is the official native client and every new feature is directly implemented in it.
+
+Ok so now that we understand how `kubeconfig` configuration works with `kubectl`, lets see the options we have to simplify our life :relieved:.
 
 ## Kubectx and Kubens
 
-You can find [kubectx and kubens in the same git repository](kubectx).
+Let's first start with [kubectx and kubens](kubectx).
 
 `kubectx` helps you switch between clusters back and forth in a more user friendly and memorable way:
 
 <!-- TODO: replace this with markdown when gatsby-remark-image supports gifs https://github.com/gatsbyjs/gatsby/issues/23678 -->
-<img src="./images/kubectx-demo.gif" alt="kubectx demo GIF" title="kubectx demo" loading="lazy" />
+<img src="./images/kubectx-demo.gif" className="my-4" alt="kubectx demo GIF" title="kubectx demo" loading="lazy" />
 
 On the same idea, `kubens` helps you switch between Kubernetes namespaces smoothly using the same kubeconfig context:
 
 <!-- TODO: replace this with markdown when gatsby-remark-image supports gifs https://github.com/gatsbyjs/gatsby/issues/23678 -->
-<img src="./images/kubens-demo.gif" alt="kubens demo GIF" title="kubens demo" loading="lazy" />
+<img src="./images/kubens-demo.gif" className="my-4" alt="kubens demo GIF" title="kubens demo" loading="lazy" />
 
-These 2 utility tools update the current kubeconfig file, so once it is updated; the configuration is updated for all your opened terminals.
+> **NOTE:**
+>
+> These 2 utility tools update the current kubeconfig file, so once it is updated; the configuration is updated for all your opened terminals.
+
+Very simple but yet efficient tools ! :sunglasses:
 
 ## Stern or Kubetail
 
 **[stern](stern)** and **[kubetail](kubetail)** are 2 similar tools that allow you to `tail` multiple pods and containers within these pods into one single stream in the current kubeconfig context.
-Each result is prefixed color coded for quicker debugging.
+Each result is prefixed with a color coded for quicker debugging.
 
-There are sensibly the same with same features, I didn't notice any major feature that one has and the other is missing.
+They have sensibly the same with same features, I didn't notice any major feature that one has and not the other.
 
 The main difference is `stern` is written in go and so: 
 
@@ -101,7 +121,11 @@ While `kubetail` is a shell application and so:
 - the binary size of ~12kb
 - it is compatible with Linux and Mac out of the box, but not directly on Windows platform
 
+So just pickup the one you like the most and that works on your platform!
+
 ## K9s
+
+Our next tool is k9s:
 
 > **[K9s](k9s)** provides a terminal UI to interact with your Kubernetes clusters.  
 > It makes it easier to navigate, observe and manage your applications in the wild. 
@@ -111,7 +135,7 @@ While `kubetail` is a shell application and so:
 >   From <a href="https://github.com/derailed/k9s/">k9s</a>
 > </footer>
 
-Once it it installed, just run `k9s` in your terminal, it will use the kubeconfig file to known on which kubernetes cluster it needs to connect. 
+Once it it installed, just run `k9s` in your terminal, it will use the `kubeconfig` file to known on which kubernetes cluster it needs to connect. 
 Then you should land to a screen like this one:
 
 ![k9s demo](./images/k9s-pods.png 'k9s demo')
@@ -121,6 +145,8 @@ You can also execute a command by hitting `:` followed by your command to see ot
 
 ## Octant
 
+And finally you have [Octant](octant)
+
 > **[Octant](octant)** is a highly extensible platform for developers to better understand the complexity of Kubernetes clusters.
 > It aims to be part of the developer's toolkit for gaining insight and approaching complexity found in Kubernetes.  
 > Octant offers a combination of introspective tooling, cluster navigation, and object management along with a plugin system to further extend its capabilities.
@@ -129,11 +155,11 @@ You can also execute a command by hitting `:` followed by your command to see ot
 >   From <a href="https://octant.dev/">Octant</a>
 > </footer>
 
-In summary, it is extensible web application that use your kubeconfig to inspect the kubernetes cluster and help you to discover and understand your kubernetes cluster with currently and in my opinion, more advanced features than the [kubernetes dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/). 
+In summary, it is an extensible web application that uses your `kubeconfig` to connect and inspect the kubernetes cluster and help you to discover and understand your kubernetes cluster with currently and in my opinion, more advanced features than the [kubernetes dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/). 
 Once installed, you can just run `octant` in a terminal, it will also use the current kubeconfig file to know on which kubernetes cluster it needs to connect:
 
 <!-- TODO: replace this with markdown when gatsby-remark-image supports gifs https://github.com/gatsbyjs/gatsby/issues/23678 -->
-<img src="./images/octant-demo.gif" alt="octant demo GIF" title="octant demo" loading="lazy" />
+<img src="./images/octant-demo.gif" className="my-4" alt="octant demo GIF" title="octant demo" loading="lazy" />
 
 You can also add plugins to better understand [custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) for example.
 
@@ -144,9 +170,9 @@ Whether you prefer UI or CLI to manage your kubernetes clusters, at least you ne
 We have seen how to manage your kubeconfig in one or many files depending on your use cases and how to switch between context, either globally by updating the current context easily with `kubectx` and `kubens` 
 or just locally for the current terminal by updating the `KUBECONFIG` environment variable.
 
-If you're more a CLI user like me, you can then use raw `kubectl` with `stern` or `kubetail` for troubleshooting during development/testing (in production you should definetely rely on a centralised logging solution).
+If you're more a CLI user like me, you can then use official `kubectl` with `stern` or `kubetail` for troubleshooting during development/testing (in production you should definetely rely on a centralised logging solution).
 
-For those who find `kubectl` too complex to remember the command but still likes running in a terminal, you can use `k9s`, allowing you to perform most of common actions.
+For those who find `kubectl` too complex to remember the command but still likes running in a terminal, you can still use `k9s`, allowing you to perform most of common actions.
 
 However if you prefer browsing and manage your cluster with a UI, I would definetely recommend you to have a look at [octant](octant).
 
