@@ -1,5 +1,6 @@
 import React from 'react'
 import loadable from '@loadable/component'
+import { useInView } from 'react-intersection-observer'
 import useSiteMetadata from '../../hooks/UseSiteMetadata'
 
 // because loadbable currently only support default export: https://reactjs.org/docs/code-splitting.html#named-exports
@@ -11,6 +12,11 @@ export interface CommentsProps {
 }
 
 export const PostComments = ({ title, slug }: CommentsProps): JSX.Element => {
+  const [ref] = useInView({
+    triggerOnce: true,
+    rootMargin: '200px 0px',
+  })
+
   const { siteUrl, disqusShortName } = useSiteMetadata()
   if (!disqusShortName) {
     return <></>
@@ -21,5 +27,9 @@ export const PostComments = ({ title, slug }: CommentsProps): JSX.Element => {
     identifier: slug,
     title,
   }
-  return <DiscussionEmbed shortname={disqusShortName} config={disqusConfig} />
+  return (
+    <div ref={ref} className="disqus">
+      <DiscussionEmbed shortname={disqusShortName} config={disqusConfig} />
+    </div>
+  )
 }

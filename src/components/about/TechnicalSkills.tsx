@@ -1,5 +1,5 @@
 import React from 'react'
-import * as _ from 'lodash'
+import { isArray } from 'lodash'
 import { Card } from 'react-bootstrap'
 import { LabelledIcon, OriginalIcon } from '../icon'
 
@@ -25,7 +25,7 @@ const uniformize = (items: string[] | string[][]): string[][] => {
   const result = []
   let acc = []
   for (const it of items) {
-    if (_.isArray(it)) {
+    if (isArray(it)) {
       if (acc.length > 0) {
         // store acc and reset it
         result.push(acc)

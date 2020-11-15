@@ -5,7 +5,7 @@ import { navigate } from 'gatsby-link'
 import { Form, FormProps, Button } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Formik, FormikProps } from 'formik'
-import * as Yup from 'yup'
+import { object, string } from 'yup'
 import { publishEvent } from '../../utils/Gtag'
 import './ContactForm.scss'
 
@@ -113,11 +113,11 @@ const InnerContactForm = ({
   </Form>
 )
 
-const contactSchema = Yup.object().shape({
-  name: Yup.string().required(),
-  email: Yup.string().email().required(),
-  subject: Yup.string().required(),
-  message: Yup.string().required(),
+const contactSchema = object().shape({
+  name: string().required(),
+  email: string().email().required(),
+  subject: string().required(),
+  message: string().required(),
 })
 
 const encode = (data: { [key: string]: string | undefined }) => {
