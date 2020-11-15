@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import * as _ from 'lodash'
+import { has } from 'lodash'
 import { Icon } from '@iconify/react'
 
 import javaIcon from '@iconify/icons-logos/java'
@@ -206,7 +206,7 @@ export interface OriginalIconProps extends IconProps {
 
 export const OriginalIcon = ({ icon, ...rest }: OriginalIconProps): JSX.Element => {
   const key = icon.replace(/[\s&]+/gi, '-').toLowerCase()
-  return _.has(iconContainer, key) ? iconContainer[key](rest) : <i />
+  return has(iconContainer, key) ? iconContainer[key](rest) : <i />
 }
 
 export default OriginalIcon
