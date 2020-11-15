@@ -114,6 +114,12 @@ module.exports = {
     'gatsby-plugin-typescript',
     'gatsby-plugin-typegen',
     'gatsby-plugin-sass',
+    {
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        printRejected: true,
+      },
+    },
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-source-filesystem`,
