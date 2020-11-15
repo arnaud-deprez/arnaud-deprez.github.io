@@ -1,3 +1,3 @@
 export * from './FontAwesome'
-export * from './OriginalIcon'
 export * from './LabelledIcon'
+export * from './OriginalIcon'
