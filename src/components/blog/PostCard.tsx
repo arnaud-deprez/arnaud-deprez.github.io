@@ -10,18 +10,17 @@ import './PostCard.scss'
 interface BlogPostTitleImage {
   title: string
   image: GatsbyTypes.MdxFrontmatterImage
-  caption?: string
 }
 
-const BlogPostTitleImage = ({ title, image, caption }: BlogPostTitleImage) => (
+const BlogPostTitleImage = ({ title, image }: BlogPostTitleImage) => (
   <Figure className="blog-title-image">
     <Img
       fluid={image.src?.childImageSharp?.fluid}
       className="figure-img img-fluid rounded mx-auto"
       alt={title}
     />
-    {caption && (
-      <Figure.Caption className="text-center" dangerouslySetInnerHTML={{ __html: caption }} />
+    {image?.caption && (
+      <Figure.Caption className="text-center" dangerouslySetInnerHTML={{ __html: image.caption }} />
     )}
   </Figure>
 )
