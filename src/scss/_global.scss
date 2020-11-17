@@ -51,7 +51,6 @@ img {
   position: relative;
   font-size: 1.1rem;
   font-weight: $font-weight-light;
-  border-left: 0.25rem solid $primary;
   padding: 0 1.25em;
   border-radius: $border-radius;
   
@@ -62,10 +61,6 @@ img {
 
   p:last-of-type {
     margin-bottom: 0;
-  }
-
-  footer {
-    text-align: right;
   }
 }
 

@@ -1,3 +1,5 @@
+@import "../../scss/_global";
+
 .post-card {
   align-items: center;
 
@@ -27,5 +29,13 @@
 
   #share-menu-bottom {
     margin: 2rem 0;
+  }
+
+  .blockquote {
+    border-left: 0.25rem solid $primary;
+    
+    footer {
+      text-align: right;
+    }
   }
 }
