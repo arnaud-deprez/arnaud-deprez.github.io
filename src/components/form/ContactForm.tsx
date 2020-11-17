@@ -140,7 +140,7 @@ const handleSubmit = (values: ContactFormValues) => {
         event: 'FormSubmitted',
         formId: values['form-name'],
       })
-      navigate('/contact/thanks')
+      navigate('/contact/thanks/')
     })
     .catch(console.error)
 }
