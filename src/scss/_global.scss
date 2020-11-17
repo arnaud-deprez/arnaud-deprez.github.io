@@ -48,11 +48,24 @@ img {
 
 // blockquote
 .blockquote {
+  position: relative;
   font-size: 1.1rem;
-  padding: 0 2.5em;
+  font-weight: $font-weight-light;
+  border-left: 0.25rem solid $primary;
+  padding: 0 1.25em;
+  border-radius: $border-radius;
+  
+  b,
+  strong {
+    font-weight: 600;
+  }
 
   p:last-of-type {
     margin-bottom: 0;
+  }
+
+  footer {
+    text-align: right;
   }
 }
 
