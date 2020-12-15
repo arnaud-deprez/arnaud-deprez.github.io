@@ -80,6 +80,9 @@ const description =
   'Technical Blog of Arnaud Deprez, a Technical Architect consultant and owner of Powple who shares his experience about technical stuff'
 
 module.exports = {
+  flags: {
+    PRESERVE_WEBPACK_CACHE: true,
+  },
   siteMetadata: {
     title,
     description,
@@ -114,7 +117,14 @@ module.exports = {
     },
     'gatsby-plugin-typescript',
     'gatsby-plugin-typegen',
-    'gatsby-plugin-sass',
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        // TODO: remove when upgrading to version 3.0.0. See https://github.com/gatsbyjs/gatsby/pull/27991
+        // eslint-disable-next-line no-undef
+        implementation: require('sass'),
+      },
+    },
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-source-filesystem`,
@@ -144,6 +154,7 @@ module.exports = {
       options: {
         extensions: ['.md', '.mdx'],
         gatsbyRemarkPlugins,
+        // eslint-disable-next-line no-undef
         remarkPlugins: [require('remark-emoji'), [require('remark-abbr'), { expandFirst: true }]],
       },
     },
