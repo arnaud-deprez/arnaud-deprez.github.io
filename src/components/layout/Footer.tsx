@@ -2,9 +2,11 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { Container, Col, Row, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { OriginalIcon } from '../icon'
+import loadable from '@loadable/component'
 
 import './Footer.scss'
+
+const OriginalIcon = loadable(() => import('../icon/OriginalIcon'))
 
 export interface FooterProps {
   readonly copyright?: string
