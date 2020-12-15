@@ -1,15 +1,25 @@
 import React from 'react'
 import { isArray } from 'lodash'
 import { Card } from 'react-bootstrap'
-import { LabelledIcon, OriginalIcon } from '../icon'
+import loadable from '@loadable/component'
+import { useInView } from 'react-intersection-observer'
+import { LabelledIcon } from '../icon'
 
 import './TechnicalSkills.scss'
 
-const TechnicalSkill = ({ skill }: { skill: string }) => (
-  <LabelledIcon label={skill} labelAs="strong">
-    <OriginalIcon className="text-2x" icon={skill} />
-  </LabelledIcon>
-)
+const OriginalIcon = loadable(() => import('../icon/OriginalIcon'))
+
+const TechnicalSkill = ({ skill }: { skill: string }) => {
+  const [ref] = useInView({
+    triggerOnce: true,
+    rootMargin: '80px 0px',
+  })
+  return (
+    <LabelledIcon label={skill} labelAs="strong" ref={ref}>
+      <OriginalIcon className="text-2x" icon={skill} />
+    </LabelledIcon>
+  )
+}
 
 const mapToList = (items: string[], idx: number) => (
   <ul className="skills" key={idx}>

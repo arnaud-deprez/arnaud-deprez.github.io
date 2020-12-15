@@ -3,15 +3,18 @@ import { Container, Col, Card, CardGroup, Nav as BootstrapNav } from 'react-boot
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import { Link as ScrollSpyLink } from 'react-scroll'
+import loadable from '@loadable/component'
 import { MainLayout as Layout } from '../.'
 import { Seo, Author } from '../../metadata'
 import { Nav, NavSocialIcons } from '../../nav'
 import { PhotoCard } from '../../photocard/PhotoCard'
 import { TechnicalSkills } from '../../about'
-import { LabelledIcon, OriginalIcon } from '../../icon'
+import { LabelledIcon } from '../../icon'
 
 import './IndexPageLayout.scss'
 import useSiteMetadata from '../../../hooks/UseSiteMetadata'
+
+const OriginalIcon = loadable(() => import('../../icon/OriginalIcon'))
 
 interface AboutSectionProps {
   title?: string
