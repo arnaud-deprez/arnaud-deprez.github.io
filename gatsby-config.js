@@ -86,7 +86,7 @@ module.exports = {
   siteMetadata: {
     title,
     description,
-    copyright: '© 2020 Arnaud Deprez',
+    copyright: '© 2021 Arnaud Deprez',
     siteUrl,
     author: {
       name: 'Arnaud Deprez',
