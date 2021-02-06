@@ -10,5 +10,9 @@ export const OriginalIcon = (props: unknown): JSX.Element => {
     rootMargin: '80px 0px',
   })
 
-  return <InternalOriginalIcon {...props} ref={ref} />
+  return (
+    <span ref={ref}>
+      <InternalOriginalIcon {...props} />
+    </span>
+  )
 }
