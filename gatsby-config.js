@@ -141,8 +141,8 @@ module.exports = {
       },
     },
     'gatsby-plugin-catch-links',
-    'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-plugin-react-svg',
       options: {
