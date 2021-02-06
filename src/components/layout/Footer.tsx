@@ -29,29 +29,29 @@ export const Footer = ({ copyright }: FooterProps): JSX.Element => (
         <p>
           Build with{' '}
           <a href="https://www.gatsbyjs.org" target="_blank" rel="noopener noreferrer">
-            {/* <OverlayTrigger placement="top" overlay={<Tooltip id="footer-gatsby">Gatsby</Tooltip>}> */}
-            <OriginalIcon icon="gatsby" inline />
-            {/* </OverlayTrigger> */}
+            <OverlayTrigger placement="top" overlay={<Tooltip id="footer-gatsby">Gatsby</Tooltip>}>
+              <OriginalIcon icon="gatsby" inline />
+            </OverlayTrigger>
             <span className="sr-only">Gatsby</span>
           </a>
           {' | '}
           Designed with{' '}
           <a href="https://getbootstrap.com" target="_blank" rel="noopener noreferrer">
-            {/* <OverlayTrigger
+            <OverlayTrigger
               placement="top"
               overlay={<Tooltip id="footer-gatsby">Bootstrap</Tooltip>}
-            > */}
-            <OriginalIcon icon="bootstrap" inline />
-            {/* </OverlayTrigger> */}
+            >
+              <OriginalIcon icon="bootstrap" inline />
+            </OverlayTrigger>
             <span className="sr-only">Bootstrap</span>
           </a>
         </p>
         <p>
           Hosted with <FontAwesomeIcon icon="heart" color="red" /> by{' '}
           <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">
-            {/* <OverlayTrigger placement="top" overlay={<Tooltip id="footer-gatsby">Netlify</Tooltip>}> */}
-            <OriginalIcon icon="netlify" inline />
-            {/* </OverlayTrigger> */}
+            <OverlayTrigger placement="top" overlay={<Tooltip id="footer-gatsby">Netlify</Tooltip>}>
+              <OriginalIcon icon="netlify" inline />
+            </OverlayTrigger>
             <span className="sr-only">Netlify</span>
           </a>
         </p>

@@ -24,6 +24,7 @@
     "gatsby-plugin-catch-links": "2.10.0",
     "gatsby-plugin-feed-mdx": "1.0.1",
     "gatsby-plugin-google-tagmanager": "2.11.0",
+    "gatsby-plugin-image": "^0.7.1",
     "gatsby-plugin-loadable-components-ssr": "2.1.0",
     "gatsby-plugin-manifest": "2.12.0",
     "gatsby-plugin-mdx": "1.10.0",

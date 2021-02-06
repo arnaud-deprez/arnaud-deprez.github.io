@@ -1,5 +1,5 @@
 import React from 'react'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { Container, Figure } from 'react-bootstrap'
 import { ShareMenu } from '../nav'
@@ -14,9 +14,10 @@ interface BlogPostTitleImage {
 
 const BlogPostTitleImage = ({ title, image }: BlogPostTitleImage) => (
   <Figure className="blog-title-image">
-    <Img
-      fluid={image.src?.childImageSharp?.fluid}
-      className="figure-img img-fluid rounded mx-auto"
+    <GatsbyImage
+      image={image.src?.childImageSharp?.gatsbyImageData}
+      className="figure-img rounded mx-auto"
+      imgClassName="img-fluid"
       alt={title}
     />
     {image?.caption && (

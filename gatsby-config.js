@@ -81,7 +81,9 @@ const description =
 
 module.exports = {
   flags: {
+    FAST_DEV: true,
     PRESERVE_WEBPACK_CACHE: true,
+    FAST_REFRESH: true,
   },
   siteMetadata: {
     title,
@@ -141,6 +143,7 @@ module.exports = {
       },
     },
     'gatsby-plugin-catch-links',
+    'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
@@ -251,7 +254,7 @@ module.exports = {
         background_color: '#fff',
         theme_color: '#D77D4B',
         display: 'minimal-ui',
-        icon: './content/profile.png',
+        icon: './src/images/profile.png',
       },
     },
     {
