@@ -20,7 +20,7 @@ export const Footer = ({ copyright }: FooterProps): JSX.Element => (
             <p>{copyright}</p>
             <p>
               <Link to="/legal/">Legal Notice</Link> | <Link to="/legal/#terms-of-use">Terms</Link>{' '}
-              | <Link to="/legal/#powple-sprl-privacy-policy">Privacy policy</Link>
+              | <Link to="/legal/#powple-srl-privacy-policy">Privacy policy</Link>
             </p>
           </>
         )}
