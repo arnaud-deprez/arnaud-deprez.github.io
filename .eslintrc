@@ -5,9 +5,7 @@
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    "prettier/standard",
-    "prettier/@typescript-eslint",
-    "prettier/react",
+    "prettier",
     "plugin:prettier/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:mdx/recommended"

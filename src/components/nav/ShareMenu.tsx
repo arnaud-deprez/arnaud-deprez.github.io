@@ -14,7 +14,7 @@ import './ShareMenu.scss'
 export interface ShareMenuProps extends JSX.IntrinsicAttributes {
   url: string
   title?: string
-  tags: string[] | undefined
+  tags: Maybe<readonly (string | undefined)[]>
   description?: string
   buttonClassName?: string
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 import { Card, Button } from 'react-bootstrap'
 import { PostTimeInfo } from './PostTimeInfo'
 import { Tags } from './Tags'
@@ -20,7 +20,7 @@ export interface PostNode {
     image?: {
       src: {
         childImageSharp?: {
-          fluid?: GatsbyTypes.GatsbyImageSharpFluidFragment
+          gatsbyImageData?: IGatsbyImageData
         }
       }
     }
@@ -45,14 +45,13 @@ export const PostPreview = ({ post }: PostPreviewProps): JSX.Element => {
       <Link to={post.fields?.slug || '#'} className="stretched-link">
         <span className="sr-only">Read</span>
       </Link>
-      {post.frontmatter?.image?.src?.childImageSharp?.fluid && (
+      {post.frontmatter?.image?.src?.childImageSharp?.gatsbyImageData && (
         <div className="position-relative">
-          <Card.Img
+          <GatsbyImage
             className="post-preview-image"
-            variant="top"
-            fluid={post.frontmatter.image.src.childImageSharp.fluid}
+            imgClassName="card-img-top"
+            image={post.frontmatter.image.src.childImageSharp.gatsbyImageData}
             alt={`${post.frontmatter?.title} image`}
-            as={Img}
           />
           <Card.ImgOverlay className="post-preview-overlay text-white">
             <Card.Title className="m-0 h3" as="h2">
