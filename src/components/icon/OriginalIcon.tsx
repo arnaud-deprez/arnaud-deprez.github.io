@@ -12,8 +12,8 @@ export const OriginalIcon = (props: unknown): JSX.Element => {
   })
 
   return (
-    // <span ref={ref}>
-    <InternalOriginalIcon {...props} />
-    // </span>
+    <span ref={ref}>
+      <InternalOriginalIcon {...props} />
+    </span>
   )
 }

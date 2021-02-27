@@ -81,9 +81,9 @@ const description =
 
 module.exports = {
   flags: {
-    FAST_DEV: true,
+    // FAST_DEV: true,
     PRESERVE_WEBPACK_CACHE: true,
-    FAST_REFRESH: true,
+    // FAST_REFRESH: true,
   },
   siteMetadata: {
     title,
