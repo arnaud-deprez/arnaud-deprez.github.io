@@ -65,6 +65,7 @@ export const pageQuery = graphql`
                     quality: 100
                     layout: FULL_WIDTH
                     breakpoints: [325, 750, 1080, 1366, 1920]
+                    placeholder: BLURRED
                   )
                 }
               }

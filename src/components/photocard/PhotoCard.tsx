@@ -18,6 +18,7 @@ export const PhotoCard = ({ name, jobTitle, className, ...rest }: PhotoCardProps
       imgClassName="card-img rounded-circle mb-2"
       width={160}
       height={160}
+      placeholder="blurred"
       loading="eager"
     />
     <Card.Body className="d-none d-lg-block">
