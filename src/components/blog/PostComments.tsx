@@ -1,10 +1,7 @@
 import React from 'react'
-import loadable from '@loadable/component'
 import { useInView } from 'react-intersection-observer'
 import useSiteMetadata from '../../hooks/UseSiteMetadata'
-
-// because loadbable currently only support default export: https://reactjs.org/docs/code-splitting.html#named-exports
-const DiscussionEmbed = loadable(() => import('./DisqusDiscussionEmbedDefaultExport'))
+import { DiscussionEmbed } from 'disqus-react'
 
 export interface CommentsProps {
   title: string

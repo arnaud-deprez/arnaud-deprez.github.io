@@ -1,4 +1,6 @@
-/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable no-undef */
+const remarkEmoji = require('remark-emoji')
+
 const gatsbyRemarkPlugins = [
   {
     resolve: `gatsby-remark-table-of-contents`,
@@ -80,11 +82,6 @@ const description =
   'Technical Blog of Arnaud Deprez, a Technical Architect consultant and owner of Powple who shares his experience about technical stuff'
 
 module.exports = {
-  flags: {
-    // FAST_DEV: true,
-    PRESERVE_WEBPACK_CACHE: true,
-    // FAST_REFRESH: true,
-  },
   siteMetadata: {
     title,
     description,
@@ -103,7 +100,6 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-remove-console',
-    'gatsby-plugin-loadable-components-ssr',
     {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {
@@ -122,9 +118,15 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sass`,
       options: {
-        // TODO: remove when upgrading to version 3.0.0. See https://github.com/gatsbyjs/gatsby/pull/27991
-        // eslint-disable-next-line no-undef
-        implementation: require('sass'),
+        cssLoaderOptions: {
+          esModule: false,
+          modules: {
+            namedExport: false,
+          },
+          sassOptions: {
+            precision: 6,
+          },
+        },
       },
     },
     'gatsby-plugin-react-helmet',
@@ -158,7 +160,8 @@ module.exports = {
         extensions: ['.md', '.mdx'],
         gatsbyRemarkPlugins,
         // eslint-disable-next-line no-undef
-        remarkPlugins: [require('remark-emoji'), [require('remark-abbr'), { expandFirst: true }]],
+        // TODO: remarkPlugins: [remarkEmoji, [require('remark-abbr'), { expandFirst: true }]],
+        remarkPlugins: [[require('remark-abbr'), { expandFirst: true }]],
       },
     },
     // {
@@ -194,7 +197,7 @@ module.exports = {
     //   }
     // },
     {
-      resolve: 'gatsby-plugin-feed-mdx',
+      resolve: 'gatsby-plugin-feed',
       options: {
         feeds: [
           {
@@ -260,7 +263,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sitemap',
       options: {
-        exclude: ['/contact/thanks', '/blog/tags/*'],
+        excludes: ['/contact/thanks', '/blog/tags/*'],
       },
     },
     {

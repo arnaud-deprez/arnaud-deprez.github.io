@@ -81,7 +81,7 @@ type IconifyProps = Omit<IconifyIconProps, 'icon'> & IconProps
 // eslint-disable-next-line react/display-name
 const iconify = (icon: IconifyIcon, defaultProps: IconifyProps = {}) => (
   props: IconifyProps
-): React.ReactNode => (
+): JSX.Element => (
   <Icon
     {...{
       ...defaultProps,
@@ -126,8 +126,12 @@ const svgIcon = (Component: React.ElementType<IconProps>, defaultProps: SvgIconP
   return SvgIcon
 }
 
+export interface OriginalIconProps extends IconProps {
+  icon: string
+}
+
 interface OriginalIcons {
-  [key: string]: (props: IconProps) => React.ReactNode
+  [key: string]: (props: IconProps) => JSX.Element
 }
 
 const iconContainer: OriginalIcons = {
@@ -187,11 +191,7 @@ const iconContainer: OriginalIcons = {
   netlify: iconify(netlifyIcon),
 }
 
-export interface OriginalIconProps extends IconProps {
-  icon: string
-}
-
-export const OriginalIcon = ({ icon, ...rest }: OriginalIconProps): React.ReactNode => {
+export const OriginalIcon = ({ icon, ...rest }: OriginalIconProps): JSX.Element => {
   const key = icon.replace(/[\s&]+/gi, '-').toLowerCase()
   return has(iconContainer, key) ? iconContainer[key](rest) : <i />
 }

@@ -1,11 +1,8 @@
 import React from 'react'
-import loadable from '@loadable/component'
 import { useInView } from 'react-intersection-observer'
-// import InternalOriginalIcon from './OriginalIconBundle'
+import InternalOriginalIcon, { OriginalIconProps } from './OriginalIconBundle'
 
-const InternalOriginalIcon = loadable(() => import('./OriginalIconBundle'))
-
-export const OriginalIcon = (props: unknown): JSX.Element => {
+export const OriginalIcon = (props: OriginalIconProps): JSX.Element => {
   const [ref] = useInView({
     triggerOnce: true,
     rootMargin: '80px 0px',
