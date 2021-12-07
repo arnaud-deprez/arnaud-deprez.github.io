@@ -1,0 +1,138 @@
+// override bootstrap variables
+@import './_variables';
+
+@import '~bootstrap/scss/bootstrap';
+
+// override and add some utilities
+@import './_utilities';
+
+body {
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  margin-top: 1em;
+  margin-bottom: 1rem;
+}
+
+ul,
+ol {
+  padding-left: 2em;
+}
+
+article {
+  text-align: justify;
+  white-space: normal;
+  word-break: break-word; // IE & < Edge 18
+  overflow-wrap: break-word;
+}
+
+img {
+  width: 100%;
+}
+
+/**
+ * MDX code format
+ */
+
+// blockquote
+.blockquote {
+  position: relative;
+  font-size: 1.1rem;
+  font-weight: $font-weight-light;
+  padding: 0 1.25em;
+  border-radius: $border-radius;
+  
+  b,
+  strong {
+    font-weight: 600;
+  }
+
+  p:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+blockquote {
+  @extend .blockquote;
+}
+
+// foot notes
+.footnotes {
+  margin-top: 3.5rem;
+}
+
+// code block container
+pre.grvsc-container {
+  position: relative;
+  margin: 1rem 0;
+}
+
+// code title
+.gatsby-code-title {
+  background: $yellow;
+  color: $dark;
+  padding: 0.2em 0.4em;
+  width: max-content;
+  margin: 0 auto 0 1em;
+  border-radius: 0.3em;
+  position: relative;
+  top: 1.6em;
+  z-index: 1;
+  font-size: 0.85em;
+  line-height: initial;
+}
+
+// highlighted lines
+.grvsc-container .grvsc-line-highlighted {
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0.3em 0 0 0 $cyan;
+}
+
+// inline code
+:not(pre)>code {
+  border-radius: 0.2em;
+  color: #D4D4D4;
+  background: #1E1E1E;
+  padding: 0.15em 0.2em;
+}
+
+/**
+ * social icon
+**/
+@mixin icon-wrapper {
+  display: inline-block;
+  font-size: 1em;
+  text-align: center;
+  padding: 0px;
+}
+
+.icon-square-wrapper {
+  @include icon-wrapper;
+  height: 2.25em;
+  width: 2.25em;
+  line-height: 2.25em;
+}
+
+.icon-round-wrapper {
+  @extend .icon-square-wrapper;
+  border-radius: 50%;
+}
+
+// Workaround for https://github.com/signalwerk/gatsby-remark-table-of-contents/issues/5: select all ul elements just after .remark-toc div
+.remark-toc {
+  li {
+    padding: .25em 0;
+  }
+}

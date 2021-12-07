@@ -43,7 +43,7 @@ $cyan:    #28AFB0; // changed
 // social
 $twitter: #1da1f2;
 $linkedin: #0077b5;
-$github: var(--bs-gray-900);
+$github: #121111;
 $reddit: #EE5528;
 $facebook: #3079EA;
 
@@ -53,8 +53,6 @@ $success:       $green;
 $info:          $cyan;
 $warning:       $yellow;
 $danger:        $red;
-$light:         var(--bs-gray-100);
-$dark:          var(--bs-gray-800);
 
 // add extra theme colors
 $theme-colors: (

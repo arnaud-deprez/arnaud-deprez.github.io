@@ -17,14 +17,14 @@
     justify-content: flex-start;
     align-content: stretch;
     min-height: 100vh;
-    padding: $jumbotron-padding ($jumbotron-padding / 2);
-    margin-bottom: $jumbotron-padding;
+    padding: map-get($spacers, 5) calc(map-get($spacers, 5) / 2);
+    margin-bottom: map-get($spacers, 5);
 
     @include media-breakpoint-up(sm) {
-      padding: $jumbotron-padding;
+      padding: map-get($spacers, 5);
     }
     @include media-breakpoint-up(xl) {
-      padding: $jumbotron-padding ($jumbotron-padding * 2);
+      padding: map-get($spacers, 5) calc(map-get($spacers, 5) * 2);
     }
 
     & > .container {

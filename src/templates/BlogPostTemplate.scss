@@ -2,7 +2,7 @@
 
 .blog-post {
   .blog-toc {
-    padding-top: map.get($spacers, 5);
+    padding-top: map-get($spacers, 5);
     position: -webkit-sticky;
     position: sticky;
     top: 60px;
