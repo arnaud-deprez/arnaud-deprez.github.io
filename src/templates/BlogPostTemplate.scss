@@ -1,8 +1,8 @@
-@import "../scss/_global";
+@import '../scss/_utilities';
 
-.blog-post {  
+.blog-post {
   .blog-toc {
-    padding-top: $jumbotron-padding;
+    padding-top: map.get($spacers, 5);
     position: -webkit-sticky;
     position: sticky;
     top: 60px;

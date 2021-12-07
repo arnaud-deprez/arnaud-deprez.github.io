@@ -1,3 +1,5 @@
+@import '~bootstrap/scss/_functions';
+
 // Fonts
 
 $font-family-sans-serif:      BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -16,24 +18,14 @@ $line-height-base: 1.75;
 
 $sizes: (
     25vh: 25vh,
+    33vh: 33vh,
     50vh: 50vh,
+    66vh: 66vh,
     75vh: 75vh,
     100vh: 100vh
 );
 
 // Colors
-
-$white:    #fff;
-$gray-100: #f8f9fa;
-$gray-200: #e9ecef;
-$gray-300: #dee2e6;
-$gray-400: #ced4da;
-$gray-500: #adb5bd;
-$gray-600: #868e96;
-$gray-700: #495057;
-$gray-800: #343a40;
-$gray-900: #212529;
-$black:    #000;
 
 $blue:    #007bff;
 $indigo:  #6610f2;
@@ -51,7 +43,7 @@ $cyan:    #28AFB0; // changed
 // social
 $twitter: #1da1f2;
 $linkedin: #0077b5;
-$github: $gray-900;
+$github: var(--bs-gray-900);
 $reddit: #EE5528;
 $facebook: #3079EA;
 
@@ -61,8 +53,8 @@ $success:       $green;
 $info:          $cyan;
 $warning:       $yellow;
 $danger:        $red;
-$light:         $gray-100;
-$dark:          $gray-800;
+$light:         var(--bs-gray-100);
+$dark:          var(--bs-gray-800);
 
 // add extra theme colors
 $theme-colors: (
@@ -76,4 +68,6 @@ $theme-colors: (
 $stretched-link-z-index: 1;
 
 // this is for AAA
-$link-color: darken($primary, 13%);
+$link-color: shade-color($primary, 13%);
+
+@import '~bootstrap/scss/_variables';

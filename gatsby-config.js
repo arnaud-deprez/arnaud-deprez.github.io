@@ -1,6 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-undef */
-const remarkEmoji = require('remark-emoji')
-
 const gatsbyRemarkPlugins = [
   {
     resolve: `gatsby-remark-table-of-contents`,
@@ -28,7 +27,7 @@ const gatsbyRemarkPlugins = [
   'gatsby-remark-code-titles',
   'gatsby-remark-sub-sup',
   'gatsby-remark-numbered-footnotes',
-  {
+  /* {
     resolve: `gatsby-remark-vscode`,
     // All options are optional. Defaults shown here.
     options: {
@@ -42,7 +41,7 @@ const gatsbyRemarkPlugins = [
       replaceColor: (x) => x, // Function allowing replacement of a theme color with another. Useful for replacing hex colors with CSS variables.
       logLevel: 'warn', // Set to 'info' to debug if something looks wrong
     },
-  },
+  }, */
   {
     resolve: 'gatsby-remark-images',
     options: {
@@ -161,7 +160,23 @@ module.exports = {
         gatsbyRemarkPlugins,
         // eslint-disable-next-line no-undef
         // TODO: remarkPlugins: [remarkEmoji, [require('remark-abbr'), { expandFirst: true }]],
-        remarkPlugins: [[require('remark-abbr'), { expandFirst: true }]],
+        remarkPlugins: [
+          [
+            // TODO: change when this https://github.com/andrewbranch/gatsby-remark-vscode/issues/174 is fixed
+            require('gatsby-remark-vscode').remarkPlugin,
+            {
+              theme: 'Dark+ (default dark)', // Read on for list of included themes. Also accepts object and function forms.
+              wrapperClassName: '', // Additional class put on 'pre' tag. Also accepts function to set the class dynamically.
+              injectStyles: true, // Injects (minimal) additional CSS for layout and scrolling
+              extensions: ['toml'], // Third-party extensions providing additional themes and languages
+              languageAliases: {
+                markup: 'sh',
+              }, // Map of custom/unknown language codes to standard/known language codes
+              logLevel: 'warn', // Set to 'info' to debug if something looks wrong
+            },
+          ],
+          [require('remark-abbr'), { expandFirst: true }],
+        ],
       },
     },
     // {
