@@ -1,4 +1,4 @@
-@import '../../scss/_utilities';
+@import '../../scss/global';
 
 #navbar-header {
   .navbar-collapse hr {
@@ -10,10 +10,10 @@
   }
   @include media-breakpoint-down(lg) {
     background-color: $primary;
-    @include navbar-dark;
+    // @include navbar-dark;
   }
   @include media-breakpoint-up(lg) {
     background-color: transparent;
-    @include navbar-light;
+    // @include navbar-light;
   }
 }

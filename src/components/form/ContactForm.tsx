@@ -2,10 +2,11 @@
 // see https://github.com/eslint/eslint/issues/4015#issuecomment-301920490
 import React from 'react'
 import { navigate } from 'gatsby-link'
-import { Form, FormProps, Button } from 'react-bootstrap'
+import { Form, FormProps, Button, Row, Col } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Formik, FormikProps } from 'formik'
 import { object, string } from 'yup'
+import clsx from 'clsx'
 import { publishEvent } from '../../utils/Gtag'
 import './ContactForm.scss'
 
@@ -32,7 +33,6 @@ const InnerContactForm = ({
   handleChange,
   handleBlur,
   className,
-  inline,
   validated,
 }: ContactFormProps & FormikProps<ContactFormValues>) => (
   // See https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
@@ -43,8 +43,7 @@ const InnerContactForm = ({
     action={action}
     noValidate
     onSubmit={handleSubmit}
-    className={`contact-form ${className || ''}`.trim()}
-    inline={inline}
+    className={clsx('contact-form', className)}
     validated={validated}
     data-netlify="true"
     data-netlify-honeypot="bot-field"
@@ -104,12 +103,12 @@ const InnerContactForm = ({
       />
       <Form.Control.Feedback type="invalid">{errors.message}</Form.Control.Feedback>
     </Form.Group>
-    <Form.Row>
-      <Button variant="primary" type="submit" className="mx-auto mt-3" disabled={isSubmitting}>
-        <FontAwesomeIcon icon="envelope" className="mr-2" />
+    <Row>
+      <Button variant="primary" type="submit" className="w-auto mx-auto mt-3" disabled={isSubmitting}>
+        <FontAwesomeIcon icon="envelope" className="me-2" />
         Send
       </Button>
-    </Form.Row>
+    </Row>
   </Form>
 )
 

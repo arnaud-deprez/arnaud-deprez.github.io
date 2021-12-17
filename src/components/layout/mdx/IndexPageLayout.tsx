@@ -59,11 +59,11 @@ const AboutSection = (props: AboutSectionProps) => (
 
     <blockquote className="container mb-4">
       <p className="text-justify">
-        <span className="text-secondary h4 mr-3">
+        <span className="text-secondary h4 me-3">
           <FontAwesomeIcon icon="quote-left" />
         </span>
         <em dangerouslySetInnerHTML={{ __html: props.pitch || '' }} />
-        <span className="text-secondary h4 ml-3">
+        <span className="text-secondary h4 ms-3">
           <FontAwesomeIcon icon="quote-right" />
         </span>
       </p>
@@ -77,7 +77,7 @@ const AboutSection = (props: AboutSectionProps) => (
       twitter={props.author?.twitter}
       rss={true}
       className="h5 justify-content-center mt-0"
-      linkClassName="icon-round-wrapper btn btn-bg-dark mr-2"
+      linkClassName="icon-round-wrapper btn btn-bg-dark me-2"
       role="list"
     />
   </section>
@@ -135,7 +135,7 @@ const TechnicalSkillsSection = (props: TechnicalSkillsSectionProps) => (
             if (love) {
               return (
                 <tr key={love.title}>
-                  <th className="pr-4">{love.title}</th>
+                  <th className="pe-4">{love.title}</th>
                   <td className="d-flex justify-content-center align-items-center py-2">
                     {love.values?.map((v, idx, arr) => {
                       const el = v && (

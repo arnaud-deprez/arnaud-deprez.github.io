@@ -16,13 +16,13 @@ $line-height-base: 1.75;
 
 // Sizes
 
-$sizes: (
-    25vh: 25vh,
-    33vh: 33vh,
-    50vh: 50vh,
-    66vh: 66vh,
-    75vh: 75vh,
-    100vh: 100vh
+$vh-sizes: (
+  25vh: 25vh,
+  33vh: 33vh,
+  50vh: 50vh,
+  66vh: 66vh,
+  75vh: 75vh,
+  100vh: 100vh
 );
 
 // Colors
@@ -55,7 +55,7 @@ $warning:       $yellow;
 $danger:        $red;
 
 // add extra theme colors
-$theme-colors: (
+$custom-colors: (
   "github": $github,
   "linkedin": $linkedin,
   "twitter": $twitter,
@@ -69,3 +69,6 @@ $stretched-link-z-index: 1;
 $link-color: shade-color($primary, 13%);
 
 @import '~bootstrap/scss/_variables';
+
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);

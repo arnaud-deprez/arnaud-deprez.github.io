@@ -57,7 +57,7 @@ export const PostPreview = ({ post }: PostPreviewProps): JSX.Element => {
             <Card.Title className="m-0 h3" as="h2">
               {post.frontmatter.title}
             </Card.Title>
-            <Button className="ml-auto" variant="secondary" to={post.fields?.slug || '#'} as={Link}>
+            <Button className="ms-auto" variant="secondary" to={post.fields?.slug || '#'} as={Link}>
               Read
             </Button>
           </Card.ImgOverlay>

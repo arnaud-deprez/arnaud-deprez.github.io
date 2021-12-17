@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { Nav as BootstrapNav } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import clsx from 'clsx'
 import { SocialLinksTrait } from '../metadata'
 import { Nav, NavProps } from './Nav'
 
@@ -24,7 +25,7 @@ export const NavSocialIcons = ({
   children,
   role = '',
 }: NavSocialIconsProps): JSX.Element => (
-  <Nav className={`social-icons ${className || ''}`.trim()} role={role}>
+  <Nav className={clsx('social-icons', className)} role={role}>
     {linkedin && (
       <BootstrapNav.Link
         href={linkedin}
@@ -35,7 +36,7 @@ export const NavSocialIcons = ({
       >
         <FontAwesomeIcon
           icon={['fab', 'linkedin-in']}
-          className={colorClassName('linkedin', useOriginalColor)}
+          className={clsx(colorClassName('linkedin', useOriginalColor))}
         />
       </BootstrapNav.Link>
     )}
@@ -49,7 +50,7 @@ export const NavSocialIcons = ({
       >
         <FontAwesomeIcon
           icon={['fab', 'github']}
-          className={colorClassName('github', useOriginalColor)}
+          className={clsx(colorClassName('github', useOriginalColor))}
         />
       </BootstrapNav.Link>
     )}
@@ -63,7 +64,7 @@ export const NavSocialIcons = ({
       >
         <FontAwesomeIcon
           icon={['fab', 'twitter']}
-          className={colorClassName('twitter', useOriginalColor)}
+          className={clsx(colorClassName('twitter', useOriginalColor))}
         />
       </BootstrapNav.Link>
     )}
@@ -76,7 +77,7 @@ export const NavSocialIcons = ({
         className={linkClassName}
         as={Link}
       >
-        <FontAwesomeIcon icon="rss" className={colorClassName('orange', useOriginalColor)} />
+        <FontAwesomeIcon icon="rss" className={clsx(colorClassName('orange', useOriginalColor))} />
       </BootstrapNav.Link>
     )}
     {children}

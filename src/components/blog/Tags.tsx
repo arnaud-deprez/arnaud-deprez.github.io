@@ -9,9 +9,9 @@ interface TagProps extends BadgeProps {
   value: string
 }
 
-const Tag = ({ value, variant = 'secondary', ...rest }: TagProps) => (
+const Tag = ({ value, bg = 'secondary', ...rest }: TagProps) => (
   <Badge
-    {...{ variant, to: `/blog/tags/${kebabCase(value)}/`, className: 'tag', ...rest }}
+    {...{ bg, to: `/blog/tags/${kebabCase(value)}/`, className: 'tag', ...rest }}
     as={Link}
   >
     {value}

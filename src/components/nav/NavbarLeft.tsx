@@ -15,8 +15,10 @@ export interface NavbarLeftProps extends NavbarProps {
 export const NavbarLeft = ({ author, children, ...rest }: NavbarLeftProps): JSX.Element => (
   <Navbar
     id="navbar-left"
-    className="d-none d-lg-flex flex-column navbar-dark bg-primary"
+    className="d-none d-lg-flex flex-column"
     role="navigation"
+    bg="primary"
+    variant="dark"
     as="nav"
     {...rest}
   >
