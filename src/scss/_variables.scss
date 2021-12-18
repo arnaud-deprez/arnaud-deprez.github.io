@@ -26,19 +26,20 @@ $vh-sizes: (
 );
 
 // Colors
+$blue:    #0d6efd !default;
+$indigo:  #6610f2 !default;
+$purple:  #6f42c1 !default;
+$pink:    #d63384 !default;
+$red:     #dc3545 !default;
+$orange:  #fd7e14 !default;
+$yellow:  #ffc107 !default;
+$green:   #198754 !default;
+$teal:    #20c997 !default;
+$cyan:    #0dcaf0 !default;
 
-$blue:    #007bff;
-$indigo:  #6610f2;
-$purple:  #6f42c1;
-$pink:    #e83e8c;
-$red:     #dc3545;
-//$orange:  #fd7e14;
-$orange:  #D77D4B; // changed
-$yellow: #F3B700; // changed
-$green:   #28a745;
-$teal:    #20c997;
-//$cyan:    #17a2b8;
-$cyan:    #28AFB0; // changed
+$orange:  #db631d; //changed
+// $cyan:    #28AFB0; // changed
+$cyan:    #05b2be; // changed
 
 // social
 $twitter: #1da1f2;
@@ -63,10 +64,10 @@ $custom-colors: (
   "facebook": $facebook
 );
 
-$stretched-link-z-index: 1;
-
 // this is for AAA
 $link-color: shade-color($primary, 13%);
+
+$stretched-link-z-index: 1;
 
 @import '~bootstrap/scss/_variables';
 
