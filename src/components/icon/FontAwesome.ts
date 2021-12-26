@@ -18,7 +18,7 @@ import {
   faSpaceShuttle,
   faUser,
   faUserGraduate,
-  faTag
+  faTag,
 } from '@fortawesome/free-solid-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 

@@ -2,7 +2,7 @@
 // see https://github.com/eslint/eslint/issues/4015#issuecomment-301920490
 import React from 'react'
 import { navigate } from 'gatsby-link'
-import { Form, FormProps, Button, Row, Col } from 'react-bootstrap'
+import { Form, FormProps, Button, Row } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Formik, FormikProps } from 'formik'
 import { object, string } from 'yup'
@@ -104,7 +104,12 @@ const InnerContactForm = ({
       <Form.Control.Feedback type="invalid">{errors.message}</Form.Control.Feedback>
     </Form.Group>
     <Row>
-      <Button variant="primary" type="submit" className="w-auto mx-auto mt-3" disabled={isSubmitting}>
+      <Button
+        variant="primary"
+        type="submit"
+        className="w-auto mx-auto mt-3"
+        disabled={isSubmitting}
+      >
         <FontAwesomeIcon icon="envelope" className="me-2" />
         Send
       </Button>

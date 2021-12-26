@@ -79,18 +79,19 @@ export interface IconProps {
 
 type IconifyProps = Omit<IconifyIconProps, 'icon'> & IconProps
 // eslint-disable-next-line react/display-name
-const iconify = (icon: IconifyIcon, defaultProps: IconifyProps = {}) => (
-  props: IconifyProps
-): JSX.Element => (
-  <Icon
-    {...{
-      ...defaultProps,
-      ...props,
-      icon,
-      fr: '',
-    }}
-  />
-)
+const iconify =
+  (icon: IconifyIcon, defaultProps: IconifyProps = {}) =>
+  (props: IconifyProps): JSX.Element =>
+    (
+      <Icon
+        {...{
+          ...defaultProps,
+          ...props,
+          icon,
+          fr: '',
+        }}
+      />
+    )
 
 type ImgIconProps = IconProps &
   Omit<React.HTMLAttributes<HTMLImageElement>, 'src' | 'alt' | 'loading'>

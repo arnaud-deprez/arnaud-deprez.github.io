@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet'
 import { WindowLocation, useLocation } from '@reach/router'
 import { SiteMetadata } from './SiteInformation'
 import { SchemaOrg } from './SchemaOrg'
-import useSiteMetadata from '../../hooks/useSiteMetadata'
+import useSiteMetadata from '../../hooks/UseSiteMetadata'
 
 type MetaProps = JSX.IntrinsicElements['meta']
 

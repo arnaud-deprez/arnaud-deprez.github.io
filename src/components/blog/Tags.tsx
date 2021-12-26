@@ -11,10 +11,7 @@ interface TagProps extends BadgeProps {
 }
 
 const Tag = ({ value, bg = 'secondary', ...rest }: TagProps) => (
-  <Badge
-    {...{ bg, to: `/blog/tags/${kebabCase(value)}/`, className: 'tag', ...rest }}
-    as={Link}
-  >
+  <Badge {...{ bg, to: `/blog/tags/${kebabCase(value)}/`, className: 'tag', ...rest }} as={Link}>
     <FontAwesomeIcon icon="tag" className="me-1" />
     {value}
   </Badge>
