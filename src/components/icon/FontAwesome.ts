@@ -18,6 +18,7 @@ import {
   faSpaceShuttle,
   faUser,
   faUserGraduate,
+  faTag
 } from '@fortawesome/free-solid-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 
@@ -44,6 +45,7 @@ export const loadIcons = (): void => {
     faSpaceShuttle,
     faUser,
     faUserGraduate,
+    faTag,
     fab
   )
 }

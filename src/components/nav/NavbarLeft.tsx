@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { Navbar, NavbarProps } from 'react-bootstrap'
+import { Navbar, NavbarProps, Container } from 'react-bootstrap'
 import { Author } from '../metadata'
 import { PhotoCard } from '../photocard/PhotoCard'
 import { NavSocialIcons } from './NavSocialIcons'
@@ -22,20 +22,22 @@ export const NavbarLeft = ({ author, children, ...rest }: NavbarLeftProps): JSX.
     as="nav"
     {...rest}
   >
-    <Navbar.Brand to="/" as={Link}>
-      {author?.name && author?.jobTitle && (
-        <PhotoCard name={author.name} jobTitle={author.jobTitle} />
-      )}
-    </Navbar.Brand>
-    <NavSocialIcons
-      {...{
-        linkedin: author?.linkedin,
-        github: author?.github,
-        twitter: author?.twitter,
-        rss: true,
-        className: 'mb-3',
-      }}
-    />
-    {children}
+    <Container fluid>
+      <Navbar.Brand to="/" as={Link}>
+        {author?.name && author?.jobTitle && (
+          <PhotoCard name={author.name} jobTitle={author.jobTitle} />
+        )}
+      </Navbar.Brand>
+      <NavSocialIcons
+        {...{
+          linkedin: author?.linkedin,
+          github: author?.github,
+          twitter: author?.twitter,
+          rss: true,
+          className: 'mb-3',
+        }}
+      />
+      {children}
+    </Container>
   </Navbar>
 )

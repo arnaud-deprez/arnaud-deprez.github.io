@@ -1,6 +1,6 @@
 import React from 'react'
 import { useInView } from 'react-intersection-observer'
-import useSiteMetadata from '../../hooks/UseSiteMetadata'
+import useSiteMetadata from '../../hooks/useSiteMetadata'
 import { DiscussionEmbed } from 'disqus-react'
 
 export interface CommentsProps {

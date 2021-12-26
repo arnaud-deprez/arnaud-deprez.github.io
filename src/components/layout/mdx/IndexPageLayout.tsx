@@ -11,7 +11,7 @@ import { TechnicalSkills } from '../../about'
 import { LabelledIcon, OriginalIcon } from '../../icon'
 
 import './IndexPageLayout.scss'
-import useSiteMetadata from '../../../hooks/UseSiteMetadata'
+import useSiteMetadata from '../../../hooks/useSiteMetadata'
 
 interface AboutSectionProps {
   title?: string

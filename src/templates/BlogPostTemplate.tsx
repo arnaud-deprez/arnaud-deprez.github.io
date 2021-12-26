@@ -51,7 +51,7 @@ const BlogPostPage = ({ pageContext, data }: BlogPostPageProps): JSX.Element => 
       />
       <Container className="blog-post" fluid>
         <Row>
-          <Col className="d-none d-xl-flex px-0" xl={{ span: 3, order: 12 }} as="aside">
+          <Col className="d-none d-lg-flex px-0" lg={{ span: 3, order: 1 }} as="aside">
             {post?.tableOfContents?.items && <TableOfContent items={post.tableOfContents?.items} />}
           </Col>
           <Col className="px-0">

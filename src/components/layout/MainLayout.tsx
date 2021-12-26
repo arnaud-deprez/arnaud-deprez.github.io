@@ -4,7 +4,7 @@ import { NavbarLeft } from '../nav'
 import { ContentLayout, ContentLayoutProps } from './ContentLayout'
 
 import './MainLayout.scss'
-import useSiteMetadata from '../../hooks/UseSiteMetadata'
+import useSiteMetadata from '../../hooks/useSiteMetadata'
 
 export interface MainLayoutProps extends ContentLayoutProps {
   renderLeftMenu?: () => React.ReactNode | React.ReactNode[]
