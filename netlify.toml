@@ -1,6 +1,9 @@
 [build]
-  publish = "public"
-  command = "npm run-script build"
+publish = "public"
+command = "npm run-script build"
 
 [build.environment]
-  NODE_VERSION = "14"
+NODE_VERSION = "14"
+
+[[plugins]]
+package = "@netlify/plugin-gatsby"
