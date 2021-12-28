@@ -40,8 +40,9 @@ import nodejsIcon from '@iconify-icons/logos/nodejs-icon'
 import gatsbyIcon from '@iconify-icons/logos/gatsby'
 import bootstrapIcon from '@iconify-icons/logos/bootstrap'
 import netlifyIcon from '@iconify-icons/logos/netlify'
-import groovyIcon from '@iconify-icons/vscode-icons/file-type-groovy'
 import bashIcon from '@iconify-icons/logos/bash-icon'
+import pythonIcon from '@iconify-icons/logos/python'
+import groovyIcon from '@iconify-icons/vscode-icons/file-type-groovy'
 import jenkinsIcon from '@iconify-icons/vscode-icons/file-type-jenkins'
 import mavenIcon from '@iconify-icons/vscode-icons/file-type-maven'
 import csharpIcon from '@iconify-icons/vscode-icons/file-type-csharp'
@@ -190,6 +191,7 @@ const iconContainer: OriginalIcons = {
   gatsby: iconify(gatsbyIcon),
   bootstrap: iconify(bootstrapIcon),
   netlify: iconify(netlifyIcon),
+  python: iconify(pythonIcon),
 }
 
 export const OriginalIcon = ({ icon, ...rest }: OriginalIconProps): JSX.Element => {
