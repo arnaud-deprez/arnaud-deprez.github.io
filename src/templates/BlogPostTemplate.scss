@@ -1,6 +1,7 @@
 @import '../scss/_utilities';
 
 .blog-post {
+  padding: 0;
   .blog-toc {
     padding-top: map-get($spacers, 5);
     position: -webkit-sticky;

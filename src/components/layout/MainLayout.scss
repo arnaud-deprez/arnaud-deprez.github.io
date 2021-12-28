@@ -6,7 +6,18 @@
     padding-right: 0;
   }
   .navbar-left-wrapper {
-    min-width: 15rem;
+    display: none;
+    @include media-breakpoint-up(lg) {
+      display: block;
+      min-width: 15rem;
+      width: calc(100% * 2/12);
+    }
+  }
+  .main-content-wrapper {
+    @include media-breakpoint-up(lg) {
+      max-width: calc(100% - 15rem);
+      width: calc(100% * 10/12);
+    }
   }
 }
 

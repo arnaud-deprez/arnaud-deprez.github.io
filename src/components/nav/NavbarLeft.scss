@@ -2,6 +2,11 @@
 
 #navbar-left {
   padding-top: 7.5rem;
+  display: none;
+  @include media-breakpoint-up(lg) {
+    display: flex;
+    flex-direction: column;
+  }
 
   &>div {
     flex-direction: column;

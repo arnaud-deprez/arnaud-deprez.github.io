@@ -1,6 +1,6 @@
 @import '../../scss/_utilities';
 
-.content-layout {
+.vertical-layout {
   width: 100%;
   & > header {
     position: -webkit-sticky;
@@ -10,10 +10,10 @@
   }
 }
 
-.content {
+.vertical-content {
   width: 100%;
   main,
-  .main-content {
+  .main {
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;

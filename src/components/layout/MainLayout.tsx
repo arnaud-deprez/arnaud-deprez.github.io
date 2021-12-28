@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import { NavbarLeft } from '../nav'
-import { ContentLayout, ContentLayoutProps } from './ContentLayout'
+import { ContentLayout, ContentLayoutProps } from './VerticalLayout'
 
 import './MainLayout.scss'
 import useSiteMetadata from '../../hooks/useSiteMetadata'
@@ -21,10 +21,10 @@ export const MainLayout = ({
   return (
     <Container fluid className="main-layout">
       <Row>
-        <Col lg={2} className="d-none d-lg-block navbar-left-wrapper" as="aside">
+        <Col className="navbar-left-wrapper" as="aside">
           <NavbarLeft author={siteMetadata?.author}>{renderLeftMenu()}</NavbarLeft>
         </Col>
-        <Col>
+        <Col className="main-content-wrapper">
           <ContentLayout {...{ siteMetadata, ...rest }}>{children}</ContentLayout>
         </Col>
       </Row>
