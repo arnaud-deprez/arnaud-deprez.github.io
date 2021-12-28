@@ -10,8 +10,8 @@ exports[`<Nav/> render a list of nav items 1`] = `
     >
       <a
         class="nav-link"
-        href="#"
         role="button"
+        tabindex="0"
       >
         Menu 1
       </a>
@@ -21,8 +21,8 @@ exports[`<Nav/> render a list of nav items 1`] = `
     >
       <a
         class="nav-link"
-        href="#"
         role="button"
+        tabindex="0"
       >
         Menu 2
       </a>
@@ -32,8 +32,8 @@ exports[`<Nav/> render a list of nav items 1`] = `
     >
       <a
         class="nav-link"
-        href="#"
         role="button"
+        tabindex="0"
       >
         Menu 3
       </a>
