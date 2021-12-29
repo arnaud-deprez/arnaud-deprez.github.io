@@ -1,6 +1,8 @@
 @import '../../scss/global';
 
 .main-layout {
+  $navbar-left-min-width: 15rem;
+
   & > .row > * {
     padding-left: 0;
     padding-right: 0;
@@ -9,13 +11,15 @@
     display: none;
     @include media-breakpoint-up(lg) {
       display: block;
-      width: 15rem;
-      flex: 0;
+      // implicitly = min-width: $navbar-left-min-width;
+      flex: 1 0 $navbar-left-min-width;
     }
   }
   .main-content-wrapper {
+    width: 100%;
     @include media-breakpoint-up(lg) {
-      width: calc(100% - 15rem);
+      max-width: calc(100% - $navbar-left-min-width);
+      flex: 1 1 80%;
     }
   }
 }

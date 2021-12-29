@@ -4,6 +4,7 @@ import { Navbar, Nav as BootstrapNav, Container } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Author, SocialLinksTrait } from '../metadata'
 import { useMediaLg } from '../../hooks/useMediaQueries'
+import { withClientOnlyRendering } from '../../hooks/useIsClient'
 import { Nav } from './Nav'
 import { NavSocialIcons } from './NavSocialIcons'
 
@@ -31,7 +32,7 @@ export interface NavbarHeaderProps {
   readonly author?: Author
 }
 
-export const NavbarHeader = ({
+const InternalNavbarHeader = ({
   author = {
     name: '',
     jobTitle: undefined,
@@ -61,3 +62,5 @@ export const NavbarHeader = ({
     </Navbar>
   )
 }
+
+export const NavbarHeader = withClientOnlyRendering(InternalNavbarHeader)
