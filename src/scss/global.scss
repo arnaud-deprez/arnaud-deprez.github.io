@@ -38,6 +38,12 @@ article {
   overflow-wrap: break-word;
 }
 
+.lead,
+.blockquote,
+blockquote {
+  font-size: 1.1rem;
+}
+
 img {
   width: 100%;
 }
@@ -45,28 +51,6 @@ img {
 /**
  * MDX code format
  */
-
-// blockquote
-.blockquote {
-  position: relative;
-  font-size: 1.1rem;
-  font-weight: $font-weight-light;
-  padding: 0 1.25em;
-  border-radius: $border-radius;
-  
-  b,
-  strong {
-    font-weight: 600;
-  }
-
-  p:last-of-type {
-    margin-bottom: 0;
-  }
-}
-
-blockquote {
-  @extend .blockquote;
-}
 
 // foot notes
 .footnotes {
