@@ -36,7 +36,7 @@ It also means that if `kubectl` can interact with your cluster, higher level too
 ## Kubectl
 
 The [kubectl](kubectl) command line tool lets you control Kubernetes clusters. 
-For configuration, kubectl looks by default for a file named config in the $HOME/.kube directory. 
+For configuration, kubectl looks by default for a file named config in the `$HOME/.kube` directory. 
 But you can specify other kubeconfig files by setting the `KUBECONFIG` environment variable or by setting the `--kubeconfig` flag.
 
 Assuming you have the certificate to connect to a kubernetes API located at https://foo.kubernetes.com, you can configure `kubectl` as followed:
@@ -129,13 +129,11 @@ So just pickup the one you like the most and that works on your platform!
 
 Our next tool is k9s:
 
-> **[K9s](k9s)** provides a terminal UI to interact with your Kubernetes clusters.  
-> It makes it easier to navigate, observe and manage your applications in the wild. 
-> K9s continually watches Kubernetes for changes and offers subsequent commands to interact with your observed resources.
->
-> <footer className="blockquote-footer">
->   From <a href="https://github.com/derailed/k9s/">k9s</a>
-> </footer>
+<Blockquote url="https://github.com/derailed/k9s/" author="k9s">
+  <code>k9s</code> provides a terminal UI to interact with your Kubernetes clusters.  
+  It makes it easier to navigate, observe and manage your applications in the wild. 
+  K9s continually watches Kubernetes for changes and offers subsequent commands to interact with your observed resources.
+</Blockquote>
 
 Once it it installed, just run `k9s` in your terminal, it will use the `kubeconfig` file to known on which kubernetes cluster it needs to connect. 
 Then you should land to a screen like this one:
@@ -149,13 +147,11 @@ You can also execute a command by hitting `:` followed by your command to see ot
 
 And finally you have [Octant](octant)
 
-> **[Octant](octant)** is a highly extensible platform for developers to better understand the complexity of Kubernetes clusters.
-> It aims to be part of the developer's toolkit for gaining insight and approaching complexity found in Kubernetes.  
-> Octant offers a combination of introspective tooling, cluster navigation, and object management along with a plugin system to further extend its capabilities.
-> 
-> <footer className="blockquote-footer">
->   From <a href="https://octant.dev/">Octant</a>
-> </footer>
+<Blockquote url="https://octant.dev/" author="Octant">
+  <code>Octant</code> is a highly extensible platform for developers to better understand the complexity of Kubernetes clusters.
+  It aims to be part of the developer's toolkit for gaining insight and approaching complexity found in Kubernetes.  
+  Octant offers a combination of introspective tooling, cluster navigation, and object management along with a plugin system to further extend its capabilities.
+</Blockquote>
 
 In summary, it is an extensible web application that uses your `kubeconfig` to connect and inspect the kubernetes cluster and help you to discover and understand your kubernetes cluster with currently and in my opinion, more advanced features than the [kubernetes dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/). 
 Once installed, you can just run `octant` in a terminal, it will also use the current kubeconfig file to know on which kubernetes cluster it needs to connect:

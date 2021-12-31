@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
+import { GatsbyImage, getImage, ImageDataLike } from 'gatsby-plugin-image'
 import { Card, Button } from 'react-bootstrap'
 import { PostTimeInfo } from './PostTimeInfo'
 import { Tags } from './Tags'
@@ -18,11 +18,7 @@ export interface PostNode {
     description?: string
     tags?: string[]
     image?: {
-      src: {
-        childImageSharp?: {
-          gatsbyImageData?: IGatsbyImageData
-        }
-      }
+      src: ImageDataLike
     }
   }
   timeToRead?: number
@@ -40,24 +36,25 @@ export const PostPreview = ({ post }: PostPreviewProps): JSX.Element => {
   if (!post.frontmatter?.date || !post.timeToRead) {
     throw new Error('PostPreview: cannot render post preview for without date and timeToRead')
   }
+  const image = getImage(post.frontmatter.image?.src)
   return (
     <Card className="post-preview">
       <Link to={post.fields?.slug || '#'} className="stretched-link">
         <span className="sr-only">Read</span>
       </Link>
-      {post.frontmatter?.image?.src?.childImageSharp?.gatsbyImageData && (
+      {!!image && (
         <div className="position-relative">
           <GatsbyImage
             className="post-preview-image"
             imgClassName="card-img-top"
-            image={post.frontmatter.image.src.childImageSharp.gatsbyImageData}
+            image={image}
             alt={`${post.frontmatter?.title} image`}
           />
           <Card.ImgOverlay className="post-preview-overlay text-white">
             <Card.Title className="m-0 h3" as="h2">
               {post.frontmatter.title}
             </Card.Title>
-            <Button className="ml-auto" variant="secondary" to={post.fields?.slug || '#'} as={Link}>
+            <Button className="ms-auto" variant="secondary" to={post.fields?.slug || '#'} as={Link}>
               Read
             </Button>
           </Card.ImgOverlay>

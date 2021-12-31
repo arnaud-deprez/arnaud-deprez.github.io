@@ -1,6 +1,7 @@
 import React from 'react'
 import { Pagination } from 'react-bootstrap'
 import { Link } from 'gatsby'
+import clsx from 'clsx'
 
 const pageUrl = (prefix: string, page: number): string => (page <= 1 ? prefix : `${prefix}/${page}`)
 
@@ -33,7 +34,7 @@ export const Pager = ({
   const lastVisiblePage = firstVisiblePage + visiblePages
   const show = total !== 1
   return (
-    <Pagination className={className}>
+    <Pagination className={clsx(className)}>
       {firstVisiblePage > 1 && <Pagination.First as={Link} to={pageUrl(normalizedPrefix, 1)} />}
       {page > 1 && <Pagination.Prev as={Link} to={pageUrl(normalizedPrefix, page - 1)} />}
       {show &&

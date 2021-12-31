@@ -2,10 +2,10 @@ module.exports = {
   transform: {
     '^.+\\.[jt]sx?$': `<rootDir>/jest-preprocess.js`,
   },
+  // testURL: 'http://localhost',
+  // testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.([tj]sx?)$',
+  testPathIgnorePatterns: [`node_modules`, `\\.cache`, `<rootDir>.*/public`],
   transformIgnorePatterns: [`node_modules/(?!(gatsby)/)`],
-  testURL: 'http://localhost',
-  testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.([tj]sx?)$',
-  testPathIgnorePatterns: [`node_modules`, `.cache`],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   moduleNameMapper: {
     'typeface-*': 'identity-obj-proxy',
@@ -18,6 +18,7 @@ module.exports = {
       diagnostics: true,
     },
   },
+  testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect', '<rootDir>/setup-jest.js'],
   collectCoverage: false,
   coverageReporters: ['lcov', 'text', 'html'],

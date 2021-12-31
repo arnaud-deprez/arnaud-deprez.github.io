@@ -1,16 +1,12 @@
 import React from 'react'
-import {
-  Nav as BootstrapNav,
-  NavProps as BootstrapNavProps,
-  NavItemProps as BootstrapNavItemProps,
-} from 'react-bootstrap'
+import { Nav as BootstrapNav, NavProps as BootstrapNavProps } from 'react-bootstrap'
 
 export type RenderChild = (from: React.ReactNode, index?: number) => React.ReactNode
 
 const renderNavItem = <As extends React.ElementType>({
   as = 'li',
   ...rest
-}: BootstrapNavItemProps & React.ComponentPropsWithoutRef<As>): RenderChild => {
+}: React.ComponentPropsWithoutRef<As>): RenderChild => {
   const renderItem = (children: React.ReactNode | React.ReactNode[], idx: number) => (
     <BootstrapNav.Item key={idx} as={as} {...rest}>
       {children}

@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { Navbar, Nav as BootstrapNav } from 'react-bootstrap'
+import { Navbar, Nav as BootstrapNav, Container } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Author, SocialLinksTrait } from '../metadata'
+import { useMediaLg } from '../../hooks/useMediaQueries'
+import { withClientOnlyRendering } from '../../hooks/useIsClient'
 import { Nav } from './Nav'
 import { NavSocialIcons } from './NavSocialIcons'
 
@@ -30,7 +32,7 @@ export interface NavbarHeaderProps {
   readonly author?: Author
 }
 
-export const NavbarHeader = ({
+const InternalNavbarHeader = ({
   author = {
     name: '',
     jobTitle: undefined,
@@ -41,17 +43,24 @@ export const NavbarHeader = ({
   },
 }: NavbarHeaderProps): JSX.Element => {
   const { name, ...rest } = author
+  const isLg = useMediaLg()
+  const bg = isLg ? undefined : 'primary'
+  const variant = isLg ? 'light' : 'dark'
   return (
-    <Navbar id="navbar-header" expand="lg" as="nav">
-      <Navbar.Brand className="d-lg-none" to="/" as={Link}>
-        {name}
-      </Navbar.Brand>
-      <Navbar.Toggle aria-controls="navbar-header-menu" className="btn btn-primary">
-        <FontAwesomeIcon icon="bars" />
-      </Navbar.Toggle>
-      <Navbar.Collapse id="navbar-header-menu" className="justify-content-end">
-        <NavHeader rss={true} {...rest} />
-      </Navbar.Collapse>
+    <Navbar id="navbar-header" expand="lg" as="nav" bg={bg} variant={variant}>
+      <Container fluid>
+        <Navbar.Brand className="d-lg-none" to="/" as={Link}>
+          {name}
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbar-header-menu" className="btn btn-primary">
+          <FontAwesomeIcon icon="bars" />
+        </Navbar.Toggle>
+        <Navbar.Collapse id="navbar-header-menu" className="justify-content-end">
+          <NavHeader rss={true} {...rest} />
+        </Navbar.Collapse>
+      </Container>
     </Navbar>
   )
 }
+
+export const NavbarHeader = withClientOnlyRendering(InternalNavbarHeader)

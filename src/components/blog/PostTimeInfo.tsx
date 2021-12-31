@@ -1,5 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import clsx from 'clsx'
 
 import './PostTimeInfo.scss'
 
@@ -15,8 +16,8 @@ export const PostTimeInfo = ({
   timeToRead,
   className = '',
 }: PostTimeInfoProps): JSX.Element => (
-  <div className={`post-time-info ${className}`.trim()}>
-    <FontAwesomeIcon icon="calendar-alt" className="text-warning text-2x mr-3" />
+  <div className={clsx('post-time-info', className)}>
+    <FontAwesomeIcon icon="calendar-alt" className="text-warning text-2x me-3" />
     <div>
       <p className="mb-0 font-weight-bolder">
         Last update on <time dateTime={date}>{dateString || date}</time>

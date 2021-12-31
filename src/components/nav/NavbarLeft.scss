@@ -1,21 +1,29 @@
-@import '../../scss/_global';
+@import '../../scss/_utilities';
 
 #navbar-left {
   padding-top: 7.5rem;
+  display: none;
+  @include media-breakpoint-up(lg) {
+    display: flex;
+    flex-direction: column;
+  }
 
-  .navbar-brand {
-    margin-right: 0;
-    
-    .photo-card .card-img {
-      border: 0.5rem solid scale-color($white, $alpha: -80%);
+  &>div {
+    flex-direction: column;
+    .navbar-brand {
+      margin-right: 0;
+      
+      .photo-card .card-img {
+        border: 0.5rem solid scale-color($white, $alpha: -80%);
+      }
     }
-  }
 
-  .social-icons {
-    font-size: 1.25rem;
-  }
+    .social-icons {
+      font-size: 1.25rem;
+    }
 
-  a {
-    cursor: pointer;
+    a {
+      cursor: pointer;
+    }
   }
 }

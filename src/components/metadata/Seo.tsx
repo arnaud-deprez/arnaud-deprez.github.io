@@ -1,9 +1,9 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import { Location, WindowLocation } from '@reach/router'
+import { WindowLocation, useLocation } from '@reach/router'
 import { SiteMetadata } from './SiteInformation'
 import { SchemaOrg } from './SchemaOrg'
-import useSiteMetadata from '../../hooks/UseSiteMetadata'
+import useSiteMetadata from '../../hooks/useSiteMetadata'
 
 type MetaProps = JSX.IntrinsicElements['meta']
 
@@ -54,6 +54,7 @@ export const Seo = React.memo(
     datePublished,
     siteMetadata: siteMetadataArg,
   }: SeoProps): JSX.Element => {
+    const location = useLocation()
     const siteMetadata = siteMetadataArg || useSiteMetadata()
     const metaTitle = title || siteMetadata?.title
     const metaDescription = description || siteMetadata?.description
@@ -84,40 +85,36 @@ export const Seo = React.memo(
       ...meta,
     ]
     return (
-      <Location>
-        {({ location }) => (
-          <>
-            <Helmet
-              htmlAttributes={{
-                lang,
-              }}
-              titleTemplate={titleTemplate || `%s | ${siteMetadata?.author?.name}`}
-              title={title}
-              defaultTitle={siteMetadata?.title}
-              meta={[
-                {
-                  property: `og:url`,
-                  content: location.href,
-                },
-                {
-                  property: 'og:image',
-                  content: imageUrl(image, location),
-                },
-                ...concatenatedMeta,
-              ]}
-            />
-            <SchemaOrg
-              url={location.href}
-              isBlogPost={isBlogPost}
-              title={metaTitle}
-              description={metaDescription}
-              image={imageUrl(image, location)}
-              datePublished={datePublished}
-              siteMetadata={siteMetadata}
-            />
-          </>
-        )}
-      </Location>
+      <>
+        <Helmet
+          htmlAttributes={{
+            lang,
+          }}
+          titleTemplate={titleTemplate || `%s | ${siteMetadata?.author?.name}`}
+          title={title}
+          defaultTitle={siteMetadata?.title}
+          meta={[
+            {
+              property: `og:url`,
+              content: location.href,
+            },
+            {
+              property: 'og:image',
+              content: imageUrl(image, location),
+            },
+            ...concatenatedMeta,
+          ]}
+        />
+        <SchemaOrg
+          url={location.href}
+          isBlogPost={isBlogPost}
+          title={metaTitle}
+          description={metaDescription}
+          image={imageUrl(image, location)}
+          datePublished={datePublished}
+          siteMetadata={siteMetadata}
+        />
+      </>
     )
   }
 )

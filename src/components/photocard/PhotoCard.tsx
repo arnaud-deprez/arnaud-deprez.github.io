@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
 import { StaticImage } from 'gatsby-plugin-image'
+import clsx from 'clsx'
 
 import './PhotoCard.scss'
 
@@ -11,7 +12,7 @@ export interface PhotoCardProps extends React.ComponentPropsWithoutRef<'div'> {
 }
 
 export const PhotoCard = ({ name, jobTitle, className, ...rest }: PhotoCardProps): JSX.Element => (
-  <Card className={`photo-card ${className || ''}`.trim()} {...rest}>
+  <Card className={clsx('photo-card', className)} {...rest}>
     <StaticImage
       src="../../images/profile.png"
       alt="profile"

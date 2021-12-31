@@ -1,2 +1,2 @@
-export * from './ContentLayout'
+export * from './VerticalLayout'
 export * from './MainLayout'

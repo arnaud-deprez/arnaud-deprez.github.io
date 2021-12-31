@@ -1,4 +1,4 @@
-@import "../../scss/_global";
+@import '../../scss/_utilities';
 
 .post-preview {
   margin: .5rem 0;
@@ -17,6 +17,13 @@
 
     .btn {
       z-index: $stretched-link-z-index + 1;
+      color: $white;
+
+      &:hover,
+      &:focus {
+        background-color: $cyan-600 !important;
+        border-color: $cyan-600 !important;
+      }
     }
   }
 

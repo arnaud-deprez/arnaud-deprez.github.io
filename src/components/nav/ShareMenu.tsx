@@ -6,6 +6,7 @@ import {
   RedditShareButton,
   FacebookShareButton,
 } from 'react-share'
+import clsx from 'clsx'
 
 import { Nav } from './Nav'
 
@@ -27,7 +28,7 @@ export const ShareMenu = ({
   buttonClassName = 'btn-bg-dark',
   ...rest
 }: ShareMenuProps): JSX.Element => {
-  const btnClassName = `icon-round-wrapper btn ${buttonClassName}`.trim()
+  const btnClassName = clsx('icon-round-wrapper', 'btn', buttonClassName)
   return (
     <Nav {...rest} className="share-menu" as="ul">
       <TwitterShareButton

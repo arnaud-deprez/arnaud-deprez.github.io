@@ -1,4 +1,5 @@
-/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable no-undef */
 const gatsbyRemarkPlugins = [
   {
     resolve: `gatsby-remark-table-of-contents`,
@@ -26,7 +27,7 @@ const gatsbyRemarkPlugins = [
   'gatsby-remark-code-titles',
   'gatsby-remark-sub-sup',
   'gatsby-remark-numbered-footnotes',
-  {
+  /* {
     resolve: `gatsby-remark-vscode`,
     // All options are optional. Defaults shown here.
     options: {
@@ -40,7 +41,7 @@ const gatsbyRemarkPlugins = [
       replaceColor: (x) => x, // Function allowing replacement of a theme color with another. Useful for replacing hex colors with CSS variables.
       logLevel: 'warn', // Set to 'info' to debug if something looks wrong
     },
-  },
+  }, */
   {
     resolve: 'gatsby-remark-images',
     options: {
@@ -80,11 +81,6 @@ const description =
   'Technical Blog of Arnaud Deprez, a Technical Architect consultant and owner of Powple who shares his experience about technical stuff'
 
 module.exports = {
-  flags: {
-    // FAST_DEV: true,
-    PRESERVE_WEBPACK_CACHE: true,
-    // FAST_REFRESH: true,
-  },
   siteMetadata: {
     title,
     description,
@@ -103,7 +99,6 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-remove-console',
-    'gatsby-plugin-loadable-components-ssr',
     {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {
@@ -122,9 +117,15 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sass`,
       options: {
-        // TODO: remove when upgrading to version 3.0.0. See https://github.com/gatsbyjs/gatsby/pull/27991
-        // eslint-disable-next-line no-undef
-        implementation: require('sass'),
+        cssLoaderOptions: {
+          esModule: false,
+          modules: {
+            namedExport: false,
+          },
+          sassOptions: {
+            precision: 6,
+          },
+        },
       },
     },
     'gatsby-plugin-react-helmet',
@@ -158,7 +159,24 @@ module.exports = {
         extensions: ['.md', '.mdx'],
         gatsbyRemarkPlugins,
         // eslint-disable-next-line no-undef
-        remarkPlugins: [require('remark-emoji'), [require('remark-abbr'), { expandFirst: true }]],
+        // TODO: remarkPlugins: [remarkEmoji, [require('remark-abbr'), { expandFirst: true }]],
+        remarkPlugins: [
+          [
+            // TODO: change when this https://github.com/andrewbranch/gatsby-remark-vscode/issues/174 is fixed
+            require('gatsby-remark-vscode').remarkPlugin,
+            {
+              theme: 'Dark+ (default dark)', // Read on for list of included themes. Also accepts object and function forms.
+              wrapperClassName: '', // Additional class put on 'pre' tag. Also accepts function to set the class dynamically.
+              injectStyles: true, // Injects (minimal) additional CSS for layout and scrolling
+              extensions: ['toml'], // Third-party extensions providing additional themes and languages
+              languageAliases: {
+                markup: 'sh',
+              }, // Map of custom/unknown language codes to standard/known language codes
+              logLevel: 'warn', // Set to 'info' to debug if something looks wrong
+            },
+          ],
+          [require('remark-abbr'), { expandFirst: true }],
+        ],
       },
     },
     // {
@@ -194,7 +212,7 @@ module.exports = {
     //   }
     // },
     {
-      resolve: 'gatsby-plugin-feed-mdx',
+      resolve: 'gatsby-plugin-feed',
       options: {
         feeds: [
           {
@@ -260,7 +278,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sitemap',
       options: {
-        exclude: ['/contact/thanks', '/blog/tags/*'],
+        excludes: ['/contact/thanks', '/blog/tags/*'],
       },
     },
     {

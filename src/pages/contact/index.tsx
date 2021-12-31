@@ -32,7 +32,7 @@ const ContactPage = ({ data }: ContactPageProps): JSX.Element => {
             linkedin={author?.linkedin}
             twitter={author?.twitter}
             className="h4 mb-5"
-            linkClassName="icon-round-wrapper btn btn-bg-dark mr-2"
+            linkClassName="icon-round-wrapper btn btn-bg-dark me-2"
           >
             <BootstrapNav.Link
               href={`mailto:${author?.email}`}

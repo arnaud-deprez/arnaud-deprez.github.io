@@ -1,12 +1,26 @@
-@import '../../scss/global';
+@import '../../scss/_utilities';
 
 .main-layout {
+  $navbar-left-min-width: 15rem;
+
   & > .row > * {
     padding-left: 0;
     padding-right: 0;
   }
   .navbar-left-wrapper {
-    min-width: 15rem;
+    display: none;
+    @include media-breakpoint-up(lg) {
+      display: block;
+      // implicitly = min-width: $navbar-left-min-width;
+      flex: 1 0 $navbar-left-min-width;
+    }
+  }
+  .main-content-wrapper {
+    width: 100%;
+    @include media-breakpoint-up(lg) {
+      max-width: calc(100% - $navbar-left-min-width);
+      flex: 1 1 80%;
+    }
   }
 }
 

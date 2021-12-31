@@ -1,3 +1,5 @@
+@import '../../scss/_utilities';
+
 .tags {
   display: flex;
   flex-flow: row wrap;
@@ -7,5 +9,12 @@
     min-width: 48px;
     margin: .25rem;
     padding: 5px;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      background-color: $cyan-600 !important;
+      color: $white;
+    }
   }
 }

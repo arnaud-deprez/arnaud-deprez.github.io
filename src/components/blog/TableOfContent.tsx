@@ -2,6 +2,7 @@ import React from 'react'
 import { Nav as BootstrapNav } from 'react-bootstrap'
 import { kebabCase } from 'lodash'
 import { Link as ScrollSpyLink } from 'react-scroll'
+import clsx from 'clsx'
 
 import './TableOfContent.scss'
 
@@ -19,7 +20,7 @@ const TocLevel = ({
   <BootstrapNav className="blog-toc-level" {...rest} as="ul">
     {items.map((item) => (
       <React.Fragment key={kebabCase(item.url.substring(1))}>
-        <BootstrapNav.Item className={`blog-toc-entry toc-h${startLevel}`} as="li">
+        <BootstrapNav.Item className={clsx('blog-toc-entry', `toc-h${startLevel}`)} as="li">
           <BootstrapNav.Link
             className="p-0 mb-2"
             activeClass="active"

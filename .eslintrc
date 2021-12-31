@@ -24,7 +24,8 @@
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": "error",
     "no-useless-constructor": "off",
-    "react/prop-types": "off"
+    "react/prop-types": "off",
+    "react/display-name": "off"
   },
   "overrides": [
     {

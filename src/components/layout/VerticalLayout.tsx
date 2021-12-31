@@ -3,7 +3,7 @@ import { SiteMetadata } from '../metadata'
 import { Header } from './Header'
 import { Footer } from './Footer'
 
-import './ContentLayout.scss'
+import './VerticalLayout.scss'
 
 export interface ContentLayoutProps {
   readonly siteMetadata?: SiteMetadata
@@ -11,9 +11,9 @@ export interface ContentLayoutProps {
 }
 
 export const ContentLayout = ({ siteMetadata, children }: ContentLayoutProps): JSX.Element => (
-  <div className="content-layout">
+  <div className="vertical-layout">
     {siteMetadata?.author && <Header author={siteMetadata.author} />}
-    <div className="content">{children}</div>
+    <div className="vertical-content">{children}</div>
     <Footer copyright={siteMetadata?.copyright} />
   </div>
 )

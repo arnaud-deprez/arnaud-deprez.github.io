@@ -1,14 +1,26 @@
-@import '../../../scss/global';
+@import '../../../scss/_utilities';
 
 .resume {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   margin-bottom: 2rem;
+
+  & > div.container-fluid {
+    @include media-breakpoint-down(xl) {
+      padding: 0;
+    }
+  }
 }
 
 #about-section {
   & > .card-group {
     margin: 0 -1rem;
+  }
+
+  .hero {
+    @include media-breakpoint-down(sm) {
+      padding: 0 .75rem;
+    }
   }
 }

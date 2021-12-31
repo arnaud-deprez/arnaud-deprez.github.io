@@ -17,4 +17,5 @@ const babelOptions = {
     '@babel/plugin-proposal-optional-chaining',
   ],
 }
-module.exports = require('babel-jest').createTransformer(babelOptions)
+// temporary workaround: https://github.com/facebook/jest/issues/11444
+module.exports = require('babel-jest').default.createTransformer(babelOptions)
