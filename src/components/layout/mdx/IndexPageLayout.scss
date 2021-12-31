@@ -17,4 +17,10 @@
   & > .card-group {
     margin: 0 -1rem;
   }
+
+  .hero {
+    @include media-breakpoint-down(sm) {
+      padding: 0 .75rem;
+    }
+  }
 }

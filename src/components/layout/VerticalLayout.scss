@@ -1,4 +1,4 @@
-@import '../../scss/_utilities';
+@import '../../scss/global';
 
 .vertical-layout {
   width: 100%;
@@ -22,7 +22,10 @@
     padding: map-get($spacers, 5) calc(map-get($spacers, 5) / 2);
     margin-bottom: map-get($spacers, 5);
 
-    @include media-breakpoint-down(xl) {
+    @include media-breakpoint-down(sm) {
+      padding: map-get($spacers, 3);
+    }
+    @include media-breakpoint-up(sm) {
       padding: map-get($spacers, 4);
     }
     @include media-breakpoint-up(xl) {

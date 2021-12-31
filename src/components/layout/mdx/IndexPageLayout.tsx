@@ -57,7 +57,7 @@ const AboutSection = (props: AboutSectionProps) => (
       ))}
     </CardGroup>
 
-    <blockquote className="container lead mb-4">
+    <blockquote className="container lead mb-4 hero">
       <p className="text-justify">
         <span className="text-secondary h4 me-3">
           <FontAwesomeIcon icon="quote-left" />

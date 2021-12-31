@@ -13,16 +13,3 @@
 @each $size, $val in (xs: 0.75, sm: 0.875, lg: 1.33, xl: 1.5, 2x: 2, 3x: 3, 4x: 4, 5x: 5) {
   .text-#{$size} { font-size: #{$val}em !important; }
 }
-
-.btn-bg-dark {
-  @include button-variant(
-    $background: $gray-700, 
-    $border: $gray-700,
-    $hover-background: $primary, 
-    $hover-border: $primary, 
-    $hover-color: $gray-100,
-    $active-background: $primary, 
-    $active-border: $primary,
-    $active-color: $gray-100
-  )
-}

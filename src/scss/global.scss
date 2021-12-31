@@ -48,6 +48,35 @@ img {
   width: 100%;
 }
 
+// override btn-primary to behaves like a dark button
+.btn-primary {
+  @include button-variant(
+    $background: $primary,
+    $color: $white,
+    $border: $primary,
+    $hover-background: $orange-600, 
+    $hover-border: $orange-600, 
+    $hover-color: $gray-100,
+    $active-background: $orange-600, 
+    $active-border: $orange-600, 
+    $active-color: $gray-100
+  )
+}
+
+// add a bg-dark-button
+.btn-bg-dark {
+  @include button-variant(
+    $background: $gray-800, 
+    $border: $gray-800,
+    $hover-background: $primary, 
+    $hover-border: $primary, 
+    $hover-color: $gray-100,
+    $active-background: $primary, 
+    $active-border: $primary,
+    $active-color: $gray-100
+  )
+}
+
 /**
  * MDX code format
  */
