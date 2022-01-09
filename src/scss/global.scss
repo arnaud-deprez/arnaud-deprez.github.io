@@ -148,3 +148,19 @@ pre.grvsc-container {
     padding: .25em 0;
   }
 }
+
+/**
+ * extra utilities classes
+ **/
+//container size
+@each $prop, $abbrev in (width: w, height: h) {
+  @each $size, $length in $vh-sizes {
+    .min-#{$abbrev}-#{$size} { min-#{$prop}: $length !important; }
+    .max-#{$abbrev}-#{$size} { max-#{$prop}: $length !important; }
+  }
+}
+
+// text
+@each $size, $val in (xs: 0.75, sm: 0.875, lg: 1.33, xl: 1.5, 2x: 2, 3x: 3, 4x: 4, 5x: 5) {
+  .text-#{$size} { font-size: #{$val}em !important; }
+}
