@@ -1,0 +1,51 @@
+@import "../../../scss/_utilities";
+
+.tip {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  // padding: 1rem 0 1rem 1rem;
+  padding-left: 1.25rem;
+  margin: 1rem 0;
+  position: relative;
+
+  & > .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  & > .tip-box {
+    flex: auto;
+    padding: 1rem 1rem 1rem 2rem;
+  }
+}
+
+$tip-types: (
+  note: $blue,
+  tip: $green,
+  caution: $yellow,
+  warning: #fd7e14,
+  danger: $red
+);
+
+@each $tip, $color in $tip-types {
+  .tip-#{$tip} {
+    & > .icon {
+      color: $white;
+      background-color: $color;
+    }
+    & > .tip-box {
+      color: shade-color($color, 60%); // = $color-800
+      background-color: tint-color($color, 80%); // = $color-100
+    }
+  }
+}
