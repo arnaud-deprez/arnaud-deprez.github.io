@@ -42,7 +42,6 @@
     "gatsby-remark-autolink-headers": "5.4.0",
     "gatsby-remark-code-titles": "1.1.0",
     "gatsby-remark-copy-linked-files": "5.4.0",
-    "gatsby-remark-emoji": "0.0.3",
     "gatsby-remark-images": "6.4.0",
     "gatsby-remark-numbered-footnotes": "1.0.1",
     "gatsby-remark-smartypants": "5.4.0",
@@ -64,7 +63,7 @@
     "react-share": "4.4.0",
     "regenerator-runtime": "0.13.9",
     "remark-abbr": "1.4.1",
-    "remark-emoji": "3.0.2",
+    "remark-emoji": "2.2.0",
     "toml": "github:GalAster/vscode-toml",
     "yup": "0.32.11"
   },
@@ -108,6 +107,7 @@
     "react-test-renderer": "17.0.2",
     "sass": "^1.45.2",
     "ts-jest": "27.1.2",
+    "ts-node": "^10.4.0",
     "typescript": "4.5.4"
   },
   "keywords": [

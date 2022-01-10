@@ -1,4 +1,9 @@
-module.exports = {
+// We register the TypeScript evaluator in jest.config.ts so we don't need to do
+// it in any other .js file. It automatically reads TypeScript config from
+// tsconfig.json.
+require('ts-node').register()
+
+export default {
   transform: {
     '^.+\\.[jt]sx?$': `<rootDir>/jest-preprocess.js`,
   },
@@ -19,7 +24,7 @@ module.exports = {
     },
   },
   testEnvironment: 'jsdom',
-  setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect', '<rootDir>/setup-jest.js'],
+  setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect', '<rootDir>/setup-jest.ts'],
   collectCoverage: false,
   coverageReporters: ['lcov', 'text', 'html'],
 }
