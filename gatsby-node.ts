@@ -3,13 +3,18 @@
  * Implement Gatsby's Node APIs in this file.
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
+ *
+ * Because we used ts-node in gatsby-config.js, this file will automatically be
+ * imported by Gatsby instead of gatsby-node.js.
  */
 
-const path = require('path')
-const { kebabCase } = require('lodash')
-const { createFilePath } = require(`gatsby-source-filesystem`)
+import * as path from 'path'
+import { kebabCase } from 'lodash'
+import { createFilePath } from 'gatsby-source-filesystem'
+// Use the type definitions that are included with Gatsby.
+import { GatsbyNode } from 'gatsby'
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
+export const onCreateNode: GatsbyNode['onCreateNode'] = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === 'MarkdownRemark' || node.internal.type === 'Mdx') {
     const slug = createFilePath({ node, getNode })
@@ -30,7 +35,7 @@ const groupCountBy = (field, edges) => {
     return acc
   }, {})
 
-  return Object.entries(groupCounts)
+  return Object.entries<number>(groupCounts)
 }
 
 const createPaginatedPages = ({
@@ -133,6 +138,6 @@ const createBlogPages = async ({ actions, graphql, reporter }) => {
   })
 }
 
-exports.createPages = async (gatsby) => {
+export const createPages: GatsbyNode['createPages'] = async (gatsby) => {
   await createBlogPages(gatsby)
 }

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   transform: {
     '^.+\\.[jt]sx?$': `<rootDir>/jest-preprocess.js`,
   },
@@ -19,7 +19,7 @@ module.exports = {
     },
   },
   testEnvironment: 'jsdom',
-  setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect', '<rootDir>/setup-jest.js'],
+  setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect', '<rootDir>/setup-jest.ts'],
   collectCoverage: false,
   coverageReporters: ['lcov', 'text', 'html'],
 }

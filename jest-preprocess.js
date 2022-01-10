@@ -1,3 +1,5 @@
+// import babelJest from 'babel-jest'
+
 const babelOptions = {
   presets: [
     [
@@ -19,3 +21,4 @@ const babelOptions = {
 }
 // temporary workaround: https://github.com/facebook/jest/issues/11444
 module.exports = require('babel-jest').default.createTransformer(babelOptions)
+// export default babelJest.createTransformer(babelOptions)
