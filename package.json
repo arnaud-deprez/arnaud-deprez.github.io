@@ -61,7 +61,6 @@
     "react-responsive": "^9.0.0-beta.5",
     "react-scroll": "1.8.4",
     "react-share": "4.4.0",
-    "regenerator-runtime": "0.13.9",
     "remark-abbr": "1.4.1",
     "remark-emoji": "2.2.0",
     "toml": "github:GalAster/vscode-toml",
@@ -118,7 +117,6 @@
   "license": "MIT",
   "scripts": {
     "clean": "gatsby clean",
-    "preinstall": "npx npm-force-resolutions",
     "build": "npm run clean && gatsby build",
     "start": "npm run clean && gatsby develop -H 0.0.0.0",
     "format": "prettier --write '{__mocks__,src,test}/**/*.{ts,tsx}' '*.js'",
@@ -142,5 +140,8 @@
     "*.{js,json}": [
       "prettier --write"
     ]
+  },
+  "engines": {
+    "node": "16"
   }
 }
