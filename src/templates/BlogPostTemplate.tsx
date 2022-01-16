@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { MainLayout as Layout } from '../components/layout'
 import { Nav } from '../components/nav'
 import { Seo } from '../components/metadata'
-import { PostMDXProvider, TableOfContent, PostCard } from '../components/blog'
+import { TableOfContent, PostCard } from '../components/blog'
 
 import './BlogPostTemplate.scss'
 
@@ -41,29 +41,25 @@ const BlogPostPage = ({ pageContext, data }: BlogPostPageProps): JSX.Element => 
   const description = post?.frontmatter?.description || post?.excerpt
 
   return (
-    <PostMDXProvider>
-      <Layout renderLeftMenu={renderLeftMenu(data)}>
-        <Seo
-          isBlogPost
-          title={title}
-          description={description}
-          image={post?.frontmatter?.image?.src?.childImageSharp?.gatsbyImageData?.src}
-          datePublished={post?.frontmatter?.date}
-        />
-        <Container className="blog-post" fluid>
-          <Row>
-            <Col className="d-none d-xl-flex" xl={{ span: 3, order: 1 }} as="aside">
-              {post?.tableOfContents?.items && (
-                <TableOfContent items={post.tableOfContents?.items} />
-              )}
-            </Col>
-            <Col>
-              <PostCard {...{ ...data, slug }} as="main" />
-            </Col>
-          </Row>
-        </Container>
-      </Layout>
-    </PostMDXProvider>
+    <Layout renderLeftMenu={renderLeftMenu(data)}>
+      <Seo
+        isBlogPost
+        title={title}
+        description={description}
+        image={post?.frontmatter?.image?.src?.childImageSharp?.gatsbyImageData?.src}
+        datePublished={post?.frontmatter?.date}
+      />
+      <Container className="blog-post" fluid>
+        <Row>
+          <Col className="d-none d-xl-flex" xl={{ span: 3, order: 1 }} as="aside">
+            {post?.tableOfContents?.items && <TableOfContent items={post.tableOfContents?.items} />}
+          </Col>
+          <Col>
+            <PostCard {...{ ...data, slug }} as="main" />
+          </Col>
+        </Row>
+      </Container>
+    </Layout>
   )
 }
 

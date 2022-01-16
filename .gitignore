@@ -5,7 +5,7 @@ node_modules/
 yarn-error.log
 
 *.log
-.vscode
+.vscode/settings.json
 *.DS_Store
 
 # Build directory
