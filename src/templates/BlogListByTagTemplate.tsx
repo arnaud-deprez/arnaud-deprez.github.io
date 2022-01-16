@@ -1,9 +1,10 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import { Container } from 'react-bootstrap'
 import { MainLayout as Layout } from '../components/layout'
 import { Seo } from '../components/metadata'
 import { Pager } from '../components/nav'
+import Link from '../components/link/Link'
 import { PostList, PostNode } from '../components/blog'
 import { PaginatedPageContext } from '../types'
 
@@ -28,7 +29,7 @@ const BlogListByTagPage = ({ pageContext, data }: BlogListPageProps): JSX.Elemen
       <main>
         <Container className="d-flex flex-column">
           <h1 className="mb-5">
-            Blog posts with tag <Link to={`blog/tags/${tag}/`}>{tag}</Link>
+            Blog posts with tag <Link href={`blog/tags/${tag}/`}>{tag}</Link>
           </h1>
           <PostList posts={nodes as PostNode[]} />
           <Pager {...{ prefix, page, total }} className="align-self-center" />

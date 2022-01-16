@@ -1,12 +1,15 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { render } from '../../../__testutils__/test-utils'
 import { useStaticQuery } from 'gatsby'
 import { Nav as BootstrapNav } from 'react-bootstrap'
 import { NavbarLeft, Nav } from '..'
+import { mocked } from 'jest-mock'
+
+const useStaticQueryMocked = mocked(useStaticQuery, true)
 
 describe('<NavbarLeft/>', () => {
   beforeAll(() => {
-    useStaticQuery.mockReturnValue({
+    useStaticQueryMocked.mockReturnValue({
       file: {
         childImageSharp: {
           resize: {

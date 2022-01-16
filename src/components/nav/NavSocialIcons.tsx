@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import Link from '../link/Link'
 import { Nav as BootstrapNav } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import clsx from 'clsx'
@@ -33,6 +33,7 @@ export const NavSocialIcons = ({
         target="_blank"
         rel="noopener noreferrer"
         className={linkClassName}
+        as={Link}
       >
         <FontAwesomeIcon
           icon={['fab', 'linkedin-in']}
@@ -47,6 +48,7 @@ export const NavSocialIcons = ({
         target="_blank"
         rel="noopener noreferrer"
         className={linkClassName}
+        as={Link}
       >
         <FontAwesomeIcon
           icon={['fab', 'github']}
@@ -61,6 +63,7 @@ export const NavSocialIcons = ({
         target="_blank"
         rel="noopener noreferrer"
         className={linkClassName}
+        as={Link}
       >
         <FontAwesomeIcon
           icon={['fab', 'twitter']}
@@ -70,7 +73,7 @@ export const NavSocialIcons = ({
     )}
     {rss && (
       <BootstrapNav.Link
-        to="/rss.xml"
+        href="/rss.xml"
         aria-label="Rss"
         target="_blank"
         rel="noopener noreferrer"
