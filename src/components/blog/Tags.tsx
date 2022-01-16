@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import Link from '../link/Link'
 import { Badge, BadgeProps } from 'react-bootstrap'
 import { kebabCase } from 'lodash'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -11,7 +11,7 @@ interface TagProps extends BadgeProps {
 }
 
 const Tag = ({ value, bg = 'secondary', ...rest }: TagProps) => (
-  <Badge {...{ bg, to: `/blog/tags/${kebabCase(value)}/`, className: 'tag', ...rest }} as={Link}>
+  <Badge {...{ bg, href: `/blog/tags/${kebabCase(value)}/`, className: 'tag', ...rest }} as={Link}>
     <FontAwesomeIcon icon="tag" className="me-1" />
     {value}
   </Badge>

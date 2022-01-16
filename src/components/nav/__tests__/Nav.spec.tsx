@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { render } from '../../../__testutils__/test-utils'
 import { Nav as BootstrapNav } from 'react-bootstrap'
 import { Nav } from '..'
 

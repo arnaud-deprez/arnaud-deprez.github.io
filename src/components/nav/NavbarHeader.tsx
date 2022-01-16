@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import Link from '../link/Link'
 import { Navbar, Nav as BootstrapNav, Container } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Author, SocialLinksTrait } from '../metadata'
@@ -13,13 +13,13 @@ import './NavbarHeader.scss'
 const NavHeader = (props: SocialLinksTrait) => (
   <>
     <Nav role="navigation">
-      <BootstrapNav.Link to="/" as={Link}>
+      <BootstrapNav.Link href="/" as={Link}>
         <FontAwesomeIcon icon="user" className="mx-1" /> About
       </BootstrapNav.Link>
-      <BootstrapNav.Link to="/blog/" as={Link}>
+      <BootstrapNav.Link href="/blog/" as={Link}>
         <FontAwesomeIcon icon="blog" className="mx-1" /> Blog
       </BootstrapNav.Link>
-      <BootstrapNav.Link to="/contact/" as={Link}>
+      <BootstrapNav.Link href="/contact/" as={Link}>
         <FontAwesomeIcon icon="envelope" className="mx-1" /> Contact
       </BootstrapNav.Link>
     </Nav>
@@ -49,7 +49,7 @@ const InternalNavbarHeader = ({
   return (
     <Navbar id="navbar-header" expand="lg" as="nav" bg={bg} variant={variant}>
       <Container fluid>
-        <Navbar.Brand className="d-lg-none" to="/" as={Link}>
+        <Navbar.Brand className="d-lg-none" href="/" as={Link}>
           {name}
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbar-header-menu" className="btn btn-primary">

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import Link from '../link/Link'
 import { GatsbyImage, getImage, ImageDataLike } from 'gatsby-plugin-image'
 import { Card, Button } from 'react-bootstrap'
 import { PostTimeInfo } from './PostTimeInfo'
@@ -39,7 +39,7 @@ export const PostPreview = ({ post }: PostPreviewProps): JSX.Element => {
   const image = getImage(post.frontmatter.image?.src)
   return (
     <Card className="post-preview">
-      <Link to={post.fields?.slug || '#'} className="stretched-link">
+      <Link href={post.fields?.slug || '#'} className="stretched-link">
         <span className="sr-only">Read</span>
       </Link>
       {!!image && (
@@ -54,7 +54,12 @@ export const PostPreview = ({ post }: PostPreviewProps): JSX.Element => {
             <Card.Title className="m-0 h3" as="h2">
               {post.frontmatter.title}
             </Card.Title>
-            <Button className="ms-auto" variant="secondary" to={post.fields?.slug || '#'} as={Link}>
+            <Button
+              className="ms-auto"
+              variant="secondary"
+              href={post.fields?.slug || '#'}
+              as={Link}
+            >
               Read
             </Button>
           </Card.ImgOverlay>

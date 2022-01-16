@@ -17,10 +17,9 @@ exports[`<Pager /> should not render next and last button on last page 1`] = `
       class="page-item"
     >
       <a
+        as="[object Object]"
         class="page-link"
-        role="button"
-        tabindex="0"
-        to="/test"
+        href="/test"
       >
         <span
           aria-hidden="true"
@@ -38,10 +37,9 @@ exports[`<Pager /> should not render next and last button on last page 1`] = `
       class="page-item"
     >
       <a
+        as="[object Object]"
         class="page-link"
-        role="button"
-        tabindex="0"
-        to="/test/9"
+        href="/test/9"
       >
         <span
           aria-hidden="true"
@@ -59,10 +57,9 @@ exports[`<Pager /> should not render next and last button on last page 1`] = `
       class="page-item"
     >
       <a
+        as="[object Object]"
         class="page-link"
-        role="button"
-        tabindex="0"
-        to="/test/6"
+        href="/test/6"
       >
         6
       </a>
@@ -71,10 +68,9 @@ exports[`<Pager /> should not render next and last button on last page 1`] = `
       class="page-item"
     >
       <a
+        as="[object Object]"
         class="page-link"
-        role="button"
-        tabindex="0"
-        to="/test/7"
+        href="/test/7"
       >
         7
       </a>
@@ -83,10 +79,9 @@ exports[`<Pager /> should not render next and last button on last page 1`] = `
       class="page-item"
     >
       <a
+        as="[object Object]"
         class="page-link"
-        role="button"
-        tabindex="0"
-        to="/test/8"
+        href="/test/8"
       >
         8
       </a>
@@ -95,10 +90,9 @@ exports[`<Pager /> should not render next and last button on last page 1`] = `
       class="page-item"
     >
       <a
+        as="[object Object]"
         class="page-link"
-        role="button"
-        tabindex="0"
-        to="/test/9"
+        href="/test/9"
       >
         9
       </a>
@@ -144,10 +138,9 @@ exports[`<Pager /> should not render previous and first button on page 1 1`] = `
       class="page-item"
     >
       <a
+        as="[object Object]"
         class="page-link"
-        role="button"
-        tabindex="0"
-        to="/test/2"
+        href="/test/2"
       >
         2
       </a>
@@ -156,10 +149,9 @@ exports[`<Pager /> should not render previous and first button on page 1 1`] = `
       class="page-item"
     >
       <a
+        as="[object Object]"
         class="page-link"
-        role="button"
-        tabindex="0"
-        to="/test/3"
+        href="/test/3"
       >
         3
       </a>
@@ -168,10 +160,9 @@ exports[`<Pager /> should not render previous and first button on page 1 1`] = `
       class="page-item"
     >
       <a
+        as="[object Object]"
         class="page-link"
-        role="button"
-        tabindex="0"
-        to="/test/4"
+        href="/test/4"
       >
         4
       </a>
@@ -180,10 +171,9 @@ exports[`<Pager /> should not render previous and first button on page 1 1`] = `
       class="page-item"
     >
       <a
+        as="[object Object]"
         class="page-link"
-        role="button"
-        tabindex="0"
-        to="/test/5"
+        href="/test/5"
       >
         5
       </a>
@@ -192,10 +182,9 @@ exports[`<Pager /> should not render previous and first button on page 1 1`] = `
       class="page-item"
     >
       <a
+        as="[object Object]"
         class="page-link"
-        role="button"
-        tabindex="0"
-        to="/test"
+        href="/test"
       >
         <span
           aria-hidden="true"
@@ -213,10 +202,9 @@ exports[`<Pager /> should not render previous and first button on page 1 1`] = `
       class="page-item"
     >
       <a
+        as="[object Object]"
         class="page-link"
-        role="button"
-        tabindex="0"
-        to="/test/10"
+        href="/test/10"
       >
         <span
           aria-hidden="true"
@@ -243,10 +231,9 @@ exports[`<Pager /> should render 5 page items with first, previous, next and las
       class="page-item"
     >
       <a
+        as="[object Object]"
         class="page-link"
-        role="button"
-        tabindex="0"
-        to="/test"
+        href="/test"
       >
         <span
           aria-hidden="true"
@@ -264,10 +251,9 @@ exports[`<Pager /> should render 5 page items with first, previous, next and las
       class="page-item"
     >
       <a
+        as="[object Object]"
         class="page-link"
-        role="button"
-        tabindex="0"
-        to="/test/4"
+        href="/test/4"
       >
         <span
           aria-hidden="true"
@@ -285,10 +271,9 @@ exports[`<Pager /> should render 5 page items with first, previous, next and las
       class="page-item"
     >
       <a
+        as="[object Object]"
         class="page-link"
-        role="button"
-        tabindex="0"
-        to="/test/3"
+        href="/test/3"
       >
         3
       </a>
@@ -297,10 +282,9 @@ exports[`<Pager /> should render 5 page items with first, previous, next and las
       class="page-item"
     >
       <a
+        as="[object Object]"
         class="page-link"
-        role="button"
-        tabindex="0"
-        to="/test/4"
+        href="/test/4"
       >
         4
       </a>
@@ -323,10 +307,9 @@ exports[`<Pager /> should render 5 page items with first, previous, next and las
       class="page-item"
     >
       <a
+        as="[object Object]"
         class="page-link"
-        role="button"
-        tabindex="0"
-        to="/test/6"
+        href="/test/6"
       >
         6
       </a>
@@ -335,10 +318,9 @@ exports[`<Pager /> should render 5 page items with first, previous, next and las
       class="page-item"
     >
       <a
+        as="[object Object]"
         class="page-link"
-        role="button"
-        tabindex="0"
-        to="/test/7"
+        href="/test/7"
       >
         7
       </a>
@@ -347,10 +329,9 @@ exports[`<Pager /> should render 5 page items with first, previous, next and las
       class="page-item"
     >
       <a
+        as="[object Object]"
         class="page-link"
-        role="button"
-        tabindex="0"
-        to="/test/4"
+        href="/test/4"
       >
         <span
           aria-hidden="true"
@@ -368,10 +349,9 @@ exports[`<Pager /> should render 5 page items with first, previous, next and las
       class="page-item"
     >
       <a
+        as="[object Object]"
         class="page-link"
-        role="button"
-        tabindex="0"
-        to="/test/10"
+        href="/test/10"
       >
         <span
           aria-hidden="true"

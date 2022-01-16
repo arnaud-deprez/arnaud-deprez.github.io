@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import Link from '../link/Link'
 import { Navbar, NavbarProps, Container } from 'react-bootstrap'
 import { Author } from '../metadata'
 import { PhotoCard } from '../photocard/PhotoCard'
@@ -15,7 +15,7 @@ export interface NavbarLeftProps extends NavbarProps {
 export const NavbarLeft = ({ author, children, ...rest }: NavbarLeftProps): JSX.Element => (
   <Navbar id="navbar-left" role="navigation" bg="primary" variant="dark" as="nav" {...rest}>
     <Container fluid>
-      <Navbar.Brand to="/" as={Link}>
+      <Navbar.Brand href="/" as={Link}>
         {author?.name && author?.jobTitle && (
           <PhotoCard name={author.name} jobTitle={author.jobTitle} />
         )}
