@@ -10,10 +10,13 @@ export interface ContentLayoutProps {
   readonly children?: React.ReactNode | React.ReactNode[]
 }
 
-export const ContentLayout = ({ siteMetadata, children }: ContentLayoutProps): JSX.Element => (
-  <div className="vertical-layout">
-    {siteMetadata?.author && <Header author={siteMetadata.author} />}
-    <div className="vertical-content">{children}</div>
-    <Footer copyright={siteMetadata?.copyright} />
-  </div>
-)
+export const ContentLayout = ({ siteMetadata, children }: ContentLayoutProps): JSX.Element => {
+  const author = siteMetadata?.author
+  return (
+    <div className="vertical-layout">
+      <Header author={author} />
+      <div className="vertical-content">{children}</div>
+      <Footer copyright={siteMetadata?.copyright} />
+    </div>
+  )
+}
