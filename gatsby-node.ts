@@ -15,7 +15,7 @@ import { createFilePath } from 'gatsby-source-filesystem'
 import { GatsbyNode } from 'gatsby'
 
 export const onCreateNode: GatsbyNode['onCreateNode'] = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions
+  const { createNodeField, createRedirect } = actions
   if (node.internal.type === 'MarkdownRemark' || node.internal.type === 'Mdx') {
     const slug = createFilePath({ node, getNode })
     createNodeField({
@@ -24,6 +24,13 @@ export const onCreateNode: GatsbyNode['onCreateNode'] = ({ node, getNode, action
       value: slug,
     })
   }
+
+  // For netlify
+  createRedirect({
+    fromPath: '/*', // your matchPath here
+    toPath: '/404', // the path to your 404 page here
+    statusCode: 404,
+  })
 }
 
 const groupCountBy = (field, edges) => {

@@ -78,7 +78,7 @@ export default {
   siteMetadata: {
     title,
     description,
-    copyright: '© 2021 Arnaud Deprez',
+    copyright: '© 2022 Arnaud Deprez',
     siteUrl,
     author: {
       name: 'Arnaud Deprez',
@@ -282,7 +282,9 @@ export default {
         resolveEnv: () => NETLIFY_ENV,
         env: {
           production: {
-            policy: [{ userAgent: '*' }],
+            policy: [
+              { userAgent: '*', disallow: ['/404', '/404.html', '/contact/thanks', '/blog/tags'] },
+            ],
           },
           'branch-deploy': {
             policy: [{ userAgent: '*', disallow: ['/'] }],
@@ -290,7 +292,9 @@ export default {
             host: null,
           },
           'deploy-preview': {
-            policy: [{ userAgent: '*' }],
+            policy: [
+              { userAgent: '*', disallow: ['/404', '/404.html', '/contact/thanks', '/blog/tags'] },
+            ],
           },
         },
       },
