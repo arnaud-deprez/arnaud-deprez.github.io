@@ -14,6 +14,6 @@ yarn-error.log
 /dist/
 
 # GraphQL generated files
-/src/**/__generated__/
+src/gatsby-types.d.ts
 apollo.config.js
 schema.json

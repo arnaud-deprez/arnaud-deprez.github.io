@@ -1,11 +1,4 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-undef */
-const { compilerOptions } = require('./tsconfig.json')
-const { pathsToModuleNameMapper } = require('ts-jest/utils')
-const paths = pathsToModuleNameMapper(compilerOptions.paths, {
-  prefix: '<rootDir>/',
-})
-
 module.exports = {
   transform: {
     '^.+\\.[jt]sx?$': `<rootDir>/jest-preprocess.js`,
@@ -13,13 +6,11 @@ module.exports = {
   // testURL: 'http://localhost',
   // testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.([tj]sx?)$',
   testPathIgnorePatterns: [`node_modules`, `\\.cache`, `<rootDir>.*/public`],
-  transformIgnorePatterns: [`node_modules/(?!(gatsby)/)`],
+  transformIgnorePatterns: [`node_modules/(?!(gatsby|gatsby-script)/)`],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   moduleNameMapper: {
-    'typeface-*': 'identity-obj-proxy',
-    '.+\\.(css|styl|less|sass|scss)$': 'identity-obj-proxy',
-    '.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': `<rootDir>/__mocks__/file.js`,
-    ...paths,
+    '.+\\.(css|styl|less|sass|scss)$': `identity-obj-proxy`,
+    '.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': `<rootDir>/__mocks__/file-mock.js`,
   },
   globals: {
     __PATH_PREFIX__: '',
