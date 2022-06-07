@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-undef */
+import path from 'path'
 import { remarkPlugin as vscodeRemarkPlugin } from 'gatsby-remark-vscode'
 import remarkAbbr from 'remark-abbr'
 import remarkEmoji from 'remark-emoji'
@@ -127,7 +128,7 @@ export default {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: 'content',
-        path: `${__dirname}/content`,
+        path: path.resolve(`content`),
       },
     },
     {

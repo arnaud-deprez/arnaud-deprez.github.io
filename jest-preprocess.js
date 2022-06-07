@@ -1,18 +1,9 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable no-undef */
 // import babelJest from 'babel-jest'
 
 const babelOptions = {
-  presets: [
-    [
-      '@babel/preset-env',
-      {
-        targets: {
-          node: 'current',
-        },
-      },
-    ],
-    '@babel/preset-typescript',
-    'babel-preset-gatsby',
-  ],
+  presets: ['babel-preset-gatsby', '@babel/preset-typescript'],
   plugins: [
     '@babel/plugin-transform-named-capturing-groups-regex',
     '@babel/plugin-proposal-nullish-coalescing-operator',
