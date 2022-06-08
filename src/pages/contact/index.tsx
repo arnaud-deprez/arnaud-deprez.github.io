@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, PageProps } from 'gatsby'
 import { Container, Nav as BootstrapNav } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { MainLayout as Layout } from '../../components/layout'
@@ -7,12 +7,9 @@ import { Seo } from '../../components/metadata'
 import { PhotoCard } from '../../components/photocard/PhotoCard'
 import { NavSocialIcons } from '../../components/nav'
 import { ContactForm } from '../../components/form'
+import { Queries } from '@testing-library/react'
 
-interface ContactPageProps {
-  data: GatsbyTypes.ContactPageQuery
-}
-
-const ContactPage = ({ data }: ContactPageProps): JSX.Element => {
+const ContactPage = ({ data }: PageProps<Queries.ContactPage>): JSX.Element => {
   const author = data.site?.siteMetadata?.author
   if (!author?.name) {
     throw new Error('ContactPage: author.name is required!')

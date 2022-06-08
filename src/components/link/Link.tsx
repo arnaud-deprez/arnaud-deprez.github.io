@@ -5,6 +5,7 @@ import clsx from 'clsx'
 
 export interface InitLinkProps<T extends React.ElementType>
   extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   href: any
   locale?: string
   replace?: boolean

@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-undef */
+import path from 'path'
 import { remarkPlugin as vscodeRemarkPlugin } from 'gatsby-remark-vscode'
 import remarkAbbr from 'remark-abbr'
 import remarkEmoji from 'remark-emoji'
@@ -91,6 +92,7 @@ export default {
     repository: 'https://github.com/arnaud-deprez/arnaud-deprez.github.io',
     disqusShortName: 'arnaud-deprez-powple',
   },
+  graphqlTypegen: true,
   plugins: [
     'gatsby-plugin-remove-console',
     {
@@ -106,8 +108,8 @@ export default {
         defaultDataLayer: { platform: 'gatsby' },
       },
     },
-    'gatsby-plugin-typescript',
-    'gatsby-plugin-typegen',
+    // 'gatsby-plugin-typescript',
+    // 'gatsby-plugin-typegen',
     {
       resolve: `gatsby-plugin-sass`,
       options: {
@@ -127,7 +129,7 @@ export default {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: 'content',
-        path: `${__dirname}/content`,
+        path: path.resolve(`content`),
       },
     },
     {
